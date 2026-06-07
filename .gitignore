@@ -1,0 +1,19 @@
+# Python virtual environment (1.6 GB — never commit)
+.venv/
+venv/
+env/
+
+# Python caches
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# macOS
+.DS_Store
+
+# NOTE: output/ is intentionally NOT ignored.
+# The trained weights (output/model/), predictions.json, and the HTML report
+# are part of the locked v1 baseline so future versions can be compared against
+# these exact numbers. See memory/baseline-locked.md.

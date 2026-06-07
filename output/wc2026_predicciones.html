@@ -1,0 +1,1720 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FIFA World Cup 2026 — Predicción IA</title>
+<style>
+  :root {
+    --bg: #0a0e17; --card: #111827; --border: #1e293b;
+    --gold: #d4af37; --silver: #94a3b8; --accent: #3b82f6;
+    --text: #e2e8f0; --muted: #64748b; --green: #22c55e; --red: #ef4444;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--text); font-family:'Segoe UI',system-ui,sans-serif; line-height:1.6; padding:1rem; }
+  .container { max-width:1200px; margin:0 auto; }
+  h1 { text-align:center; font-size:2rem; color:var(--gold); margin:1rem 0 0.25rem; }
+  h2 { color:var(--accent); border-bottom:2px solid var(--border); padding-bottom:0.5rem; margin:2rem 0 1rem; font-size:1.4rem; }
+  h3 { color:var(--gold); margin-bottom:0.5rem; font-size:1.1rem; }
+  h4 { color:var(--muted); margin:0.75rem 0 0.25rem; font-size:0.9rem; }
+  .subtitle { text-align:center; color:var(--muted); margin-bottom:1.5rem; font-size:0.9rem; }
+  .meta-bar { display:flex; justify-content:center; gap:2rem; flex-wrap:wrap; background:var(--card); border:1px solid var(--border); border-radius:8px; padding:0.75rem; margin-bottom:2rem; font-size:0.85rem; color:var(--muted); }
+  .meta-bar span { white-space:nowrap; }
+  .meta-bar strong { color:var(--text); }
+
+  /* Bar chart */
+  .bar-row { display:flex; align-items:center; margin:3px 0; }
+  .bar-label { width:180px; font-size:0.85rem; text-align:right; padding-right:10px; }
+  .bar-track { flex:1; height:22px; background:var(--card); border-radius:4px; overflow:hidden; }
+  .bar-fill { height:100%; border-radius:4px; transition:width 0.5s; min-width:2px; }
+  .bar-value { width:55px; text-align:right; font-size:0.85rem; font-weight:700; padding-left:8px; }
+
+  /* Groups */
+  .groups-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:1rem; }
+  .group-card { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:1rem; }
+  table { width:100%; border-collapse:collapse; font-size:0.8rem; }
+  th { background:#1e293b; color:var(--muted); padding:4px 6px; text-align:left; font-weight:600; text-transform:uppercase; font-size:0.7rem; }
+  td { padding:4px 6px; border-bottom:1px solid var(--border); }
+  .team-name { font-weight:600; }
+  .prob-w { color:var(--green); font-weight:600; }
+  .prob-d { color:var(--muted); }
+  .xg { color:var(--accent); font-family:monospace; }
+
+  /* Stage table */
+  .stage-table { font-size:0.8rem; }
+  .stage-table td { text-align:center; }
+  .stage-table td:nth-child(2) { text-align:left; }
+  .stage-table tr:nth-child(-n+3) { background:rgba(212,175,55,0.08); }
+
+  /* Disagreements */
+  .ann-up { background:rgba(34,197,94,0.08); }
+  .ann-down { background:rgba(239,68,68,0.08); }
+
+  /* Feature importance */
+  .feat-row { display:flex; align-items:center; margin:2px 0; }
+  .feat-name { width:220px; font-size:0.75rem; font-family:monospace; text-align:right; padding-right:8px; color:var(--muted); }
+  .feat-track { flex:1; height:14px; background:#1e293b; border-radius:3px; overflow:hidden; }
+  .feat-bar { height:100%; background:var(--accent); border-radius:3px; }
+  .feat-val { width:60px; font-size:0.75rem; font-family:monospace; text-align:right; padding-left:6px; }
+
+  /* Methodology */
+  .method-box { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:1.25rem; font-size:0.85rem; }
+  .method-box p { margin-bottom:0.75rem; }
+  .method-box code { background:#1e293b; padding:2px 6px; border-radius:3px; font-size:0.8rem; }
+  .arch-diagram { font-family:monospace; font-size:0.75rem; background:#0f172a; padding:1rem; border-radius:6px; overflow-x:auto; white-space:pre; line-height:1.4; color:var(--accent); margin:0.75rem 0; }
+
+  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+  @media(max-width:768px) { .two-col,.groups-grid { grid-template-columns:1fr; } .bar-label { width:120px; } }
+
+  footer { text-align:center; color:var(--muted); margin-top:3rem; padding:1rem; font-size:0.75rem; border-top:1px solid var(--border); }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>⚽ Copa Mundial FIFA 2026</h1>
+<p class="subtitle">Predicción basada en Inteligencia Artificial — Red Neuronal Poisson + Simulación Monte Carlo</p>
+
+<div class="meta-bar">
+  <span>🧠 Modelo: <strong>Neural Poisson (ANN)</strong></span>
+  <span>🔁 Simulaciones: <strong>10,000</strong></span>
+  <span>📊 Variables: <strong>47</strong></span>
+  <span>📈 Datos de entrenamiento: <strong>11,954</strong> partidos</span>
+  <span>📅 Período: <strong>2020-2026</strong></span>
+</div>
+
+<h2>🏆 Probabilidad de ser Campeón</h2>
+<div>
+        <div class="bar-row">
+          <span class="bar-label">1. Brazil</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width:69.30000000000001%;background:#d4af37"></div>
+          </div>
+          <span class="bar-value">23.1%</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">2. France</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width:54.81%;background:#c0c0c0"></div>
+          </div>
+          <span class="bar-value">18.3%</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">3. Germany</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width:46.67999999999999%;background:#cd7f32"></div>
+          </div>
+          <span class="bar-value">15.6%</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">4. Belgium</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width:27.18%;background:#4a90d9"></div>
+          </div>
+          <span class="bar-value">9.1%</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">5. Morocco</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width:13.709999999999997%;background:#4a90d9"></div>
+          </div>
+          <span class="bar-value">4.6%</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">6. Spain</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width:10.799999999999999%;background:#4a90d9"></div>
+          </div>
+          <span class="bar-value">3.6%</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">7. Argentina</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width:9.870000000000001%;background:#4a90d9"></div>
+          </div>
+          <span class="bar-value">3.3%</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">8. Colombia</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width:6.93%;background:#4a90d9"></div>
+          </div>
+          <span class="bar-value">2.3%</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">9. Mexico</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width:5.699999999999999%;background:#4a90d9"></div>
+          </div>
+          <span class="bar-value">1.9%</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">10. Netherlands</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width:5.55%;background:#4a90d9"></div>
+          </div>
+          <span class="bar-value">1.8%</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">11. Czech Republic</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width:4.83%;background:#4a90d9"></div>
+          </div>
+          <span class="bar-value">1.6%</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">12. Turkey</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width:4.65%;background:#4a90d9"></div>
+          </div>
+          <span class="bar-value">1.6%</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">13. Ivory Coast</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width:3.63%;background:#4a90d9"></div>
+          </div>
+          <span class="bar-value">1.2%</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">14. Paraguay</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width:3.5999999999999996%;background:#4a90d9"></div>
+          </div>
+          <span class="bar-value">1.2%</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">15. Senegal</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width:3.4499999999999997%;background:#4a90d9"></div>
+          </div>
+          <span class="bar-value">1.1%</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">16. Switzerland</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width:3.3599999999999994%;background:#4a90d9"></div>
+          </div>
+          <span class="bar-value">1.1%</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">17. Norway</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width:3.09%;background:#4a90d9"></div>
+          </div>
+          <span class="bar-value">1.0%</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">18. Japan</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width:2.76%;background:#4a90d9"></div>
+          </div>
+          <span class="bar-value">0.9%</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">19. United States</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width:2.6999999999999997%;background:#4a90d9"></div>
+          </div>
+          <span class="bar-value">0.9%</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">20. Ecuador</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width:2.4000000000000004%;background:#4a90d9"></div>
+          </div>
+          <span class="bar-value">0.8%</span>
+        </div></div>
+
+<h2>📊 Probabilidad por Etapa (Top 16)</h2>
+<table class="stage-table">
+<thead><tr><th>#</th><th>Selección</th><th>Grupos</th><th>R32</th><th>R16</th><th>Cuartos</th><th>Semis</th><th>Final</th><th>Campeón</th></tr></thead>
+<tbody>
+        <tr>
+          <td>1</td><td class="team-name">Brazil</td>
+          <td>92%</td>
+          <td>99%</td>
+          <td>82%</td>
+          <td>62%</td>
+          <td>49%</td>
+          <td>37%</td>
+          <td><strong>23.1%</strong></td>
+        </tr>
+        <tr>
+          <td>2</td><td class="team-name">France</td>
+          <td>90%</td>
+          <td>97%</td>
+          <td>81%</td>
+          <td>64%</td>
+          <td>45%</td>
+          <td>29%</td>
+          <td><strong>18.3%</strong></td>
+        </tr>
+        <tr>
+          <td>3</td><td class="team-name">Germany</td>
+          <td>90%</td>
+          <td>98%</td>
+          <td>76%</td>
+          <td>52%</td>
+          <td>38%</td>
+          <td>24%</td>
+          <td><strong>15.6%</strong></td>
+        </tr>
+        <tr>
+          <td>4</td><td class="team-name">Belgium</td>
+          <td>98%</td>
+          <td>100%</td>
+          <td>79%</td>
+          <td>54%</td>
+          <td>30%</td>
+          <td>17%</td>
+          <td><strong>9.1%</strong></td>
+        </tr>
+        <tr>
+          <td>5</td><td class="team-name">Morocco</td>
+          <td>71%</td>
+          <td>92%</td>
+          <td>59%</td>
+          <td>36%</td>
+          <td>23%</td>
+          <td>11%</td>
+          <td><strong>4.6%</strong></td>
+        </tr>
+        <tr>
+          <td>6</td><td class="team-name">Spain</td>
+          <td>85%</td>
+          <td>94%</td>
+          <td>61%</td>
+          <td>35%</td>
+          <td>16%</td>
+          <td>8%</td>
+          <td><strong>3.6%</strong></td>
+        </tr>
+        <tr>
+          <td>7</td><td class="team-name">Argentina</td>
+          <td>94%</td>
+          <td>19%</td>
+          <td>14%</td>
+          <td>10%</td>
+          <td>7%</td>
+          <td>5%</td>
+          <td><strong>3.3%</strong></td>
+        </tr>
+        <tr>
+          <td>8</td><td class="team-name">Colombia</td>
+          <td>93%</td>
+          <td>29%</td>
+          <td>21%</td>
+          <td>14%</td>
+          <td>8%</td>
+          <td>4%</td>
+          <td><strong>2.3%</strong></td>
+        </tr>
+        <tr>
+          <td>9</td><td class="team-name">Mexico</td>
+          <td>86%</td>
+          <td>100%</td>
+          <td>63%</td>
+          <td>32%</td>
+          <td>16%</td>
+          <td>6%</td>
+          <td><strong>1.9%</strong></td>
+        </tr>
+        <tr>
+          <td>10</td><td class="team-name">Netherlands</td>
+          <td>68%</td>
+          <td>86%</td>
+          <td>47%</td>
+          <td>22%</td>
+          <td>10%</td>
+          <td>4%</td>
+          <td><strong>1.8%</strong></td>
+        </tr>
+        <tr>
+          <td>11</td><td class="team-name">Czech Republic</td>
+          <td>81%</td>
+          <td>100%</td>
+          <td>60%</td>
+          <td>29%</td>
+          <td>13%</td>
+          <td>5%</td>
+          <td><strong>1.6%</strong></td>
+        </tr>
+        <tr>
+          <td>12</td><td class="team-name">Turkey</td>
+          <td>67%</td>
+          <td>88%</td>
+          <td>45%</td>
+          <td>26%</td>
+          <td>11%</td>
+          <td>5%</td>
+          <td><strong>1.6%</strong></td>
+        </tr>
+        <tr>
+          <td>13</td><td class="team-name">Ivory Coast</td>
+          <td>59%</td>
+          <td>81%</td>
+          <td>44%</td>
+          <td>19%</td>
+          <td>9%</td>
+          <td>3%</td>
+          <td><strong>1.2%</strong></td>
+        </tr>
+        <tr>
+          <td>14</td><td class="team-name">Paraguay</td>
+          <td>59%</td>
+          <td>83%</td>
+          <td>41%</td>
+          <td>22%</td>
+          <td>10%</td>
+          <td>4%</td>
+          <td><strong>1.2%</strong></td>
+        </tr>
+        <tr>
+          <td>15</td><td class="team-name">Senegal</td>
+          <td>50%</td>
+          <td>75%</td>
+          <td>41%</td>
+          <td>20%</td>
+          <td>9%</td>
+          <td>3%</td>
+          <td><strong>1.1%</strong></td>
+        </tr>
+        <tr>
+          <td>16</td><td class="team-name">Switzerland</td>
+          <td>83%</td>
+          <td>100%</td>
+          <td>54%</td>
+          <td>29%</td>
+          <td>11%</td>
+          <td>4%</td>
+          <td><strong>1.1%</strong></td>
+        </tr></tbody>
+</table>
+
+<h2>📋 Predicciones por Grupo</h2>
+<div class="groups-grid">
+        <div class="group-card">
+          <h3>Grupo A</h3>
+          <table class="group-table">
+            <thead><tr><th>Selección</th><th>Elo</th><th>Valor</th><th>Avanza</th><th>Campeón</th></tr></thead>
+            <tbody>
+            <tr>
+              <td class="team-name">Mexico</td>
+              <td>2000</td>
+              <td>€190M</td>
+              <td><strong>86%</strong></td>
+              <td>1.9%</td>
+            </tr>
+            <tr>
+              <td class="team-name">Czech Republic</td>
+              <td>1836</td>
+              <td>€170M</td>
+              <td><strong>81%</strong></td>
+              <td>1.6%</td>
+            </tr>
+            <tr>
+              <td class="team-name">South Korea</td>
+              <td>1902</td>
+              <td>€280M</td>
+              <td><strong>25%</strong></td>
+              <td>0.1%</td>
+            </tr>
+            <tr>
+              <td class="team-name">South Africa</td>
+              <td>1690</td>
+              <td>€0M</td>
+              <td><strong>8%</strong></td>
+              <td>0.0%</td>
+            </tr></tbody>
+          </table>
+          <h4>Partidos</h4>
+          <table class="match-table">
+            <thead><tr><th>Local</th><th>G</th><th>E</th><th>G</th><th>Visitante</th><th>xG</th></tr></thead>
+            <tbody>
+                <tr>
+                  <td>Mexico</td>
+                  <td class="prob-w">80%</td>
+                  <td class="prob-d">13%</td>
+                  <td class="prob-w">7%</td>
+                  <td>South Africa</td>
+                  <td class="xg">2.68 - 0.66</td>
+                </tr>
+                <tr>
+                  <td>Mexico</td>
+                  <td class="prob-w">67%</td>
+                  <td class="prob-d">21%</td>
+                  <td class="prob-w">13%</td>
+                  <td>South Korea</td>
+                  <td class="xg">1.87 - 0.68</td>
+                </tr>
+                <tr>
+                  <td>Mexico</td>
+                  <td class="prob-w">45%</td>
+                  <td class="prob-d">21%</td>
+                  <td class="prob-w">34%</td>
+                  <td>Czech Republic</td>
+                  <td class="xg">2.12 - 1.81</td>
+                </tr>
+                <tr>
+                  <td>South Africa</td>
+                  <td class="prob-w">20%</td>
+                  <td class="prob-d">29%</td>
+                  <td class="prob-w">51%</td>
+                  <td>South Korea</td>
+                  <td class="xg">0.67 - 1.26</td>
+                </tr>
+                <tr>
+                  <td>South Africa</td>
+                  <td class="prob-w">8%</td>
+                  <td class="prob-d">15%</td>
+                  <td class="prob-w">77%</td>
+                  <td>Czech Republic</td>
+                  <td class="xg">0.66 - 2.42</td>
+                </tr>
+                <tr>
+                  <td>South Korea</td>
+                  <td class="prob-w">17%</td>
+                  <td class="prob-d">21%</td>
+                  <td class="prob-w">62%</td>
+                  <td>Czech Republic</td>
+                  <td class="xg">0.90 - 1.95</td>
+                </tr></tbody>
+          </table>
+        </div>
+        <div class="group-card">
+          <h3>Grupo B</h3>
+          <table class="group-table">
+            <thead><tr><th>Selección</th><th>Elo</th><th>Valor</th><th>Avanza</th><th>Campeón</th></tr></thead>
+            <tbody>
+            <tr>
+              <td class="team-name">Switzerland</td>
+              <td>1993</td>
+              <td>€250M</td>
+              <td><strong>83%</strong></td>
+              <td>1.1%</td>
+            </tr>
+            <tr>
+              <td class="team-name">Canada</td>
+              <td>1928</td>
+              <td>€130M</td>
+              <td><strong>64%</strong></td>
+              <td>0.4%</td>
+            </tr>
+            <tr>
+              <td class="team-name">Bosnia and Herzegovina</td>
+              <td>1667</td>
+              <td>€100M</td>
+              <td><strong>50%</strong></td>
+              <td>0.2%</td>
+            </tr>
+            <tr>
+              <td class="team-name">Qatar</td>
+              <td>1615</td>
+              <td>€35M</td>
+              <td><strong>3%</strong></td>
+              <td>0.0%</td>
+            </tr></tbody>
+          </table>
+          <h4>Partidos</h4>
+          <table class="match-table">
+            <thead><tr><th>Local</th><th>G</th><th>E</th><th>G</th><th>Visitante</th><th>xG</th></tr></thead>
+            <tbody>
+                <tr>
+                  <td>Canada</td>
+                  <td class="prob-w">38%</td>
+                  <td class="prob-d">26%</td>
+                  <td class="prob-w">36%</td>
+                  <td>Bosnia and Herzegovina</td>
+                  <td class="xg">1.31 - 1.26</td>
+                </tr>
+                <tr>
+                  <td>Canada</td>
+                  <td class="prob-w">69%</td>
+                  <td class="prob-d">26%</td>
+                  <td class="prob-w">5%</td>
+                  <td>Qatar</td>
+                  <td class="xg">1.37 - 0.18</td>
+                </tr>
+                <tr>
+                  <td>Canada</td>
+                  <td class="prob-w">33%</td>
+                  <td class="prob-d">26%</td>
+                  <td class="prob-w">41%</td>
+                  <td>Switzerland</td>
+                  <td class="xg">1.18 - 1.39</td>
+                </tr>
+                <tr>
+                  <td>Bosnia and Herzegovina</td>
+                  <td class="prob-w">61%</td>
+                  <td class="prob-d">32%</td>
+                  <td class="prob-w">7%</td>
+                  <td>Qatar</td>
+                  <td class="xg">1.18 - 0.25</td>
+                </tr>
+                <tr>
+                  <td>Bosnia and Herzegovina</td>
+                  <td class="prob-w">21%</td>
+                  <td class="prob-d">22%</td>
+                  <td class="prob-w">57%</td>
+                  <td>Switzerland</td>
+                  <td class="xg">1.11 - 1.95</td>
+                </tr>
+                <tr>
+                  <td>Qatar</td>
+                  <td class="prob-w">2%</td>
+                  <td class="prob-d">13%</td>
+                  <td class="prob-w">85%</td>
+                  <td>Switzerland</td>
+                  <td class="xg">0.16 - 2.26</td>
+                </tr></tbody>
+          </table>
+        </div>
+        <div class="group-card">
+          <h3>Grupo C</h3>
+          <table class="group-table">
+            <thead><tr><th>Selección</th><th>Elo</th><th>Valor</th><th>Avanza</th><th>Campeón</th></tr></thead>
+            <tbody>
+            <tr>
+              <td class="team-name">Brazil</td>
+              <td>2090</td>
+              <td>€1050M</td>
+              <td><strong>92%</strong></td>
+              <td>23.1%</td>
+            </tr>
+            <tr>
+              <td class="team-name">Morocco</td>
+              <td>2041</td>
+              <td>€310M</td>
+              <td><strong>71%</strong></td>
+              <td>4.6%</td>
+            </tr>
+            <tr>
+              <td class="team-name">Scotland</td>
+              <td>1896</td>
+              <td>€180M</td>
+              <td><strong>31%</strong></td>
+              <td>0.7%</td>
+            </tr>
+            <tr>
+              <td class="team-name">Haiti</td>
+              <td>1680</td>
+              <td>€10M</td>
+              <td><strong>6%</strong></td>
+              <td>0.0%</td>
+            </tr></tbody>
+          </table>
+          <h4>Partidos</h4>
+          <table class="match-table">
+            <thead><tr><th>Local</th><th>G</th><th>E</th><th>G</th><th>Visitante</th><th>xG</th></tr></thead>
+            <tbody>
+                <tr>
+                  <td>Brazil</td>
+                  <td class="prob-w">58%</td>
+                  <td class="prob-d">18%</td>
+                  <td class="prob-w">24%</td>
+                  <td>Morocco</td>
+                  <td class="xg">2.52 - 1.60</td>
+                </tr>
+                <tr>
+                  <td>Brazil</td>
+                  <td class="prob-w">81%</td>
+                  <td class="prob-d">11%</td>
+                  <td class="prob-w">8%</td>
+                  <td>Haiti</td>
+                  <td class="xg">3.20 - 0.94</td>
+                </tr>
+                <tr>
+                  <td>Brazil</td>
+                  <td class="prob-w">82%</td>
+                  <td class="prob-d">13%</td>
+                  <td class="prob-w">6%</td>
+                  <td>Scotland</td>
+                  <td class="xg">2.73 - 0.59</td>
+                </tr>
+                <tr>
+                  <td>Morocco</td>
+                  <td class="prob-w">71%</td>
+                  <td class="prob-d">17%</td>
+                  <td class="prob-w">12%</td>
+                  <td>Haiti</td>
+                  <td class="xg">2.49 - 0.98</td>
+                </tr>
+                <tr>
+                  <td>Morocco</td>
+                  <td class="prob-w">60%</td>
+                  <td class="prob-d">20%</td>
+                  <td class="prob-w">20%</td>
+                  <td>Scotland</td>
+                  <td class="xg">2.10 - 1.13</td>
+                </tr>
+                <tr>
+                  <td>Haiti</td>
+                  <td class="prob-w">9%</td>
+                  <td class="prob-d">13%</td>
+                  <td class="prob-w">79%</td>
+                  <td>Scotland</td>
+                  <td class="xg">1.06 - 3.19</td>
+                </tr></tbody>
+          </table>
+        </div>
+        <div class="group-card">
+          <h3>Grupo D</h3>
+          <table class="group-table">
+            <thead><tr><th>Selección</th><th>Elo</th><th>Valor</th><th>Avanza</th><th>Campeón</th></tr></thead>
+            <tbody>
+            <tr>
+              <td class="team-name">United States</td>
+              <td>1925</td>
+              <td>€270M</td>
+              <td><strong>69%</strong></td>
+              <td>0.9%</td>
+            </tr>
+            <tr>
+              <td class="team-name">Turkey</td>
+              <td>1999</td>
+              <td>€260M</td>
+              <td><strong>67%</strong></td>
+              <td>1.6%</td>
+            </tr>
+            <tr>
+              <td class="team-name">Paraguay</td>
+              <td>1913</td>
+              <td>€95M</td>
+              <td><strong>59%</strong></td>
+              <td>1.2%</td>
+            </tr>
+            <tr>
+              <td class="team-name">Australia</td>
+              <td>1916</td>
+              <td>€120M</td>
+              <td><strong>5%</strong></td>
+              <td>0.0%</td>
+            </tr></tbody>
+          </table>
+          <h4>Partidos</h4>
+          <table class="match-table">
+            <thead><tr><th>Local</th><th>G</th><th>E</th><th>G</th><th>Visitante</th><th>xG</th></tr></thead>
+            <tbody>
+                <tr>
+                  <td>United States</td>
+                  <td class="prob-w">46%</td>
+                  <td class="prob-d">21%</td>
+                  <td class="prob-w">33%</td>
+                  <td>Paraguay</td>
+                  <td class="xg">2.14 - 1.81</td>
+                </tr>
+                <tr>
+                  <td>United States</td>
+                  <td class="prob-w">77%</td>
+                  <td class="prob-d">17%</td>
+                  <td class="prob-w">6%</td>
+                  <td>Australia</td>
+                  <td class="xg">2.10 - 0.44</td>
+                </tr>
+                <tr>
+                  <td>United States</td>
+                  <td class="prob-w">36%</td>
+                  <td class="prob-d">22%</td>
+                  <td class="prob-w">42%</td>
+                  <td>Turkey</td>
+                  <td class="xg">1.60 - 1.76</td>
+                </tr>
+                <tr>
+                  <td>Paraguay</td>
+                  <td class="prob-w">71%</td>
+                  <td class="prob-d">20%</td>
+                  <td class="prob-w">9%</td>
+                  <td>Australia</td>
+                  <td class="xg">1.89 - 0.51</td>
+                </tr>
+                <tr>
+                  <td>Paraguay</td>
+                  <td class="prob-w">37%</td>
+                  <td class="prob-d">23%</td>
+                  <td class="prob-w">41%</td>
+                  <td>Turkey</td>
+                  <td class="xg">1.71 - 1.81</td>
+                </tr>
+                <tr>
+                  <td>Australia</td>
+                  <td class="prob-w">7%</td>
+                  <td class="prob-d">21%</td>
+                  <td class="prob-w">71%</td>
+                  <td>Turkey</td>
+                  <td class="xg">0.40 - 1.80</td>
+                </tr></tbody>
+          </table>
+        </div>
+        <div class="group-card">
+          <h3>Grupo E</h3>
+          <table class="group-table">
+            <thead><tr><th>Selección</th><th>Elo</th><th>Valor</th><th>Avanza</th><th>Campeón</th></tr></thead>
+            <tbody>
+            <tr>
+              <td class="team-name">Germany</td>
+              <td>2070</td>
+              <td>€1100M</td>
+              <td><strong>90%</strong></td>
+              <td>15.6%</td>
+            </tr>
+            <tr>
+              <td class="team-name">Ivory Coast</td>
+              <td>1839</td>
+              <td>€210M</td>
+              <td><strong>59%</strong></td>
+              <td>1.2%</td>
+            </tr>
+            <tr>
+              <td class="team-name">Ecuador</td>
+              <td>2029</td>
+              <td>€200M</td>
+              <td><strong>46%</strong></td>
+              <td>0.8%</td>
+            </tr>
+            <tr>
+              <td class="team-name">Curaçao</td>
+              <td>1622</td>
+              <td>€8M</td>
+              <td><strong>6%</strong></td>
+              <td>0.0%</td>
+            </tr></tbody>
+          </table>
+          <h4>Partidos</h4>
+          <table class="match-table">
+            <thead><tr><th>Local</th><th>G</th><th>E</th><th>G</th><th>Visitante</th><th>xG</th></tr></thead>
+            <tbody>
+                <tr>
+                  <td>Germany</td>
+                  <td class="prob-w">89%</td>
+                  <td class="prob-d">8%</td>
+                  <td class="prob-w">3%</td>
+                  <td>Curaçao</td>
+                  <td class="xg">3.10 - 0.44</td>
+                </tr>
+                <tr>
+                  <td>Germany</td>
+                  <td class="prob-w">57%</td>
+                  <td class="prob-d">19%</td>
+                  <td class="prob-w">25%</td>
+                  <td>Ivory Coast</td>
+                  <td class="xg">2.59 - 1.68</td>
+                </tr>
+                <tr>
+                  <td>Germany</td>
+                  <td class="prob-w">66%</td>
+                  <td class="prob-d">17%</td>
+                  <td class="prob-w">16%</td>
+                  <td>Ecuador</td>
+                  <td class="xg">2.48 - 1.15</td>
+                </tr>
+                <tr>
+                  <td>Curaçao</td>
+                  <td class="prob-w">14%</td>
+                  <td class="prob-d">20%</td>
+                  <td class="prob-w">66%</td>
+                  <td>Ivory Coast</td>
+                  <td class="xg">0.79 - 2.04</td>
+                </tr>
+                <tr>
+                  <td>Curaçao</td>
+                  <td class="prob-w">12%</td>
+                  <td class="prob-d">22%</td>
+                  <td class="prob-w">66%</td>
+                  <td>Ecuador</td>
+                  <td class="xg">0.60 - 1.78</td>
+                </tr>
+                <tr>
+                  <td>Ivory Coast</td>
+                  <td class="prob-w">43%</td>
+                  <td class="prob-d">24%</td>
+                  <td class="prob-w">33%</td>
+                  <td>Ecuador</td>
+                  <td class="xg">1.76 - 1.53</td>
+                </tr></tbody>
+          </table>
+        </div>
+        <div class="group-card">
+          <h3>Grupo F</h3>
+          <table class="group-table">
+            <thead><tr><th>Selección</th><th>Elo</th><th>Valor</th><th>Avanza</th><th>Campeón</th></tr></thead>
+            <tbody>
+            <tr>
+              <td class="team-name">Netherlands</td>
+              <td>2059</td>
+              <td>€780M</td>
+              <td><strong>68%</strong></td>
+              <td>1.8%</td>
+            </tr>
+            <tr>
+              <td class="team-name">Sweden</td>
+              <td>1798</td>
+              <td>€200M</td>
+              <td><strong>61%</strong></td>
+              <td>0.5%</td>
+            </tr>
+            <tr>
+              <td class="team-name">Japan</td>
+              <td>2029</td>
+              <td>€320M</td>
+              <td><strong>61%</strong></td>
+              <td>0.9%</td>
+            </tr>
+            <tr>
+              <td class="team-name">Tunisia</td>
+              <td>1738</td>
+              <td>€90M</td>
+              <td><strong>9%</strong></td>
+              <td>0.0%</td>
+            </tr></tbody>
+          </table>
+          <h4>Partidos</h4>
+          <table class="match-table">
+            <thead><tr><th>Local</th><th>G</th><th>E</th><th>G</th><th>Visitante</th><th>xG</th></tr></thead>
+            <tbody>
+                <tr>
+                  <td>Netherlands</td>
+                  <td class="prob-w">38%</td>
+                  <td class="prob-d">26%</td>
+                  <td class="prob-w">36%</td>
+                  <td>Japan</td>
+                  <td class="xg">1.34 - 1.26</td>
+                </tr>
+                <tr>
+                  <td>Netherlands</td>
+                  <td class="prob-w">44%</td>
+                  <td class="prob-d">23%</td>
+                  <td class="prob-w">33%</td>
+                  <td>Sweden</td>
+                  <td class="xg">1.69 - 1.44</td>
+                </tr>
+                <tr>
+                  <td>Netherlands</td>
+                  <td class="prob-w">67%</td>
+                  <td class="prob-d">23%</td>
+                  <td class="prob-w">10%</td>
+                  <td>Tunisia</td>
+                  <td class="xg">1.71 - 0.50</td>
+                </tr>
+                <tr>
+                  <td>Japan</td>
+                  <td class="prob-w">38%</td>
+                  <td class="prob-d">25%</td>
+                  <td class="prob-w">36%</td>
+                  <td>Sweden</td>
+                  <td class="xg">1.50 - 1.47</td>
+                </tr>
+                <tr>
+                  <td>Japan</td>
+                  <td class="prob-w">62%</td>
+                  <td class="prob-d">26%</td>
+                  <td class="prob-w">13%</td>
+                  <td>Tunisia</td>
+                  <td class="xg">1.53 - 0.54</td>
+                </tr>
+                <tr>
+                  <td>Sweden</td>
+                  <td class="prob-w">69%</td>
+                  <td class="prob-d">21%</td>
+                  <td class="prob-w">10%</td>
+                  <td>Tunisia</td>
+                  <td class="xg">1.95 - 0.61</td>
+                </tr></tbody>
+          </table>
+        </div>
+        <div class="group-card">
+          <h3>Grupo G</h3>
+          <table class="group-table">
+            <thead><tr><th>Selección</th><th>Elo</th><th>Valor</th><th>Avanza</th><th>Campeón</th></tr></thead>
+            <tbody>
+            <tr>
+              <td class="team-name">Belgium</td>
+              <td>1980</td>
+              <td>€620M</td>
+              <td><strong>98%</strong></td>
+              <td>9.1%</td>
+            </tr>
+            <tr>
+              <td class="team-name">Iran</td>
+              <td>1921</td>
+              <td>€55M</td>
+              <td><strong>74%</strong></td>
+              <td>0.5%</td>
+            </tr>
+            <tr>
+              <td class="team-name">Egypt</td>
+              <td>1826</td>
+              <td>€190M</td>
+              <td><strong>23%</strong></td>
+              <td>0.0%</td>
+            </tr>
+            <tr>
+              <td class="team-name">New Zealand</td>
+              <td>1742</td>
+              <td>€12M</td>
+              <td><strong>5%</strong></td>
+              <td>0.0%</td>
+            </tr></tbody>
+          </table>
+          <h4>Partidos</h4>
+          <table class="match-table">
+            <thead><tr><th>Local</th><th>G</th><th>E</th><th>G</th><th>Visitante</th><th>xG</th></tr></thead>
+            <tbody>
+                <tr>
+                  <td>Belgium</td>
+                  <td class="prob-w">84%</td>
+                  <td class="prob-d">11%</td>
+                  <td class="prob-w">5%</td>
+                  <td>Egypt</td>
+                  <td class="xg">2.97 - 0.67</td>
+                </tr>
+                <tr>
+                  <td>Belgium</td>
+                  <td class="prob-w">69%</td>
+                  <td class="prob-d">17%</td>
+                  <td class="prob-w">14%</td>
+                  <td>Iran</td>
+                  <td class="xg">2.69 - 1.17</td>
+                </tr>
+                <tr>
+                  <td>Belgium</td>
+                  <td class="prob-w">95%</td>
+                  <td class="prob-d">4%</td>
+                  <td class="prob-w">1%</td>
+                  <td>New Zealand</td>
+                  <td class="xg">3.56 - 0.22</td>
+                </tr>
+                <tr>
+                  <td>Egypt</td>
+                  <td class="prob-w">17%</td>
+                  <td class="prob-d">25%</td>
+                  <td class="prob-w">58%</td>
+                  <td>Iran</td>
+                  <td class="xg">0.72 - 1.59</td>
+                </tr>
+                <tr>
+                  <td>Egypt</td>
+                  <td class="prob-w">51%</td>
+                  <td class="prob-d">32%</td>
+                  <td class="prob-w">17%</td>
+                  <td>New Zealand</td>
+                  <td class="xg">1.11 - 0.48</td>
+                </tr>
+                <tr>
+                  <td>Iran</td>
+                  <td class="prob-w">73%</td>
+                  <td class="prob-d">19%</td>
+                  <td class="prob-w">8%</td>
+                  <td>New Zealand</td>
+                  <td class="xg">1.89 - 0.42</td>
+                </tr></tbody>
+          </table>
+        </div>
+        <div class="group-card">
+          <h3>Grupo H</h3>
+          <table class="group-table">
+            <thead><tr><th>Selección</th><th>Elo</th><th>Valor</th><th>Avanza</th><th>Campeón</th></tr></thead>
+            <tbody>
+            <tr>
+              <td class="team-name">Spain</td>
+              <td>2258</td>
+              <td>€1410M</td>
+              <td><strong>85%</strong></td>
+              <td>3.6%</td>
+            </tr>
+            <tr>
+              <td class="team-name">Uruguay</td>
+              <td>1979</td>
+              <td>€420M</td>
+              <td><strong>45%</strong></td>
+              <td>0.1%</td>
+            </tr>
+            <tr>
+              <td class="team-name">Cape Verde</td>
+              <td>1642</td>
+              <td>€28M</td>
+              <td><strong>44%</strong></td>
+              <td>0.1%</td>
+            </tr>
+            <tr>
+              <td class="team-name">Saudi Arabia</td>
+              <td>1710</td>
+              <td>€80M</td>
+              <td><strong>26%</strong></td>
+              <td>0.0%</td>
+            </tr></tbody>
+          </table>
+          <h4>Partidos</h4>
+          <table class="match-table">
+            <thead><tr><th>Local</th><th>G</th><th>E</th><th>G</th><th>Visitante</th><th>xG</th></tr></thead>
+            <tbody>
+                <tr>
+                  <td>Spain</td>
+                  <td class="prob-w">58%</td>
+                  <td class="prob-d">22%</td>
+                  <td class="prob-w">21%</td>
+                  <td>Cape Verde</td>
+                  <td class="xg">1.87 - 1.03</td>
+                </tr>
+                <tr>
+                  <td>Spain</td>
+                  <td class="prob-w">73%</td>
+                  <td class="prob-d">21%</td>
+                  <td class="prob-w">6%</td>
+                  <td>Saudi Arabia</td>
+                  <td class="xg">1.72 - 0.30</td>
+                </tr>
+                <tr>
+                  <td>Spain</td>
+                  <td class="prob-w">52%</td>
+                  <td class="prob-d">29%</td>
+                  <td class="prob-w">20%</td>
+                  <td>Uruguay</td>
+                  <td class="xg">1.28 - 0.66</td>
+                </tr>
+                <tr>
+                  <td>Cape Verde</td>
+                  <td class="prob-w">38%</td>
+                  <td class="prob-d">25%</td>
+                  <td class="prob-w">37%</td>
+                  <td>Saudi Arabia</td>
+                  <td class="xg">1.37 - 1.37</td>
+                </tr>
+                <tr>
+                  <td>Cape Verde</td>
+                  <td class="prob-w">38%</td>
+                  <td class="prob-d">30%</td>
+                  <td class="prob-w">32%</td>
+                  <td>Uruguay</td>
+                  <td class="xg">1.09 - 0.98</td>
+                </tr>
+                <tr>
+                  <td>Saudi Arabia</td>
+                  <td class="prob-w">22%</td>
+                  <td class="prob-d">36%</td>
+                  <td class="prob-w">43%</td>
+                  <td>Uruguay</td>
+                  <td class="xg">0.58 - 0.95</td>
+                </tr></tbody>
+          </table>
+        </div>
+        <div class="group-card">
+          <h3>Grupo I</h3>
+          <table class="group-table">
+            <thead><tr><th>Selección</th><th>Elo</th><th>Valor</th><th>Avanza</th><th>Campeón</th></tr></thead>
+            <tbody>
+            <tr>
+              <td class="team-name">France</td>
+              <td>2160</td>
+              <td>€1520M</td>
+              <td><strong>90%</strong></td>
+              <td>18.3%</td>
+            </tr>
+            <tr>
+              <td class="team-name">Norway</td>
+              <td>2030</td>
+              <td>€240M</td>
+              <td><strong>53%</strong></td>
+              <td>1.0%</td>
+            </tr>
+            <tr>
+              <td class="team-name">Senegal</td>
+              <td>1914</td>
+              <td>€280M</td>
+              <td><strong>50%</strong></td>
+              <td>1.1%</td>
+            </tr>
+            <tr>
+              <td class="team-name">Iraq</td>
+              <td>1766</td>
+              <td>€30M</td>
+              <td><strong>7%</strong></td>
+              <td>0.0%</td>
+            </tr></tbody>
+          </table>
+          <h4>Partidos</h4>
+          <table class="match-table">
+            <thead><tr><th>Local</th><th>G</th><th>E</th><th>G</th><th>Visitante</th><th>xG</th></tr></thead>
+            <tbody>
+                <tr>
+                  <td>France</td>
+                  <td class="prob-w">60%</td>
+                  <td class="prob-d">19%</td>
+                  <td class="prob-w">21%</td>
+                  <td>Senegal</td>
+                  <td class="xg">2.32 - 1.32</td>
+                </tr>
+                <tr>
+                  <td>France</td>
+                  <td class="prob-w">81%</td>
+                  <td class="prob-d">13%</td>
+                  <td class="prob-w">5%</td>
+                  <td>Iraq</td>
+                  <td class="xg">2.60 - 0.50</td>
+                </tr>
+                <tr>
+                  <td>France</td>
+                  <td class="prob-w">66%</td>
+                  <td class="prob-d">19%</td>
+                  <td class="prob-w">15%</td>
+                  <td>Norway</td>
+                  <td class="xg">2.26 - 0.97</td>
+                </tr>
+                <tr>
+                  <td>Senegal</td>
+                  <td class="prob-w">59%</td>
+                  <td class="prob-d">24%</td>
+                  <td class="prob-w">16%</td>
+                  <td>Iraq</td>
+                  <td class="xg">1.65 - 0.72</td>
+                </tr>
+                <tr>
+                  <td>Senegal</td>
+                  <td class="prob-w">38%</td>
+                  <td class="prob-d">23%</td>
+                  <td class="prob-w">39%</td>
+                  <td>Norway</td>
+                  <td class="xg">1.52 - 1.51</td>
+                </tr>
+                <tr>
+                  <td>Iraq</td>
+                  <td class="prob-w">9%</td>
+                  <td class="prob-d">18%</td>
+                  <td class="prob-w">73%</td>
+                  <td>Norway</td>
+                  <td class="xg">0.60 - 2.12</td>
+                </tr></tbody>
+          </table>
+        </div>
+        <div class="group-card">
+          <h3>Grupo J</h3>
+          <table class="group-table">
+            <thead><tr><th>Selección</th><th>Elo</th><th>Valor</th><th>Avanza</th><th>Campeón</th></tr></thead>
+            <tbody>
+            <tr>
+              <td class="team-name">Argentina</td>
+              <td>2210</td>
+              <td>€850M</td>
+              <td><strong>94%</strong></td>
+              <td>3.3%</td>
+            </tr>
+            <tr>
+              <td class="team-name">Austria</td>
+              <td>1928</td>
+              <td>€230M</td>
+              <td><strong>44%</strong></td>
+              <td>0.3%</td>
+            </tr>
+            <tr>
+              <td class="team-name">Jordan</td>
+              <td>1772</td>
+              <td>€15M</td>
+              <td><strong>41%</strong></td>
+              <td>0.2%</td>
+            </tr>
+            <tr>
+              <td class="team-name">Algeria</td>
+              <td>1876</td>
+              <td>€140M</td>
+              <td><strong>21%</strong></td>
+              <td>0.0%</td>
+            </tr></tbody>
+          </table>
+          <h4>Partidos</h4>
+          <table class="match-table">
+            <thead><tr><th>Local</th><th>G</th><th>E</th><th>G</th><th>Visitante</th><th>xG</th></tr></thead>
+            <tbody>
+                <tr>
+                  <td>Argentina</td>
+                  <td class="prob-w">83%</td>
+                  <td class="prob-d">12%</td>
+                  <td class="prob-w">5%</td>
+                  <td>Algeria</td>
+                  <td class="xg">2.66 - 0.54</td>
+                </tr>
+                <tr>
+                  <td>Argentina</td>
+                  <td class="prob-w">79%</td>
+                  <td class="prob-d">14%</td>
+                  <td class="prob-w">8%</td>
+                  <td>Austria</td>
+                  <td class="xg">2.59 - 0.70</td>
+                </tr>
+                <tr>
+                  <td>Argentina</td>
+                  <td class="prob-w">65%</td>
+                  <td class="prob-d">17%</td>
+                  <td class="prob-w">18%</td>
+                  <td>Jordan</td>
+                  <td class="xg">2.79 - 1.45</td>
+                </tr>
+                <tr>
+                  <td>Algeria</td>
+                  <td class="prob-w">22%</td>
+                  <td class="prob-d">27%</td>
+                  <td class="prob-w">52%</td>
+                  <td>Austria</td>
+                  <td class="xg">0.80 - 1.40</td>
+                </tr>
+                <tr>
+                  <td>Algeria</td>
+                  <td class="prob-w">32%</td>
+                  <td class="prob-d">25%</td>
+                  <td class="prob-w">42%</td>
+                  <td>Jordan</td>
+                  <td class="xg">1.34 - 1.54</td>
+                </tr>
+                <tr>
+                  <td>Austria</td>
+                  <td class="prob-w">42%</td>
+                  <td class="prob-d">23%</td>
+                  <td class="prob-w">35%</td>
+                  <td>Jordan</td>
+                  <td class="xg">1.68 - 1.51</td>
+                </tr></tbody>
+          </table>
+        </div>
+        <div class="group-card">
+          <h3>Grupo K</h3>
+          <table class="group-table">
+            <thead><tr><th>Selección</th><th>Elo</th><th>Valor</th><th>Avanza</th><th>Campeón</th></tr></thead>
+            <tbody>
+            <tr>
+              <td class="team-name">Colombia</td>
+              <td>2079</td>
+              <td>€450M</td>
+              <td><strong>93%</strong></td>
+              <td>2.3%</td>
+            </tr>
+            <tr>
+              <td class="team-name">Portugal</td>
+              <td>2077</td>
+              <td>€980M</td>
+              <td><strong>82%</strong></td>
+              <td>0.7%</td>
+            </tr>
+            <tr>
+              <td class="team-name">Uzbekistan</td>
+              <td>1843</td>
+              <td>€40M</td>
+              <td><strong>14%</strong></td>
+              <td>0.0%</td>
+            </tr>
+            <tr>
+              <td class="team-name">DR Congo</td>
+              <td>1770</td>
+              <td>€85M</td>
+              <td><strong>11%</strong></td>
+              <td>0.0%</td>
+            </tr></tbody>
+          </table>
+          <h4>Partidos</h4>
+          <table class="match-table">
+            <thead><tr><th>Local</th><th>G</th><th>E</th><th>G</th><th>Visitante</th><th>xG</th></tr></thead>
+            <tbody>
+                <tr>
+                  <td>Portugal</td>
+                  <td class="prob-w">80%</td>
+                  <td class="prob-d">13%</td>
+                  <td class="prob-w">7%</td>
+                  <td>DR Congo</td>
+                  <td class="xg">2.75 - 0.76</td>
+                </tr>
+                <tr>
+                  <td>Portugal</td>
+                  <td class="prob-w">73%</td>
+                  <td class="prob-d">17%</td>
+                  <td class="prob-w">10%</td>
+                  <td>Uzbekistan</td>
+                  <td class="xg">2.22 - 0.66</td>
+                </tr>
+                <tr>
+                  <td>Portugal</td>
+                  <td class="prob-w">14%</td>
+                  <td class="prob-d">19%</td>
+                  <td class="prob-w">67%</td>
+                  <td>Colombia</td>
+                  <td class="xg">0.79 - 2.06</td>
+                </tr>
+                <tr>
+                  <td>DR Congo</td>
+                  <td class="prob-w">33%</td>
+                  <td class="prob-d">33%</td>
+                  <td class="prob-w">34%</td>
+                  <td>Uzbekistan</td>
+                  <td class="xg">0.88 - 0.92</td>
+                </tr>
+                <tr>
+                  <td>DR Congo</td>
+                  <td class="prob-w">9%</td>
+                  <td class="prob-d">16%</td>
+                  <td class="prob-w">75%</td>
+                  <td>Colombia</td>
+                  <td class="xg">0.65 - 2.32</td>
+                </tr>
+                <tr>
+                  <td>Uzbekistan</td>
+                  <td class="prob-w">9%</td>
+                  <td class="prob-d">17%</td>
+                  <td class="prob-w">74%</td>
+                  <td>Colombia</td>
+                  <td class="xg">0.66 - 2.21</td>
+                </tr></tbody>
+          </table>
+        </div>
+        <div class="group-card">
+          <h3>Grupo L</h3>
+          <table class="group-table">
+            <thead><tr><th>Selección</th><th>Elo</th><th>Valor</th><th>Avanza</th><th>Campeón</th></tr></thead>
+            <tbody>
+            <tr>
+              <td class="team-name">Croatia</td>
+              <td>1996</td>
+              <td>€400M</td>
+              <td><strong>72%</strong></td>
+              <td>0.4%</td>
+            </tr>
+            <tr>
+              <td class="team-name">Panama</td>
+              <td>1843</td>
+              <td>€45M</td>
+              <td><strong>69%</strong></td>
+              <td>0.4%</td>
+            </tr>
+            <tr>
+              <td class="team-name">England</td>
+              <td>2136</td>
+              <td>€1680M</td>
+              <td><strong>52%</strong></td>
+              <td>0.4%</td>
+            </tr>
+            <tr>
+              <td class="team-name">Ghana</td>
+              <td>1633</td>
+              <td>€150M</td>
+              <td><strong>7%</strong></td>
+              <td>0.0%</td>
+            </tr></tbody>
+          </table>
+          <h4>Partidos</h4>
+          <table class="match-table">
+            <thead><tr><th>Local</th><th>G</th><th>E</th><th>G</th><th>Visitante</th><th>xG</th></tr></thead>
+            <tbody>
+                <tr>
+                  <td>England</td>
+                  <td class="prob-w">37%</td>
+                  <td class="prob-d">30%</td>
+                  <td class="prob-w">33%</td>
+                  <td>Croatia</td>
+                  <td class="xg">1.02 - 0.97</td>
+                </tr>
+                <tr>
+                  <td>England</td>
+                  <td class="prob-w">51%</td>
+                  <td class="prob-d">31%</td>
+                  <td class="prob-w">18%</td>
+                  <td>Ghana</td>
+                  <td class="xg">1.21 - 0.58</td>
+                </tr>
+                <tr>
+                  <td>England</td>
+                  <td class="prob-w">30%</td>
+                  <td class="prob-d">27%</td>
+                  <td class="prob-w">43%</td>
+                  <td>Panama</td>
+                  <td class="xg">1.10 - 1.35</td>
+                </tr>
+                <tr>
+                  <td>Croatia</td>
+                  <td class="prob-w">80%</td>
+                  <td class="prob-d">14%</td>
+                  <td class="prob-w">7%</td>
+                  <td>Ghana</td>
+                  <td class="xg">2.50 - 0.58</td>
+                </tr>
+                <tr>
+                  <td>Croatia</td>
+                  <td class="prob-w">46%</td>
+                  <td class="prob-d">23%</td>
+                  <td class="prob-w">31%</td>
+                  <td>Panama</td>
+                  <td class="xg">1.79 - 1.45</td>
+                </tr>
+                <tr>
+                  <td>Ghana</td>
+                  <td class="prob-w">6%</td>
+                  <td class="prob-d">14%</td>
+                  <td class="prob-w">80%</td>
+                  <td>Panama</td>
+                  <td class="xg">0.56 - 2.48</td>
+                </tr></tbody>
+          </table>
+        </div></div>
+
+<h2>🔬 Análisis del Modelo</h2>
+<div class="two-col">
+  <div>
+    <h3>Discrepancias: Red Neuronal vs. Elo Puro</h3>
+    <p style="font-size:0.8rem;color:var(--muted);margin-bottom:0.5rem;">
+      Donde la red neuronal ve algo que el Elo puro no captura.
+    </p>
+    <table>
+    <thead><tr><th>Selección</th><th>ANN</th><th>Elo</th><th>Δ</th></tr></thead>
+    <tbody>
+        <tr class="ann-up">
+          <td class="team-name">Brazil</td>
+          <td>23.1%</td>
+          <td>6.8%</td>
+          <td>↑ 16.3pp</td>
+        </tr>
+        <tr class="ann-down">
+          <td class="team-name">Spain</td>
+          <td>3.6%</td>
+          <td>18.7%</td>
+          <td>↓ 15.1pp</td>
+        </tr>
+        <tr class="ann-up">
+          <td class="team-name">Germany</td>
+          <td>15.6%</td>
+          <td>4.7%</td>
+          <td>↑ 10.9pp</td>
+        </tr>
+        <tr class="ann-up">
+          <td class="team-name">France</td>
+          <td>18.3%</td>
+          <td>10.0%</td>
+          <td>↑ 8.3pp</td>
+        </tr>
+        <tr class="ann-up">
+          <td class="team-name">Belgium</td>
+          <td>9.1%</td>
+          <td>2.2%</td>
+          <td>↑ 6.8pp</td>
+        </tr>
+        <tr class="ann-down">
+          <td class="team-name">England</td>
+          <td>0.4%</td>
+          <td>3.4%</td>
+          <td>↓ 3.0pp</td>
+        </tr>
+        <tr class="ann-down">
+          <td class="team-name">Netherlands</td>
+          <td>1.9%</td>
+          <td>4.5%</td>
+          <td>↓ 2.7pp</td>
+        </tr>
+        <tr class="ann-down">
+          <td class="team-name">Ecuador</td>
+          <td>0.8%</td>
+          <td>3.2%</td>
+          <td>↓ 2.4pp</td>
+        </tr>
+        <tr class="ann-down">
+          <td class="team-name">Japan</td>
+          <td>0.9%</td>
+          <td>3.2%</td>
+          <td>↓ 2.3pp</td>
+        </tr>
+        <tr class="ann-down">
+          <td class="team-name">Norway</td>
+          <td>1.0%</td>
+          <td>3.3%</td>
+          <td>↓ 2.3pp</td>
+        </tr></tbody>
+    </table>
+  </div>
+  <div>
+    <h3>Importancia de Variables</h3>
+    <p style="font-size:0.8rem;color:var(--muted);margin-bottom:0.5rem;">
+      Variables que más contribuyen a la predicción (importancia por permutación).
+    </p>
+    
+            <div class="feat-row">
+              <span class="feat-name">elo_diff</span>
+              <div class="feat-track"><div class="feat-bar" style="width:100.0%"></div></div>
+              <span class="feat-val">0.2277</span>
+            </div>
+            <div class="feat-row">
+              <span class="feat-name">goals_scored_avg_5</span>
+              <div class="feat-track"><div class="feat-bar" style="width:78.43953142253717%"></div></div>
+              <span class="feat-val">0.1786</span>
+            </div>
+            <div class="feat-row">
+              <span class="feat-name">goals_scored_std_5</span>
+              <div class="feat-track"><div class="feat-bar" style="width:20.977669030569615%"></div></div>
+              <span class="feat-val">0.0478</span>
+            </div>
+            <div class="feat-row">
+              <span class="feat-name">elo</span>
+              <div class="feat-track"><div class="feat-bar" style="width:14.837571784678133%"></div></div>
+              <span class="feat-val">0.0338</span>
+            </div>
+            <div class="feat-row">
+              <span class="feat-name">goals_conceded_avg_5</span>
+              <div class="feat-track"><div class="feat-bar" style="width:11.53442768441672%"></div></div>
+              <span class="feat-val">0.0263</span>
+            </div>
+            <div class="feat-row">
+              <span class="feat-name">goal_diff_avg_5</span>
+              <div class="feat-track"><div class="feat-bar" style="width:11.364490396084221%"></div></div>
+              <span class="feat-val">0.0259</span>
+            </div>
+            <div class="feat-row">
+              <span class="feat-name">goals_scored_avg_10</span>
+              <div class="feat-track"><div class="feat-bar" style="width:5.638325908713794%"></div></div>
+              <span class="feat-val">0.0128</span>
+            </div>
+            <div class="feat-row">
+              <span class="feat-name">goals_scored_std_10</span>
+              <div class="feat-track"><div class="feat-bar" style="width:5.531027263540114%"></div></div>
+              <span class="feat-val">0.0126</span>
+            </div>
+            <div class="feat-row">
+              <span class="feat-name">draw_rate_5</span>
+              <div class="feat-track"><div class="feat-bar" style="width:5.270822487105393%"></div></div>
+              <span class="feat-val">0.0120</span>
+            </div>
+            <div class="feat-row">
+              <span class="feat-name">squad_market_value</span>
+              <div class="feat-track"><div class="feat-bar" style="width:4.036727100010111%"></div></div>
+              <span class="feat-val">0.0092</span>
+            </div>
+            <div class="feat-row">
+              <span class="feat-name">squad_value_diff</span>
+              <div class="feat-track"><div class="feat-bar" style="width:4.029576474357869%"></div></div>
+              <span class="feat-val">0.0092</span>
+            </div>
+            <div class="feat-row">
+              <span class="feat-name">inter_confederation</span>
+              <div class="feat-track"><div class="feat-bar" style="width:4.0240381420444375%"></div></div>
+              <span class="feat-val">0.0092</span>
+            </div>
+            <div class="feat-row">
+              <span class="feat-name">goal_diff_avg_10</span>
+              <div class="feat-track"><div class="feat-bar" style="width:3.509713949585505%"></div></div>
+              <span class="feat-val">0.0080</span>
+            </div>
+            <div class="feat-row">
+              <span class="feat-name">competitive_goals_avg</span>
+              <div class="feat-track"><div class="feat-bar" style="width:3.3140349323767277%"></div></div>
+              <span class="feat-val">0.0075</span>
+            </div>
+            <div class="feat-row">
+              <span class="feat-name">goals_conceded_avg_10</span>
+              <div class="feat-track"><div class="feat-bar" style="width:3.309054097597698%"></div></div>
+              <span class="feat-val">0.0075</span>
+            </div>
+  </div>
+</div>
+
+<h2>⚡ Radar de Sorpresas</h2>
+<p style="font-size:0.85rem;color:var(--muted);margin-bottom:0.5rem;">
+  Partidos donde el equipo con menor Elo tiene mayor probabilidad de ganar.
+</p>
+<table>
+<thead><tr><th>Partido</th><th>Sorpresa</th><th>Probabilidad</th></tr></thead>
+<tbody>
+        <tr>
+          <td>Paraguay vs Australia</td>
+          <td class="team-name">Paraguay</td>
+          <td><strong>70.7%</strong></td>
+        </tr>
+        <tr>
+          <td>South Korea vs Czech Republic</td>
+          <td class="team-name">Czech Republic</td>
+          <td><strong>62.4%</strong></td>
+        </tr>
+        <tr>
+          <td>England vs Panama</td>
+          <td class="team-name">Panama</td>
+          <td><strong>43.2%</strong></td>
+        </tr>
+        <tr>
+          <td>Ivory Coast vs Ecuador</td>
+          <td class="team-name">Ivory Coast</td>
+          <td><strong>43.0%</strong></td>
+        </tr>
+        <tr>
+          <td>Algeria vs Jordan</td>
+          <td class="team-name">Jordan</td>
+          <td><strong>42.4%</strong></td>
+        </tr>
+        <tr>
+          <td>Cape Verde vs Uruguay</td>
+          <td class="team-name">Cape Verde</td>
+          <td><strong>38.5%</strong></td>
+        </tr>
+        <tr>
+          <td>Cape Verde vs Saudi Arabia</td>
+          <td class="team-name">Cape Verde</td>
+          <td><strong>37.8%</strong></td>
+        </tr>
+        <tr>
+          <td>Senegal vs Norway</td>
+          <td class="team-name">Senegal</td>
+          <td><strong>37.7%</strong></td>
+        </tr>
+        <tr>
+          <td>Paraguay vs Turkey</td>
+          <td class="team-name">Paraguay</td>
+          <td><strong>36.6%</strong></td>
+        </tr>
+        <tr>
+          <td>Japan vs Sweden</td>
+          <td class="team-name">Sweden</td>
+          <td><strong>36.4%</strong></td>
+        </tr></tbody>
+</table>
+
+<h2>🧠 Metodología</h2>
+<div class="method-box">
+  <p><strong>Arquitectura:</strong> Red neuronal de regresión Poisson (Deep Poisson Regression). En lugar de predecir
+  ganar/empatar/perder, la red predice <code>λ_A</code> y <code>λ_B</code> — los goles esperados de cada selección en cada
+  enfrentamiento específico. Estos parámetros alimentan distribuciones de Poisson dentro de la simulación Monte Carlo.</p>
+
+  <div class="arch-diagram">INPUT (47 variables por equipo):
+├── Elo, diferencia Elo, ranking FIFA
+├── Forma reciente (5/10/20 partidos): goles, victorias, portería invicta
+├── Rendimiento en partidos competitivos vs amistosos
+├── Rendimiento en terreno neutral
+├── Valor de mercado del plantel (Transfermarkt)
+├── Diferencia de valor de mercado
+├── PIB per cápita, población (infraestructura deportiva)
+├── Títulos mundiales, apariciones históricas
+├── Ventaja de país sede (USA/MEX/CAN)
+├── Confederación + fuerza de confederación
+└── Tipo de enfrentamiento (inter vs intra-confederación)
+
+CAPAS OCULTAS:
+├── Dense(128, ReLU) → BatchNorm → Dropout(0.3)
+├── Dense(64, ReLU)  → BatchNorm → Dropout(0.2)
+└── Dense(32, ReLU)
+
+SALIDA:
+└── Dense(1, Softplus) → λ (goles esperados ≥ 0)
+
+LOSS: Poisson Negative Log-Likelihood
+  </div>
+
+  <p><strong>Simulación Monte Carlo:</strong> Para cada uno de los 10,000 torneos simulados, cada
+  partido se resuelve muestreando goles de <code>Poisson(λ)</code>. Esto produce marcadores reales
+  (2-1, 0-0, 3-2), no solo resultados. Los desempates de grupo se resuelven correctamente por diferencia de goles
+  y goles a favor.</p>
+
+  <p><strong>Validación cruzada (5-fold):</strong> Pérdida Poisson = <code>0.6613</code>,
+  MAE = <code>0.8280</code> goles.</p>
+
+  <p><strong>Comparación dual:</strong> Se ejecutan dos modelos en paralelo — la red neuronal (47 variables) y
+  un baseline de Elo puro. Las discrepancias entre ambos revelan dónde las variables adicionales
+  (valor de mercado, forma reciente, historial mundialista) cambian la predicción respecto al Elo solo.</p>
+</div>
+
+<footer>
+  Modelo construido por el Director de IA, Grupo Orión — Junio 2026<br>
+  47 variables · 11,954 partidos · 10,000 simulaciones Monte Carlo<br>
+  Código reproducible: <code>python main.py</code> → predicciones completas
+</footer>
+
+</div>
+</body>
+</html>
