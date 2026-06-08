@@ -3472,5 +3472,933 @@
         "Mercado": null
       }
     }
+  ],
+  "groups": [
+    {
+      "group": "A",
+      "teams": [
+        {
+          "team": "Mexico",
+          "elo": 2000,
+          "value": 190,
+          "advance": 0.864,
+          "champion": 0.019,
+          "winner": 0.5264,
+          "runner": 0.3376
+        },
+        {
+          "team": "Czech Republic",
+          "elo": 1836,
+          "value": 170,
+          "advance": 0.8083,
+          "champion": 0.0161,
+          "winner": 0.3982,
+          "runner": 0.4101
+        },
+        {
+          "team": "South Korea",
+          "elo": 1902,
+          "value": 280,
+          "advance": 0.2498,
+          "champion": 0.0006,
+          "winner": 0.0615,
+          "runner": 0.1883
+        },
+        {
+          "team": "South Africa",
+          "elo": 1690,
+          "value": null,
+          "advance": 0.0779,
+          "champion": 0.0003,
+          "winner": 0.0139,
+          "runner": 0.064
+        }
+      ]
+    },
+    {
+      "group": "B",
+      "teams": [
+        {
+          "team": "Switzerland",
+          "elo": 1993,
+          "value": 250,
+          "advance": 0.8306,
+          "champion": 0.0112,
+          "winner": 0.5338,
+          "runner": 0.2968
+        },
+        {
+          "team": "Canada",
+          "elo": 1928,
+          "value": 130,
+          "advance": 0.6394,
+          "champion": 0.0045,
+          "winner": 0.2773,
+          "runner": 0.3621
+        },
+        {
+          "team": "Bosnia and Herzegovina",
+          "elo": 1667,
+          "value": 100,
+          "advance": 0.5011,
+          "champion": 0.0016,
+          "winner": 0.1857,
+          "runner": 0.3154
+        },
+        {
+          "team": "Qatar",
+          "elo": 1615,
+          "value": 35,
+          "advance": 0.0289,
+          "champion": 0.0,
+          "winner": 0.0032,
+          "runner": 0.0257
+        }
+      ]
+    },
+    {
+      "group": "C",
+      "teams": [
+        {
+          "team": "Brazil",
+          "elo": 2090,
+          "value": 1050,
+          "advance": 0.9249,
+          "champion": 0.231,
+          "winner": 0.6832,
+          "runner": 0.2417
+        },
+        {
+          "team": "Morocco",
+          "elo": 2041,
+          "value": 310,
+          "advance": 0.7089,
+          "champion": 0.0457,
+          "winner": 0.2484,
+          "runner": 0.4605
+        },
+        {
+          "team": "Scotland",
+          "elo": 1896,
+          "value": 180,
+          "advance": 0.3098,
+          "champion": 0.0069,
+          "winner": 0.0578,
+          "runner": 0.252
+        },
+        {
+          "team": "Haiti",
+          "elo": 1680,
+          "value": 10,
+          "advance": 0.0564,
+          "champion": 0.0003,
+          "winner": 0.0106,
+          "runner": 0.0458
+        }
+      ]
+    },
+    {
+      "group": "D",
+      "teams": [
+        {
+          "team": "United States",
+          "elo": 1925,
+          "value": 270,
+          "advance": 0.6938,
+          "champion": 0.009,
+          "winner": 0.3638,
+          "runner": 0.33
+        },
+        {
+          "team": "Turkey",
+          "elo": 1999,
+          "value": 260,
+          "advance": 0.6701,
+          "champion": 0.0155,
+          "winner": 0.354,
+          "runner": 0.3161
+        },
+        {
+          "team": "Paraguay",
+          "elo": 1913,
+          "value": 95,
+          "advance": 0.5899,
+          "champion": 0.012,
+          "winner": 0.2748,
+          "runner": 0.3151
+        },
+        {
+          "team": "Australia",
+          "elo": 1916,
+          "value": 120,
+          "advance": 0.0462,
+          "champion": 0.0,
+          "winner": 0.0074,
+          "runner": 0.0388
+        }
+      ]
+    },
+    {
+      "group": "E",
+      "teams": [
+        {
+          "team": "Germany",
+          "elo": 2070,
+          "value": 1100,
+          "advance": 0.8966,
+          "champion": 0.1556,
+          "winner": 0.6599,
+          "runner": 0.2367
+        },
+        {
+          "team": "Ivory Coast",
+          "elo": 1839,
+          "value": 210,
+          "advance": 0.5851,
+          "champion": 0.0121,
+          "winner": 0.2043,
+          "runner": 0.3808
+        },
+        {
+          "team": "Ecuador",
+          "elo": 2029,
+          "value": 200,
+          "advance": 0.4572,
+          "champion": 0.008,
+          "winner": 0.1297,
+          "runner": 0.3275
+        },
+        {
+          "team": "Curaçao",
+          "elo": 1622,
+          "value": 8,
+          "advance": 0.0611,
+          "champion": 0.0,
+          "winner": 0.0061,
+          "runner": 0.055
+        }
+      ]
+    },
+    {
+      "group": "F",
+      "teams": [
+        {
+          "team": "Netherlands",
+          "elo": 2059,
+          "value": 780,
+          "advance": 0.6824,
+          "champion": 0.0185,
+          "winner": 0.3674,
+          "runner": 0.315
+        },
+        {
+          "team": "Sweden",
+          "elo": 1798,
+          "value": 200,
+          "advance": 0.6142,
+          "champion": 0.0053,
+          "winner": 0.3097,
+          "runner": 0.3045
+        },
+        {
+          "team": "Japan",
+          "elo": 2029,
+          "value": 320,
+          "advance": 0.6094,
+          "champion": 0.0092,
+          "winner": 0.3009,
+          "runner": 0.3085
+        },
+        {
+          "team": "Tunisia",
+          "elo": 1738,
+          "value": 90,
+          "advance": 0.094,
+          "champion": 0.0,
+          "winner": 0.022,
+          "runner": 0.072
+        }
+      ]
+    },
+    {
+      "group": "G",
+      "teams": [
+        {
+          "team": "Belgium",
+          "elo": 1980,
+          "value": 620,
+          "advance": 0.98,
+          "champion": 0.0906,
+          "winner": 0.83,
+          "runner": 0.15
+        },
+        {
+          "team": "Iran",
+          "elo": 1921,
+          "value": 55,
+          "advance": 0.7368,
+          "champion": 0.0053,
+          "winner": 0.1462,
+          "runner": 0.5906
+        },
+        {
+          "team": "Egypt",
+          "elo": 1826,
+          "value": 190,
+          "advance": 0.23,
+          "champion": 0.0,
+          "winner": 0.0224,
+          "runner": 0.2076
+        },
+        {
+          "team": "New Zealand",
+          "elo": 1742,
+          "value": 12,
+          "advance": 0.0532,
+          "champion": 0.0,
+          "winner": 0.0014,
+          "runner": 0.0518
+        }
+      ]
+    },
+    {
+      "group": "H",
+      "teams": [
+        {
+          "team": "Spain",
+          "elo": 2258,
+          "value": 1410,
+          "advance": 0.8477,
+          "champion": 0.036,
+          "winner": 0.6163,
+          "runner": 0.2314
+        },
+        {
+          "team": "Uruguay",
+          "elo": 1979,
+          "value": 420,
+          "advance": 0.4508,
+          "champion": 0.0015,
+          "winner": 0.1563,
+          "runner": 0.2945
+        },
+        {
+          "team": "Cape Verde",
+          "elo": 1642,
+          "value": 28,
+          "advance": 0.437,
+          "champion": 0.0006,
+          "winner": 0.1653,
+          "runner": 0.2717
+        },
+        {
+          "team": "Saudi Arabia",
+          "elo": 1710,
+          "value": 80,
+          "advance": 0.2645,
+          "champion": 0.0,
+          "winner": 0.0621,
+          "runner": 0.2024
+        }
+      ]
+    },
+    {
+      "group": "I",
+      "teams": [
+        {
+          "team": "France",
+          "elo": 2160,
+          "value": 1520,
+          "advance": 0.8955,
+          "champion": 0.1827,
+          "winner": 0.6599,
+          "runner": 0.2356
+        },
+        {
+          "team": "Norway",
+          "elo": 2030,
+          "value": 240,
+          "advance": 0.5349,
+          "champion": 0.0103,
+          "winner": 0.169,
+          "runner": 0.3659
+        },
+        {
+          "team": "Senegal",
+          "elo": 1914,
+          "value": 280,
+          "advance": 0.4955,
+          "champion": 0.0115,
+          "winner": 0.1593,
+          "runner": 0.3362
+        },
+        {
+          "team": "Iraq",
+          "elo": 1766,
+          "value": 30,
+          "advance": 0.0741,
+          "champion": 0.0,
+          "winner": 0.0118,
+          "runner": 0.0623
+        }
+      ]
+    },
+    {
+      "group": "J",
+      "teams": [
+        {
+          "team": "Argentina",
+          "elo": 2210,
+          "value": 850,
+          "advance": 0.9397,
+          "champion": 0.0329,
+          "winner": 0.7872,
+          "runner": 0.1525
+        },
+        {
+          "team": "Austria",
+          "elo": 1928,
+          "value": 230,
+          "advance": 0.4402,
+          "champion": 0.003,
+          "winner": 0.0796,
+          "runner": 0.3606
+        },
+        {
+          "team": "Jordan",
+          "elo": 1772,
+          "value": 15,
+          "advance": 0.4146,
+          "champion": 0.0022,
+          "winner": 0.104,
+          "runner": 0.3106
+        },
+        {
+          "team": "Algeria",
+          "elo": 1876,
+          "value": 140,
+          "advance": 0.2055,
+          "champion": 0.0002,
+          "winner": 0.0292,
+          "runner": 0.1763
+        }
+      ]
+    },
+    {
+      "group": "K",
+      "teams": [
+        {
+          "team": "Colombia",
+          "elo": 2079,
+          "value": 450,
+          "advance": 0.9286,
+          "champion": 0.0231,
+          "winner": 0.6856,
+          "runner": 0.243
+        },
+        {
+          "team": "Portugal",
+          "elo": 2077,
+          "value": 980,
+          "advance": 0.8248,
+          "champion": 0.0065,
+          "winner": 0.2669,
+          "runner": 0.5579
+        },
+        {
+          "team": "Uzbekistan",
+          "elo": 1843,
+          "value": 40,
+          "advance": 0.1354,
+          "champion": 0.0001,
+          "winner": 0.0274,
+          "runner": 0.108
+        },
+        {
+          "team": "DR Congo",
+          "elo": 1770,
+          "value": 85,
+          "advance": 0.1112,
+          "champion": 0.0001,
+          "winner": 0.0201,
+          "runner": 0.0911
+        }
+      ]
+    },
+    {
+      "group": "L",
+      "teams": [
+        {
+          "team": "Croatia",
+          "elo": 1996,
+          "value": 400,
+          "advance": 0.7241,
+          "champion": 0.0036,
+          "winner": 0.4063,
+          "runner": 0.3178
+        },
+        {
+          "team": "Panama",
+          "elo": 1843,
+          "value": 45,
+          "advance": 0.6874,
+          "champion": 0.0038,
+          "winner": 0.3612,
+          "runner": 0.3262
+        },
+        {
+          "team": "England",
+          "elo": 2136,
+          "value": 1680,
+          "advance": 0.5198,
+          "champion": 0.0036,
+          "winner": 0.2186,
+          "runner": 0.3012
+        },
+        {
+          "team": "Ghana",
+          "elo": 1633,
+          "value": 150,
+          "advance": 0.0687,
+          "champion": 0.0,
+          "winner": 0.0139,
+          "runner": 0.0548
+        }
+      ]
+    }
+  ],
+  "knockout": [
+    {
+      "team": "Brazil",
+      "group": "C",
+      "r16": 0.8207,
+      "qf": 0.615,
+      "sf": 0.4908,
+      "final": 0.3684,
+      "champion": 0.231
+    },
+    {
+      "team": "France",
+      "group": "I",
+      "r16": 0.8115,
+      "qf": 0.6434,
+      "sf": 0.4457,
+      "final": 0.2933,
+      "champion": 0.1827
+    },
+    {
+      "team": "Germany",
+      "group": "E",
+      "r16": 0.7642,
+      "qf": 0.5193,
+      "sf": 0.3824,
+      "final": 0.2427,
+      "champion": 0.1556
+    },
+    {
+      "team": "Belgium",
+      "group": "G",
+      "r16": 0.7873,
+      "qf": 0.5368,
+      "sf": 0.2999,
+      "final": 0.1678,
+      "champion": 0.0906
+    },
+    {
+      "team": "Morocco",
+      "group": "C",
+      "r16": 0.5876,
+      "qf": 0.3605,
+      "sf": 0.2289,
+      "final": 0.1072,
+      "champion": 0.0457
+    },
+    {
+      "team": "Spain",
+      "group": "H",
+      "r16": 0.6137,
+      "qf": 0.3487,
+      "sf": 0.1625,
+      "final": 0.0793,
+      "champion": 0.036
+    },
+    {
+      "team": "Argentina",
+      "group": "J",
+      "r16": 0.1442,
+      "qf": 0.0951,
+      "sf": 0.0721,
+      "final": 0.0492,
+      "champion": 0.0329
+    },
+    {
+      "team": "Colombia",
+      "group": "K",
+      "r16": 0.2076,
+      "qf": 0.1446,
+      "sf": 0.0775,
+      "final": 0.042,
+      "champion": 0.0231
+    },
+    {
+      "team": "Mexico",
+      "group": "A",
+      "r16": 0.6303,
+      "qf": 0.3209,
+      "sf": 0.1635,
+      "final": 0.0612,
+      "champion": 0.019
+    },
+    {
+      "team": "Netherlands",
+      "group": "F",
+      "r16": 0.4687,
+      "qf": 0.2152,
+      "sf": 0.0971,
+      "final": 0.0442,
+      "champion": 0.0185
+    },
+    {
+      "team": "Czech Republic",
+      "group": "A",
+      "r16": 0.6028,
+      "qf": 0.2912,
+      "sf": 0.1273,
+      "final": 0.0467,
+      "champion": 0.0161
+    },
+    {
+      "team": "Turkey",
+      "group": "D",
+      "r16": 0.4492,
+      "qf": 0.255,
+      "sf": 0.1129,
+      "final": 0.0481,
+      "champion": 0.0155
+    },
+    {
+      "team": "Ivory Coast",
+      "group": "E",
+      "r16": 0.442,
+      "qf": 0.1874,
+      "sf": 0.0924,
+      "final": 0.0336,
+      "champion": 0.0121
+    },
+    {
+      "team": "Paraguay",
+      "group": "D",
+      "r16": 0.4062,
+      "qf": 0.2219,
+      "sf": 0.0954,
+      "final": 0.0366,
+      "champion": 0.012
+    },
+    {
+      "team": "Senegal",
+      "group": "I",
+      "r16": 0.4071,
+      "qf": 0.1996,
+      "sf": 0.0907,
+      "final": 0.0337,
+      "champion": 0.0115
+    },
+    {
+      "team": "Switzerland",
+      "group": "B",
+      "r16": 0.5398,
+      "qf": 0.2898,
+      "sf": 0.109,
+      "final": 0.0374,
+      "champion": 0.0112
+    },
+    {
+      "team": "Norway",
+      "group": "I",
+      "r16": 0.4565,
+      "qf": 0.2292,
+      "sf": 0.0932,
+      "final": 0.0301,
+      "champion": 0.0103
+    },
+    {
+      "team": "Japan",
+      "group": "F",
+      "r16": 0.4042,
+      "qf": 0.1859,
+      "sf": 0.0789,
+      "final": 0.0299,
+      "champion": 0.0092
+    },
+    {
+      "team": "United States",
+      "group": "D",
+      "r16": 0.4498,
+      "qf": 0.2542,
+      "sf": 0.0997,
+      "final": 0.0397,
+      "champion": 0.009
+    },
+    {
+      "team": "Ecuador",
+      "group": "E",
+      "r16": 0.3635,
+      "qf": 0.1509,
+      "sf": 0.068,
+      "final": 0.0256,
+      "champion": 0.008
+    },
+    {
+      "team": "Scotland",
+      "group": "C",
+      "r16": 0.4212,
+      "qf": 0.1908,
+      "sf": 0.0826,
+      "final": 0.0267,
+      "champion": 0.0069
+    },
+    {
+      "team": "Portugal",
+      "group": "K",
+      "r16": 0.3535,
+      "qf": 0.1938,
+      "sf": 0.068,
+      "final": 0.021,
+      "champion": 0.0065
+    },
+    {
+      "team": "Iran",
+      "group": "G",
+      "r16": 0.4878,
+      "qf": 0.1938,
+      "sf": 0.0622,
+      "final": 0.0214,
+      "champion": 0.0053
+    },
+    {
+      "team": "Sweden",
+      "group": "F",
+      "r16": 0.3818,
+      "qf": 0.1375,
+      "sf": 0.0511,
+      "final": 0.0176,
+      "champion": 0.0053
+    },
+    {
+      "team": "Canada",
+      "group": "B",
+      "r16": 0.4684,
+      "qf": 0.1818,
+      "sf": 0.059,
+      "final": 0.0183,
+      "champion": 0.0045
+    },
+    {
+      "team": "Panama",
+      "group": "L",
+      "r16": 0.2117,
+      "qf": 0.1009,
+      "sf": 0.0368,
+      "final": 0.013,
+      "champion": 0.0038
+    },
+    {
+      "team": "Croatia",
+      "group": "L",
+      "r16": 0.2237,
+      "qf": 0.1095,
+      "sf": 0.0403,
+      "final": 0.0119,
+      "champion": 0.0036
+    },
+    {
+      "team": "England",
+      "group": "L",
+      "r16": 0.2753,
+      "qf": 0.1296,
+      "sf": 0.0467,
+      "final": 0.0145,
+      "champion": 0.0036
+    },
+    {
+      "team": "Austria",
+      "group": "J",
+      "r16": 0.2148,
+      "qf": 0.076,
+      "sf": 0.0273,
+      "final": 0.0079,
+      "champion": 0.003
+    },
+    {
+      "team": "Jordan",
+      "group": "J",
+      "r16": 0.1915,
+      "qf": 0.0686,
+      "sf": 0.0255,
+      "final": 0.0071,
+      "champion": 0.0022
+    },
+    {
+      "team": "Bosnia and Herzegovina",
+      "group": "B",
+      "r16": 0.3628,
+      "qf": 0.1005,
+      "sf": 0.0202,
+      "final": 0.005,
+      "champion": 0.0016
+    },
+    {
+      "team": "Uruguay",
+      "group": "H",
+      "r16": 0.2484,
+      "qf": 0.0762,
+      "sf": 0.0193,
+      "final": 0.0053,
+      "champion": 0.0015
+    },
+    {
+      "team": "Cape Verde",
+      "group": "H",
+      "r16": 0.192,
+      "qf": 0.0356,
+      "sf": 0.0089,
+      "final": 0.0017,
+      "champion": 0.0006
+    },
+    {
+      "team": "South Korea",
+      "group": "A",
+      "r16": 0.3235,
+      "qf": 0.1007,
+      "sf": 0.0202,
+      "final": 0.0034,
+      "champion": 0.0006
+    },
+    {
+      "team": "Haiti",
+      "group": "C",
+      "r16": 0.234,
+      "qf": 0.051,
+      "sf": 0.0085,
+      "final": 0.002,
+      "champion": 0.0003
+    },
+    {
+      "team": "South Africa",
+      "group": "A",
+      "r16": 0.2531,
+      "qf": 0.0544,
+      "sf": 0.0096,
+      "final": 0.0019,
+      "champion": 0.0003
+    },
+    {
+      "team": "Algeria",
+      "group": "J",
+      "r16": 0.0873,
+      "qf": 0.0195,
+      "sf": 0.0059,
+      "final": 0.001,
+      "champion": 0.0002
+    },
+    {
+      "team": "DR Congo",
+      "group": "K",
+      "r16": 0.0645,
+      "qf": 0.0129,
+      "sf": 0.0021,
+      "final": 0.0005,
+      "champion": 0.0001
+    },
+    {
+      "team": "Uzbekistan",
+      "group": "K",
+      "r16": 0.0826,
+      "qf": 0.0196,
+      "sf": 0.0042,
+      "final": 0.0008,
+      "champion": 0.0001
+    },
+    {
+      "team": "Australia",
+      "group": "D",
+      "r16": 0.019,
+      "qf": 0.0044,
+      "sf": 0.0005,
+      "final": 0.0001,
+      "champion": 0.0
+    },
+    {
+      "team": "Curaçao",
+      "group": "E",
+      "r16": 0.0236,
+      "qf": 0.0033,
+      "sf": 0.0008,
+      "final": 0.0001,
+      "champion": 0.0
+    },
+    {
+      "team": "Egypt",
+      "group": "G",
+      "r16": 0.152,
+      "qf": 0.0317,
+      "sf": 0.007,
+      "final": 0.0014,
+      "champion": 0.0
+    },
+    {
+      "team": "Ghana",
+      "group": "L",
+      "r16": 0.0217,
+      "qf": 0.0025,
+      "sf": 0.0005,
+      "final": 0.0001,
+      "champion": 0.0
+    },
+    {
+      "team": "Iraq",
+      "group": "I",
+      "r16": 0.0426,
+      "qf": 0.009,
+      "sf": 0.0019,
+      "final": 0.0002,
+      "champion": 0.0
+    },
+    {
+      "team": "New Zealand",
+      "group": "G",
+      "r16": 0.0239,
+      "qf": 0.0025,
+      "sf": 0.0004,
+      "final": 0.0001,
+      "champion": 0.0
+    },
+    {
+      "team": "Qatar",
+      "group": "B",
+      "r16": 0.1416,
+      "qf": 0.009,
+      "sf": 0.0004,
+      "final": 0.0,
+      "champion": 0.0
+    },
+    {
+      "team": "Saudi Arabia",
+      "group": "H",
+      "r16": 0.1047,
+      "qf": 0.0156,
+      "sf": 0.0017,
+      "final": 0.0003,
+      "champion": 0.0
+    },
+    {
+      "team": "Tunisia",
+      "group": "F",
+      "r16": 0.0361,
+      "qf": 0.0047,
+      "sf": 0.0005,
+      "final": 0.0,
+      "champion": 0.0
+    }
   ]
 }

@@ -73,6 +73,46 @@ def scoreline_model(lh, la, ph, pdr, pa):
     }
 
 
+def build_standings(pred):
+    """Team-level data for the Grupos (standings) and Llaves (stage odds) views."""
+    tp = pred['team_probabilities']
+    elo = pred['elo_ratings']
+    vals = pred.get('squad_values', {})
+    groups = pred['groups']
+    gp = pred.get('group_predictions', {})
+
+    out_groups = []
+    for g in sorted(groups):
+        teams = []
+        for t in groups[g]:
+            p = tp.get(t, {})
+            teams.append({
+                'team': t,
+                'elo': round(elo.get(t, 1500)),
+                'value': vals.get(t),  # None if missing — Dirty George: no phantom €0M
+                'advance': round(p.get('group_advance', 0), 4),
+                'champion': round(p.get('champion', 0), 4),
+                'winner': round(gp.get(g, {}).get('winner_probs', {}).get(t, 0), 4),
+                'runner': round(gp.get(g, {}).get('runner_probs', {}).get(t, 0), 4),
+            })
+        teams.sort(key=lambda x: x['advance'], reverse=True)
+        out_groups.append({'group': g, 'teams': teams})
+
+    team_group = {t: g for g, ts in groups.items() for t in ts}
+    knockout = []
+    for t, p in tp.items():
+        knockout.append({
+            'team': t, 'group': team_group.get(t),
+            'r16': round(p.get('r16', 0), 4),
+            'qf': round(p.get('quarterfinal', 0), 4),
+            'sf': round(p.get('semifinal', 0), 4),
+            'final': round(p.get('finalist', 0), 4),
+            'champion': round(p.get('champion', 0), 4),
+        })
+    knockout.sort(key=lambda x: x['champion'], reverse=True)
+    return out_groups, knockout
+
+
 def main():
     import csv
     pred = json.load(open(PRED))
@@ -140,6 +180,8 @@ def main():
             'predictions': {'M1': m1, 'M2': m2, 'M3': None, 'Mercado': None},
         })
 
+    groups_data, knockout_data = build_standings(pred)
+
     out = {
         'meta': {
             'generated': datetime.date.today().isoformat(),
@@ -151,6 +193,8 @@ def main():
                     'Team display (Spanish/flags) is GUI-only in web/src/lib/teams.js.',
         },
         'matches': matches,
+        'groups': groups_data,
+        'knockout': knockout_data,
     }
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(OUT, 'w', encoding='utf-8') as f:

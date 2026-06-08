@@ -6,10 +6,10 @@
 
 ## ⏩ CURRENT STATE — READ FIRST
 - **Phase:** 1 — Context page MVP (live scoreboard for June 11 kickoff)
-- **Last completed:** 3.4 expand-on-click row detail (`<details>`: per-model W/D/L bars + xG; M3/Mercado "pendiente")
-- **In progress:** Batch 3 (remaining = stretch views + polish)
-- **NEXT ACTION:** **3.5** mobile responsiveness + full usted copy pass against COPY_ES → then stretch: 3.2 Grupos view (standings) + 3.3 Llaves view (bracket). (Fase filter + per-match "why" deferred — "why" needs per-match feature attribution = roadmap P10.)
-- **MVP core COMPLETE:** legend + scoreboard + cards + filterable calendar + expand detail. The June-11 live-scoreboard skeleton is built.
+- **Last completed:** **BATCH 3 COMPLETE** — Grupos + Llaves views + Lista/Grupos/Llaves switcher
+- **In progress:** — (Context page / Phase 1 DONE)
+- **NEXT ACTION:** decision point — **Phase 2 (model work: P0 data-integrity, real M3/Mercado, results pipeline)** OR connect Vercel to deploy. Context page itself is feature-complete.
+- **CONTEXT PAGE COMPLETE:** Lista (calendar+filters+cards) / Grupos (12 standings tables) / Llaves (stage-odds) views + 4-line scoreboard, expand detail, mobile, flag+short names, Dirty-George null handling. Deploy-ready (Vercel, Root Directory=web).
 - **Preview it:** `npm --prefix web run dev`. Page now = legend + **4-line Tablero de aciertos** (zero-state until results) + **Recientes/Próximos** cards + **full date-grouped calendar** (72 fixtures, flag+short names, M1/M2 predictions).
 - **Blockers:** none
 - **Verify anytime:** `npm --prefix web run build` (must end "✔ done") or `npm --prefix web run dev` for live preview.
@@ -32,7 +32,8 @@
 - [x] **CP0:** `git checkout -b v2` ✓ (main frozen at v1.0-baseline)
 - [x] **CP1:** `cc611b3` v2 scaffold + planning docs ✓
 - [x] **CP2:** `9e3c353` Context page MVP ✓ — **pushed to origin/v2**
-- [ ] **CP3:** after Batch 3 (filters/views) — commit `"context page filters"`
+- [x] **CP3:** `bd35fd8` Context page filters + expand detail ✓ — **pushed to origin/v2**
+- [ ] **CP4:** after 3.5/views — commit `"context page polish"`
 - [ ] (further checkpoints appended as batches complete)
 
 ---
@@ -61,10 +62,10 @@
 
 **Batch 3 — Filters, views, polish**
 - [x] 3.1 Filters: Grupo A–L chips + Equipo search (`FilterBar.svelte`, reactive `$state`/`$derived`/`$bindable`; calendar-only; count + empty state). Fase deferred (group stage only for now).
-- [ ] 3.2 `Grupos` view (standings, predicted vs actual) — *stretch*
-- [ ] 3.3 `Llaves` view (knockout bracket) — *stretch*
+- [x] 3.2 `Grupos` view — 12 standings tables (Selección/Elo/Valor/Avanza/Campeón, sorted by advance); `Grupos.svelte`. Exporter extended (`build_standings`) → `groups` data; missing squad value → `null` → renders "—" (no phantom €0M).
+- [x] 3.3 `Llaves` view — stage-odds table (Octavos→Campeón per team by champion%); `Llaves.svelte`; `knockout` data. Honest note: exact bracket defines after group stage (visual bracket deferred to P3/qualified teams).
 - [x] 3.4 Expand-on-click row detail — `MatchRow` now a native `<details>`; per-model W/D/L stacked bars + xG (λ) + M3 interval (when present) + Mercado favorito; M3/Mercado show "— pendiente". `grade.js` LINE_NAMES added. ("why"/top-features deferred → P10 per-match attribution.)
-- [ ] 3.5 Mobile/responsive + full `usted` copy pass against COPY_ES
+- [x] 3.5 Mobile (strip → 2×2 grid ≤480px; teams/meta sized) + copy registered in COPY_ES §11 (all UI strings usted-clean; native review = launch gate, not build). [Stretch remaining: 3.2 Grupos, 3.3 Llaves]
 
 ### PHASE 2 — Model integrity & real predictions  *(after MVP; feeds the page real data)*
 - [ ] Batch 4 — `/v2` Python fork + **P0** data-integrity/leakage layer
@@ -94,3 +95,6 @@
 - **CP2 PUSHED** ✓ `9e3c353` on origin/v2 (Jorge). MVP banked.
 - **3.1** ✓ `src/lib/components/FilterBar.svelte` + `+page.svelte` reactive filter (Grupo chips A–L + Equipo search over full/short/canonical names). Calendar filters; scoreboard/cards stay global. Build ✓; chips/search render at initial 'Todos' (72 rows). Interactivity via hydration. Next: 3.4 expand-row detail.
 - **3.4** ✓ Expand detail via `<details>`/`<summary>` (accessible, no JS). Detail = per-line W/D/L bar (sky/slate/orange) + xG + Mercado favorito; M3/Mercado "— pendiente". Verified prerender: 74 `<details>`, "xG 2.68", "L 80% · E 13% · V 7%", "pendiente". **Context page MVP core complete** (calendar+filters+cards+scoreboard+detail). Remaining Batch 3 = polish (3.5 mobile/copy) + stretch views (3.2 Grupos, 3.3 Llaves).
+- **3.5** ✓ Mobile: `MatchRow` strip → 2×2 grid ≤480px (even, no ragged wrap). Copy registered: COPY_ES §11 lists every implemented Context-page string for native review. Build ✓. **Context page MVP feature-complete + polished + deploy-ready.** Only optional stretch views (Grupos/Llaves) remain in Batch 3. ▶ CP4 available.
+- **3.2/3.3** ✓ **BATCH 3 COMPLETE.** Exporter now also emits `groups` (12 standings) + `knockout` (48 stage-odds), missing values `null`. New files: `Grupos.svelte`, `Llaves.svelte`; `+page.svelte` rewritten with Lista/Grupos/Llaves tabs (`view` $state); `+page.js` loads groups/knockout. Verified by temporarily defaulting each view: Grupos (Selección/Avanza/€190M/"—" for S.Africa) + Llaves (Octavos/Cuartos/"El cuadro exacto…"/Brasil) render; reverted to lista. **CONTEXT PAGE (Phase 1) DONE.** ▶ CP4 available (Grupos+Llaves+switcher). Next: Phase 2 model work or deploy.
+- **Polish:** "Valor" header tooltip added (Grupos) — "Valor de mercado del plantel (millones de €, Transfermarkt)", dotted-underline + help cursor; COPY_ES §11. (Jorge asked what € meant → not self-evident → clarified in UI.)

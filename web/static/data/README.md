@@ -55,3 +55,7 @@ The Context page reads one static file: `web/static/data/matches.json`, produced
 ## Provenance / integrity (ties to P0)
 - The 72 group-stage fixtures already live in `results.csv` (unscored, future-dated). Knockout fixtures fill in as the bracket resolves.
 - A result only enters the model pipeline deliberately (P0 leakage tripwire); the Context page's results feed is that deliberate-update surface.
+
+## Standings sections (added 2026-06-08 for Grupos/Llaves views)
+- `groups`: `[ { group, teams: [ { team, elo, value, advance, champion, winner, runner } ] } ]` — teams sorted by `advance` desc. **`value` is `null` when squad value is unknown** (e.g. South Africa) — the UI renders "—", never a phantom €0M (Dirty George).
+- `knockout`: `[ { team, group, r16, qf, sf, final, champion } ]` — all 48 teams, sorted by `champion` desc (stage-reach probabilities for the Llaves view).

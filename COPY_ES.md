@@ -124,3 +124,27 @@
 - [ ] Confirmar "Llaves" vs "Cuadro" para el bracket según preferencia regional del público.
 - [ ] Confirmar convención numérica (coma de miles / punto decimal) para el país objetivo.
 - [ ] **Nombres de selección (display GUI, en `web/src/lib/teams.js`):** confirmar formas cortas/traducciones — Chequia, Corea, EE. UU., P. Bajos, A. Saudita, C. de Marfil, N. Zelanda, RD Congo, Catar, Curazao, Sudáfrica. Banderas de Inglaterra/Escocia usan emoji de subdivisión (🏴 + tags) — puede mostrarse como bandera negra en algunos sistemas.
+
+---
+
+## 11. Microcopy implementada — Context page (para revisión nativa)
+Cadenas ya en código (`web/src/`), todas en usted/neutro:
+| Ubicación | Cadena |
+|---|---|
+| Título | **Contexto — Calendario y Predicciones** |
+| Subtítulo | **Copa Mundial de la FIFA 2026 · {N} partidos de fase de grupos** |
+| Tablero | **Tablero de aciertos** · **(muestra pequeña)** |
+| Tablero (vacío) | **Se activa cuando se jueguen los primeros partidos. Por ahora muestra los pronósticos de cada modelo en el calendario.** |
+| Tablero (por línea) | **{n}/{N} aciertos** · **RPS {x}** · **{n} exactos** |
+| Tarjetas | **Recientes** · **Próximos** |
+| Recientes (vacío) | **Aún no hay partidos jugados.** |
+| Próximos (vacío) | **Sin próximos partidos.** |
+| Calendario | **Calendario completo** · **{n} de {N}** |
+| Filtros | chips **Todos / A … L** · buscador placeholder **Buscar selección…** |
+| Calendario (vacío) | **Sin resultados para este filtro.** |
+| Estado partido | **Por jugarse** · **En vivo** · **Finalizado** |
+| Fila (etiquetas) | **Grupo {X}** · **L {p}% · E {p}% · V {p}%** (Local/Empate/Visitante) · **xG {a}–{b}** · **favorito: {equipo}** · **intervalo [{lo}–{hi}%]** · **— pendiente** |
+| Veredicto | **✓** acierto · **✗** fallo · **⭐** marcador exacto |
+| Grupos (encabezados) | **Selección · Elo · Valor · Avanza · Campeón** |
+| Grupos (tooltip «Valor») | **Valor de mercado del plantel (millones de €, Transfermarkt)** · sin dato → **—** |
+| Llaves | nota **El cuadro exacto se define al terminar la fase de grupos…** · encabezados **Octavos · Cuartos · Semis · Final · Campeón** |

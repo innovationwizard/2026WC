@@ -140,4 +140,12 @@
   .dmeta { display: flex; gap: 0.75rem; flex-wrap: wrap; font-size: 0.72rem; color: #94a3b8; font-variant-numeric: tabular-nums; }
   .xg { color: #64748b; }
   .pend { font-size: 0.72rem; color: #475569; }
+
+  /* Phones: 4-line strip becomes an even 2×2 grid (no ragged wrap). */
+  @media (max-width: 480px) {
+    .strip { display: grid; grid-template-columns: 1fr 1fr; }
+    .cell { min-width: 0; }
+    .teams { font-size: 0.88rem; }
+    .meta { font-size: 0.65rem; }
+  }
 </style>
