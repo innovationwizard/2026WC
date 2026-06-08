@@ -2,11 +2,32 @@
   import MatchRow from '$lib/components/MatchRow.svelte';
   import Scoreboard from '$lib/components/Scoreboard.svelte';
   import Cards from '$lib/components/Cards.svelte';
+  import FilterBar from '$lib/components/FilterBar.svelte';
   import { groupByDate, fmtDay } from '$lib/calendar.js';
+  import { teamFull, teamShort } from '$lib/teams.js';
 
   let { data } = $props();
   const { matches, meta } = data;
-  const days = groupByDate(matches);
+
+  const groupsList = [...new Set(matches.map((m) => m.group).filter(Boolean))].sort();
+
+  let group = $state('Todos');
+  let query = $state('');
+
+  // Filters apply to the calendar list only; scoreboard + cards stay global.
+  const filtered = $derived(
+    matches.filter((m) => {
+      if (group !== 'Todos' && m.group !== group) return false;
+      const q = query.trim().toLowerCase();
+      if (q) {
+        const hay = [teamFull(m.home), teamShort(m.home), m.home, teamFull(m.away), teamShort(m.away), m.away]
+          .join(' ').toLowerCase();
+        if (!hay.includes(q)) return false;
+      }
+      return true;
+    })
+  );
+  const days = $derived(groupByDate(filtered));
 </script>
 
 <svelte:head>
@@ -28,7 +49,14 @@
   <Cards {matches} />
 
   <section class="calendar">
-    <h2 class="section-title">Calendario completo</h2>
+    <h2 class="section-title">
+      Calendario completo
+      {#if filtered.length !== matches.length}<span class="count">· {filtered.length} de {matches.length}</span>{/if}
+    </h2>
+    <FilterBar bind:group bind:query groups={groupsList} />
+    {#if days.length === 0}
+      <p class="empty">Sin resultados para este filtro.</p>
+    {/if}
     {#each days as [date, dayMatches]}
       <h3 class="day">{fmtDay(date)}</h3>
       {#each dayMatches as m (m.id)}
@@ -51,6 +79,8 @@
   .sub { color: #64748b; font-size: 0.8rem; margin: 0 0 1.25rem; }
   .leg { margin-right: 0.7rem; white-space: nowrap; }
   .section-title { color: #3b82f6; font-size: 1.1rem; border-bottom: 2px solid #1e293b; padding-bottom: 0.4rem; margin: 0 0 0.5rem; }
+  .count { color: #64748b; font-size: 0.8rem; font-weight: 400; }
+  .empty { color: #64748b; font-size: 0.85rem; padding: 1rem 0; }
   .day {
     position: sticky;
     top: 0;

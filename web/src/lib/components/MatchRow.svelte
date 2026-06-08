@@ -1,6 +1,6 @@
 <script>
   import { teamFull, teamShort, teamFlag } from '$lib/teams.js';
-  import { LINES, LINE_COLORS, verdictFor } from '$lib/grade.js';
+  import { LINES, LINE_COLORS, LINE_NAMES, verdictFor } from '$lib/grade.js';
 
   let { match } = $props();
 
@@ -24,41 +24,70 @@
     return v.acierto ? (v.exacto ? '✓⭐' : '✓') : '✗';
   }
 
+  const pct = (x) => Math.round((x ?? 0) * 100);
   const statusLabel = { por_jugarse: 'Por jugarse', en_vivo: 'En vivo', finalizado: 'Finalizado' };
 </script>
 
-<article class="row" class:finished>
-  <header>
-    <div class="teams">
-      <span class="team" title={teamFull(match.home)}>
-        <span class="flag">{teamFlag(match.home)}</span>{teamShort(match.home)}
-      </span>
-      {#if finished}
-        <span class="score">{match.result.home}–{match.result.away}</span>
-      {:else}
-        <span class="vs">vs</span>
-      {/if}
-      <span class="team away" title={teamFull(match.away)}>
-        <span class="flag">{teamFlag(match.away)}</span>{teamShort(match.away)}
-      </span>
+<details class="row" class:finished>
+  <summary>
+    <div class="top">
+      <div class="teams">
+        <span class="team" title={teamFull(match.home)}>
+          <span class="flag">{teamFlag(match.home)}</span>{teamShort(match.home)}
+        </span>
+        {#if finished}
+          <span class="score">{match.result.home}–{match.result.away}</span>
+        {:else}
+          <span class="vs">vs</span>
+        {/if}
+        <span class="team away" title={teamFull(match.away)}>
+          <span class="flag">{teamFlag(match.away)}</span>{teamShort(match.away)}
+        </span>
+      </div>
+      <div class="meta">
+        {#if match.group}<span class="grp">Grupo {match.group}</span>{/if}
+        <span class="status status-{match.status}">{statusLabel[match.status]}</span>
+        <span class="chev" aria-hidden="true">▸</span>
+      </div>
     </div>
-    <div class="meta">
-      {#if match.group}<span class="grp">Grupo {match.group}</span>{/if}
-      <span class="status status-{match.status}">{statusLabel[match.status]}</span>
-    </div>
-  </header>
 
-  <div class="strip">
+    <div class="strip">
+      {#each LINES as line}
+        {@const p = match.predictions[line]}
+        <div class="cell" class:muted={!p} style="--c:{LINE_COLORS[line]}">
+          <span class="lbl">{line}</span>
+          <span class="val">{cellText(line, p)}</span>
+          {#if finished}<span class="mk">{mark(line, p)}</span>{/if}
+        </div>
+      {/each}
+    </div>
+  </summary>
+
+  <!-- Detail: per-model W/D/L bars + xG + (M3) interval -->
+  <div class="detail">
     {#each LINES as line}
       {@const p = match.predictions[line]}
-      <div class="cell" class:muted={!p} style="--c:{LINE_COLORS[line]}">
-        <span class="lbl">{line}</span>
-        <span class="val">{cellText(line, p)}</span>
-        {#if finished}<span class="mk">{mark(line, p)}</span>{/if}
+      <div class="dline" style="--c:{LINE_COLORS[line]}">
+        <div class="dhead"><b class="dlbl">{line}</b> <span class="dname">{LINE_NAMES[line]}</span></div>
+        {#if p && p.probs}
+          <div class="wdl" aria-hidden="true">
+            <span class="seg h" style="width:{pct(p.probs.home)}%"></span>
+            <span class="seg d" style="width:{pct(p.probs.draw)}%"></span>
+            <span class="seg a" style="width:{pct(p.probs.away)}%"></span>
+          </div>
+          <div class="dmeta">
+            <span>L {pct(p.probs.home)}% · E {pct(p.probs.draw)}% · V {pct(p.probs.away)}%</span>
+            {#if p.lambda}<span class="xg">xG {p.lambda.home}–{p.lambda.away}</span>{/if}
+            {#if line === 'Mercado'}<span class="xg">favorito: {p.pick === 'draw' ? 'empate' : teamShort(p.pick === 'home' ? match.home : match.away)}</span>{/if}
+            {#if p.interval}<span class="xg">intervalo [{pct(p.interval.lo)}–{pct(p.interval.hi)}%]</span>{/if}
+          </div>
+        {:else}
+          <span class="pend">— pendiente</span>
+        {/if}
       </div>
     {/each}
   </div>
-</article>
+</details>
 
 <style>
   .row {
@@ -68,9 +97,11 @@
     padding: 0.6rem 0.75rem;
     margin: 0.4rem 0;
   }
-  header { display: flex; justify-content: space-between; align-items: baseline; gap: 0.5rem; flex-wrap: wrap; }
+  summary { cursor: pointer; list-style: none; }
+  summary::-webkit-details-marker { display: none; }
+  .top { display: flex; justify-content: space-between; align-items: baseline; gap: 0.5rem; flex-wrap: wrap; }
   .teams { display: flex; align-items: baseline; gap: 0.5rem; font-size: 0.95rem; }
-  .team { font-weight: 600; white-space: nowrap; }      /* single line, always */
+  .team { font-weight: 600; white-space: nowrap; }
   .team.away { color: #cbd5e1; }
   .flag { margin-right: 0.3rem; }
   .vs { color: #64748b; font-size: 0.8rem; }
@@ -81,21 +112,32 @@
   .status-por_jugarse { color: #64748b; }
   .status-en_vivo { color: #ef4444; }
   .status-finalizado { color: #22c55e; }
+  .chev { color: #475569; transition: transform 0.15s; display: inline-block; }
+  details[open] .chev { transform: rotate(90deg); }
 
   .strip { display: flex; gap: 0.4rem; margin-top: 0.5rem; flex-wrap: wrap; }
   .cell {
-    flex: 1 1 0;
-    min-width: 92px;
+    flex: 1 1 0; min-width: 92px;
     border-left: 3px solid var(--c);
-    background: #0f172a;
-    border-radius: 4px;
+    background: #0f172a; border-radius: 4px;
     padding: 0.25rem 0.45rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.05rem;
+    display: flex; flex-direction: column; gap: 0.05rem;
   }
   .cell.muted { opacity: 0.45; }
   .lbl { font-size: 0.62rem; color: var(--c); font-weight: 700; letter-spacing: 0.04em; }
   .val { font-size: 0.85rem; font-variant-numeric: tabular-nums; white-space: nowrap; }
   .mk { font-size: 0.75rem; }
+
+  .detail { margin-top: 0.6rem; padding-top: 0.5rem; border-top: 1px solid #1e293b; display: grid; gap: 0.5rem; }
+  .dline { border-left: 3px solid var(--c); padding-left: 0.5rem; }
+  .dhead { font-size: 0.72rem; }
+  .dlbl { color: var(--c); }
+  .dname { color: #94a3b8; }
+  .wdl { display: flex; height: 7px; border-radius: 3px; overflow: hidden; margin: 0.25rem 0; background: #0f172a; }
+  .seg.h { background: #38bdf8; }
+  .seg.d { background: #475569; }
+  .seg.a { background: #fb923c; }
+  .dmeta { display: flex; gap: 0.75rem; flex-wrap: wrap; font-size: 0.72rem; color: #94a3b8; font-variant-numeric: tabular-nums; }
+  .xg { color: #64748b; }
+  .pend { font-size: 0.72rem; color: #475569; }
 </style>

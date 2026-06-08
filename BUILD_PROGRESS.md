@@ -6,9 +6,10 @@
 
 ## ⏩ CURRENT STATE — READ FIRST
 - **Phase:** 1 — Context page MVP (live scoreboard for June 11 kickoff)
-- **Last completed:** **Batch 2 COMPLETE** — full Context page MVP (scoreboard + cards + calendar), grading engine unit-tested (11/11)
-- **In progress:** — (ready for Batch 3: filters/views)
-- **NEXT ACTION:** **Batch 3** — 3.1 Grupo A–L filter + Fase + Equipo search → 3.4 expand-on-click row detail → 3.2/3.3 Grupos/Llaves views (stretch) → 3.5 mobile + usted copy pass.
+- **Last completed:** 3.4 expand-on-click row detail (`<details>`: per-model W/D/L bars + xG; M3/Mercado "pendiente")
+- **In progress:** Batch 3 (remaining = stretch views + polish)
+- **NEXT ACTION:** **3.5** mobile responsiveness + full usted copy pass against COPY_ES → then stretch: 3.2 Grupos view (standings) + 3.3 Llaves view (bracket). (Fase filter + per-match "why" deferred — "why" needs per-match feature attribution = roadmap P10.)
+- **MVP core COMPLETE:** legend + scoreboard + cards + filterable calendar + expand detail. The June-11 live-scoreboard skeleton is built.
 - **Preview it:** `npm --prefix web run dev`. Page now = legend + **4-line Tablero de aciertos** (zero-state until results) + **Recientes/Próximos** cards + **full date-grouped calendar** (72 fixtures, flag+short names, M1/M2 predictions).
 - **Blockers:** none
 - **Verify anytime:** `npm --prefix web run build` (must end "✔ done") or `npm --prefix web run dev` for live preview.
@@ -28,9 +29,10 @@
 ---
 
 ## 🧭 Git checkpoints — JORGE runs these (I never mutate git)
-- [ ] **CP0 (do before first commit):** `git checkout -b v2`  ← keeps `main` frozen at `v1.0-baseline`
-- [ ] **CP1:** after Batch 0 (scaffold runs) — stage `web/` + `BUILD_PROGRESS.md`, commit `"v2 scaffold: SvelteKit skeleton"`
-- [ ] **CP2:** after Batch 2 (context page core renders) — commit `"context page core"`
+- [x] **CP0:** `git checkout -b v2` ✓ (main frozen at v1.0-baseline)
+- [x] **CP1:** `cc611b3` v2 scaffold + planning docs ✓
+- [x] **CP2:** `9e3c353` Context page MVP ✓ — **pushed to origin/v2**
+- [ ] **CP3:** after Batch 3 (filters/views) — commit `"context page filters"`
 - [ ] (further checkpoints appended as batches complete)
 
 ---
@@ -58,10 +60,10 @@
 - [x] 2.5 Wired to `matches.json` ✓ — full page prerenders (scoreboard + cards + calendar). Grading engine `grade.js` unit-tested via `scripts/test_grade.mjs` (11/11 PASS).
 
 **Batch 3 — Filters, views, polish**
-- [ ] 3.1 Filters: Grupo A–L chips · Fase · Equipo search
+- [x] 3.1 Filters: Grupo A–L chips + Equipo search (`FilterBar.svelte`, reactive `$state`/`$derived`/`$bindable`; calendar-only; count + empty state). Fase deferred (group stage only for now).
 - [ ] 3.2 `Grupos` view (standings, predicted vs actual) — *stretch*
 - [ ] 3.3 `Llaves` view (knockout bracket) — *stretch*
-- [ ] 3.4 Expand-on-click row detail (W/D/L, λ, M3 interval, why)
+- [x] 3.4 Expand-on-click row detail — `MatchRow` now a native `<details>`; per-model W/D/L stacked bars + xG (λ) + M3 interval (when present) + Mercado favorito; M3/Mercado show "— pendiente". `grade.js` LINE_NAMES added. ("why"/top-features deferred → P10 per-match attribution.)
 - [ ] 3.5 Mobile/responsive + full `usted` copy pass against COPY_ES
 
 ### PHASE 2 — Model integrity & real predictions  *(after MVP; feeds the page real data)*
@@ -89,3 +91,6 @@
 - **2.1/2.2/2.5** ✓ Context calendar renders. Files: `src/lib/teams.js`, `src/lib/grade.js` (LINES/colors, scoreVerdict/marketVerdict, rps, scoreboard), `src/lib/components/MatchRow.svelte` (3 states + 4-line strip), `src/routes/+page.js` (loads `/data/matches.json` at prerender), `src/routes/+page.svelte` (date-grouped Lista, sticky Spanish day headers, legend). Build verified: 72 `.row` in prerendered `index.html` (175 KB) with México/Sudáfrica/Grupo A/Por jugarse/scoreline/junio. **Calendar Lista WORKING.** Remaining Batch 2: 2.3 cards + 2.4 scoreboard.
 - **Team-name display fix (Jorge req):** long names wrapped → ugly. Chose **flag + short name** (GUI-only). `src/lib/teams.js` now holds `{full,short,flag}` for all 48 (the presentation source of truth); `matches.json` reduced to canonical names only (exporter no longer emits `teams`). MatchRow renders `🇧🇦 Bosnia` (nowrap) with `title="Bosnia y Herzegovina"` on hover. Verified in prerender. Short forms (Chequia/Corea/EE. UU./P. Bajos/A. Saudita/C. de Marfil/N. Zelanda/RD Congo) flagged for native review → COPY_ES §10. Rejected pure CSS ellipsis (South Korea/South Africa both → "South…").
 - **2.3/2.4/2.5** ✓ **Batch 2 DONE.** New files: `src/lib/calendar.js` (groupByDate, recientes/proximosDate, matchesOn, fmtDay), `src/lib/components/Scoreboard.svelte` (4-line tablero, hit-rate color + RPS muted + exactos + muestra-pequeña), `src/lib/components/Cards.svelte` (Recientes/Próximos single-day), `+page.svelte` (assembles all). Grading proven: `scripts/test_grade.mjs` → 11/11 PASS (acierto/exacto/fallo, market outcome-only, RPS perfect=0 & uniform=0.278, scoreboard agg, M2 RPS<M1). Prerender verified: Tablero/Recientes/Próximos/Calendario completo + zero-state (0/0, "Se activa cuando", "Aún no hay partidos"). Run test anytime: `node web/scripts/test_grade.mjs`. **▶ git checkpoint CP2 available** (context page core).
+- **CP2 PUSHED** ✓ `9e3c353` on origin/v2 (Jorge). MVP banked.
+- **3.1** ✓ `src/lib/components/FilterBar.svelte` + `+page.svelte` reactive filter (Grupo chips A–L + Equipo search over full/short/canonical names). Calendar filters; scoreboard/cards stay global. Build ✓; chips/search render at initial 'Todos' (72 rows). Interactivity via hydration. Next: 3.4 expand-row detail.
+- **3.4** ✓ Expand detail via `<details>`/`<summary>` (accessible, no JS). Detail = per-line W/D/L bar (sky/slate/orange) + xG + Mercado favorito; M3/Mercado "— pendiente". Verified prerender: 74 `<details>`, "xG 2.68", "L 80% · E 13% · V 7%", "pendiente". **Context page MVP core complete** (calendar+filters+cards+scoreboard+detail). Remaining Batch 3 = polish (3.5 mobile/copy) + stretch views (3.2 Grupos, 3.3 Llaves).

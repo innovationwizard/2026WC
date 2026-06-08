@@ -2,6 +2,7 @@
 
 export const LINES = ['M1', 'M2', 'M3', 'Mercado'];
 export const LINE_LABELS = { M1: 'M1', M2: 'M2', M3: 'M3', Mercado: 'Mercado' };
+export const LINE_NAMES = { M1: 'Azar', M2: 'Red Neuronal', M3: 'Conjunto', Mercado: 'Mercado' };
 export const LINE_COLORS = { M1: '#64748b', M2: '#3b82f6', M3: '#22c55e', Mercado: '#94a3b8' };
 
 // Verdict for a scoreline model (M1/M2/M3): acierto on outcome, exacto on exact score.
