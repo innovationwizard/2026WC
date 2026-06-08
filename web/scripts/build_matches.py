@@ -13,12 +13,13 @@ results.csv (teams unknown) so this MVP emits the 72 group matches only.
 Run:  .venv/bin/python web/scripts/build_matches.py
 Contract: web/static/data/README.md
 """
-import json, math, os, datetime
+import json, math, os, datetime, csv
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 PRED = os.path.join(ROOT, 'output', 'predictions.json')
 CSV  = os.path.join(ROOT, 'results.csv')
 OUT  = os.path.join(ROOT, 'web', 'static', 'data', 'matches.json')
+RESULTS = os.path.join(ROOT, 'web', 'data', 'results_live.csv')  # live scores you edit (NOT the locked results.csv)
 
 # NOTE: team display (Spanish full/short names + flags) is GUI-only and lives in
 # web/src/lib/teams.js. This data file carries only canonical (CSV) team names.
@@ -113,6 +114,38 @@ def build_standings(pred):
     return out_groups, knockout
 
 
+def load_or_init_results(matches):
+    """Live results: read web/data/results_live.csv; create a blank template if missing
+    (preserves your edits on re-runs). Returns {match_id: (home_score, away_score)}."""
+    os.makedirs(os.path.dirname(RESULTS), exist_ok=True)
+    if not os.path.exists(RESULTS):
+        with open(RESULTS, 'w', newline='', encoding='utf-8') as f:
+            w = csv.writer(f)
+            w.writerow(['id', 'home', 'away', 'home_score', 'away_score'])
+            for m in matches:
+                w.writerow([m['id'], m['home'], m['away'], '', ''])
+        return {}
+    res = {}
+    with open(RESULTS, newline='', encoding='utf-8') as f:
+        for row in csv.DictReader(f):
+            hs, a_s = (row.get('home_score') or '').strip(), (row.get('away_score') or '').strip()
+            if hs != '' and a_s != '':
+                res[row['id']] = (int(hs), int(a_s))
+    return res
+
+
+def apply_results(matches, res):
+    """Flip matched fixtures to finalizado with their result (outcome derived)."""
+    for m in matches:
+        sc = res.get(m['id'])
+        if not sc:
+            continue
+        hs, a_s = sc
+        outcome = 'home' if hs > a_s else ('away' if a_s > hs else 'draw')
+        m['status'] = 'finalizado'
+        m['result'] = {'home': hs, 'away': a_s, 'outcome': outcome}
+
+
 def main():
     import csv
     pred = json.load(open(PRED))
@@ -180,6 +213,9 @@ def main():
             'predictions': {'M1': m1, 'M2': m2, 'M3': None, 'Mercado': None},
         })
 
+    results = load_or_init_results(matches)
+    apply_results(matches, results)
+
     groups_data, knockout_data = build_standings(pred)
 
     out = {
@@ -201,7 +237,8 @@ def main():
         json.dump(out, f, ensure_ascii=False, indent=2)
 
     print(f"wrote {OUT}")
-    print(f"matches: {len(matches)} | missing/flagged: {missing if missing else 'none'}")
+    n_fin = sum(1 for m in matches if m['status'] == 'finalizado')
+    print(f"matches: {len(matches)} | finalizado: {n_fin} | missing/flagged: {missing if missing else 'none'}")
 
 
 if __name__ == '__main__':
