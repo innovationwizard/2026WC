@@ -20,6 +20,7 @@ PRED = os.path.join(ROOT, 'output', 'predictions.json')
 CSV  = os.path.join(ROOT, 'results.csv')
 OUT  = os.path.join(ROOT, 'web', 'static', 'data', 'matches.json')
 RESULTS = os.path.join(ROOT, 'web', 'data', 'results_live.csv')  # live scores you edit (NOT the locked results.csv)
+MARKET  = os.path.join(ROOT, 'web', 'data', 'market_odds.csv')   # decimal 1X2 odds you enter per match (Mercado line)
 
 # NOTE: team display (Spanish full/short names + flags) is GUI-only and lives in
 # web/src/lib/teams.js. This data file carries only canonical (CSV) team names.
@@ -146,6 +147,42 @@ def apply_results(matches, res):
         m['result'] = {'home': hs, 'away': a_s, 'outcome': outcome}
 
 
+def load_or_init_market(matches):
+    """Market odds (decimal 1X2): web/data/market_odds.csv. Blank template if missing;
+    preserves edits on re-run. Returns {match_id: (odd_home, odd_draw, odd_away)}."""
+    os.makedirs(os.path.dirname(MARKET), exist_ok=True)
+    if not os.path.exists(MARKET):
+        with open(MARKET, 'w', newline='', encoding='utf-8') as f:
+            w = csv.writer(f)
+            w.writerow(['id', 'home', 'away', 'odd_1', 'odd_X', 'odd_2'])
+            for m in matches:
+                w.writerow([m['id'], m['home'], m['away'], '', '', ''])
+        return {}
+    odds = {}
+    with open(MARKET, newline='', encoding='utf-8') as f:
+        for row in csv.DictReader(f):
+            try:
+                o1, ox, o2 = float(row['odd_1']), float(row['odd_X']), float(row['odd_2'])
+            except (ValueError, KeyError, TypeError):
+                continue  # blank/invalid row → skip (no silent bad data)
+            if o1 > 0 and ox > 0 and o2 > 0:
+                odds[row['id']] = (o1, ox, o2)
+    return odds
+
+
+def apply_market(matches, odds):
+    """Decimal odds → vig-free implied 1X2 probabilities → Mercado prediction (pick + probs; no scoreline)."""
+    for m in matches:
+        o = odds.get(m['id'])
+        if not o:
+            continue
+        raw = [1.0 / o[0], 1.0 / o[1], 1.0 / o[2]]   # implied probs (with overround)
+        s = sum(raw)                                  # overround
+        probs = {'home': round(raw[0] / s, 3), 'draw': round(raw[1] / s, 3), 'away': round(raw[2] / s, 3)}
+        pick = ('home', 'draw', 'away')[max(range(3), key=lambda i: raw[i])]
+        m['predictions']['Mercado'] = {'pick': pick, 'probs': probs}
+
+
 def main():
     import csv
     pred = json.load(open(PRED))
@@ -215,6 +252,8 @@ def main():
 
     results = load_or_init_results(matches)
     apply_results(matches, results)
+    market = load_or_init_market(matches)
+    apply_market(matches, market)
 
     groups_data, knockout_data = build_standings(pred)
 

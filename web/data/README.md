@@ -14,6 +14,9 @@
    ```
 4. Vercel redeploys automatically → the calendar rows flip to *Finalizado*, the ✓/✗/⭐ appear, and the **Tablero de aciertos** updates live.
 
+## Market odds (the Mercado line)
+`market_odds.csv` holds **decimal 1X2 odds** per match — `odd_1` (home win), `odd_X` (draw), `odd_2` (away win). Copy them from any bookmaker (Bet365, etc.) before the match. The exporter converts them to **vig-free implied probabilities** (normalised, so the bookmaker margin is removed) and sets the **Mercado** pick. Same loop: edit → run exporter → push. Leave a match blank until you have its odds; Mercado shows "—" until then.
+
 ## Notes
 - Fill **only** the two score columns; leave a match blank until it's played.
 - `home`/`away` are canonical (English/CSV) names; the UI shows Spanish.

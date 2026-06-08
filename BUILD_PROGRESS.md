@@ -6,9 +6,9 @@
 
 ## ⏩ CURRENT STATE — READ FIRST
 - **Phase:** 1 — Context page MVP (live scoreboard for June 11 kickoff)
-- **Last completed:** **BATCH 4 COMPLETE** — live results-ingestion mechanism (scoreboard goes live when scores are entered), verified end-to-end
-- **In progress:** Phase 2 — next is Mercado (Batch 5) or M3 (Batch 6)
-- **NEXT ACTION:** **Batch 5 — Mercado**: ingest betting odds (Polymarket/Bet365…) → the 4th line becomes real (currently null/pendiente). Then Batch 6 = M3 ensemble. Live workflow: `web/data/README.md`.
+- **Last completed:** **BATCH 5 COMPLETE** — Mercado line (manual odds CSV → vig-free implied probs), verified end-to-end
+- **In progress:** Phase 2 — next is M3 (Batch 6) or model-quality fixes
+- **NEXT ACTION:** **Batch 6 — M3 (Conjunto)**: market-anchored ensemble + conformal intervals → the M3 line becomes real (currently pendiente). Heavier model work (P7/P4/P12). Alternatively Batch 8 model-quality (P2 Dixon-Coles fixes the Spain/Bug-A problem). Live data workflow: `web/data/README.md` (terse) + **`web/data/HOW_TO_ENTER_RESULTS.md`** (friendly step-by-step for Jorge: how to fill results_live.csv + market_odds.csv, the one build command, daily routine, FAQ).
 - **CONTEXT PAGE COMPLETE:** Lista (calendar+filters+cards) / Grupos (12 standings tables) / Llaves (stage-odds) views + 4-line scoreboard, expand detail, mobile, flag+short names, Dirty-George null handling. Deploy-ready (Vercel, Root Directory=web).
 - **Preview it:** `npm --prefix web run dev`. Page now = legend + **4-line Tablero de aciertos** (zero-state until results) + **Recientes/Próximos** cards + **full date-grouped calendar** (72 fixtures, flag+short names, M1/M2 predictions).
 - **Blockers:** none
@@ -34,7 +34,8 @@
 - [x] **CP2:** `9e3c353` Context page MVP ✓ — **pushed to origin/v2**
 - [x] **CP3:** `bd35fd8` Context page filters + expand detail ✓ — **pushed to origin/v2**
 - [x] **CP4:** `fc93240` Grupos+Llaves views + switcher + Valor tooltip ✓ — **pushed to origin/v2**
-- [ ] **CP5:** next batch (Phase 2 model work, or post-deploy)
+- [x] **CP5:** `052dfeb` live results-ingestion mechanism ✓ — **pushed to origin/v2**
+- [ ] **CP6:** after Batch 5 (Mercado) — commit `"mercado odds line"`
 - [ ] (further checkpoints appended as batches complete)
 
 ---
@@ -74,7 +75,7 @@
 - [x] 4.2 `apply_results` merges → `status=finalizado` + `result{home,away,outcome}` (outcome derived)
 - [x] 4.3 Verified end-to-end (sample Mexico 2–0): row→Finalizado + score 2–0 + M2 ✓⭐ (exact) + M1 ✓ + scoreboard 1/1 + "1 exactos" + Recientes filled; reverted clean (0 finalizado)
 - [x] 4.4 Workflow documented → `web/data/README.md` (edit CSV → run exporter → commit/push → Vercel redeploys). No cron/websockets/DB.
-- [ ] Batch 5 — Mercado: ingest betting odds → 4th line real
+- [x] Batch 5 — Mercado ✓: `web/data/market_odds.csv` (decimal 1X2) → exporter `load_or_init_market`/`apply_market` → vig-free implied probs → Mercado pick (no scoreline). Verified: odds 1.40/4.50/7.00 → home 66/21/13 (sum 1.0) → "México 66%"; reverted. Pick-only, outcome-graded (grade.js marketVerdict). Doc in web/data/README.md.
 - [ ] Batch 6 — M3: market-anchored ensemble + conformal (P7/P4/P12) → M3 line real
 - [ ] Batch 7 — `/v2` fork + **P0** data-integrity/leakage layer (needed once models retrain on live results / dynamic updating P13)
 - [ ] Batch 8 — model-quality: **P2** Dixon-Coles (M2 fix Bug A), **P3** bracket from fixtures (Bug B), **P1** backtest (RPS/Brier)
@@ -103,3 +104,4 @@
 - **3.2/3.3** ✓ **BATCH 3 COMPLETE.** Exporter now also emits `groups` (12 standings) + `knockout` (48 stage-odds), missing values `null`. New files: `Grupos.svelte`, `Llaves.svelte`; `+page.svelte` rewritten with Lista/Grupos/Llaves tabs (`view` $state); `+page.js` loads groups/knockout. Verified by temporarily defaulting each view: Grupos (Selección/Avanza/€190M/"—" for S.Africa) + Llaves (Octavos/Cuartos/"El cuadro exacto…"/Brasil) render; reverted to lista. **CONTEXT PAGE (Phase 1) DONE.** ▶ CP4 available (Grupos+Llaves+switcher). Next: Phase 2 model work or deploy.
 - **Polish:** "Valor" header tooltip added (Grupos) — "Valor de mercado del plantel (millones de €, Transfermarkt)", dotted-underline + help cursor; COPY_ES §11. (Jorge asked what € meant → not self-evident → clarified in UI.)
 - **BATCH 4 ✓ (Phase 2 start) — LIVE SCOREBOARD MECHANISM.** Exporter gained `load_or_init_results` + `apply_results` (build_matches.py); new editable `web/data/results_live.csv` (blank 72-row template, separate from locked results.csv → no leakage, baseline frozen). Verified end-to-end with sample Mexico 2–0: Finalizado row + 2–0 + M2 ✓⭐ + M1 ✓ + scoreboard 1/1 + 1 exactos + Recientes filled; reverted to 0. Workflow doc: `web/data/README.md` (edit CSV→exporter→commit→Vercel; no cron/ws/DB). **The page now lights up automatically when scores are entered.** ▶ CP5 available. Next: Batch 5 Mercado (real odds → 4th line).
+- **BATCH 5 ✓ — MERCADO LINE.** Exporter gained `load_or_init_market` + `apply_market`; new editable `web/data/market_odds.csv` (blank 72-row template, decimal 1X2). Converts odds → vig-free implied probs (1/odd normalised) → Mercado {pick, probs} (pick-only, no scoreline, no ⭐). Verified: 1.40/4.50/7.00 → {home:.662,draw:.206,away:.132} sum 1.0 → "México 66%"; reverted. Now 3 of 4 lines real (M1/M2/Mercado); only M3 still pendiente. ▶ CP6 available. Next: Batch 6 M3 ensemble (heavier) OR Batch 8 model-quality (P2 Dixon-Coles → fixes Spain/Bug-A).
