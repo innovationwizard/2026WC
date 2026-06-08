@@ -242,7 +242,7 @@ This is the heart of the brief. Concrete mechanisms, in priority order:
 | Dataviz | **D3** (+ optional layout helpers) | Full control for bespoke sims, slope charts, dotplots, reliability diagrams. |
 | Motion | D3 transitions + **GSAP ScrollTrigger** or native CSS scroll-driven animations | Punctuation, used with restraint. |
 | Data | **Static JSON baked from the Python pipeline** (`predictions.json` + new sim/backtest exports) | Ties back to the earlier Postgres conversation: still **no DB needed** — the site is a static front-end over pre-computed JSON. |
-| Hosting | Static (Vercel / Netlify / GitHub Pages) | Cheap, fast, linkable, zero ops. |
+| Hosting | **Vercel** — `@sveltejs/adapter-vercel`, **Project Root Directory = `web`** (no need to move the app to repo root). All routes `prerender=true` → fully static output (+1 harmless fallback fn). | Cheap, fast, linkable, zero ops; zero-config deploy. |
 
 **Data flow (baseline-safe):** the Python model (v2, branched off `v1.0-baseline`) emits JSON → the SvelteKit site reads it at build time → static deploy. The website is a *new* artifact; it reads the model's output and never modifies baseline code.
 

@@ -6,9 +6,10 @@
 
 ## ⏩ CURRENT STATE — READ FIRST
 - **Phase:** 1 — Context page MVP (live scoreboard for June 11 kickoff)
-- **Last completed:** Batch 0 (scaffold builds ✓) + 1.1 (data contract)
-- **In progress:** — (ready to start 1.2)
-- **NEXT ACTION:** **1.2** — write export script → `web/static/data/matches.json` from `results.csv` fixtures + v1 `output/predictions.json` (M1/M2 real; M3/Mercado `null` stubs). Contract: `web/static/data/README.md`.
+- **Last completed:** **Batch 2 COMPLETE** — full Context page MVP (scoreboard + cards + calendar), grading engine unit-tested (11/11)
+- **In progress:** — (ready for Batch 3: filters/views)
+- **NEXT ACTION:** **Batch 3** — 3.1 Grupo A–L filter + Fase + Equipo search → 3.4 expand-on-click row detail → 3.2/3.3 Grupos/Llaves views (stretch) → 3.5 mobile + usted copy pass.
+- **Preview it:** `npm --prefix web run dev`. Page now = legend + **4-line Tablero de aciertos** (zero-state until results) + **Recientes/Próximos** cards + **full date-grouped calendar** (72 fixtures, flag+short names, M1/M2 predictions).
 - **Blockers:** none
 - **Verify anytime:** `npm --prefix web run build` (must end "✔ done") or `npm --prefix web run dev` for live preview.
 - **Greenlit to build:** YES (Jorge, 2026-06-08). Still: **Jorge drives all git** — I never run add/commit/push/branch/tag; I prepare commands for him (see Git checkpoints).
@@ -16,7 +17,7 @@
 ---
 
 ## 🔒 Locked decisions (do NOT re-litigate — pointers to detail)
-- **Stack:** SvelteKit + scrollama + D3, static (`@sveltejs/adapter-static`, prerendered). → design `WEBSITE_STORYTELLING_DESIGN.md` §6
+- **Stack:** SvelteKit + scrollama + D3. **Deploy → Vercel** via `@sveltejs/adapter-vercel`; **Vercel Project → Root Directory = `web`** (do NOT move the app to repo root); all routes `prerender=true` → static output (+1 harmless fallback fn). → design `WEBSITE_STORYTELLING_DESIGN.md` §6
 - **Repo layout:** `/web` = SvelteKit site · `/v2` = Python model fork · both branch off `v1.0-baseline`. Baseline files (root `*.py`, `results.csv`, `output/`) are FROZEN — never edit. → `memory/baseline-locked.md`
 - **Model lineup (4 lines):** M1 Azar (Elo foil) · M2 Red Neuronal (pure ANN, no odds) · M3 Conjunto (market-anchored ensemble + conformal) · **Mercado** (raw bookies, pick-not-scoreline, no ⭐). → design §0.5
 - **Context page:** date-grouped Lista (default) + Grupos + Llaves; 2 single-day cards (Recientes = last day w/ finished match, Próximos = next day w/ unplayed); match-row 3 states; predicted **SCORELINE** in-row (modal, not rounded λ); 4-line **scoreboard** = hit-rate (color) + RPS (muted) + exactos; outcome-graded, ⭐ for exact. → design §10
@@ -46,15 +47,15 @@
 
 **Batch 1 — Data contract & export**
 - [x] 1.1 Define `matches.json` schema → `web/static/data/README.md` (store facts, derive verdicts; 4 lines; Mercado = pick-only)
-- [ ] 1.2 Export script `web/scripts/build_matches.mjs` (or py): `results.csv` fixtures + v1 `output/predictions.json` → `web/static/data/matches.json` (M1/M2 real, M3/Mercado stubbed)
-- [ ] 1.3 Run export, validate JSON shape
+- [x] 1.2 Export script `web/scripts/build_matches.py` → `web/static/data/matches.json` (M1 from Elo, M2 from neural; M3/Mercado null; venue preserved; modal scorelines)
+- [x] 1.3 Ran export, validated: 72 matches, M1+M2 72/72, M3 0/72, 48 teams mapped, 0 flagged
 
 **Batch 2 — Context page core**
-- [ ] 2.1 `MatchRow.svelte` — 3 states (por jugarse / en vivo / finalizado) + 4-line prediction strip
-- [ ] 2.2 Date-grouped `Lista` with sticky day headers
-- [ ] 2.3 `Recientes` / `Próximos` single-day cards
-- [ ] 2.4 4-line `Tablero de aciertos` (hit-rate color + RPS muted + exactos)
-- [ ] 2.5 Wire to `matches.json`; browser smoke test
+- [x] 2.1 `MatchRow.svelte` — 3 states + 4-line prediction strip (M1/M2/M3/Mercado, color-keyed; ✓/✗/⭐ when finalizado) + `grade.js` (verdicts, scoreboard, RPS) + `teams.js`
+- [x] 2.2 Date-grouped Lista with sticky day headers (`+page.svelte`, Spanish dates via Intl) + `+page.js` loader
+- [x] 2.3 `Recientes` / `Próximos` single-day cards (`Cards.svelte` + `calendar.js` date selection; empty states handled)
+- [x] 2.4 4-line `Tablero de aciertos` (`Scoreboard.svelte`: hit-rate full-contrast + RPS muted + exactos + muestra-pequeña tag; zero-state until results)
+- [x] 2.5 Wired to `matches.json` ✓ — full page prerenders (scoreboard + cards + calendar). Grading engine `grade.js` unit-tested via `scripts/test_grade.mjs` (11/11 PASS).
 
 **Batch 3 — Filters, views, polish**
 - [ ] 3.1 Filters: Grupo A–L chips · Fase · Equipo search
@@ -82,4 +83,9 @@
 - **0.3** ✓ `npm --prefix web install` → 85 packages, exit 0. (svelte 5.x, @sveltejs/kit 2.x, vite 5.x, adapter-static 3.x, d3 7.x, scrollama 3.x)
 - **0.4** ✓ `npm run build` → adapter-static prerendered `web/build/` (index.html + 404.html + _app + data) in 1.53s; placeholder text present. **Batch 0 DONE — stack confirmed working.**
 - **1.1** ✓ Data contract: `web/static/data/README.md`. Key calls: store predictions+results, derive acierto/⭐/scoreboard in UI; M1/M2/M3 carry modal scoreline+probs (M3 +interval); Mercado pick+probs only (no scoreline, no ⭐); knockouts `home/away="Por definir"` + `predictions=null` until teams qualify.
+- **Deploy decision (2026-06-08):** Jorge → **Vercel**. Switched `adapter-static` → **`adapter-vercel`** (local build ✓ `✔ done`). Vercel config: **Root Directory = `web`**, framework auto-detected, no other settings needed (don't move build to root). Output: prerendered static + 1 unused fallback fn. `.vercel/` gitignored.
 - **▶ Jorge git checkpoint CP1 available:** scaffold is commit-ready (do CP0 `git checkout -b v2` first). Files: `web/`, `BUILD_PROGRESS.md`, `web/static/data/README.md`.
+- **1.2/1.3** ✓ Exporter `web/scripts/build_matches.py` → `web/static/data/matches.json`. Inspection-first (Dirty George): verified 72/72 fixture pairs have an M2 prediction, 0 team-name mismatches. M1 = Elo baseline formula (computed from `elo_ratings`); M2 = neural (oriented to home/away from `match_predictions`); modal scoreline = floor(λ); M3/Mercado = null. Venue (city/country/neutral) preserved. Teams Spanish map (48) embedded — ⚠ pending native review (Catar/Arabia Saudita/RD del Congo/Curazao/Nueva Zelanda etc). Regenerate anytime: `.venv/bin/python web/scripts/build_matches.py`. **Batch 1 DONE.**
+- **2.1/2.2/2.5** ✓ Context calendar renders. Files: `src/lib/teams.js`, `src/lib/grade.js` (LINES/colors, scoreVerdict/marketVerdict, rps, scoreboard), `src/lib/components/MatchRow.svelte` (3 states + 4-line strip), `src/routes/+page.js` (loads `/data/matches.json` at prerender), `src/routes/+page.svelte` (date-grouped Lista, sticky Spanish day headers, legend). Build verified: 72 `.row` in prerendered `index.html` (175 KB) with México/Sudáfrica/Grupo A/Por jugarse/scoreline/junio. **Calendar Lista WORKING.** Remaining Batch 2: 2.3 cards + 2.4 scoreboard.
+- **Team-name display fix (Jorge req):** long names wrapped → ugly. Chose **flag + short name** (GUI-only). `src/lib/teams.js` now holds `{full,short,flag}` for all 48 (the presentation source of truth); `matches.json` reduced to canonical names only (exporter no longer emits `teams`). MatchRow renders `🇧🇦 Bosnia` (nowrap) with `title="Bosnia y Herzegovina"` on hover. Verified in prerender. Short forms (Chequia/Corea/EE. UU./P. Bajos/A. Saudita/C. de Marfil/N. Zelanda/RD Congo) flagged for native review → COPY_ES §10. Rejected pure CSS ellipsis (South Korea/South Africa both → "South…").
+- **2.3/2.4/2.5** ✓ **Batch 2 DONE.** New files: `src/lib/calendar.js` (groupByDate, recientes/proximosDate, matchesOn, fmtDay), `src/lib/components/Scoreboard.svelte` (4-line tablero, hit-rate color + RPS muted + exactos + muestra-pequeña), `src/lib/components/Cards.svelte` (Recientes/Próximos single-day), `+page.svelte` (assembles all). Grading proven: `scripts/test_grade.mjs` → 11/11 PASS (acierto/exacto/fallo, market outcome-only, RPS perfect=0 & uniform=0.278, scoreboard agg, M2 RPS<M1). Prerender verified: Tablero/Recientes/Próximos/Calendario completo + zero-state (0/0, "Se activa cuando", "Aún no hay partidos"). Run test anytime: `node web/scripts/test_grade.mjs`. **▶ git checkpoint CP2 available** (context page core).

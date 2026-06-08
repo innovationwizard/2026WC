@@ -123,3 +123,4 @@
 - [ ] Todo el texto de UI y narración antes del lanzamiento — un hablante nativo LatAm valida registro y naturalidad (el generador de este copy no es nativo).
 - [ ] Confirmar "Llaves" vs "Cuadro" para el bracket según preferencia regional del público.
 - [ ] Confirmar convención numérica (coma de miles / punto decimal) para el país objetivo.
+- [ ] **Nombres de selección (display GUI, en `web/src/lib/teams.js`):** confirmar formas cortas/traducciones — Chequia, Corea, EE. UU., P. Bajos, A. Saudita, C. de Marfil, N. Zelanda, RD Congo, Catar, Curazao, Sudáfrica. Banderas de Inglaterra/Escocia usan emoji de subdivisión (🏴 + tags) — puede mostrarse como bandera negra en algunos sistemas.

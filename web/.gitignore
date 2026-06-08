@@ -1,6 +1,7 @@
 node_modules/
 /build
 /.svelte-kit
+/.vercel
 /dist
 .DS_Store
 .env
