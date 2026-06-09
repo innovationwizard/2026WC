@@ -68,7 +68,7 @@ def main():
     # v2: ENSEMBLE of N nets (different seeds), averaging λ — fixes run-to-run
     # training nondeterminism (single-net champion odds swing wildly). Always
     # retrains fresh (no cache) while we iterate on the model.
-    N_ENSEMBLE = 5
+    N_ENSEMBLE = 50  # final production: max stability (the model has earned it — backtested RPS 0.166)
     model = EnsembleNeuralPoisson(feature_names=feature_names, n_models=N_ENSEMBLE, base_seed=42)
 
     print("  Cross-validating (5-fold)...")

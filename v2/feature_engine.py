@@ -177,34 +177,41 @@ def _normalize_team_view(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def compute_rolling_features(tv: pd.DataFrame) -> pd.DataFrame:
-    """Compute rolling statistics per team using groupby + rolling."""
+    """Compute rolling statistics per team using groupby + rolling.
+
+    v2 FIX (leakage): every rolling stat is `.shift(1)` so a match's features use
+    only PRIOR matches — never the current match's own goals (which is the training
+    label). The v1 baseline omitted the shift, leaking ~1/N of the label into
+    `goals_scored_avg_*` and making the net over-rely on raw recent goals (the bias
+    that buried low-scoring strong sides like Spain).
+    """
     tv = tv.sort_values(['team', 'date']).reset_index(drop=True)
 
     for w in [5, 10, 20]:
         g = tv.groupby('team')
         tv[f'goals_scored_avg_{w}'] = g['goals_scored'].transform(
-            lambda x: x.rolling(w, min_periods=3).mean())
+            lambda x: x.shift(1).rolling(w, min_periods=3).mean())
         tv[f'goals_conceded_avg_{w}'] = g['goals_conceded'].transform(
-            lambda x: x.rolling(w, min_periods=3).mean())
+            lambda x: x.shift(1).rolling(w, min_periods=3).mean())
         tv[f'goal_diff_avg_{w}'] = g['goal_diff'].transform(
-            lambda x: x.rolling(w, min_periods=3).mean())
+            lambda x: x.shift(1).rolling(w, min_periods=3).mean())
         tv[f'win_rate_{w}'] = g['win'].transform(
-            lambda x: x.rolling(w, min_periods=3).mean())
+            lambda x: x.shift(1).rolling(w, min_periods=3).mean())
         tv[f'draw_rate_{w}'] = g['draw'].transform(
-            lambda x: x.rolling(w, min_periods=3).mean())
+            lambda x: x.shift(1).rolling(w, min_periods=3).mean())
         tv[f'points_per_game_{w}'] = g['result'].transform(
-            lambda x: x.rolling(w, min_periods=3).mean())
+            lambda x: x.shift(1).rolling(w, min_periods=3).mean())
         tv[f'clean_sheet_rate_{w}'] = g['clean_sheet'].transform(
-            lambda x: x.rolling(w, min_periods=3).mean())
+            lambda x: x.shift(1).rolling(w, min_periods=3).mean())
         tv[f'goals_scored_std_{w}'] = g['goals_scored'].transform(
-            lambda x: x.rolling(w, min_periods=3).std())
+            lambda x: x.shift(1).rolling(w, min_periods=3).std())
 
-    # Competitive match win rate (last 20 competitive)
+    # Competitive match win rate (last 20 competitive) — also shifted (no current-match leak).
     tv_comp = tv[tv['is_competitive']].copy()
     comp_wr = tv_comp.groupby('team')['win'].transform(
-        lambda x: x.rolling(20, min_periods=3).mean())
+        lambda x: x.shift(1).rolling(20, min_periods=3).mean())
     comp_ga = tv_comp.groupby('team')['goals_scored'].transform(
-        lambda x: x.rolling(20, min_periods=3).mean())
+        lambda x: x.shift(1).rolling(20, min_periods=3).mean())
     tv['competitive_win_rate'] = np.nan
     tv['competitive_goals_avg'] = np.nan
     tv.loc[tv_comp.index, 'competitive_win_rate'] = comp_wr
@@ -212,11 +219,11 @@ def compute_rolling_features(tv: pd.DataFrame) -> pd.DataFrame:
     tv['competitive_win_rate'] = tv.groupby('team')['competitive_win_rate'].ffill()
     tv['competitive_goals_avg'] = tv.groupby('team')['competitive_goals_avg'].ffill()
 
-    # Neutral ground performance
+    # Neutral ground performance — shifted too.
     tv_neutral = tv[tv['neutral'] == True].copy()
     if len(tv_neutral) > 0:
         neut_wr = tv_neutral.groupby('team')['win'].transform(
-            lambda x: x.rolling(15, min_periods=2).mean())
+            lambda x: x.shift(1).rolling(15, min_periods=2).mean())
         tv['neutral_win_rate'] = np.nan
         tv.loc[tv_neutral.index, 'neutral_win_rate'] = neut_wr
         tv['neutral_win_rate'] = tv.groupby('team')['neutral_win_rate'].ffill()
@@ -226,7 +233,7 @@ def compute_rolling_features(tv: pd.DataFrame) -> pd.DataFrame:
     return tv
 
 
-def build_training_data(df_raw: pd.DataFrame, min_date: str = '2020-01-01'):
+def build_training_data(df_raw: pd.DataFrame, min_date: str = '2020-01-01', return_frame: bool = False):
     """
     Build training data (vectorized).
     Returns X, y, elo_ratings, team_view (for prediction functions).
@@ -306,6 +313,15 @@ def build_training_data(df_raw: pd.DataFrame, min_date: str = '2020-01-01'):
     X = X[non_const]
 
     print(f"  Training samples: {len(X):,}  |  Features: {len(X.columns)}")
+
+    if return_frame:
+        # Full annotated frame (date/match identity + feature cols) for the backtest's
+        # temporal split. Same row order/filter as X.
+        keep = ['date', 'team', 'opponent', 'goals_scored', 'goals_conceded', 'elo', 'opp_elo']
+        frame = train.loc[valid.values, keep].reset_index(drop=True)
+        for c in X.columns:
+            frame[c] = X[c].values
+        return X, y, elo_ratings, tv, frame
     return X, y, elo_ratings, tv
 
 

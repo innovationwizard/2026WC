@@ -3,612 +3,612 @@
     "model": "Neural Poisson + Monte Carlo",
     "n_simulations": 10000,
     "n_features": 47,
-    "training_samples": 11954,
+    "training_samples": 11944,
     "training_period": "2020-2026",
-    "cv_loss": 0.6625843405723572,
-    "cv_mae": 0.8239949703216553
+    "cv_loss": 0.7758890867233277,
+    "cv_mae": 0.9367441654205322
   },
   "team_probabilities": {
     "Algeria": {
-      "champion": 0.0001,
-      "finalist": 0.0007,
-      "semifinal": 0.0037,
-      "quarterfinal": 0.014,
-      "r16": 0.0886,
-      "r32": 0.3286,
-      "group_advance": 0.1792
+      "champion": 0.0027,
+      "finalist": 0.0072,
+      "semifinal": 0.0273,
+      "quarterfinal": 0.0784,
+      "r16": 0.1958,
+      "r32": 0.4942,
+      "group_advance": 0.4296
     },
     "Argentina": {
-      "champion": 0.0154,
-      "finalist": 0.0285,
-      "semifinal": 0.057,
-      "quarterfinal": 0.0787,
-      "r16": 0.1439,
-      "r32": 0.2021,
-      "group_advance": 0.9469
+      "champion": 0.0229,
+      "finalist": 0.0401,
+      "semifinal": 0.0787,
+      "quarterfinal": 0.128,
+      "r16": 0.1986,
+      "r32": 0.3065,
+      "group_advance": 0.8675
     },
     "Australia": {
-      "champion": 0.0,
-      "finalist": 0.0003,
-      "semifinal": 0.0031,
-      "quarterfinal": 0.0122,
-      "r16": 0.0498,
-      "r32": 0.2275,
-      "group_advance": 0.0997
+      "champion": 0.0024,
+      "finalist": 0.0104,
+      "semifinal": 0.0315,
+      "quarterfinal": 0.0903,
+      "r16": 0.222,
+      "r32": 0.5816,
+      "group_advance": 0.3872
     },
     "Austria": {
-      "champion": 0.0005,
-      "finalist": 0.0025,
-      "semifinal": 0.0132,
-      "quarterfinal": 0.0436,
-      "r16": 0.1738,
-      "r32": 0.5267,
-      "group_advance": 0.3556
+      "champion": 0.0041,
+      "finalist": 0.0108,
+      "semifinal": 0.0338,
+      "quarterfinal": 0.0947,
+      "r16": 0.2304,
+      "r32": 0.5428,
+      "group_advance": 0.4736
     },
     "Belgium": {
-      "champion": 0.059,
-      "finalist": 0.1182,
-      "semifinal": 0.2301,
-      "quarterfinal": 0.4605,
-      "r16": 0.7741,
-      "r32": 0.9931,
-      "group_advance": 0.9613
+      "champion": 0.0329,
+      "finalist": 0.0733,
+      "semifinal": 0.1476,
+      "quarterfinal": 0.2994,
+      "r16": 0.6293,
+      "r32": 0.9543,
+      "group_advance": 0.8677
     },
     "Bosnia and Herzegovina": {
-      "champion": 0.0003,
-      "finalist": 0.004,
-      "semifinal": 0.0171,
-      "quarterfinal": 0.0863,
-      "r16": 0.3583,
-      "r32": 0.9809,
-      "group_advance": 0.4438
+      "champion": 0.0002,
+      "finalist": 0.001,
+      "semifinal": 0.0105,
+      "quarterfinal": 0.0568,
+      "r16": 0.3533,
+      "r32": 0.9677,
+      "group_advance": 0.226
     },
     "Brazil": {
-      "champion": 0.1403,
-      "finalist": 0.289,
-      "semifinal": 0.4203,
-      "quarterfinal": 0.5633,
-      "r16": 0.7849,
-      "r32": 0.9871,
-      "group_advance": 0.921
+      "champion": 0.1128,
+      "finalist": 0.2372,
+      "semifinal": 0.3453,
+      "quarterfinal": 0.5062,
+      "r16": 0.731,
+      "r32": 0.9749,
+      "group_advance": 0.8621
     },
     "Canada": {
-      "champion": 0.0023,
-      "finalist": 0.0145,
-      "semifinal": 0.0557,
-      "quarterfinal": 0.1851,
-      "r16": 0.4567,
-      "r32": 0.994,
-      "group_advance": 0.7255
+      "champion": 0.0038,
+      "finalist": 0.0199,
+      "semifinal": 0.0702,
+      "quarterfinal": 0.1906,
+      "r16": 0.5254,
+      "r32": 0.9944,
+      "group_advance": 0.7531
     },
     "Cape Verde": {
-      "champion": 0.0011,
-      "finalist": 0.0046,
-      "semifinal": 0.0197,
-      "quarterfinal": 0.0772,
-      "r16": 0.2428,
-      "r32": 0.6803,
-      "group_advance": 0.4939
+      "champion": 0.0,
+      "finalist": 0.0011,
+      "semifinal": 0.0051,
+      "quarterfinal": 0.0244,
+      "r16": 0.0932,
+      "r32": 0.3327,
+      "group_advance": 0.1568
     },
     "Colombia": {
-      "champion": 0.0135,
-      "finalist": 0.0271,
-      "semifinal": 0.0638,
-      "quarterfinal": 0.139,
-      "r16": 0.2113,
-      "r32": 0.3263,
-      "group_advance": 0.8981
+      "champion": 0.0265,
+      "finalist": 0.0475,
+      "semifinal": 0.111,
+      "quarterfinal": 0.1993,
+      "r16": 0.3244,
+      "r32": 0.4843,
+      "group_advance": 0.8218
     },
     "Croatia": {
-      "champion": 0.0032,
-      "finalist": 0.0115,
-      "semifinal": 0.0388,
-      "quarterfinal": 0.1167,
-      "r16": 0.2443,
-      "r32": 0.5561,
-      "group_advance": 0.628
+      "champion": 0.0074,
+      "finalist": 0.0183,
+      "semifinal": 0.0554,
+      "quarterfinal": 0.1342,
+      "r16": 0.2794,
+      "r32": 0.642,
+      "group_advance": 0.6377
     },
     "Cura\u00e7ao": {
       "champion": 0.0,
       "finalist": 0.0,
-      "semifinal": 0.0,
-      "quarterfinal": 0.0008,
-      "r16": 0.0078,
-      "r32": 0.0706,
-      "group_advance": 0.0224
+      "semifinal": 0.0005,
+      "quarterfinal": 0.0022,
+      "r16": 0.0162,
+      "r32": 0.1362,
+      "group_advance": 0.0548
     },
     "Czech Republic": {
-      "champion": 0.0389,
-      "finalist": 0.1028,
-      "semifinal": 0.2167,
-      "quarterfinal": 0.3806,
-      "r16": 0.6821,
+      "champion": 0.0015,
+      "finalist": 0.009,
+      "semifinal": 0.0377,
+      "quarterfinal": 0.1271,
+      "r16": 0.367,
       "r32": 1.0,
-      "group_advance": 0.8625
+      "group_advance": 0.4331
     },
     "DR Congo": {
-      "champion": 0.0,
-      "finalist": 0.001,
-      "semifinal": 0.003,
-      "quarterfinal": 0.0198,
-      "r16": 0.0681,
-      "r32": 0.2801,
-      "group_advance": 0.1339
+      "champion": 0.0006,
+      "finalist": 0.002,
+      "semifinal": 0.0073,
+      "quarterfinal": 0.0245,
+      "r16": 0.0952,
+      "r32": 0.3447,
+      "group_advance": 0.1823
     },
     "Ecuador": {
-      "champion": 0.0034,
-      "finalist": 0.0128,
-      "semifinal": 0.0399,
-      "quarterfinal": 0.1069,
-      "r16": 0.3021,
-      "r32": 0.7019,
-      "group_advance": 0.3876
+      "champion": 0.0039,
+      "finalist": 0.0158,
+      "semifinal": 0.0515,
+      "quarterfinal": 0.1318,
+      "r16": 0.3485,
+      "r32": 0.7979,
+      "group_advance": 0.5358
     },
     "Egypt": {
-      "champion": 0.0002,
-      "finalist": 0.0021,
-      "semifinal": 0.0093,
-      "quarterfinal": 0.0359,
-      "r16": 0.1416,
-      "r32": 0.4696,
-      "group_advance": 0.2181
+      "champion": 0.0026,
+      "finalist": 0.0106,
+      "semifinal": 0.0308,
+      "quarterfinal": 0.0915,
+      "r16": 0.271,
+      "r32": 0.688,
+      "group_advance": 0.4624
     },
     "England": {
-      "champion": 0.0104,
-      "finalist": 0.0271,
-      "semifinal": 0.0636,
-      "quarterfinal": 0.1587,
-      "r16": 0.3044,
-      "r32": 0.52,
-      "group_advance": 0.6739
+      "champion": 0.0301,
+      "finalist": 0.0465,
+      "semifinal": 0.0826,
+      "quarterfinal": 0.1209,
+      "r16": 0.1681,
+      "r32": 0.2446,
+      "group_advance": 0.9291
     },
     "France": {
-      "champion": 0.2323,
-      "finalist": 0.3399,
-      "semifinal": 0.5089,
-      "quarterfinal": 0.7147,
-      "r16": 0.8481,
-      "r32": 0.9824,
-      "group_advance": 0.9308
+      "champion": 0.2191,
+      "finalist": 0.3138,
+      "semifinal": 0.461,
+      "quarterfinal": 0.7123,
+      "r16": 0.8263,
+      "r32": 0.9764,
+      "group_advance": 0.9122
     },
     "Germany": {
-      "champion": 0.2086,
-      "finalist": 0.2984,
-      "semifinal": 0.4869,
-      "quarterfinal": 0.6248,
-      "r16": 0.8395,
-      "r32": 0.9953,
-      "group_advance": 0.9582
+      "champion": 0.0712,
+      "finalist": 0.1328,
+      "semifinal": 0.2607,
+      "quarterfinal": 0.4411,
+      "r16": 0.7203,
+      "r32": 0.9819,
+      "group_advance": 0.9157
     },
     "Ghana": {
-      "champion": 0.0,
-      "finalist": 0.0001,
-      "semifinal": 0.0001,
-      "quarterfinal": 0.003,
-      "r16": 0.0229,
-      "r32": 0.1623,
-      "group_advance": 0.0719
+      "champion": 0.0002,
+      "finalist": 0.0008,
+      "semifinal": 0.0024,
+      "quarterfinal": 0.0133,
+      "r16": 0.0583,
+      "r32": 0.2437,
+      "group_advance": 0.1243
     },
     "Haiti": {
       "champion": 0.0001,
-      "finalist": 0.002,
-      "semifinal": 0.0087,
-      "quarterfinal": 0.0443,
-      "r16": 0.2404,
-      "r32": 0.4225,
-      "group_advance": 0.0635
+      "finalist": 0.0009,
+      "semifinal": 0.0039,
+      "quarterfinal": 0.0263,
+      "r16": 0.1787,
+      "r32": 0.4348,
+      "group_advance": 0.0737
     },
     "Iran": {
-      "champion": 0.0117,
-      "finalist": 0.0372,
-      "semifinal": 0.0956,
-      "quarterfinal": 0.2555,
-      "r16": 0.5403,
-      "r32": 0.893,
-      "group_advance": 0.7611
+      "champion": 0.0046,
+      "finalist": 0.0169,
+      "semifinal": 0.048,
+      "quarterfinal": 0.1394,
+      "r16": 0.3456,
+      "r32": 0.7775,
+      "group_advance": 0.5576
     },
     "Iraq": {
       "champion": 0.0001,
-      "finalist": 0.0002,
-      "semifinal": 0.0013,
-      "quarterfinal": 0.0103,
-      "r16": 0.0459,
-      "r32": 0.2116,
-      "group_advance": 0.0953
+      "finalist": 0.0006,
+      "semifinal": 0.0037,
+      "quarterfinal": 0.0167,
+      "r16": 0.064,
+      "r32": 0.2421,
+      "group_advance": 0.1119
     },
     "Ivory Coast": {
-      "champion": 0.0148,
-      "finalist": 0.0418,
-      "semifinal": 0.0997,
-      "quarterfinal": 0.2058,
-      "r16": 0.4631,
-      "r32": 0.8487,
-      "group_advance": 0.6318
+      "champion": 0.0032,
+      "finalist": 0.0154,
+      "semifinal": 0.0424,
+      "quarterfinal": 0.1127,
+      "r16": 0.3154,
+      "r32": 0.752,
+      "group_advance": 0.4937
     },
     "Japan": {
-      "champion": 0.0096,
-      "finalist": 0.0293,
-      "semifinal": 0.0731,
-      "quarterfinal": 0.1955,
-      "r16": 0.4043,
-      "r32": 0.8199,
-      "group_advance": 0.6095
+      "champion": 0.0135,
+      "finalist": 0.0391,
+      "semifinal": 0.0933,
+      "quarterfinal": 0.1966,
+      "r16": 0.4441,
+      "r32": 0.8095,
+      "group_advance": 0.6239
     },
     "Jordan": {
-      "champion": 0.0042,
-      "finalist": 0.0146,
-      "semifinal": 0.0392,
-      "quarterfinal": 0.0907,
-      "r16": 0.2612,
-      "r32": 0.5658,
-      "group_advance": 0.5183
+      "champion": 0.0003,
+      "finalist": 0.0022,
+      "semifinal": 0.0076,
+      "quarterfinal": 0.028,
+      "r16": 0.0997,
+      "r32": 0.3478,
+      "group_advance": 0.2293
     },
     "Mexico": {
-      "champion": 0.0089,
-      "finalist": 0.0401,
-      "semifinal": 0.1168,
-      "quarterfinal": 0.275,
-      "r16": 0.5688,
+      "champion": 0.0105,
+      "finalist": 0.0419,
+      "semifinal": 0.1118,
+      "quarterfinal": 0.2478,
+      "r16": 0.5321,
       "r32": 1.0,
-      "group_advance": 0.7526
+      "group_advance": 0.7093
     },
     "Morocco": {
-      "champion": 0.0554,
-      "finalist": 0.1227,
-      "semifinal": 0.242,
-      "quarterfinal": 0.3824,
-      "r16": 0.6392,
-      "r32": 0.9528,
-      "group_advance": 0.797
+      "champion": 0.0332,
+      "finalist": 0.0861,
+      "semifinal": 0.1773,
+      "quarterfinal": 0.3208,
+      "r16": 0.5681,
+      "r32": 0.9043,
+      "group_advance": 0.6623
     },
     "Netherlands": {
-      "champion": 0.009,
-      "finalist": 0.0253,
-      "semifinal": 0.0668,
-      "quarterfinal": 0.1756,
-      "r16": 0.392,
-      "r32": 0.8109,
-      "group_advance": 0.5855
+      "champion": 0.0544,
+      "finalist": 0.1051,
+      "semifinal": 0.2044,
+      "quarterfinal": 0.3573,
+      "r16": 0.6401,
+      "r32": 0.9241,
+      "group_advance": 0.821
     },
     "New Zealand": {
       "champion": 0.0,
-      "finalist": 0.0,
-      "semifinal": 0.0002,
-      "quarterfinal": 0.0036,
-      "r16": 0.029,
-      "r32": 0.1576,
-      "group_advance": 0.0595
-    },
-    "Norway": {
-      "champion": 0.0036,
-      "finalist": 0.0111,
-      "semifinal": 0.044,
-      "quarterfinal": 0.1304,
-      "r16": 0.3371,
-      "r32": 0.7075,
-      "group_advance": 0.4148
-    },
-    "Panama": {
-      "champion": 0.0047,
-      "finalist": 0.0134,
-      "semifinal": 0.0408,
-      "quarterfinal": 0.1168,
-      "r16": 0.2344,
-      "r32": 0.5283,
-      "group_advance": 0.6262
-    },
-    "Paraguay": {
-      "champion": 0.0085,
-      "finalist": 0.0327,
-      "semifinal": 0.0836,
-      "quarterfinal": 0.1976,
-      "r16": 0.3886,
-      "r32": 0.8103,
-      "group_advance": 0.5863
-    },
-    "Portugal": {
-      "champion": 0.0037,
-      "finalist": 0.0119,
-      "semifinal": 0.0447,
-      "quarterfinal": 0.15,
-      "r16": 0.2894,
-      "r32": 0.6316,
-      "group_advance": 0.7504
-    },
-    "Qatar": {
-      "champion": 0.0,
-      "finalist": 0.0,
-      "semifinal": 0.0001,
-      "quarterfinal": 0.0063,
-      "r16": 0.1267,
-      "r32": 0.94,
-      "group_advance": 0.0229
-    },
-    "Saudi Arabia": {
-      "champion": 0.0,
-      "finalist": 0.0006,
-      "semifinal": 0.003,
-      "quarterfinal": 0.0202,
-      "r16": 0.1101,
-      "r32": 0.4795,
-      "group_advance": 0.2846
-    },
-    "Scotland": {
-      "champion": 0.0027,
-      "finalist": 0.0089,
-      "semifinal": 0.0323,
-      "quarterfinal": 0.1146,
-      "r16": 0.339,
-      "r32": 0.7574,
-      "group_advance": 0.2185
-    },
-    "Senegal": {
-      "champion": 0.0112,
-      "finalist": 0.0253,
-      "semifinal": 0.0753,
-      "quarterfinal": 0.1728,
-      "r16": 0.4034,
-      "r32": 0.773,
-      "group_advance": 0.5591
-    },
-    "South Africa": {
-      "champion": 0.0002,
-      "finalist": 0.0016,
-      "semifinal": 0.009,
-      "quarterfinal": 0.0598,
-      "r16": 0.26,
-      "r32": 1.0,
-      "group_advance": 0.1167
-    },
-    "South Korea": {
-      "champion": 0.0006,
-      "finalist": 0.0043,
-      "semifinal": 0.0209,
-      "quarterfinal": 0.1027,
-      "r16": 0.3217,
-      "r32": 1.0,
-      "group_advance": 0.2682
-    },
-    "Spain": {
-      "champion": 0.0752,
-      "finalist": 0.1373,
-      "semifinal": 0.2525,
-      "quarterfinal": 0.455,
-      "r16": 0.7176,
-      "r32": 0.9794,
-      "group_advance": 0.9325
-    },
-    "Sweden": {
-      "champion": 0.0114,
-      "finalist": 0.0307,
-      "semifinal": 0.0779,
-      "quarterfinal": 0.205,
-      "r16": 0.4652,
-      "r32": 0.8784,
-      "group_advance": 0.7035
-    },
-    "Switzerland": {
-      "champion": 0.0069,
-      "finalist": 0.0304,
-      "semifinal": 0.0901,
-      "quarterfinal": 0.2618,
-      "r16": 0.519,
-      "r32": 0.997,
-      "group_advance": 0.8078
-    },
-    "Tunisia": {
-      "champion": 0.0,
       "finalist": 0.0001,
       "semifinal": 0.0008,
-      "quarterfinal": 0.0055,
-      "r16": 0.0354,
-      "r32": 0.2289,
-      "group_advance": 0.1015
+      "quarterfinal": 0.0066,
+      "r16": 0.0415,
+      "r32": 0.2454,
+      "group_advance": 0.1123
+    },
+    "Norway": {
+      "champion": 0.0105,
+      "finalist": 0.0275,
+      "semifinal": 0.0884,
+      "quarterfinal": 0.2201,
+      "r16": 0.4164,
+      "r32": 0.7567,
+      "group_advance": 0.529
+    },
+    "Panama": {
+      "champion": 0.0004,
+      "finalist": 0.0025,
+      "semifinal": 0.0151,
+      "quarterfinal": 0.0509,
+      "r16": 0.164,
+      "r32": 0.5295,
+      "group_advance": 0.3089
+    },
+    "Paraguay": {
+      "champion": 0.0041,
+      "finalist": 0.0185,
+      "semifinal": 0.0494,
+      "quarterfinal": 0.1197,
+      "r16": 0.2718,
+      "r32": 0.6476,
+      "group_advance": 0.461
+    },
+    "Portugal": {
+      "champion": 0.03,
+      "finalist": 0.0521,
+      "semifinal": 0.1069,
+      "quarterfinal": 0.1903,
+      "r16": 0.2978,
+      "r32": 0.4591,
+      "group_advance": 0.839
+    },
+    "Qatar": {
+      "champion": 0.0001,
+      "finalist": 0.0003,
+      "semifinal": 0.0024,
+      "quarterfinal": 0.0253,
+      "r16": 0.2509,
+      "r32": 0.9591,
+      "group_advance": 0.1067
+    },
+    "Saudi Arabia": {
+      "champion": 0.0001,
+      "finalist": 0.0011,
+      "semifinal": 0.0045,
+      "quarterfinal": 0.0234,
+      "r16": 0.1016,
+      "r32": 0.3798,
+      "group_advance": 0.172
+    },
+    "Scotland": {
+      "champion": 0.0066,
+      "finalist": 0.0286,
+      "semifinal": 0.0798,
+      "quarterfinal": 0.189,
+      "r16": 0.4262,
+      "r32": 0.8182,
+      "group_advance": 0.4019
+    },
+    "Senegal": {
+      "champion": 0.0099,
+      "finalist": 0.0233,
+      "semifinal": 0.0669,
+      "quarterfinal": 0.1714,
+      "r16": 0.3461,
+      "r32": 0.6855,
+      "group_advance": 0.4469
+    },
+    "South Africa": {
+      "champion": 0.001,
+      "finalist": 0.004,
+      "semifinal": 0.02,
+      "quarterfinal": 0.08,
+      "r16": 0.2672,
+      "r32": 1.0,
+      "group_advance": 0.2933
+    },
+    "South Korea": {
+      "champion": 0.0047,
+      "finalist": 0.0227,
+      "semifinal": 0.0634,
+      "quarterfinal": 0.181,
+      "r16": 0.4393,
+      "r32": 1.0,
+      "group_advance": 0.5643
+    },
+    "Spain": {
+      "champion": 0.1922,
+      "finalist": 0.2799,
+      "semifinal": 0.4082,
+      "quarterfinal": 0.624,
+      "r16": 0.8086,
+      "r32": 0.993,
+      "group_advance": 0.9682
+    },
+    "Sweden": {
+      "champion": 0.0021,
+      "finalist": 0.007,
+      "semifinal": 0.0223,
+      "quarterfinal": 0.0682,
+      "r16": 0.2176,
+      "r32": 0.5549,
+      "group_advance": 0.3256
+    },
+    "Switzerland": {
+      "champion": 0.0419,
+      "finalist": 0.1172,
+      "semifinal": 0.2511,
+      "quarterfinal": 0.4509,
+      "r16": 0.6654,
+      "r32": 0.9985,
+      "group_advance": 0.9142
+    },
+    "Tunisia": {
+      "champion": 0.0007,
+      "finalist": 0.0028,
+      "semifinal": 0.0123,
+      "quarterfinal": 0.0437,
+      "r16": 0.1481,
+      "r32": 0.4198,
+      "group_advance": 0.2295
     },
     "Turkey": {
-      "champion": 0.0177,
-      "finalist": 0.0523,
-      "semifinal": 0.1179,
-      "quarterfinal": 0.2458,
-      "r16": 0.4487,
-      "r32": 0.8623,
-      "group_advance": 0.6716
+      "champion": 0.0084,
+      "finalist": 0.0318,
+      "semifinal": 0.081,
+      "quarterfinal": 0.1914,
+      "r16": 0.3845,
+      "r32": 0.767,
+      "group_advance": 0.5966
     },
     "United States": {
-      "champion": 0.0097,
-      "finalist": 0.0383,
-      "semifinal": 0.0956,
-      "quarterfinal": 0.2183,
-      "r16": 0.4123,
-      "r32": 0.8441,
-      "group_advance": 0.6424
+      "champion": 0.0051,
+      "finalist": 0.0228,
+      "semifinal": 0.0613,
+      "quarterfinal": 0.1512,
+      "r16": 0.3316,
+      "r32": 0.7369,
+      "group_advance": 0.5552
     },
     "Uruguay": {
-      "champion": 0.0002,
-      "finalist": 0.0015,
-      "semifinal": 0.0082,
-      "quarterfinal": 0.0401,
-      "r16": 0.1441,
-      "r32": 0.4998,
-      "group_advance": 0.289
+      "champion": 0.0172,
+      "finalist": 0.0504,
+      "semifinal": 0.1176,
+      "quarterfinal": 0.2774,
+      "r16": 0.4918,
+      "r32": 0.8505,
+      "group_advance": 0.703
     },
     "Uzbekistan": {
-      "champion": 0.0004,
-      "finalist": 0.0013,
-      "semifinal": 0.009,
-      "quarterfinal": 0.0368,
-      "r16": 0.118,
-      "r32": 0.4148,
-      "group_advance": 0.2176
+      "champion": 0.0002,
+      "finalist": 0.0011,
+      "semifinal": 0.0053,
+      "quarterfinal": 0.0229,
+      "r16": 0.0881,
+      "r32": 0.3176,
+      "group_advance": 0.1569
     }
   },
   "group_predictions": {
     "A": {
       "winner_probs": {
-        "Mexico": 0.3455,
-        "South Africa": 0.0235,
-        "South Korea": 0.0701,
-        "Czech Republic": 0.5609
+        "Mexico": 0.4333,
+        "South Africa": 0.1173,
+        "South Korea": 0.2685,
+        "Czech Republic": 0.1809
       },
       "runner_probs": {
-        "Mexico": 0.4071,
-        "South Africa": 0.0932,
-        "South Korea": 0.1981,
-        "Czech Republic": 0.3016
+        "Mexico": 0.276,
+        "South Africa": 0.176,
+        "South Korea": 0.2958,
+        "Czech Republic": 0.2522
       }
     },
     "B": {
       "winner_probs": {
-        "Canada": 0.3433,
-        "Bosnia and Herzegovina": 0.1604,
-        "Qatar": 0.0026,
-        "Switzerland": 0.4937
+        "Canada": 0.28,
+        "Bosnia and Herzegovina": 0.0524,
+        "Qatar": 0.0175,
+        "Switzerland": 0.6501
       },
       "runner_probs": {
-        "Canada": 0.3822,
-        "Bosnia and Herzegovina": 0.2834,
-        "Qatar": 0.0203,
-        "Switzerland": 0.3141
+        "Canada": 0.4731,
+        "Bosnia and Herzegovina": 0.1736,
+        "Qatar": 0.0892,
+        "Switzerland": 0.2641
       }
     },
     "C": {
       "winner_probs": {
-        "Brazil": 0.6066,
-        "Morocco": 0.3462,
-        "Haiti": 0.0082,
-        "Scotland": 0.039
+        "Brazil": 0.5953,
+        "Morocco": 0.2669,
+        "Haiti": 0.0131,
+        "Scotland": 0.1247
       },
       "runner_probs": {
-        "Brazil": 0.3144,
-        "Morocco": 0.4508,
-        "Haiti": 0.0553,
-        "Scotland": 0.1795
+        "Brazil": 0.2668,
+        "Morocco": 0.3954,
+        "Haiti": 0.0606,
+        "Scotland": 0.2772
       }
     },
     "D": {
       "winner_probs": {
-        "United States": 0.3366,
-        "Paraguay": 0.2835,
-        "Australia": 0.0213,
-        "Turkey": 0.3586
+        "United States": 0.2878,
+        "Paraguay": 0.217,
+        "Australia": 0.1644,
+        "Turkey": 0.3308
       },
       "runner_probs": {
-        "United States": 0.3058,
-        "Paraguay": 0.3028,
-        "Australia": 0.0784,
-        "Turkey": 0.313
+        "United States": 0.2674,
+        "Paraguay": 0.244,
+        "Australia": 0.2228,
+        "Turkey": 0.2658
       }
     },
     "E": {
       "winner_probs": {
-        "Germany": 0.7867,
-        "Cura\u00e7ao": 0.0011,
-        "Ivory Coast": 0.1498,
-        "Ecuador": 0.0624
+        "Germany": 0.7064,
+        "Cura\u00e7ao": 0.0071,
+        "Ivory Coast": 0.1396,
+        "Ecuador": 0.1469
       },
       "runner_probs": {
-        "Germany": 0.1715,
-        "Cura\u00e7ao": 0.0213,
-        "Ivory Coast": 0.482,
-        "Ecuador": 0.3252
+        "Germany": 0.2093,
+        "Cura\u00e7ao": 0.0477,
+        "Ivory Coast": 0.3541,
+        "Ecuador": 0.3889
       }
     },
     "F": {
       "winner_probs": {
-        "Netherlands": 0.2746,
-        "Japan": 0.2894,
-        "Sweden": 0.4123,
-        "Tunisia": 0.0237
+        "Netherlands": 0.5527,
+        "Japan": 0.2698,
+        "Sweden": 0.1073,
+        "Tunisia": 0.0702
       },
       "runner_probs": {
-        "Netherlands": 0.3109,
-        "Japan": 0.3201,
-        "Sweden": 0.2912,
-        "Tunisia": 0.0778
+        "Netherlands": 0.2683,
+        "Japan": 0.3541,
+        "Sweden": 0.2183,
+        "Tunisia": 0.1593
       }
     },
     "G": {
       "winner_probs": {
-        "Belgium": 0.7576,
-        "Egypt": 0.0285,
-        "Iran": 0.2101,
-        "New Zealand": 0.0038
+        "Belgium": 0.6143,
+        "Egypt": 0.1604,
+        "Iran": 0.203,
+        "New Zealand": 0.0223
       },
       "runner_probs": {
-        "Belgium": 0.2037,
-        "Egypt": 0.1896,
-        "Iran": 0.551,
-        "New Zealand": 0.0557
+        "Belgium": 0.2534,
+        "Egypt": 0.302,
+        "Iran": 0.3546,
+        "New Zealand": 0.09
       }
     },
     "H": {
       "winner_probs": {
-        "Spain": 0.7571,
-        "Cape Verde": 0.1398,
-        "Saudi Arabia": 0.0471,
-        "Uruguay": 0.056
+        "Spain": 0.813,
+        "Cape Verde": 0.0176,
+        "Saudi Arabia": 0.0174,
+        "Uruguay": 0.152
       },
       "runner_probs": {
-        "Spain": 0.1754,
-        "Cape Verde": 0.3541,
-        "Saudi Arabia": 0.2375,
-        "Uruguay": 0.233
+        "Spain": 0.1552,
+        "Cape Verde": 0.1392,
+        "Saudi Arabia": 0.1546,
+        "Uruguay": 0.551
       }
     },
     "I": {
       "winner_probs": {
-        "France": 0.7371,
-        "Senegal": 0.1643,
-        "Iraq": 0.0133,
-        "Norway": 0.0853
+        "France": 0.7041,
+        "Senegal": 0.1261,
+        "Iraq": 0.02,
+        "Norway": 0.1498
       },
       "runner_probs": {
-        "France": 0.1937,
-        "Senegal": 0.3948,
-        "Iraq": 0.082,
-        "Norway": 0.3295
+        "France": 0.2081,
+        "Senegal": 0.3208,
+        "Iraq": 0.0919,
+        "Norway": 0.3792
       }
     },
     "J": {
       "winner_probs": {
-        "Argentina": 0.7864,
-        "Algeria": 0.0218,
-        "Austria": 0.0536,
-        "Jordan": 0.1382
+        "Argentina": 0.6414,
+        "Algeria": 0.1501,
+        "Austria": 0.1511,
+        "Jordan": 0.0574
       },
       "runner_probs": {
-        "Argentina": 0.1605,
-        "Algeria": 0.1574,
-        "Austria": 0.302,
-        "Jordan": 0.3801
+        "Argentina": 0.2261,
+        "Algeria": 0.2795,
+        "Austria": 0.3225,
+        "Jordan": 0.1719
       }
     },
     "K": {
       "winner_probs": {
-        "Portugal": 0.2696,
-        "DR Congo": 0.0333,
-        "Uzbekistan": 0.0552,
-        "Colombia": 0.6419
+        "Portugal": 0.4763,
+        "DR Congo": 0.0442,
+        "Uzbekistan": 0.0367,
+        "Colombia": 0.4428
       },
       "runner_probs": {
-        "Portugal": 0.4808,
-        "DR Congo": 0.1006,
-        "Uzbekistan": 0.1624,
-        "Colombia": 0.2562
+        "Portugal": 0.3627,
+        "DR Congo": 0.1381,
+        "Uzbekistan": 0.1202,
+        "Colombia": 0.379
       }
     },
     "L": {
       "winner_probs": {
-        "England": 0.3518,
-        "Croatia": 0.306,
-        "Ghana": 0.0154,
-        "Panama": 0.3268
+        "England": 0.7343,
+        "Croatia": 0.1825,
+        "Ghana": 0.0216,
+        "Panama": 0.0616
       },
       "runner_probs": {
-        "England": 0.3221,
-        "Croatia": 0.322,
-        "Ghana": 0.0565,
-        "Panama": 0.2994
+        "England": 0.1948,
+        "Croatia": 0.4552,
+        "Ghana": 0.1027,
+        "Panama": 0.2473
       }
     }
   },
@@ -616,794 +616,794 @@
     "Mexico vs South Africa": {
       "team_a": "Mexico",
       "team_b": "South Africa",
-      "lambda_a": 2.1108763217926025,
-      "lambda_b": 0.7411254644393921,
-      "sample_score": "4-0",
+      "lambda_a": 1.7987391948699951,
+      "lambda_b": 0.9909108877182007,
+      "sample_score": "3-0",
       "group": "A",
-      "prob_win_a": 0.6831,
-      "prob_draw": 0.1904,
-      "prob_win_b": 0.1265
+      "prob_win_a": 0.5584,
+      "prob_draw": 0.2296,
+      "prob_win_b": 0.212
     },
     "Mexico vs South Korea": {
       "team_a": "Mexico",
       "team_b": "South Korea",
-      "lambda_a": 1.4510550498962402,
-      "lambda_b": 0.6193428039550781,
-      "sample_score": "0-1",
+      "lambda_a": 1.2094762325286865,
+      "lambda_b": 0.9323123097419739,
+      "sample_score": "0-0",
       "group": "A",
-      "prob_win_a": 0.5771,
-      "prob_draw": 0.2684,
-      "prob_win_b": 0.1545
+      "prob_win_a": 0.4244,
+      "prob_draw": 0.2943,
+      "prob_win_b": 0.2813
     },
     "Mexico vs Czech Republic": {
       "team_a": "Mexico",
       "team_b": "Czech Republic",
-      "lambda_a": 1.6570472717285156,
-      "lambda_b": 2.0230565071105957,
-      "sample_score": "1-3",
+      "lambda_a": 1.3840352296829224,
+      "lambda_b": 0.7920219302177429,
+      "sample_score": "3-2",
       "group": "A",
-      "prob_win_a": 0.3183,
-      "prob_draw": 0.2152,
-      "prob_win_b": 0.4665
+      "prob_win_a": 0.5006,
+      "prob_draw": 0.2791,
+      "prob_win_b": 0.2203
     },
     "South Africa vs South Korea": {
       "team_a": "South Africa",
       "team_b": "South Korea",
-      "lambda_a": 0.7701409459114075,
-      "lambda_b": 1.3350036144256592,
-      "sample_score": "0-1",
+      "lambda_a": 1.038509488105774,
+      "lambda_b": 1.5553758144378662,
+      "sample_score": "0-0",
       "group": "A",
-      "prob_win_a": 0.2143,
-      "prob_draw": 0.28,
-      "prob_win_b": 0.5057
+      "prob_win_a": 0.2508,
+      "prob_draw": 0.2561,
+      "prob_win_b": 0.4931
     },
     "South Africa vs Czech Republic": {
       "team_a": "South Africa",
       "team_b": "Czech Republic",
-      "lambda_a": 0.800775408744812,
-      "lambda_b": 2.706681251525879,
+      "lambda_a": 1.090145230293274,
+      "lambda_b": 1.5049476623535156,
       "sample_score": "0-2",
       "group": "A",
-      "prob_win_a": 0.0829,
-      "prob_draw": 0.1433,
-      "prob_win_b": 0.7738
+      "prob_win_a": 0.2785,
+      "prob_draw": 0.2642,
+      "prob_win_b": 0.4573
     },
     "South Korea vs Czech Republic": {
       "team_a": "South Korea",
       "team_b": "Czech Republic",
-      "lambda_a": 0.8545535206794739,
-      "lambda_b": 2.1744542121887207,
-      "sample_score": "0-3",
+      "lambda_a": 1.1460148096084595,
+      "lambda_b": 0.8938220143318176,
+      "sample_score": "1-0",
       "group": "A",
-      "prob_win_a": 0.1362,
-      "prob_draw": 0.1877,
-      "prob_win_b": 0.6761
+      "prob_win_a": 0.4106,
+      "prob_draw": 0.3029,
+      "prob_win_b": 0.2865
     },
     "Canada vs Bosnia and Herzegovina": {
       "team_a": "Canada",
       "team_b": "Bosnia and Herzegovina",
-      "lambda_a": 1.4304372072219849,
-      "lambda_b": 1.0149587392807007,
-      "sample_score": "0-0",
+      "lambda_a": 1.808254599571228,
+      "lambda_b": 0.7485911846160889,
+      "sample_score": "2-1",
       "group": "B",
-      "prob_win_a": 0.4732,
-      "prob_draw": 0.2573,
-      "prob_win_b": 0.2695
+      "prob_win_a": 0.6195,
+      "prob_draw": 0.2269,
+      "prob_win_b": 0.1536
     },
     "Canada vs Qatar": {
       "team_a": "Canada",
       "team_b": "Qatar",
-      "lambda_a": 1.5004496574401855,
-      "lambda_b": 0.1310075968503952,
-      "sample_score": "4-0",
+      "lambda_a": 2.0744993686676025,
+      "lambda_b": 0.6311366558074951,
+      "sample_score": "0-3",
       "group": "B",
-      "prob_win_a": 0.7328,
-      "prob_draw": 0.2391,
-      "prob_win_b": 0.0281
+      "prob_win_a": 0.711,
+      "prob_draw": 0.1863,
+      "prob_win_b": 0.1027
     },
     "Canada vs Switzerland": {
       "team_a": "Canada",
       "team_b": "Switzerland",
-      "lambda_a": 1.0094306468963623,
-      "lambda_b": 1.192544937133789,
-      "sample_score": "1-1",
+      "lambda_a": 0.8834389448165894,
+      "lambda_b": 1.6261869668960571,
+      "sample_score": "0-2",
       "group": "B",
-      "prob_win_a": 0.3099,
-      "prob_draw": 0.2902,
-      "prob_win_b": 0.3999
+      "prob_win_a": 0.208,
+      "prob_draw": 0.2485,
+      "prob_win_b": 0.5435
     },
     "Bosnia and Herzegovina vs Qatar": {
       "team_a": "Bosnia and Herzegovina",
       "team_b": "Qatar",
-      "lambda_a": 1.0007002353668213,
-      "lambda_b": 0.17806947231292725,
-      "sample_score": "1-0",
+      "lambda_a": 1.4296897649765015,
+      "lambda_b": 1.0202667713165283,
+      "sample_score": "1-1",
       "group": "B",
-      "prob_win_a": 0.5723,
-      "prob_draw": 0.3626,
-      "prob_win_b": 0.0651
+      "prob_win_a": 0.4631,
+      "prob_draw": 0.2681,
+      "prob_win_b": 0.2688
     },
     "Bosnia and Herzegovina vs Switzerland": {
       "team_a": "Bosnia and Herzegovina",
       "team_b": "Switzerland",
-      "lambda_a": 0.9517562985420227,
-      "lambda_b": 1.5974290370941162,
-      "sample_score": "0-2",
+      "lambda_a": 0.7365561723709106,
+      "lambda_b": 2.255845308303833,
+      "sample_score": "1-2",
       "group": "B",
-      "prob_win_a": 0.2226,
-      "prob_draw": 0.2536,
-      "prob_win_b": 0.5238
+      "prob_win_a": 0.1087,
+      "prob_draw": 0.1706,
+      "prob_win_b": 0.7207
     },
     "Qatar vs Switzerland": {
       "team_a": "Qatar",
       "team_b": "Switzerland",
-      "lambda_a": 0.11576303094625473,
-      "lambda_b": 1.9698947668075562,
-      "sample_score": "1-4",
+      "lambda_a": 0.5527582168579102,
+      "lambda_b": 2.4967048168182373,
+      "sample_score": "4-1",
       "group": "B",
-      "prob_win_a": 0.0153,
-      "prob_draw": 0.1584,
-      "prob_win_b": 0.8263
+      "prob_win_a": 0.0557,
+      "prob_draw": 0.1459,
+      "prob_win_b": 0.7984
     },
     "Brazil vs Morocco": {
       "team_a": "Brazil",
       "team_b": "Morocco",
-      "lambda_a": 2.0884623527526855,
-      "lambda_b": 1.7633310556411743,
-      "sample_score": "2-1",
+      "lambda_a": 1.5924700498580933,
+      "lambda_b": 1.1022495031356812,
+      "sample_score": "2-0",
       "group": "C",
-      "prob_win_a": 0.4539,
-      "prob_draw": 0.2091,
-      "prob_win_b": 0.337
+      "prob_win_a": 0.4818,
+      "prob_draw": 0.2555,
+      "prob_win_b": 0.2627
     },
     "Brazil vs Haiti": {
       "team_a": "Brazil",
       "team_b": "Haiti",
-      "lambda_a": 3.194550037384033,
-      "lambda_b": 0.719478964805603,
-      "sample_score": "2-2",
+      "lambda_a": 2.5577034950256348,
+      "lambda_b": 0.5321211814880371,
+      "sample_score": "1-1",
       "group": "C",
-      "prob_win_a": 0.8485,
-      "prob_draw": 0.0999,
-      "prob_win_b": 0.0516
+      "prob_win_a": 0.8089,
+      "prob_draw": 0.1348,
+      "prob_win_b": 0.0563
     },
     "Brazil vs Scotland": {
       "team_a": "Brazil",
       "team_b": "Scotland",
-      "lambda_a": 2.4662723541259766,
-      "lambda_b": 0.5035204887390137,
-      "sample_score": "0-1",
+      "lambda_a": 1.896172046661377,
+      "lambda_b": 0.7519785165786743,
+      "sample_score": "3-2",
       "group": "C",
-      "prob_win_a": 0.8041,
-      "prob_draw": 0.1389,
-      "prob_win_b": 0.057
+      "prob_win_a": 0.6473,
+      "prob_draw": 0.2121,
+      "prob_win_b": 0.1406
     },
     "Morocco vs Haiti": {
       "team_a": "Morocco",
       "team_b": "Haiti",
-      "lambda_a": 2.2313876152038574,
-      "lambda_b": 0.8188592791557312,
-      "sample_score": "2-0",
+      "lambda_a": 1.8951678276062012,
+      "lambda_b": 0.6034169793128967,
+      "sample_score": "1-0",
       "group": "C",
-      "prob_win_a": 0.6955,
-      "prob_draw": 0.1781,
-      "prob_win_b": 0.1264
+      "prob_win_a": 0.6881,
+      "prob_draw": 0.1978,
+      "prob_win_b": 0.1141
     },
     "Morocco vs Scotland": {
       "team_a": "Morocco",
       "team_b": "Scotland",
-      "lambda_a": 1.931274652481079,
-      "lambda_b": 0.6715090870857239,
+      "lambda_a": 1.4386848211288452,
+      "lambda_b": 1.0022832155227661,
       "sample_score": "0-2",
       "group": "C",
-      "prob_win_a": 0.6747,
-      "prob_draw": 0.2037,
-      "prob_win_b": 0.1216
+      "prob_win_a": 0.4688,
+      "prob_draw": 0.2641,
+      "prob_win_b": 0.2671
     },
     "Haiti vs Scotland": {
       "team_a": "Haiti",
       "team_b": "Scotland",
-      "lambda_a": 0.9467359781265259,
-      "lambda_b": 2.5035758018493652,
-      "sample_score": "0-2",
+      "lambda_a": 0.746620237827301,
+      "lambda_b": 1.9065563678741455,
+      "sample_score": "0-1",
       "group": "C",
-      "prob_win_a": 0.123,
-      "prob_draw": 0.1656,
-      "prob_win_b": 0.7114
+      "prob_win_a": 0.1403,
+      "prob_draw": 0.2084,
+      "prob_win_b": 0.6513
     },
     "United States vs Paraguay": {
       "team_a": "United States",
       "team_b": "Paraguay",
-      "lambda_a": 1.7777268886566162,
-      "lambda_b": 1.6093984842300415,
-      "sample_score": "4-2",
+      "lambda_a": 1.282860279083252,
+      "lambda_b": 1.0891180038452148,
+      "sample_score": "0-2",
       "group": "D",
-      "prob_win_a": 0.4268,
-      "prob_draw": 0.2279,
-      "prob_win_b": 0.3453
+      "prob_win_a": 0.4089,
+      "prob_draw": 0.2816,
+      "prob_win_b": 0.3095
     },
     "United States vs Australia": {
       "team_a": "United States",
       "team_b": "Australia",
-      "lambda_a": 1.7530725002288818,
-      "lambda_b": 0.5459352135658264,
-      "sample_score": "0-0",
+      "lambda_a": 1.265351414680481,
+      "lambda_b": 0.9567807912826538,
+      "sample_score": "2-1",
       "group": "D",
-      "prob_win_a": 0.6649,
-      "prob_draw": 0.2227,
-      "prob_win_b": 0.1124
+      "prob_win_a": 0.4347,
+      "prob_draw": 0.2878,
+      "prob_win_b": 0.2775
     },
     "United States vs Turkey": {
       "team_a": "United States",
       "team_b": "Turkey",
-      "lambda_a": 1.404882788658142,
-      "lambda_b": 1.579095721244812,
-      "sample_score": "1-2",
+      "lambda_a": 1.0043467283248901,
+      "lambda_b": 1.12291419506073,
+      "sample_score": "0-0",
       "group": "D",
-      "prob_win_a": 0.3437,
-      "prob_draw": 0.2404,
-      "prob_win_b": 0.4159
+      "prob_win_a": 0.313,
+      "prob_draw": 0.2996,
+      "prob_win_b": 0.3874
     },
     "Paraguay vs Australia": {
       "team_a": "Paraguay",
       "team_b": "Australia",
-      "lambda_a": 1.6897414922714233,
-      "lambda_b": 0.6193222403526306,
-      "sample_score": "2-0",
+      "lambda_a": 1.145721435546875,
+      "lambda_b": 0.9984403848648071,
+      "sample_score": "1-2",
       "group": "D",
-      "prob_win_a": 0.6341,
-      "prob_draw": 0.234,
-      "prob_win_b": 0.1319
+      "prob_win_a": 0.3832,
+      "prob_draw": 0.2981,
+      "prob_win_b": 0.3187
     },
     "Paraguay vs Turkey": {
       "team_a": "Paraguay",
       "team_b": "Turkey",
-      "lambda_a": 1.492018461227417,
-      "lambda_b": 1.6328108310699463,
-      "sample_score": "1-5",
+      "lambda_a": 0.9901101589202881,
+      "lambda_b": 1.209158182144165,
+      "sample_score": "1-0",
       "group": "D",
-      "prob_win_a": 0.3487,
-      "prob_draw": 0.2435,
-      "prob_win_b": 0.4078
+      "prob_win_a": 0.2959,
+      "prob_draw": 0.293,
+      "prob_win_b": 0.4111
     },
     "Australia vs Turkey": {
       "team_a": "Australia",
       "team_b": "Turkey",
-      "lambda_a": 0.4361268877983093,
-      "lambda_b": 1.6239246129989624,
-      "sample_score": "1-3",
+      "lambda_a": 0.8611746430397034,
+      "lambda_b": 1.1940187215805054,
+      "sample_score": "0-0",
       "group": "D",
-      "prob_win_a": 0.101,
-      "prob_draw": 0.2365,
-      "prob_win_b": 0.6625
+      "prob_win_a": 0.2675,
+      "prob_draw": 0.2982,
+      "prob_win_b": 0.4343
     },
     "Germany vs Cura\u00e7ao": {
       "team_a": "Germany",
       "team_b": "Cura\u00e7ao",
-      "lambda_a": 3.5845932960510254,
-      "lambda_b": 0.16558405756950378,
-      "sample_score": "0-0",
+      "lambda_a": 3.043200731277466,
+      "lambda_b": 0.36333194375038147,
+      "sample_score": "6-0",
       "group": "E",
-      "prob_win_a": 0.9539,
-      "prob_draw": 0.0398,
-      "prob_win_b": 0.0063
+      "prob_win_a": 0.8946,
+      "prob_draw": 0.0818,
+      "prob_win_b": 0.0236
     },
     "Germany vs Ivory Coast": {
       "team_a": "Germany",
       "team_b": "Ivory Coast",
-      "lambda_a": 3.074084520339966,
-      "lambda_b": 1.5882318019866943,
-      "sample_score": "2-2",
+      "lambda_a": 2.0901243686676025,
+      "lambda_b": 0.973605751991272,
+      "sample_score": "0-0",
       "group": "E",
-      "prob_win_a": 0.6794,
-      "prob_draw": 0.1484,
-      "prob_win_b": 0.1722
+      "prob_win_a": 0.622,
+      "prob_draw": 0.2054,
+      "prob_win_b": 0.1726
     },
     "Germany vs Ecuador": {
       "team_a": "Germany",
       "team_b": "Ecuador",
-      "lambda_a": 2.7632105350494385,
-      "lambda_b": 0.8641402125358582,
-      "sample_score": "5-1",
+      "lambda_a": 1.630692958831787,
+      "lambda_b": 0.6603280901908875,
+      "sample_score": "3-0",
       "group": "E",
-      "prob_win_a": 0.7744,
-      "prob_draw": 0.1344,
-      "prob_win_b": 0.0912
+      "prob_win_a": 0.6119,
+      "prob_draw": 0.2387,
+      "prob_win_b": 0.1494
     },
     "Cura\u00e7ao vs Ivory Coast": {
       "team_a": "Cura\u00e7ao",
       "team_b": "Ivory Coast",
-      "lambda_a": 0.37497478723526,
-      "lambda_b": 1.9273576736450195,
-      "sample_score": "0-0",
+      "lambda_a": 0.595441997051239,
+      "lambda_b": 1.629353642463684,
+      "sample_score": "0-1",
       "group": "E",
-      "prob_win_a": 0.066,
-      "prob_draw": 0.1869,
-      "prob_win_b": 0.7471
+      "prob_win_a": 0.1318,
+      "prob_draw": 0.2439,
+      "prob_win_b": 0.6243
     },
     "Cura\u00e7ao vs Ecuador": {
       "team_a": "Cura\u00e7ao",
       "team_b": "Ecuador",
-      "lambda_a": 0.2886214256286621,
-      "lambda_b": 1.4885261058807373,
-      "sample_score": "0-1",
+      "lambda_a": 0.458871454000473,
+      "lambda_b": 1.7826343774795532,
+      "sample_score": "0-2",
       "group": "E",
-      "prob_win_a": 0.0663,
-      "prob_draw": 0.2506,
-      "prob_win_b": 0.6831
+      "prob_win_a": 0.0872,
+      "prob_draw": 0.2199,
+      "prob_win_b": 0.6929
     },
     "Ivory Coast vs Ecuador": {
       "team_a": "Ivory Coast",
       "team_b": "Ecuador",
-      "lambda_a": 1.6644909381866455,
-      "lambda_b": 1.2255630493164062,
-      "sample_score": "2-0",
+      "lambda_a": 1.0742599964141846,
+      "lambda_b": 1.1315685510635376,
+      "sample_score": "1-2",
       "group": "E",
-      "prob_win_a": 0.4781,
-      "prob_draw": 0.2305,
-      "prob_win_b": 0.2914
+      "prob_win_a": 0.3439,
+      "prob_draw": 0.2873,
+      "prob_win_b": 0.3688
     },
     "Netherlands vs Japan": {
       "team_a": "Netherlands",
       "team_b": "Japan",
-      "lambda_a": 1.0211598873138428,
-      "lambda_b": 1.2594048976898193,
-      "sample_score": "1-1",
+      "lambda_a": 1.5562657117843628,
+      "lambda_b": 0.9610843658447266,
+      "sample_score": "2-0",
       "group": "F",
-      "prob_win_a": 0.306,
-      "prob_draw": 0.278,
-      "prob_win_b": 0.416
+      "prob_win_a": 0.515,
+      "prob_draw": 0.2544,
+      "prob_win_b": 0.2306
     },
     "Netherlands vs Sweden": {
       "team_a": "Netherlands",
       "team_b": "Sweden",
-      "lambda_a": 1.3798835277557373,
-      "lambda_b": 1.564253807067871,
-      "sample_score": "2-0",
+      "lambda_a": 2.006495714187622,
+      "lambda_b": 0.9796757698059082,
+      "sample_score": "2-2",
       "group": "F",
-      "prob_win_a": 0.3372,
-      "prob_draw": 0.2382,
-      "prob_win_b": 0.4246
+      "prob_win_a": 0.613,
+      "prob_draw": 0.2119,
+      "prob_win_b": 0.1751
     },
     "Netherlands vs Tunisia": {
       "team_a": "Netherlands",
       "team_b": "Tunisia",
-      "lambda_a": 1.619866132736206,
-      "lambda_b": 0.45737162232398987,
-      "sample_score": "2-0",
+      "lambda_a": 2.259244441986084,
+      "lambda_b": 0.9580811858177185,
+      "sample_score": "3-0",
       "group": "F",
-      "prob_win_a": 0.6585,
-      "prob_draw": 0.2347,
-      "prob_win_b": 0.1068
+      "prob_win_a": 0.6631,
+      "prob_draw": 0.1881,
+      "prob_win_b": 0.1488
     },
     "Japan vs Sweden": {
       "team_a": "Japan",
       "team_b": "Sweden",
-      "lambda_a": 1.394392967224121,
-      "lambda_b": 1.6716219186782837,
-      "sample_score": "2-1",
+      "lambda_a": 1.5989896059036255,
+      "lambda_b": 0.9504351019859314,
+      "sample_score": "3-1",
       "group": "F",
-      "prob_win_a": 0.3176,
-      "prob_draw": 0.2374,
-      "prob_win_b": 0.445
+      "prob_win_a": 0.5292,
+      "prob_draw": 0.2444,
+      "prob_win_b": 0.2264
     },
     "Japan vs Tunisia": {
       "team_a": "Japan",
       "team_b": "Tunisia",
-      "lambda_a": 1.4154399633407593,
-      "lambda_b": 0.5013861656188965,
-      "sample_score": "1-1",
+      "lambda_a": 1.9125123023986816,
+      "lambda_b": 1.0421900749206543,
+      "sample_score": "1-2",
       "group": "F",
-      "prob_win_a": 0.5948,
-      "prob_draw": 0.2764,
-      "prob_win_b": 0.1288
+      "prob_win_a": 0.5721,
+      "prob_draw": 0.2224,
+      "prob_win_b": 0.2055
     },
     "Sweden vs Tunisia": {
       "team_a": "Sweden",
       "team_b": "Tunisia",
-      "lambda_a": 1.8704683780670166,
-      "lambda_b": 0.5814971923828125,
-      "sample_score": "1-0",
+      "lambda_a": 1.5457154512405396,
+      "lambda_b": 1.2238904237747192,
+      "sample_score": "1-1",
       "group": "F",
-      "prob_win_a": 0.6862,
-      "prob_draw": 0.2002,
-      "prob_win_b": 0.1136
+      "prob_win_a": 0.4455,
+      "prob_draw": 0.2507,
+      "prob_win_b": 0.3038
     },
     "Belgium vs Egypt": {
       "team_a": "Belgium",
       "team_b": "Egypt",
-      "lambda_a": 2.7167880535125732,
-      "lambda_b": 0.7334349751472473,
-      "sample_score": "4-0",
+      "lambda_a": 1.884474515914917,
+      "lambda_b": 0.991696834564209,
+      "sample_score": "1-2",
       "group": "G",
-      "prob_win_a": 0.7864,
-      "prob_draw": 0.1399,
-      "prob_win_b": 0.0737
+      "prob_win_a": 0.5836,
+      "prob_draw": 0.222,
+      "prob_win_b": 0.1944
     },
     "Belgium vs Iran": {
       "team_a": "Belgium",
       "team_b": "Iran",
-      "lambda_a": 2.4612557888031006,
-      "lambda_b": 1.4010928869247437,
-      "sample_score": "4-5",
+      "lambda_a": 1.7444936037063599,
+      "lambda_b": 0.9972164034843445,
+      "sample_score": "3-0",
       "group": "G",
-      "prob_win_a": 0.6114,
-      "prob_draw": 0.1834,
-      "prob_win_b": 0.2052
+      "prob_win_a": 0.551,
+      "prob_draw": 0.2349,
+      "prob_win_b": 0.2141
     },
     "Belgium vs New Zealand": {
       "team_a": "Belgium",
       "team_b": "New Zealand",
-      "lambda_a": 3.1149849891662598,
-      "lambda_b": 0.2373422086238861,
-      "sample_score": "3-0",
+      "lambda_a": 2.1386711597442627,
+      "lambda_b": 0.39891380071640015,
+      "sample_score": "0-2",
       "group": "G",
-      "prob_win_a": 0.9243,
-      "prob_draw": 0.0628,
-      "prob_win_b": 0.0129
+      "prob_win_a": 0.7858,
+      "prob_draw": 0.159,
+      "prob_win_b": 0.0552
     },
     "Egypt vs Iran": {
       "team_a": "Egypt",
       "team_b": "Iran",
-      "lambda_a": 0.7787726521492004,
-      "lambda_b": 1.6379270553588867,
-      "sample_score": "1-0",
+      "lambda_a": 1.1004893779754639,
+      "lambda_b": 1.2455480098724365,
+      "sample_score": "1-5",
       "group": "G",
-      "prob_win_a": 0.1724,
-      "prob_draw": 0.2454,
-      "prob_win_b": 0.5822
+      "prob_win_a": 0.331,
+      "prob_draw": 0.2754,
+      "prob_win_b": 0.3936
     },
     "Egypt vs New Zealand": {
       "team_a": "Egypt",
       "team_b": "New Zealand",
-      "lambda_a": 0.8561237454414368,
-      "lambda_b": 0.46565747261047363,
-      "sample_score": "1-1",
+      "lambda_a": 1.3113479614257812,
+      "lambda_b": 0.686367392539978,
+      "sample_score": "0-2",
       "group": "G",
-      "prob_win_a": 0.4287,
-      "prob_draw": 0.3809,
-      "prob_win_b": 0.1904
+      "prob_win_a": 0.5248,
+      "prob_draw": 0.2869,
+      "prob_win_b": 0.1883
     },
     "Iran vs New Zealand": {
       "team_a": "Iran",
       "team_b": "New Zealand",
-      "lambda_a": 1.7895958423614502,
-      "lambda_b": 0.37151458859443665,
-      "sample_score": "2-1",
+      "lambda_a": 1.4828860759735107,
+      "lambda_b": 0.5567935109138489,
+      "sample_score": "0-1",
       "group": "G",
-      "prob_win_a": 0.724,
-      "prob_draw": 0.2068,
-      "prob_win_b": 0.0692
+      "prob_win_a": 0.6059,
+      "prob_draw": 0.2573,
+      "prob_win_b": 0.1368
     },
     "Spain vs Cape Verde": {
       "team_a": "Spain",
       "team_b": "Cape Verde",
-      "lambda_a": 2.2297110557556152,
-      "lambda_b": 1.0251080989837646,
-      "sample_score": "1-0",
+      "lambda_a": 3.0481560230255127,
+      "lambda_b": 0.6335172057151794,
+      "sample_score": "2-0",
       "group": "H",
-      "prob_win_a": 0.6432,
-      "prob_draw": 0.1899,
-      "prob_win_b": 0.1669
+      "prob_win_a": 0.8525,
+      "prob_draw": 0.1008,
+      "prob_win_b": 0.0467
     },
     "Spain vs Saudi Arabia": {
       "team_a": "Spain",
       "team_b": "Saudi Arabia",
-      "lambda_a": 2.0349555015563965,
-      "lambda_b": 0.33830419182777405,
+      "lambda_a": 2.7257983684539795,
+      "lambda_b": 0.4393194317817688,
       "sample_score": "5-0",
       "group": "H",
-      "prob_win_a": 0.7824,
-      "prob_draw": 0.1653,
-      "prob_win_b": 0.0523
+      "prob_win_a": 0.8523,
+      "prob_draw": 0.1077,
+      "prob_win_b": 0.04
     },
     "Spain vs Uruguay": {
       "team_a": "Spain",
       "team_b": "Uruguay",
-      "lambda_a": 1.7234748601913452,
-      "lambda_b": 0.3501347005367279,
+      "lambda_a": 1.8682857751846313,
+      "lambda_b": 0.6310857534408569,
       "sample_score": "1-1",
       "group": "H",
-      "prob_win_a": 0.7172,
-      "prob_draw": 0.2106,
-      "prob_win_b": 0.0722
+      "prob_win_a": 0.6752,
+      "prob_draw": 0.2053,
+      "prob_win_b": 0.1195
     },
     "Cape Verde vs Saudi Arabia": {
       "team_a": "Cape Verde",
       "team_b": "Saudi Arabia",
-      "lambda_a": 1.3510034084320068,
-      "lambda_b": 1.3324377536773682,
-      "sample_score": "0-1",
+      "lambda_a": 1.3011329174041748,
+      "lambda_b": 1.497758388519287,
+      "sample_score": "3-2",
       "group": "H",
-      "prob_win_a": 0.3722,
-      "prob_draw": 0.259,
-      "prob_win_b": 0.3688
+      "prob_win_a": 0.3223,
+      "prob_draw": 0.2521,
+      "prob_win_b": 0.4256
     },
     "Cape Verde vs Uruguay": {
       "team_a": "Cape Verde",
       "team_b": "Uruguay",
-      "lambda_a": 1.3625770807266235,
-      "lambda_b": 0.8610414266586304,
-      "sample_score": "4-1",
+      "lambda_a": 1.02875816822052,
+      "lambda_b": 2.1350595951080322,
+      "sample_score": "1-0",
       "group": "H",
-      "prob_win_a": 0.4901,
-      "prob_draw": 0.2687,
-      "prob_win_b": 0.2412
+      "prob_win_a": 0.1741,
+      "prob_draw": 0.2036,
+      "prob_win_b": 0.6223
     },
     "Saudi Arabia vs Uruguay": {
       "team_a": "Saudi Arabia",
       "team_b": "Uruguay",
-      "lambda_a": 0.5660237669944763,
-      "lambda_b": 0.7747397422790527,
-      "sample_score": "3-0",
+      "lambda_a": 0.7423930168151855,
+      "lambda_b": 1.9072929620742798,
+      "sample_score": "1-4",
       "group": "H",
-      "prob_win_a": 0.2391,
-      "prob_draw": 0.3938,
-      "prob_win_b": 0.3671
+      "prob_win_a": 0.1395,
+      "prob_draw": 0.2063,
+      "prob_win_b": 0.6542
     },
     "France vs Senegal": {
       "team_a": "France",
       "team_b": "Senegal",
-      "lambda_a": 2.4353795051574707,
-      "lambda_b": 1.268340826034546,
-      "sample_score": "3-2",
+      "lambda_a": 2.212707996368408,
+      "lambda_b": 1.047864556312561,
+      "sample_score": "2-1",
       "group": "I",
-      "prob_win_a": 0.6315,
-      "prob_draw": 0.1856,
-      "prob_win_b": 0.1829
+      "prob_win_a": 0.6348,
+      "prob_draw": 0.1964,
+      "prob_win_b": 0.1688
     },
     "France vs Iraq": {
       "team_a": "France",
       "team_b": "Iraq",
-      "lambda_a": 2.565676212310791,
-      "lambda_b": 0.508274495601654,
-      "sample_score": "5-0",
+      "lambda_a": 2.7421984672546387,
+      "lambda_b": 0.5624755024909973,
+      "sample_score": "3-1",
       "group": "I",
-      "prob_win_a": 0.811,
-      "prob_draw": 0.134,
-      "prob_win_b": 0.055
+      "prob_win_a": 0.8263,
+      "prob_draw": 0.1208,
+      "prob_win_b": 0.0529
     },
     "France vs Norway": {
       "team_a": "France",
       "team_b": "Norway",
-      "lambda_a": 2.430133819580078,
-      "lambda_b": 0.6803261637687683,
-      "sample_score": "7-2",
+      "lambda_a": 2.002812147140503,
+      "lambda_b": 0.8417857885360718,
+      "sample_score": "2-2",
       "group": "I",
-      "prob_win_a": 0.7575,
-      "prob_draw": 0.1583,
-      "prob_win_b": 0.0842
+      "prob_win_a": 0.6451,
+      "prob_draw": 0.2038,
+      "prob_win_b": 0.1511
     },
     "Senegal vs Iraq": {
       "team_a": "Senegal",
       "team_b": "Iraq",
-      "lambda_a": 1.523619294166565,
-      "lambda_b": 0.6801654100418091,
-      "sample_score": "1-0",
+      "lambda_a": 1.4780972003936768,
+      "lambda_b": 0.8099077343940735,
+      "sample_score": "2-0",
       "group": "I",
-      "prob_win_a": 0.5752,
-      "prob_draw": 0.2564,
-      "prob_win_b": 0.1684
+      "prob_win_a": 0.5263,
+      "prob_draw": 0.263,
+      "prob_win_b": 0.2107
     },
     "Senegal vs Norway": {
       "team_a": "Senegal",
       "team_b": "Norway",
-      "lambda_a": 1.3577346801757812,
-      "lambda_b": 0.9984003305435181,
-      "sample_score": "1-1",
+      "lambda_a": 1.203537106513977,
+      "lambda_b": 1.2455700635910034,
+      "sample_score": "4-2",
       "group": "I",
-      "prob_win_a": 0.4532,
-      "prob_draw": 0.2707,
-      "prob_win_b": 0.2761
+      "prob_win_a": 0.3475,
+      "prob_draw": 0.2698,
+      "prob_win_b": 0.3827
     },
     "Iraq vs Norway": {
       "team_a": "Iraq",
       "team_b": "Norway",
-      "lambda_a": 0.5871748328208923,
-      "lambda_b": 1.897732138633728,
-      "sample_score": "0-1",
+      "lambda_a": 0.7242511510848999,
+      "lambda_b": 1.8460707664489746,
+      "sample_score": "3-1",
       "group": "I",
-      "prob_win_a": 0.1131,
-      "prob_draw": 0.2032,
-      "prob_win_b": 0.6837
+      "prob_win_a": 0.1453,
+      "prob_draw": 0.2155,
+      "prob_win_b": 0.6392
     },
     "Argentina vs Algeria": {
       "team_a": "Argentina",
       "team_b": "Algeria",
-      "lambda_a": 2.4808273315429688,
-      "lambda_b": 0.38821908831596375,
-      "sample_score": "3-0",
+      "lambda_a": 1.7922624349594116,
+      "lambda_b": 0.9139729142189026,
+      "sample_score": "2-0",
       "group": "J",
-      "prob_win_a": 0.8321,
-      "prob_draw": 0.1258,
-      "prob_win_b": 0.0421
+      "prob_win_a": 0.5858,
+      "prob_draw": 0.2273,
+      "prob_win_b": 0.1869
     },
     "Argentina vs Austria": {
       "team_a": "Argentina",
       "team_b": "Austria",
-      "lambda_a": 2.3389153480529785,
-      "lambda_b": 0.38591036200523376,
-      "sample_score": "0-0",
+      "lambda_a": 1.666619896888733,
+      "lambda_b": 0.6694948077201843,
+      "sample_score": "2-1",
       "group": "J",
-      "prob_win_a": 0.8143,
-      "prob_draw": 0.1375,
-      "prob_win_b": 0.0482
+      "prob_win_a": 0.6167,
+      "prob_draw": 0.2362,
+      "prob_win_b": 0.1471
     },
     "Argentina vs Jordan": {
       "team_a": "Argentina",
       "team_b": "Jordan",
-      "lambda_a": 2.7630279064178467,
-      "lambda_b": 1.5726232528686523,
-      "sample_score": "5-2",
+      "lambda_a": 2.095301628112793,
+      "lambda_b": 0.6530214548110962,
+      "sample_score": "2-0",
       "group": "J",
-      "prob_win_a": 0.628,
-      "prob_draw": 0.1727,
-      "prob_win_b": 0.1993
+      "prob_win_a": 0.7118,
+      "prob_draw": 0.186,
+      "prob_win_b": 0.1022
     },
     "Algeria vs Austria": {
       "team_a": "Algeria",
       "team_b": "Austria",
-      "lambda_a": 0.6570168733596802,
-      "lambda_b": 1.0999895334243774,
-      "sample_score": "0-0",
+      "lambda_a": 1.1736986637115479,
+      "lambda_b": 1.2693995237350464,
+      "sample_score": "1-3",
       "group": "J",
-      "prob_win_a": 0.2222,
-      "prob_draw": 0.3243,
-      "prob_win_b": 0.4535
+      "prob_win_a": 0.3395,
+      "prob_draw": 0.2785,
+      "prob_win_b": 0.382
     },
     "Algeria vs Jordan": {
       "team_a": "Algeria",
       "team_b": "Jordan",
-      "lambda_a": 1.0695381164550781,
-      "lambda_b": 1.6477419137954712,
-      "sample_score": "3-0",
+      "lambda_a": 1.4095067977905273,
+      "lambda_b": 1.0902215242385864,
+      "sample_score": "2-1",
       "group": "J",
-      "prob_win_a": 0.2523,
-      "prob_draw": 0.252,
-      "prob_win_b": 0.4957
+      "prob_win_a": 0.4501,
+      "prob_draw": 0.266,
+      "prob_win_b": 0.2839
     },
     "Austria vs Jordan": {
       "team_a": "Austria",
       "team_b": "Jordan",
-      "lambda_a": 1.544353723526001,
-      "lambda_b": 1.639182686805725,
-      "sample_score": "0-1",
+      "lambda_a": 1.5943282842636108,
+      "lambda_b": 0.9983657002449036,
+      "sample_score": "0-3",
       "group": "J",
-      "prob_win_a": 0.3637,
-      "prob_draw": 0.237,
-      "prob_win_b": 0.3993
+      "prob_win_a": 0.5155,
+      "prob_draw": 0.2548,
+      "prob_win_b": 0.2297
     },
     "Portugal vs DR Congo": {
       "team_a": "Portugal",
       "team_b": "DR Congo",
-      "lambda_a": 2.4862701892852783,
-      "lambda_b": 0.7694026231765747,
-      "sample_score": "4-0",
+      "lambda_a": 2.1467087268829346,
+      "lambda_b": 0.8287639021873474,
+      "sample_score": "4-1",
       "group": "K",
-      "prob_win_a": 0.746,
-      "prob_draw": 0.157,
-      "prob_win_b": 0.097
+      "prob_win_a": 0.6825,
+      "prob_draw": 0.1931,
+      "prob_win_b": 0.1244
     },
     "Portugal vs Uzbekistan": {
       "team_a": "Portugal",
       "team_b": "Uzbekistan",
-      "lambda_a": 1.9347808361053467,
-      "lambda_b": 0.76442950963974,
+      "lambda_a": 1.9752070903778076,
+      "lambda_b": 0.6197040677070618,
       "sample_score": "1-0",
       "group": "K",
-      "prob_win_a": 0.6519,
-      "prob_draw": 0.2024,
-      "prob_win_b": 0.1457
+      "prob_win_a": 0.6957,
+      "prob_draw": 0.1948,
+      "prob_win_b": 0.1095
     },
     "Portugal vs Colombia": {
       "team_a": "Portugal",
       "team_b": "Colombia",
-      "lambda_a": 0.5714404582977295,
-      "lambda_b": 1.5868709087371826,
-      "sample_score": "0-0",
+      "lambda_a": 1.4968655109405518,
+      "lambda_b": 1.3364030122756958,
+      "sample_score": "1-0",
       "group": "K",
-      "prob_win_a": 0.1281,
-      "prob_draw": 0.2425,
-      "prob_win_b": 0.6294
+      "prob_win_a": 0.4061,
+      "prob_draw": 0.2508,
+      "prob_win_b": 0.3431
     },
     "DR Congo vs Uzbekistan": {
       "team_a": "DR Congo",
       "team_b": "Uzbekistan",
-      "lambda_a": 0.8587406873703003,
-      "lambda_b": 1.1050723791122437,
-      "sample_score": "2-0",
+      "lambda_a": 0.956017255783081,
+      "lambda_b": 0.933524489402771,
+      "sample_score": "0-0",
       "group": "K",
-      "prob_win_a": 0.2845,
-      "prob_draw": 0.3015,
-      "prob_win_b": 0.414
+      "prob_win_a": 0.344,
+      "prob_draw": 0.3214,
+      "prob_win_b": 0.3346
     },
     "DR Congo vs Colombia": {
       "team_a": "DR Congo",
       "team_b": "Colombia",
-      "lambda_a": 0.7537022829055786,
-      "lambda_b": 2.201732635498047,
-      "sample_score": "1-1",
+      "lambda_a": 0.8447976112365723,
+      "lambda_b": 2.250211238861084,
+      "sample_score": "2-0",
       "group": "K",
-      "prob_win_a": 0.1168,
-      "prob_draw": 0.1753,
-      "prob_win_b": 0.7079
+      "prob_win_a": 0.1295,
+      "prob_draw": 0.1783,
+      "prob_win_b": 0.6922
     },
     "Uzbekistan vs Colombia": {
       "team_a": "Uzbekistan",
       "team_b": "Colombia",
-      "lambda_a": 0.7861649990081787,
-      "lambda_b": 2.076209545135498,
-      "sample_score": "0-2",
+      "lambda_a": 0.6531848907470703,
+      "lambda_b": 2.0648186206817627,
+      "sample_score": "0-1",
       "group": "K",
-      "prob_win_a": 0.1258,
-      "prob_draw": 0.1969,
-      "prob_win_b": 0.6773
+      "prob_win_a": 0.1024,
+      "prob_draw": 0.1947,
+      "prob_win_b": 0.7029
     },
     "England vs Croatia": {
       "team_a": "England",
       "team_b": "Croatia",
-      "lambda_a": 1.1613662242889404,
-      "lambda_b": 0.7940694093704224,
-      "sample_score": "1-0",
+      "lambda_a": 1.8304387331008911,
+      "lambda_b": 0.8063594698905945,
+      "sample_score": "0-0",
       "group": "L",
-      "prob_win_a": 0.4507,
-      "prob_draw": 0.3085,
-      "prob_win_b": 0.2408
+      "prob_win_a": 0.6188,
+      "prob_draw": 0.2229,
+      "prob_win_b": 0.1583
     },
     "England vs Ghana": {
       "team_a": "England",
       "team_b": "Ghana",
-      "lambda_a": 1.4274532794952393,
-      "lambda_b": 0.4025009572505951,
-      "sample_score": "1-0",
+      "lambda_a": 2.8121774196624756,
+      "lambda_b": 0.7335649728775024,
+      "sample_score": "4-0",
       "group": "L",
-      "prob_win_a": 0.6303,
-      "prob_draw": 0.2703,
-      "prob_win_b": 0.0994
+      "prob_win_a": 0.806,
+      "prob_draw": 0.1287,
+      "prob_win_b": 0.0653
     },
     "England vs Panama": {
       "team_a": "England",
       "team_b": "Panama",
-      "lambda_a": 1.32109797000885,
-      "lambda_b": 1.2778211832046509,
-      "sample_score": "2-2",
+      "lambda_a": 2.16064453125,
+      "lambda_b": 0.5122003555297852,
+      "sample_score": "1-0",
       "group": "L",
-      "prob_win_a": 0.3794,
-      "prob_draw": 0.2586,
-      "prob_win_b": 0.362
+      "prob_win_a": 0.7531,
+      "prob_draw": 0.1692,
+      "prob_win_b": 0.0777
     },
     "Croatia vs Ghana": {
       "team_a": "Croatia",
       "team_b": "Ghana",
-      "lambda_a": 2.073617458343506,
-      "lambda_b": 0.5330820083618164,
-      "sample_score": "4-0",
+      "lambda_a": 2.1436407566070557,
+      "lambda_b": 0.9644337296485901,
+      "sample_score": "4-2",
       "group": "L",
-      "prob_win_a": 0.7389,
-      "prob_draw": 0.1816,
-      "prob_win_b": 0.0795
+      "prob_win_a": 0.6344,
+      "prob_draw": 0.201,
+      "prob_win_b": 0.1646
     },
     "Croatia vs Panama": {
       "team_a": "Croatia",
       "team_b": "Panama",
-      "lambda_a": 1.6188275814056396,
-      "lambda_b": 1.535773515701294,
-      "sample_score": "0-0",
+      "lambda_a": 1.4438306093215942,
+      "lambda_b": 0.8123481273651123,
+      "sample_score": "2-0",
       "group": "L",
-      "prob_win_a": 0.4016,
-      "prob_draw": 0.2421,
-      "prob_win_b": 0.3563
+      "prob_win_a": 0.5238,
+      "prob_draw": 0.2661,
+      "prob_win_b": 0.2101
     },
     "Ghana vs Panama": {
       "team_a": "Ghana",
       "team_b": "Panama",
-      "lambda_a": 0.6195498108863831,
-      "lambda_b": 2.024197816848755,
-      "sample_score": "0-1",
+      "lambda_a": 1.1009215116500854,
+      "lambda_b": 1.9481112957000732,
+      "sample_score": "0-0",
       "group": "L",
-      "prob_win_a": 0.1016,
-      "prob_draw": 0.1931,
-      "prob_win_b": 0.7053
+      "prob_win_a": 0.2117,
+      "prob_draw": 0.2214,
+      "prob_win_b": 0.5669
     }
   },
   "elo_ratings": {
@@ -1892,387 +1892,331 @@
   },
   "disagreements": [
     {
-      "team": "Germany",
-      "neural_poisson": 20.86,
-      "elo_baseline": 4.67,
-      "difference": 16.19,
-      "direction": "ANN favors"
-    },
-    {
       "team": "France",
-      "neural_poisson": 23.23,
+      "neural_poisson": 21.91,
       "elo_baseline": 10.0,
-      "difference": 13.23,
+      "difference": 11.91,
       "direction": "ANN favors"
-    },
-    {
-      "team": "Spain",
-      "neural_poisson": 7.52,
-      "elo_baseline": 18.74,
-      "difference": -11.22,
-      "direction": "Elo favors"
     },
     {
       "team": "Brazil",
-      "neural_poisson": 14.03,
+      "neural_poisson": 11.28,
       "elo_baseline": 6.78,
-      "difference": 7.25,
+      "difference": 4.5,
       "direction": "ANN favors"
-    },
-    {
-      "team": "Belgium",
-      "neural_poisson": 5.9,
-      "elo_baseline": 2.25,
-      "difference": 3.65,
-      "direction": "ANN favors"
-    },
-    {
-      "team": "Netherlands",
-      "neural_poisson": 0.9,
-      "elo_baseline": 4.55,
-      "difference": -3.65,
-      "direction": "Elo favors"
-    },
-    {
-      "team": "Czech Republic",
-      "neural_poisson": 3.89,
-      "elo_baseline": 0.65,
-      "difference": 3.24,
-      "direction": "ANN favors"
-    },
-    {
-      "team": "Norway",
-      "neural_poisson": 0.36,
-      "elo_baseline": 3.34,
-      "difference": -2.98,
-      "direction": "Elo favors"
     },
     {
       "team": "Ecuador",
-      "neural_poisson": 0.34,
+      "neural_poisson": 0.39,
       "elo_baseline": 3.24,
-      "difference": -2.9,
+      "difference": -2.85,
       "direction": "Elo favors"
     },
     {
       "team": "Mexico",
-      "neural_poisson": 0.89,
+      "neural_poisson": 1.05,
       "elo_baseline": 3.62,
-      "difference": -2.73,
+      "difference": -2.57,
       "direction": "Elo favors"
     },
     {
-      "team": "Switzerland",
-      "neural_poisson": 0.69,
-      "elo_baseline": 3.35,
-      "difference": -2.66,
-      "direction": "Elo favors"
+      "team": "Germany",
+      "neural_poisson": 7.12,
+      "elo_baseline": 4.67,
+      "difference": 2.45,
+      "direction": "ANN favors"
     },
     {
-      "team": "Argentina",
-      "neural_poisson": 1.54,
-      "elo_baseline": 4.05,
-      "difference": -2.51,
-      "direction": "Elo favors"
-    },
-    {
-      "team": "England",
-      "neural_poisson": 1.04,
-      "elo_baseline": 3.35,
-      "difference": -2.31,
+      "team": "Norway",
+      "neural_poisson": 1.05,
+      "elo_baseline": 3.34,
+      "difference": -2.29,
       "direction": "Elo favors"
     },
     {
       "team": "Japan",
-      "neural_poisson": 0.96,
-      "elo_baseline": 3.23,
-      "difference": -2.27,
-      "direction": "Elo favors"
-    },
-    {
-      "team": "Uruguay",
-      "neural_poisson": 0.02,
-      "elo_baseline": 2.25,
-      "difference": -2.23,
-      "direction": "Elo favors"
-    },
-    {
-      "team": "Portugal",
-      "neural_poisson": 0.37,
-      "elo_baseline": 2.54,
-      "difference": -2.17,
-      "direction": "Elo favors"
-    },
-    {
-      "team": "Canada",
-      "neural_poisson": 0.23,
-      "elo_baseline": 1.68,
-      "difference": -1.45,
-      "direction": "Elo favors"
-    },
-    {
-      "team": "Morocco",
-      "neural_poisson": 5.54,
-      "elo_baseline": 4.11,
-      "difference": 1.43,
-      "direction": "ANN favors"
-    },
-    {
-      "team": "South Korea",
-      "neural_poisson": 0.06,
-      "elo_baseline": 1.35,
-      "difference": -1.29,
-      "direction": "Elo favors"
-    },
-    {
-      "team": "Colombia",
       "neural_poisson": 1.35,
-      "elo_baseline": 2.5,
-      "difference": -1.15,
+      "elo_baseline": 3.23,
+      "difference": -1.88,
       "direction": "Elo favors"
     },
     {
-      "team": "Croatia",
-      "neural_poisson": 0.32,
-      "elo_baseline": 1.41,
-      "difference": -1.09,
-      "direction": "Elo favors"
-    },
-    {
-      "team": "Ivory Coast",
-      "neural_poisson": 1.48,
-      "elo_baseline": 0.39,
-      "difference": 1.09,
-      "direction": "ANN favors"
-    },
-    {
-      "team": "Australia",
-      "neural_poisson": 0.0,
-      "elo_baseline": 1.02,
-      "difference": -1.02,
-      "direction": "Elo favors"
-    },
-    {
-      "team": "Sweden",
-      "neural_poisson": 1.14,
-      "elo_baseline": 0.15,
-      "difference": 0.99,
-      "direction": "ANN favors"
-    },
-    {
-      "team": "Scotland",
-      "neural_poisson": 0.27,
-      "elo_baseline": 1.14,
-      "difference": -0.87,
+      "team": "Argentina",
+      "neural_poisson": 2.29,
+      "elo_baseline": 4.05,
+      "difference": -1.76,
       "direction": "Elo favors"
     },
     {
       "team": "Turkey",
-      "neural_poisson": 1.77,
+      "neural_poisson": 0.84,
       "elo_baseline": 2.58,
-      "difference": -0.81,
+      "difference": -1.74,
       "direction": "Elo favors"
     },
     {
-      "team": "Austria",
-      "neural_poisson": 0.05,
-      "elo_baseline": 0.61,
-      "difference": -0.56,
+      "team": "Canada",
+      "neural_poisson": 0.38,
+      "elo_baseline": 1.68,
+      "difference": -1.3,
+      "direction": "Elo favors"
+    },
+    {
+      "team": "Belgium",
+      "neural_poisson": 3.29,
+      "elo_baseline": 2.25,
+      "difference": 1.04,
+      "direction": "ANN favors"
+    },
+    {
+      "team": "Netherlands",
+      "neural_poisson": 5.44,
+      "elo_baseline": 4.55,
+      "difference": 0.89,
+      "direction": "ANN favors"
+    },
+    {
+      "team": "South Korea",
+      "neural_poisson": 0.47,
+      "elo_baseline": 1.35,
+      "difference": -0.88,
+      "direction": "Elo favors"
+    },
+    {
+      "team": "Switzerland",
+      "neural_poisson": 4.19,
+      "elo_baseline": 3.35,
+      "difference": 0.84,
+      "direction": "ANN favors"
+    },
+    {
+      "team": "Morocco",
+      "neural_poisson": 3.32,
+      "elo_baseline": 4.11,
+      "difference": -0.79,
+      "direction": "Elo favors"
+    },
+    {
+      "team": "Australia",
+      "neural_poisson": 0.24,
+      "elo_baseline": 1.02,
+      "difference": -0.78,
+      "direction": "Elo favors"
+    },
+    {
+      "team": "Croatia",
+      "neural_poisson": 0.74,
+      "elo_baseline": 1.41,
+      "difference": -0.67,
+      "direction": "Elo favors"
+    },
+    {
+      "team": "Iran",
+      "neural_poisson": 0.46,
+      "elo_baseline": 1.07,
+      "difference": -0.61,
+      "direction": "Elo favors"
+    },
+    {
+      "team": "Uruguay",
+      "neural_poisson": 1.72,
+      "elo_baseline": 2.25,
+      "difference": -0.53,
       "direction": "Elo favors"
     }
   ],
   "upsets": [
     {
-      "match": "South Korea vs Czech Republic",
-      "upset_team": "Czech Republic",
-      "favored": "South Korea",
-      "upset_prob": 67.6
+      "match": "Portugal vs Colombia",
+      "upset_team": "Portugal",
+      "favored": "Colombia",
+      "upset_prob": 40.6
     },
     {
       "match": "Paraguay vs Australia",
       "upset_team": "Paraguay",
       "favored": "Australia",
-      "upset_prob": 63.4
-    },
-    {
-      "match": "Algeria vs Jordan",
-      "upset_team": "Jordan",
-      "favored": "Algeria",
-      "upset_prob": 49.6
-    },
-    {
-      "match": "Cape Verde vs Uruguay",
-      "upset_team": "Cape Verde",
-      "favored": "Uruguay",
-      "upset_prob": 49.0
-    },
-    {
-      "match": "Ivory Coast vs Ecuador",
-      "upset_team": "Ivory Coast",
-      "favored": "Ecuador",
-      "upset_prob": 47.8
-    },
-    {
-      "match": "Mexico vs Czech Republic",
-      "upset_team": "Czech Republic",
-      "favored": "Mexico",
-      "upset_prob": 46.7
+      "upset_prob": 38.3
     },
     {
       "match": "Senegal vs Norway",
       "upset_team": "Senegal",
       "favored": "Norway",
-      "upset_prob": 45.3
+      "upset_prob": 34.8
     },
     {
-      "match": "Japan vs Sweden",
-      "upset_team": "Sweden",
-      "favored": "Japan",
-      "upset_prob": 44.5
+      "match": "Ivory Coast vs Ecuador",
+      "upset_team": "Ivory Coast",
+      "favored": "Ecuador",
+      "upset_prob": 34.4
     },
     {
-      "match": "Netherlands vs Sweden",
-      "upset_team": "Sweden",
-      "favored": "Netherlands",
-      "upset_prob": 42.5
+      "match": "DR Congo vs Uzbekistan",
+      "upset_team": "DR Congo",
+      "favored": "Uzbekistan",
+      "upset_prob": 34.4
     },
     {
-      "match": "Netherlands vs Japan",
-      "upset_team": "Japan",
-      "favored": "Netherlands",
-      "upset_prob": 41.6
-    },
-    {
-      "match": "Austria vs Jordan",
-      "upset_team": "Jordan",
+      "match": "Algeria vs Austria",
+      "upset_team": "Algeria",
       "favored": "Austria",
-      "upset_prob": 39.9
+      "upset_prob": 34.0
+    },
+    {
+      "match": "Egypt vs Iran",
+      "upset_team": "Egypt",
+      "favored": "Iran",
+      "upset_prob": 33.1
     },
     {
       "match": "Cape Verde vs Saudi Arabia",
       "upset_team": "Cape Verde",
       "favored": "Saudi Arabia",
-      "upset_prob": 37.2
+      "upset_prob": 32.2
     },
     {
-      "match": "England vs Panama",
-      "upset_team": "Panama",
-      "favored": "England",
-      "upset_prob": 36.2
+      "match": "United States vs Turkey",
+      "upset_team": "United States",
+      "favored": "Turkey",
+      "upset_prob": 31.3
     },
     {
-      "match": "Croatia vs Panama",
-      "upset_team": "Panama",
-      "favored": "Croatia",
-      "upset_prob": 35.6
+      "match": "United States vs Paraguay",
+      "upset_team": "Paraguay",
+      "favored": "United States",
+      "upset_prob": 30.9
+    },
+    {
+      "match": "Sweden vs Tunisia",
+      "upset_team": "Tunisia",
+      "favored": "Sweden",
+      "upset_prob": 30.4
     },
     {
       "match": "Paraguay vs Turkey",
       "upset_team": "Paraguay",
       "favored": "Turkey",
-      "upset_prob": 34.9
+      "upset_prob": 29.6
+    },
+    {
+      "match": "South Korea vs Czech Republic",
+      "upset_team": "Czech Republic",
+      "favored": "South Korea",
+      "upset_prob": 28.6
+    },
+    {
+      "match": "Algeria vs Jordan",
+      "upset_team": "Jordan",
+      "favored": "Algeria",
+      "upset_prob": 28.4
+    },
+    {
+      "match": "Mexico vs South Korea",
+      "upset_team": "South Korea",
+      "favored": "Mexico",
+      "upset_prob": 28.1
     }
   ],
   "feature_importance": [
     {
       "feature": "elo_diff",
-      "importance": 0.24506905078887942,
-      "std": 0.006001701611488973
-    },
-    {
-      "feature": "goals_scored_avg_5",
-      "importance": 0.16294471025466917,
-      "std": 0.003945694294872065
-    },
-    {
-      "feature": "goals_scored_std_5",
-      "importance": 0.04719604849815373,
-      "std": 0.0013982713507072128
+      "importance": 0.32906570434570304,
+      "std": 0.006629930365178207
     },
     {
       "feature": "elo",
-      "importance": 0.039093583822250366,
-      "std": 0.0016606945868012286
-    },
-    {
-      "feature": "goal_diff_avg_5",
-      "importance": 0.03215655088424685,
-      "std": 0.0009480969825678375
-    },
-    {
-      "feature": "goals_conceded_avg_5",
-      "importance": 0.024625086784362815,
-      "std": 0.0009509325222486657
-    },
-    {
-      "feature": "points_per_game_5",
-      "importance": 0.016336005926132158,
-      "std": 0.0008462917567817759
-    },
-    {
-      "feature": "goals_scored_avg_10",
-      "importance": 0.01586184501647947,
-      "std": 0.0014265752246588324
+      "importance": 0.012364703416824385,
+      "std": 0.0006844803034440692
     },
     {
       "feature": "inter_confederation",
-      "importance": 0.013107115030288718,
-      "std": 0.0007859941560310965
-    },
-    {
-      "feature": "draw_rate_5",
-      "importance": 0.010861629247665427,
-      "std": 0.0007134308983082841
-    },
-    {
-      "feature": "goals_scored_std_10",
-      "importance": 0.0100746750831604,
-      "std": 0.0007918212074652857
-    },
-    {
-      "feature": "goal_diff_avg_20",
-      "importance": 0.008584719896316484,
-      "std": 0.0008587637702079716
-    },
-    {
-      "feature": "win_rate_5",
-      "importance": 0.007862329483032227,
-      "std": 0.00045566904373239045
+      "importance": 0.012298429012298606,
+      "std": 0.0007870303554562969
     },
     {
       "feature": "squad_value_diff",
-      "importance": 0.007533115148544267,
-      "std": 0.0008425508647266009
+      "importance": 0.007201975584030129,
+      "std": 0.0008630241675010755
     },
     {
-      "feature": "goal_diff_avg_10",
-      "importance": 0.00735931992530825,
-      "std": 0.0002983028690710843
-    },
-    {
-      "feature": "neutral_win_rate",
-      "importance": 0.00675079822540281,
-      "std": 0.000539512485223567
-    },
-    {
-      "feature": "goals_conceded_avg_10",
-      "importance": 0.0064632475376129594,
-      "std": 0.000457209643644053
-    },
-    {
-      "feature": "is_neutral",
-      "importance": 0.006256037950515769,
-      "std": 0.0003823997630885304
-    },
-    {
-      "feature": "is_wc",
-      "importance": 0.006030660867690996,
-      "std": 0.0006008698139597046
+      "feature": "goals_scored_std_20",
+      "importance": 0.007123750448226884,
+      "std": 0.0002653621572833016
     },
     {
       "feature": "draw_rate_10",
-      "importance": 0.005725526809692405,
-      "std": 0.0003272152564939066
+      "importance": 0.006614136695861861,
+      "std": 0.0005665797078657234
+    },
+    {
+      "feature": "goals_scored_avg_10",
+      "importance": 0.0062458276748657005,
+      "std": 0.0004885678525874093
+    },
+    {
+      "feature": "goals_conceded_avg_5",
+      "importance": 0.006165301799774148,
+      "std": 0.00046757840717826454
+    },
+    {
+      "feature": "goals_scored_avg_20",
+      "importance": 0.00610728263854976,
+      "std": 0.0005480326300355473
+    },
+    {
+      "feature": "clean_sheet_rate_20",
+      "importance": 0.006053239107131958,
+      "std": 0.0007203696728291095
+    },
+    {
+      "feature": "is_wc",
+      "importance": 0.005969709157943703,
+      "std": 0.00037006497332428394
+    },
+    {
+      "feature": "is_neutral",
+      "importance": 0.0059410750865935835,
+      "std": 0.0004304646521732339
+    },
+    {
+      "feature": "goal_diff_avg_20",
+      "importance": 0.005780166387557961,
+      "std": 0.0005758471187060115
+    },
+    {
+      "feature": "goals_conceded_avg_20",
+      "importance": 0.005674964189529397,
+      "std": 0.0006557804443088274
+    },
+    {
+      "feature": "competitive_win_rate",
+      "importance": 0.005475425720214866,
+      "std": 0.0007636836882098346
+    },
+    {
+      "feature": "clean_sheet_rate_10",
+      "importance": 0.005460745096206643,
+      "std": 0.0005965412216918884
+    },
+    {
+      "feature": "win_rate_5",
+      "importance": 0.005124139785766646,
+      "std": 0.0006530729713162021
+    },
+    {
+      "feature": "draw_rate_5",
+      "importance": 0.005097258090972945,
+      "std": 0.0003872020203603664
+    },
+    {
+      "feature": "neutral_win_rate",
+      "importance": 0.004992818832397439,
+      "std": 0.0003019011328765088
+    },
+    {
+      "feature": "points_per_game_20",
+      "importance": 0.004788070917129517,
+      "std": 0.0004096790680957708
     }
   ],
   "groups": {
