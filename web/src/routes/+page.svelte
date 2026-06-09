@@ -103,7 +103,7 @@
   .count { color: #64748b; font-size: 0.8rem; font-weight: 400; }
   .empty { color: #64748b; font-size: 0.85rem; padding: 1rem 0; }
   .day {
-    position: sticky; top: 0; background: #0a0e17; color: #94a3b8;
+    position: sticky; top: var(--banner-h); background: #0a0e17; color: #94a3b8;
     font-size: 0.85rem; padding: 0.5rem 0 0.3rem; margin: 1.2rem 0 0.2rem;
     border-bottom: 1px solid #1e293b; z-index: 1;
   }

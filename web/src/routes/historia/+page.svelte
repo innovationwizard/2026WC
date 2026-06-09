@@ -115,7 +115,6 @@
 
 <svelte:head>
   <title>¿Quién gana el Mundial? · Cómo se construye una predicción</title>
-  <meta name="description" content="La historia de cómo un modelo predice el Mundial 2026 — del azar a la red neuronal a la honestidad. Se cuenta sola." />
 </svelte:head>
 
 <nav class="rail" aria-hidden="true">
@@ -261,7 +260,7 @@
   :global(body) { margin: 0; background: #0a0e17; }
   .historia { color: #e2e8f0; font-family: 'Segoe UI', system-ui, sans-serif; }
 
-  .rail { position: fixed; top: 0; left: 0; right: 0; z-index: 10; display: flex; gap: 1.25rem; justify-content: center; padding: 0.5rem; font-size: 0.72rem; letter-spacing: 0.05em; background: #0a0e17cc; backdrop-filter: blur(6px); border-bottom: 1px solid #1e293b; color: #475569; }
+  .rail { position: fixed; top: var(--banner-h); left: 0; right: 0; z-index: 10; display: flex; gap: 1.25rem; justify-content: center; padding: 0.5rem; font-size: 0.72rem; letter-spacing: 0.05em; background: #0a0e17cc; backdrop-filter: blur(6px); border-bottom: 1px solid #1e293b; color: #475569; }
   .rail .on { color: #d4af37; }
 
   .autoplay { position: fixed; bottom: 1.25rem; right: 1.25rem; z-index: 11; background: #111827cc; backdrop-filter: blur(6px); border: 1px solid #334155; color: #e2e8f0; padding: 0.5rem 0.9rem; border-radius: 999px; cursor: pointer; font-family: inherit; font-size: 0.8rem; font-weight: 600; }
