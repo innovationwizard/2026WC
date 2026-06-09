@@ -38,7 +38,8 @@
 - [x] **CP6:** `205cb46` Mercado line + HOW_TO_ENTER_RESULTS guide ✓ — **pushed to origin/v2**
 - [x] **CP7:** `f35864c` /v2 fork + M2 ensemble + exporter rewire ✓ — **pushed to origin/v2**
 - [x] **CP8:** `7e2835d` P0 data-integrity layer ✓ — **pushed to origin/v2**
-- [ ] **CP9:** after next batch
+- [x] **CP9:** `b3c1137` Fix M2 — leakage fix + backtest + N=50 ensemble ✓ — **pushed to origin/v2** (Spain 3.6→19.2, France/Spain top-2, RPS 0.166)
+- [ ] **CP10:** after next batch
 - [ ] (further checkpoints appended as batches complete)
 
 ---
@@ -92,7 +93,11 @@
 - [x] 7.3 **VALIDATED** ✓ — **M2 ensemble RPS 0.1662 vs Elo 0.1746 on 1,267 held-out matches (M2 beats Elo by 0.0084).** Real skill, not consensus-fitting. Eyeball: France 25 / Spain 21.6 / Brazil 8.2 / Germany 8.0 — consensus-aligned.
 - [x] 7.5 **Final N=50 run** ✓ (1056s) → **France 21.9% / Spain 19.2% / Brazil 11.3% / Germany 7.1%** — consensus-aligned, max-stable. Exporter regenerated matches.json (Grupos/Llaves show it); site builds OK.
 - [x] 7.6 **BATCH 7 COMPLETE.** ▶ CP9 available. (Optional later: surface backtest RPS 0.166 in site methodology; refine 1-match prediction staleness.)
-- [ ] Batch 8 — M3 (blend+conformal) [deferred]; P3 bracket from fixtures (Bug B) [deferred]
+**Batch 8 — P3 BRACKET FIX (Bug B)** ← IN PROGRESS
+- [x] Diagnosed: old `build_bracket` referenced teams TWICE (runners A & I) → dedup → pad by group letter → deep-run odds distorted by GROUP LETTER. Confirmed cliff: OLD N=50 Argentina adv 87%→r16 20%, England 93%→17%, Portugal 84%→30% (vs Brazil 86→73, Spain 97→81, France 91→83 = soft paths).
+- [x] **FIXED `/v2/monte_carlo.py build_bracket`** — fair randomized draw: winners vs thirds/runners, 8 runners pair up, NO same-group R32 rematch (+ repair pass), balanced interleave, each team once, random per sim. Validated standalone: 2000 draws all 32-unique, 0 rematches.
+- [x] **N=50 fixed-bracket run ✓ — CLIFFS GONE.** r16: Argentina 20→69%, England 17→77%, Portugal 30→67%. Champion: **France 18.6 / Spain 18.1 / England 13.8 / Argentina 7.4 / Brazil 6.8 / Germany 6.5** — textbook consensus (England recovered 3.0→13.8). Brazil/France came down (were over-rewarded by old soft paths). Site regenerated + builds OK. Backtest RPS unaffected (bracket ≠ match-level skill). **BATCH 8 / P3 COMPLETE.** ▶ CP10 available (build_bracket fix + regenerated predictions/matches).
+- [ ] M3 (blend+conformal) [still deferred]
 
 ### PHASE 3 — Narrative scrollytelling site  *(long-term / video)*
 - [ ] Batch 10+ — shell + sticky-stepper engine; Modelo 1/2/3 guided sections; sandboxes; autoplay. (Detailed when reached.)

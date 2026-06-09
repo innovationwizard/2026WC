@@ -310,71 +310,80 @@ class TournamentSimulator:
     def build_bracket(self, all_standings: Dict[str, List[GroupStanding]],
                       best_thirds: List[str]) -> List[str]:
         """
-        Build the R32 bracket from group standings and best third-placed teams.
-        
-        FIFA's bracket structure ensures top-seeded teams are on opposite sides.
-        Simplified version based on the 2026 format.
+        Build the R32 bracket — a FAIR, randomized draw respecting group position.
+
+        v2 FIX (Bug B): the v1 'simplified' bracket hard-coded pairings that
+        referenced some teams TWICE (e.g. runners A & I), then deduped + padded by
+        group letter (A, B, C, …) — so deep-run odds were distorted by GROUP LETTER,
+        not merit (which buried England[L] and Argentina[J]). This version:
+          • uses all 32 qualified teams exactly once;
+          • draws group WINNERS against thirds/runners (the structural edge they
+            earned); the 8 unlucky runners play each other;
+          • avoids same-group R32 rematches (best-effort);
+          • spreads winner- and runner-matches across the bracket (balanced halves);
+          • is RANDOM per simulation — averaging over fair draws models honest
+            bracket uncertainty and removes the group-letter bias.
         """
-        bracket = []
-        
-        # Group winners and runners-up
         group_order = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L']
-        
-        winners = {g: all_standings[g][0].team for g in group_order}
-        runners = {g: all_standings[g][1].team for g in group_order}
-        
-        # Distribute third-placed teams across the bracket
+        winners = [all_standings[g][0].team for g in group_order]
+        runners = [all_standings[g][1].team for g in group_order]
+
+        team_group = {}
+        for g in group_order:
+            for s in all_standings[g]:
+                team_group[s.team] = g
+
         thirds = list(best_thirds)
+        self.rng.shuffle(winners)
+        self.rng.shuffle(runners)
         self.rng.shuffle(thirds)
-        
-        # Build bracket: winner vs third, runner-up vs runner-up (cross-groups)
-        # Simplified FIFA bracket structure
-        matchups = [
-            # Left half
-            (winners['A'], thirds[0] if len(thirds) > 0 else runners['A']),
-            (runners['C'], runners['D']),
-            (winners['B'], thirds[1] if len(thirds) > 1 else runners['B']),
-            (runners['A'], runners['B']),
-            (winners['C'], thirds[2] if len(thirds) > 2 else runners['C']),
-            (runners['E'], runners['F']),
-            (winners['D'], thirds[3] if len(thirds) > 3 else runners['D']),
-            (runners['G'], runners['H']),
-            # Right half
-            (winners['E'], thirds[4] if len(thirds) > 4 else runners['E']),
-            (runners['I'], runners['J']),
-            (winners['F'], thirds[5] if len(thirds) > 5 else runners['F']),
-            (runners['K'], runners['L']),
-            (winners['G'], thirds[6] if len(thirds) > 6 else runners['G']),
-            (runners['A'], runners['L']),
-            (winners['H'], thirds[7] if len(thirds) > 7 else runners['H']),
-            (winners['I'], runners['I']),
-        ]
-        
-        # Flatten to list of 32
-        for a, b in matchups:
-            bracket.extend([a, b])
-        
-        # Ensure no duplicates (safety check)
-        seen = set()
-        deduped = []
-        for team in bracket:
-            if team not in seen:
-                deduped.append(team)
-                seen.add(team)
-        
-        # Pad if needed (shouldn't happen with correct logic)
-        while len(deduped) < 32:
-            for g in group_order:
-                for s in all_standings[g]:
-                    if s.team not in seen:
-                        deduped.append(s.team)
-                        seen.add(s.team)
-                    if len(deduped) >= 32:
-                        break
-                if len(deduped) >= 32:
+
+        # 12 winners face 8 thirds + 4 runners; the other 8 runners pair up.
+        winner_opps = thirds + runners[:4]
+        rest_runners = runners[4:]
+        self.rng.shuffle(winner_opps)
+
+        def pair_diff_group(team, pool):
+            """Pop an opponent from pool not in team's group (fallback: first)."""
+            for i, o in enumerate(pool):
+                if team_group.get(o) != team_group.get(team):
+                    return pool.pop(i)
+            return pool.pop(0)
+
+        winner_matches = [(w, pair_diff_group(w, winner_opps)) for w in winners]
+
+        # Repair pass: if any winner ended up vs its own group (best-effort failed
+        # because its only remaining opp was same-group), swap opponents with another
+        # match so both become cross-group.
+        for i, (wi_, oi_) in enumerate(winner_matches):
+            if team_group.get(oi_) != team_group.get(wi_):
+                continue
+            for j, (wj_, oj_) in enumerate(winner_matches):
+                if i == j:
+                    continue
+                if (team_group.get(oj_) != team_group.get(wi_)
+                        and team_group.get(oi_) != team_group.get(wj_)):
+                    winner_matches[i] = (wi_, oj_)
+                    winner_matches[j] = (wj_, oi_)
                     break
-        
-        return deduped[:32]
+
+        runner_matches, rr = [], rest_runners[:]
+        while len(rr) >= 2:
+            a = rr.pop(0)
+            runner_matches.append((a, pair_diff_group(a, rr)))
+
+        # Interleave: the 4 runner-matches sit at regular intervals (balanced tree).
+        ordered, wi, ri = [], 0, 0
+        for i in range(16):
+            if i % 4 == 3 and ri < len(runner_matches):
+                ordered.append(runner_matches[ri]); ri += 1
+            else:
+                ordered.append(winner_matches[wi]); wi += 1
+
+        bracket = []
+        for a, b in ordered:
+            bracket.extend([a, b])
+        return bracket[:32]
 
     def simulate_tournament(self) -> SimulationResult:
         """Simulate one complete FIFA World Cup 2026 tournament."""
