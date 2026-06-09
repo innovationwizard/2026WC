@@ -33,8 +33,15 @@ def main():
         csv_path = '/home/claude/results.csv'
     print(f"\n[1/6] Loading data from {csv_path}...")
     df = pd.read_csv(csv_path)
-    df['date'] = pd.to_datetime(df['date'])
+    df['date'] = pd.to_datetime(df['date'], errors='coerce')  # bad dates → NaT (caught by P0)
     print(f"  {len(df):,} total rows")
+
+    # ── P0: data integrity (Dirty George guard) — fail loud before any modeling ──
+    from data_integrity import audit_load
+    _report = audit_load(df, WC_TEAMS, today=pd.Timestamp.today().normalize(),
+                         squad_values=SQUAD_MARKET_VALUE)
+    _report.summary()
+    _report.assert_ok()
 
     # ── 2. Feature engineering ──
     print("\n[2/6] Engineering features...")

@@ -36,7 +36,8 @@
 - [x] **CP4:** `fc93240` Grupos+Llaves views + switcher + Valor tooltip ✓ — **pushed to origin/v2**
 - [x] **CP5:** `052dfeb` live results-ingestion mechanism ✓ — **pushed to origin/v2**
 - [x] **CP6:** `205cb46` Mercado line + HOW_TO_ENTER_RESULTS guide ✓ — **pushed to origin/v2**
-- [ ] **CP7:** after next batch (model work: /v2 fork + P0, then M2 fix or M3)
+- [x] **CP7:** `f35864c` /v2 fork + M2 ensemble + exporter rewire ✓ — **pushed to origin/v2**
+- [ ] **CP8:** after next batch
 - [ ] (further checkpoints appended as batches complete)
 
 ---
@@ -82,7 +83,8 @@
 - [x] 6.2 **STABILITY (ensemble)** ✓ — `EnsembleNeuralPoisson` (5 nets, avg λ) in /v2. Result: Brazil swing 23↔11.6 tamed → stable 14%; **headline #1 moved Brazil 23% → France 23.2% (consensus-defensible)**. Spain 3.6→7.5. Stable, no seed lottery. **Perf fix:** `predict_lambda` now eager `model(x)` (was `model.predict()` → tf retracing, made ensemble MC stall); + skip feature-importance on nets 2-5. Run 229s.
 - [x] 6.6 ✓ Exporter reads `v2/output/predictions.json` (fallback v1); matches.json + Grupos/Llaves now show ensemble (France 23%); build OK; source label fixed.
 - [ ] 6.3 **BIAS (features)** — DEFERRED ("train deeper later"). Spain/England/Argentina still buried, Germany inflated (raw `goals_scored_avg_5` opponent-blind). Needs **backtest P1** to validate (don't overfit to consensus) + opponent-adjusted/time-decay features.
-- [ ] 6.4 (optional) Dixon-Coles ρ; 6.5 **P0** data-integrity in /v2.
+- [x] 6.5 **P0 data-integrity ✓** — `/v2/data_integrity.py` (`audit_load` + `IntegrityReport`), wired into `/v2/main.py` at load (fail-loud before modeling). Counts drops (no silent loss), flags anomalies, hard-errors on leakage + unmatched WC team. Verified standalone (clean PASS; leakage tripwire + coverage guard both FIRE on bad input) and in the real pipeline. **Surfaced a real finding: 2 duplicate fixtures in results.csv** (flagged, non-fatal; baseline locked so left as-is but now visible).
+- [ ] 6.4 (optional, deferred) Dixon-Coles ρ low-score correction.
 - [ ] Batch 7 — M3 (ensemble + conformal) [deferred]
 - [ ] Batch 8 — P3 bracket from fixtures (Bug B); P1 backtest (RPS/Brier)
 
@@ -112,3 +114,4 @@
 - **BATCH 4 ✓ (Phase 2 start) — LIVE SCOREBOARD MECHANISM.** Exporter gained `load_or_init_results` + `apply_results` (build_matches.py); new editable `web/data/results_live.csv` (blank 72-row template, separate from locked results.csv → no leakage, baseline frozen). Verified end-to-end with sample Mexico 2–0: Finalizado row + 2–0 + M2 ✓⭐ + M1 ✓ + scoreboard 1/1 + 1 exactos + Recientes filled; reverted to 0. Workflow doc: `web/data/README.md` (edit CSV→exporter→commit→Vercel; no cron/ws/DB). **The page now lights up automatically when scores are entered.** ▶ CP5 available. Next: Batch 5 Mercado (real odds → 4th line).
 - **BATCH 5 ✓ — MERCADO LINE.** Exporter gained `load_or_init_market` + `apply_market`; new editable `web/data/market_odds.csv` (blank 72-row template, decimal 1X2). Converts odds → vig-free implied probs (1/odd normalised) → Mercado {pick, probs} (pick-only, no scoreline, no ⭐). Verified: 1.40/4.50/7.00 → {home:.662,draw:.206,away:.132} sum 1.0 → "México 66%"; reverted. Now 3 of 4 lines real (M1/M2/Mercado); only M3 still pendiente. ▶ CP6 available. Next: Batch 6 M3 ensemble (heavier) OR Batch 8 model-quality (P2 Dixon-Coles → fixes Spain/Bug-A).
 - **BATCH 6 (prong-1) ✓ — M2 ENSEMBLE.** Forked pipeline → `/v2` (root frozen). **KEY FINDING: model non-reproducible** (same code retrained: Brazil 23→11.6, Spain 3.6→6.6) — the v1 headline was training noise. Fix: `EnsembleNeuralPoisson` (5 nets, avg λ) → stable + **France-top (defensible) instead of Brazil**. Spain 3.6→7.5 (still low; bias deferred per Jorge "train deeper later"). Perf: eager `model(x)` predict (kills tf-retracing that stalled ensemble MC) + skip redundant feature-importance. Exporter now reads `v2/output/predictions.json`. Files: `/v2/{feature_engine,neural_poisson,monte_carlo,main}.py` + README. **DEFERRED for deep M2:** backtest P1 (RPS) then validated opponent-adjusted/time-decay features. ▶ CP7 available (the /v2 fork + ensemble + exporter rewire).
+- **P0 DATA-INTEGRITY ✓ (6.5).** `/v2/data_integrity.py` — Dirty George guard: provenance report (rows in→usable→dropped w/ reasons), fail-loud on leakage (future-dated scored row) + unmatched WC team, flags dups/missing-value. Wired into `/v2/main.py` load. Tested: clean PASS + both guards fire on injected bad input + runs in real pipeline. Found 2 dup fixtures in results.csv (flagged). ▶ CP8 available (P0 module + main.py integration).
