@@ -9,8 +9,8 @@
 ## ⏩ CURRENT STATE — READ FIRST
 - **Goal:** make M3 a real 4th line (currently `null`/"pendiente") + unlock Act 3 of the narrative site.
 - **Last completed:** **M3 IS LIVE** — Batches A–D COMPLETE. N=50 run done; M3 champion France 16.7/Spain 16.3/England 10.0 (distinct from M2, consensus-grade). Exporter emits M3 line + conformal set (default 80% coverage, avg set 1.71 — informative); MatchRow shows `80% conf: México` / `cualquier resultado`. Site builds OK. 4-line scoreboard complete.
-- **In progress:** — (core M3 done)
-- **NEXT ACTION:** decide M3.E (market anchor + Act-3 exports) — both deferrable. Then CP commit.
+- **In progress:** — (core M3 DONE + pushed CP10 `489f8c8`)
+- **NEXT ACTION:** none required. Optional later: M3.E (market anchor when odds entered; Act-3 exports when narrative Act 3 is built).
 - **Blockers:** none. Jorge drives git (I prepare commands).
 
 ---
@@ -54,9 +54,7 @@
 ---
 
 ## 🧭 Git checkpoints (Jorge runs)
-- [ ] CPx after Batch M3.A (GBT + blend + backtest)
-- [ ] CPx after Batch M3.C (M3 in pipeline)
-- [ ] CPx after Batch M3.D (M3 live on site)
+- [x] **CP10** `489f8c8` — entire M3 build (A–D): blend + conformal + pipeline + live site — **pushed to origin/v2**.
 
 ---
 
