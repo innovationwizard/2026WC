@@ -43,6 +43,7 @@ def main():
         'champion_3way': champion_3way,
         'backtest': {'n_matches': ev.get('n_matches'), 'cutoff': ev.get('cutoff'), 'rps': ev.get('rps', {})},
         'calibration': ev.get('calibration', []),
+        'tau_by_coverage': ev.get('tau_by_coverage', {}),
     }
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(OUT, 'w', encoding='utf-8') as f:

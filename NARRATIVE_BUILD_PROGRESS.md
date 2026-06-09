@@ -8,9 +8,9 @@
 
 ## ⏩ CURRENT STATE — READ FIRST
 - **Goal:** the self-narrating 3-act scroll story (Modelo 1/2/3) at `/historia`, + the unlisted `/la-caceria` (Hunt) page.
-- **Last completed:** **Batches N.A + N.B + N.C COMPLETE** — full 3-act narrative live (guided steps + visuals + math pills + finale), clean build 0 warnings.
-- **In progress:** Batch N.D (sandboxes) next.
-- **NEXT ACTION:** N.D.1 dice roller. NOTE: still verify scroll-trigger + visual morph in `npm run dev` (headless can't test scroll).
+- **Last completed:** **🎉 NARRATIVE SITE COMPLETE — all batches N.A–N.E done.** 3-act story + 3 sandboxes + math pills + autoplay + unlisted Hunt page. Clean build 0 warnings; 3 pages prerender (historia/index/la-caceria).
+- **In progress:** — (done)
+- **NEXT ACTION:** none required. Optional: eyeball scroll/sandboxes in `npm run dev` (headless can't test interaction); then deploy. Possible polish later: per-match feature attribution, voice for the video (separate).
 - **Blockers:** none. Jorge drives git.
 
 ---
@@ -46,26 +46,26 @@
 - [x] N.C.3 Act 3 · Conjunto — conformal set examples → `Calibration.svelte` reliability curve + "tighter≠better".
 - [x] N.C.4 `MathPill.svelte` + per-act math (unicode formulas, NO katex dep). + finale podium + rail IntersectionObserver tracking.
 
-### Batch N.D — Sandboxes (martini-glass bowls)
-- [ ] N.D.1 Act 1 dice roller (pick matchup → stack scorelines; N slider).
-- [ ] N.D.2 Act 2 matchup explorer (any two teams → λ, scoreline, 3 lines, features).
-- [ ] N.D.3 Act 3 coverage slider (80↔99% → sets widen).
+### Batch N.D — Sandboxes ✅ COMPLETE
+- [x] N.D.1 `DiceRoller.svelte` — pick fixture → roll +1/+25/+1000 → scoreline histogram + W/D/L (real Poisson from match λ).
+- [x] N.D.2 `MatchupExplorer.svelte` — pick fixture → M1/M2/M3/Mercado picks+probs + λ + conformal set.
+- [x] N.D.3 `CoverageSlider.svelte` — 80→99% slider → set widens (uses `tau_by_coverage` 0.258→0.067; added to eval_export + narrative.json).
 
-### Batch N.E — Autoplay + Hunt page + polish
-- [ ] N.E.1 Autoplay (text-only auto-scroll toggle, reading cadence).
-- [ ] N.E.2 Hunt page `/la-caceria` ← render THE_JOURNEY.md (unlisted).
-- [ ] N.E.3 Mobile + a11y + `prefers-reduced-motion`.
+### Batch N.E — Autoplay + Hunt page + polish ✅ COMPLETE
+- [x] N.E.1 Autoplay — `▶ Reproducir solo` (text-only ~84px/s auto-scroll, pauses on wheel/touch).
+- [x] N.E.2 Hunt page `/la-caceria` — `build_journey.py` (md→html, no dep) → `the-journey.html`, rendered with serif typography. Unlisted (noindex, no link).
+- [x] N.E.3 Reduced-motion (all steps legible, no transitions) + mobile (visual pins top) + aria labels on controls.
 
 ---
 
 ## 🧭 Git checkpoints (Jorge runs)
-- [ ] CP after N.A (skeleton + engine + 1 act live)
-- [ ] CP after N.C (three acts narrated)
-- [ ] CP after N.E (complete)
+- [x] **`d6966eb`** — N.A+N.B+N.C: skeleton + engine + 3 acts + math pills + finale + data exports — **pushed to origin/v2**.
+- [ ] CP after N.E (sandboxes + autoplay + Hunt + polish)
 
 ---
 
 ## 📝 PROGRESS LOG (append-only; newest at bottom)
 - Plan created. Deps already present (scrollama, d3). Routes pattern: prerender + fetch('/data/*.json'). Starting N.A.1.
 - **Batch N.A ✓.** Files: `src/routes/historia/{+page.svelte,+page.js}`, `src/routes/la-caceria/+page.svelte`, `src/lib/components/Scrolly.svelte`. Hero + rail + Act-1 Monte Carlo histogram (real champion dist, client-side sampling 1→16→500→10k) + finale scaffold. Clean build 0 warnings; both routes prerender. **Scroll-trigger not yet eyeballed (needs a browser).** Next: N.B data export.
-- **Batches N.B + N.C ✓.** Files: `v2/eval_export.py`, `web/scripts/build_narrative.py`, `web/static/data/{eval.json,narrative.json}`, `src/lib/components/{MathPill.svelte,Calibration.svelte}`, full rewrite of `historia/+page.svelte`. All 3 acts guided (steps + morphing visuals), 3 math pills, finale podium, rail tracking. Real numbers: 3-way Spain/France/England, RPS M3 0.165<M2 0.166<Elo 0.175, calibration on diagonal. Clean build 0 warnings; all act content in prerendered HTML. **Remaining: N.D sandboxes, N.E autoplay+Hunt+polish. STILL need browser eyeball of scroll/morph.**
+- **Batches N.B + N.C ✓.** Files: `v2/eval_export.py`, `web/scripts/build_narrative.py`, `web/static/data/{eval.json,narrative.json}`, `src/lib/components/{MathPill.svelte,Calibration.svelte}`, full rewrite of `historia/+page.svelte`. All 3 acts guided (steps + morphing visuals), 3 math pills, finale podium, rail tracking. Real numbers: 3-way Spain/France/England, RPS M3 0.165<M2 0.166<Elo 0.175, calibration on diagonal. Clean build 0 warnings; all act content in prerendered HTML.
+- **Batches N.D + N.E ✓ — NARRATIVE SITE COMPLETE.** Files: `src/lib/components/narrative/{DiceRoller,MatchupExplorer,CoverageSlider}.svelte`, `web/scripts/build_journey.py`, `web/static/the-journey.html`, `src/routes/la-caceria/{+page.svelte,+page.js}`, autoplay+sandboxes in `historia/+page.svelte`, reduced-motion in `Scrolly.svelte`, `tau_by_coverage` in eval_export/narrative.json. 3 sandboxes (dice/explorer/coverage), text-only autoplay, unlisted Hunt page (THE_JOURNEY.md rendered). Clean build 0 warnings; 3 pages prerender. **Still worth a browser eyeball of scroll + sandbox interactions before deploy.**

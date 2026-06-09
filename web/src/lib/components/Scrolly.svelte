@@ -59,6 +59,11 @@
     font-size: 1.05rem; line-height: 1.5; color: #e2e8f0;
   }
 
+  /* Reduced motion / no-JS: every step fully legible (no dimming, no transition). */
+  @media (prefers-reduced-motion: reduce) {
+    .step { opacity: 1; transition: none; }
+  }
+
   /* Phones: visual pins to the TOP, steps scroll underneath it. */
   @media (max-width: 800px) {
     .scrolly { grid-template-columns: 1fr; gap: 0; }

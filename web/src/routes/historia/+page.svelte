@@ -5,6 +5,9 @@
   import Scrolly from '$lib/components/Scrolly.svelte';
   import MathPill from '$lib/components/MathPill.svelte';
   import Calibration from '$lib/components/Calibration.svelte';
+  import DiceRoller from '$lib/components/narrative/DiceRoller.svelte';
+  import MatchupExplorer from '$lib/components/narrative/MatchupExplorer.svelte';
+  import CoverageSlider from '$lib/components/narrative/CoverageSlider.svelte';
   import { teamShort, teamFlag } from '$lib/teams.js';
 
   let { data } = $props();
@@ -79,8 +82,20 @@
   // ── Finale: the honest leaderboard (real champion odds) ──
   const podium = $derived([...data.knockout].sort((a, b) => b.champion - a.champion).slice(0, 5));
 
-  // ── Progress-rail tracking ──
+  // ── Progress-rail tracking + text-only autoplay ──
   let currentAct = $state(0);
+  let playing = $state(false);
+  let raf;
+  function tick() {
+    if (!playing) return;
+    window.scrollBy(0, 1.4); // ~84 px/s — reading cadence; hands-off for the video / a cold link
+    if (window.scrollY + window.innerHeight >= document.body.scrollHeight - 2) { playing = false; return; }
+    raf = requestAnimationFrame(tick);
+  }
+  function togglePlay() {
+    playing = !playing;
+    if (playing) raf = requestAnimationFrame(tick); else cancelAnimationFrame(raf);
+  }
   onMount(() => {
     const io = new IntersectionObserver(
       (entries) => {
@@ -91,7 +106,10 @@
       { rootMargin: '-45% 0px -45% 0px' }
     );
     document.querySelectorAll('[data-act]').forEach((s) => io.observe(s));
-    return () => io.disconnect();
+    const pause = () => { if (playing) { playing = false; cancelAnimationFrame(raf); } };
+    window.addEventListener('wheel', pause, { passive: true });
+    window.addEventListener('touchstart', pause, { passive: true });
+    return () => { io.disconnect(); window.removeEventListener('wheel', pause); window.removeEventListener('touchstart', pause); };
   });
 </script>
 
@@ -105,6 +123,10 @@
   <span class:on={currentAct === 2}>02 · Red Neuronal</span>
   <span class:on={currentAct === 3}>03 · Conjunto</span>
 </nav>
+
+<button class="autoplay" onclick={togglePlay} aria-pressed={playing}>
+  {playing ? '⏸ Pausar' : '▶ Reproducir solo'}
+</button>
 
 <main class="historia">
   <section class="hero" data-act="0">
@@ -136,6 +158,7 @@
       {/snippet}
       {#snippet stepBody(step)}{step.text}{/snippet}
     </Scrolly>
+    <div class="sandbox"><p class="sand-label">🎲 Tírelo usted</p><DiceRoller matches={data.matches} /></div>
     <MathPill>
       <p><b>Modelo 1 (Azar).</b> Cada partido: los goles son <span class="f">G<sub>A</sub> ~ Poisson(λ<sub>A</sub>)</span>, <span class="f">G<sub>B</sub> ~ Poisson(λ<sub>B</sub>)</span>, independientes. Los <span class="f">λ</span> vienen del Elo: <span class="f">p<sub>A</sub> = (1 + 10<sup>−(E<sub>A</sub>−E<sub>B</sub>)/400</sup>)<sup>−1</sup></span>, <span class="f">λ<sub>A</sub> = ḡ·(0,5 + p<sub>A</sub>)</span>, con <span class="f">ḡ = 1,35</span>. Monte Carlo: se simula el torneo <span class="f">N = 10 000</span> veces; <span class="f">P(campeón) = victorias ⁄ N</span>. La incertidumbre ancha no es un defecto: es la varianza de Poisson más el azar del cuadro.</p>
     </MathPill>
@@ -181,6 +204,7 @@
       {/snippet}
       {#snippet stepBody(step)}{step.text}{/snippet}
     </Scrolly>
+    <div class="sandbox"><p class="sand-label">Explore cualquier partido</p><MatchupExplorer matches={data.matches} /></div>
     <MathPill>
       <p><b>Modelo 2 (Red Neuronal).</b> Regresión de Poisson neuronal: la red predice <span class="f">λ = softplus(f<sub>θ</sub>(x))</span> desde 47 variables, entrenada con la log-verosimilitud de Poisson <span class="f">ℒ = λ − y·log λ</span>. <i>Ensemble</i> de <span class="f">M = 50</span> redes: <span class="f">λ̄ = (1⁄M) Σ<sub>m</sub> λ<sup>(m)</sup></span> (cancela el ruido de entrenamiento). Resultado por convolución: <span class="f">P(local) = Σ<sub>i&gt;j</sub> P(G<sub>A</sub>=i)·P(G<sub>B</sub>=j)</span>. Validación fuera de muestra con el RPS <span class="f">= (1⁄(r−1)) Σ<sub>i</sub> (Σ<sub>j≤i</sub>(p<sub>j</sub>−o<sub>j</sub>))²</span>: <b>0,166</b> contra <b>0,175</b> del Elo en {nBacktest.toLocaleString('es')} partidos no vistos.</p>
     </MathPill>
@@ -213,6 +237,7 @@
       {/snippet}
       {#snippet stepBody(step)}{step.text}{/snippet}
     </Scrolly>
+    <div class="sandbox"><p class="sand-label">¿Qué tan seguro debería estar?</p><CoverageSlider matches={data.matches} tau={data.narrative.tau_by_coverage ?? {}} /></div>
     <MathPill>
       <p><b>Modelo 3 (Conjunto).</b> Mezcla de dos familias: <span class="f">λ<sub>M3</sub> = w·λ<sub>red</sub> + (1−w)·λ<sub>gbt</sub></span>, con <span class="f">w = 0,5</span> elegido por <i>backtest</i> (RPS 0,165, gana a ambas). Predicción <i>conformal</i> (LAC): con scores de no-conformidad <span class="f">s<sub>i</sub> = 1 − p<sub>i</sub>[real]</span> en calibración, el conjunto <span class="f">{'{'} o : p<sub>o</sub> ≥ 1 − q̂ {'}'}</span> tiene cobertura <span class="f">≥ 1 − α</span> garantizada (solo asume intercambiabilidad). La banda del campeón es <i>bootstrap</i> sobre las simulaciones — no una garantía, porque <span class="f">n = 1</span>.</p>
     </MathPill>
@@ -238,6 +263,9 @@
 
   .rail { position: fixed; top: 0; left: 0; right: 0; z-index: 10; display: flex; gap: 1.25rem; justify-content: center; padding: 0.5rem; font-size: 0.72rem; letter-spacing: 0.05em; background: #0a0e17cc; backdrop-filter: blur(6px); border-bottom: 1px solid #1e293b; color: #475569; }
   .rail .on { color: #d4af37; }
+
+  .autoplay { position: fixed; bottom: 1.25rem; right: 1.25rem; z-index: 11; background: #111827cc; backdrop-filter: blur(6px); border: 1px solid #334155; color: #e2e8f0; padding: 0.5rem 0.9rem; border-radius: 999px; cursor: pointer; font-family: inherit; font-size: 0.8rem; font-weight: 600; }
+  .autoplay:hover { border-color: #d4af37; }
 
   .hero { position: relative; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 0.6rem; padding: 2rem; }
   .kicker { color: #d4af37; letter-spacing: 0.2em; text-transform: uppercase; font-size: 0.8rem; margin: 0; }
@@ -280,6 +308,9 @@
   .set { color: #22c55e; font-weight: 600; font-size: 0.9rem; text-align: right; }
   .set.wide { color: #94a3b8; font-weight: 400; font-style: italic; }
   .calib-wrap { display: flex; flex-direction: column; align-items: center; }
+
+  .sandbox { max-width: 520px; margin: 1.5rem auto 0; padding: 1.25rem; background: #0d1424; border: 1px solid #1e293b; border-radius: 10px; }
+  .sand-label { text-align: center; color: #d4af37; font-size: 0.8rem; letter-spacing: 0.05em; margin: 0 0 0.9rem; }
 
   .finale { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 0.5rem; padding: 2rem; max-width: 620px; margin: 0 auto; }
   .finale h2 { font-size: clamp(1.8rem, 5vw, 3rem); margin: 0.2rem 0 1rem; }

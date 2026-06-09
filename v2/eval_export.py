@@ -15,6 +15,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from feature_engine import build_training_data
 from neural_poisson import EnsembleNeuralPoisson, GBTPoissonModel, EloBaselineModel
 from backtest import wdl, rps, MIN_DATE, CUTOFF
+from conformal import lac_threshold
 
 N_ENSEMBLE = 5
 W_NET = 0.5
@@ -46,6 +47,7 @@ def main():
 
     rps_acc = {'M1': [], 'M2': [], 'M3': []}
     calib = []  # (predicted prob of an outcome, did it happen) — pooled over 3 outcomes
+    m3_probs, m3_true = [], []  # for conformal τ-by-coverage
     for i, j in pair_idx:
         g1, g2 = test.loc[i, 'goals_scored'], test.loc[j, 'goals_scored']
         o = 0 if g1 > g2 else (1 if g1 == g2 else 2)
@@ -54,8 +56,14 @@ def main():
         rps_acc['M2'].append(rps(wdl(lam_net[i], lam_net[j]), o))
         pm3 = wdl(lam_m3[i], lam_m3[j])
         rps_acc['M3'].append(rps(pm3, o))
+        m3_probs.append(list(pm3)); m3_true.append(o)
         for oi, p in enumerate(pm3):
             calib.append((p, 1.0 if oi == o else 0.0))
+
+    # Conformal LAC threshold τ at several coverage levels (for the Act-3 coverage slider).
+    m3_probs, m3_true = np.array(m3_probs), np.array(m3_true)
+    tau_by_cov = {str(cov): round(float(lac_threshold(m3_probs, m3_true, 1 - cov)), 3)
+                  for cov in [0.80, 0.90, 0.95, 0.99]}
 
     calib = np.array(calib)
     bins = np.linspace(0, 1, 11)
@@ -71,6 +79,7 @@ def main():
         'cutoff': CUTOFF, 'n_matches': len(pair_idx),
         'rps': {k: round(float(np.mean(v)), 4) for k, v in rps_acc.items()},
         'calibration': curve,
+        'tau_by_coverage': tau_by_cov,
     }
     p = os.path.join(os.path.dirname(__file__), 'output', 'eval.json')
     with open(p, 'w') as f:
