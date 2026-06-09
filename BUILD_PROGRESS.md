@@ -8,7 +8,7 @@
 - **Phase:** 1 — Context page MVP (live scoreboard for June 11 kickoff)
 - **Last completed:** **BATCH 5 COMPLETE** — Mercado line (manual odds CSV → vig-free implied probs), verified end-to-end
 - **In progress:** Phase 2 — next is M3 (Batch 6) or model-quality fixes
-- **NEXT ACTION:** **Batch 6 — M3 (Conjunto)**: market-anchored ensemble + conformal intervals → the M3 line becomes real (currently pendiente). Heavier model work (P7/P4/P12). Alternatively Batch 8 model-quality (P2 Dixon-Coles fixes the Spain/Bug-A problem). Live data workflow: `web/data/README.md` (terse) + **`web/data/HOW_TO_ENTER_RESULTS.md`** (friendly step-by-step for Jorge: how to fill results_live.csv + market_odds.csv, the one build command, daily routine, FAQ).
+- **NEXT ACTION:** **Batch 6 prong-1 (M2 ensemble) SHIPPED** → exporter reads `v2/output/predictions.json`. Options next: (a) commit+deploy, (b) M3 (Batch 7), (c) deferred deep M2 = backtest P1 + validated feature fix (un-bury Spain/England/Argentina). Live workflow: `web/data/README.md` + **`web/data/HOW_TO_ENTER_RESULTS.md`**.
 - **CONTEXT PAGE COMPLETE:** Lista (calendar+filters+cards) / Grupos (12 standings tables) / Llaves (stage-odds) views + 4-line scoreboard, expand detail, mobile, flag+short names, Dirty-George null handling. Deploy-ready (Vercel, Root Directory=web).
 - **Preview it:** `npm --prefix web run dev`. Page now = legend + **4-line Tablero de aciertos** (zero-state until results) + **Recientes/Próximos** cards + **full date-grouped calendar** (72 fixtures, flag+short names, M1/M2 predictions).
 - **Blockers:** none
@@ -35,7 +35,8 @@
 - [x] **CP3:** `bd35fd8` Context page filters + expand detail ✓ — **pushed to origin/v2**
 - [x] **CP4:** `fc93240` Grupos+Llaves views + switcher + Valor tooltip ✓ — **pushed to origin/v2**
 - [x] **CP5:** `052dfeb` live results-ingestion mechanism ✓ — **pushed to origin/v2**
-- [ ] **CP6:** after Batch 5 (Mercado) — commit `"mercado odds line"`
+- [x] **CP6:** `205cb46` Mercado line + HOW_TO_ENTER_RESULTS guide ✓ — **pushed to origin/v2**
+- [ ] **CP7:** after next batch (model work: /v2 fork + P0, then M2 fix or M3)
 - [ ] (further checkpoints appended as batches complete)
 
 ---
@@ -76,9 +77,14 @@
 - [x] 4.3 Verified end-to-end (sample Mexico 2–0): row→Finalizado + score 2–0 + M2 ✓⭐ (exact) + M1 ✓ + scoreboard 1/1 + "1 exactos" + Recientes filled; reverted clean (0 finalizado)
 - [x] 4.4 Workflow documented → `web/data/README.md` (edit CSV → run exporter → commit/push → Vercel redeploys). No cron/websockets/DB.
 - [x] Batch 5 — Mercado ✓: `web/data/market_odds.csv` (decimal 1X2) → exporter `load_or_init_market`/`apply_market` → vig-free implied probs → Mercado pick (no scoreline). Verified: odds 1.40/4.50/7.00 → home 66/21/13 (sum 1.0) → "México 66%"; reverted. Pick-only, outcome-graded (grade.js marketVerdict). Doc in web/data/README.md.
-- [ ] Batch 6 — M3: market-anchored ensemble + conformal (P7/P4/P12) → M3 line real
-- [ ] Batch 7 — `/v2` fork + **P0** data-integrity/leakage layer (needed once models retrain on live results / dynamic updating P13)
-- [ ] Batch 8 — model-quality: **P2** Dixon-Coles (M2 fix Bug A), **P3** bracket from fixtures (Bug B), **P1** backtest (RPS/Brier)
+**Batch 6 — FIX M2 (Jorge's pick)** — make the neural model defensible; un-bury Spain (Bug A). ← IN PROGRESS
+- [x] 6.1 `/v2` fork created + ran (238s). **CRITICAL FINDING: model NOT reproducible** — same code retrained gives Brazil 23.1%→11.6%, Spain 3.6%→6.6% (TF/hardware nondeterminism despite seed=42). The "Brazil 23%/Spain 3.6%" headline was largely a single noisy training instance. → Fix M2 now has TWO prongs:
+- [x] 6.2 **STABILITY (ensemble)** ✓ — `EnsembleNeuralPoisson` (5 nets, avg λ) in /v2. Result: Brazil swing 23↔11.6 tamed → stable 14%; **headline #1 moved Brazil 23% → France 23.2% (consensus-defensible)**. Spain 3.6→7.5. Stable, no seed lottery. **Perf fix:** `predict_lambda` now eager `model(x)` (was `model.predict()` → tf retracing, made ensemble MC stall); + skip feature-importance on nets 2-5. Run 229s.
+- [x] 6.6 ✓ Exporter reads `v2/output/predictions.json` (fallback v1); matches.json + Grupos/Llaves now show ensemble (France 23%); build OK; source label fixed.
+- [ ] 6.3 **BIAS (features)** — DEFERRED ("train deeper later"). Spain/England/Argentina still buried, Germany inflated (raw `goals_scored_avg_5` opponent-blind). Needs **backtest P1** to validate (don't overfit to consensus) + opponent-adjusted/time-decay features.
+- [ ] 6.4 (optional) Dixon-Coles ρ; 6.5 **P0** data-integrity in /v2.
+- [ ] Batch 7 — M3 (ensemble + conformal) [deferred]
+- [ ] Batch 8 — P3 bracket from fixtures (Bug B); P1 backtest (RPS/Brier)
 
 ### PHASE 3 — Narrative scrollytelling site  *(long-term / video)*
 - [ ] Batch 10+ — shell + sticky-stepper engine; Modelo 1/2/3 guided sections; sandboxes; autoplay. (Detailed when reached.)
@@ -105,3 +111,4 @@
 - **Polish:** "Valor" header tooltip added (Grupos) — "Valor de mercado del plantel (millones de €, Transfermarkt)", dotted-underline + help cursor; COPY_ES §11. (Jorge asked what € meant → not self-evident → clarified in UI.)
 - **BATCH 4 ✓ (Phase 2 start) — LIVE SCOREBOARD MECHANISM.** Exporter gained `load_or_init_results` + `apply_results` (build_matches.py); new editable `web/data/results_live.csv` (blank 72-row template, separate from locked results.csv → no leakage, baseline frozen). Verified end-to-end with sample Mexico 2–0: Finalizado row + 2–0 + M2 ✓⭐ + M1 ✓ + scoreboard 1/1 + 1 exactos + Recientes filled; reverted to 0. Workflow doc: `web/data/README.md` (edit CSV→exporter→commit→Vercel; no cron/ws/DB). **The page now lights up automatically when scores are entered.** ▶ CP5 available. Next: Batch 5 Mercado (real odds → 4th line).
 - **BATCH 5 ✓ — MERCADO LINE.** Exporter gained `load_or_init_market` + `apply_market`; new editable `web/data/market_odds.csv` (blank 72-row template, decimal 1X2). Converts odds → vig-free implied probs (1/odd normalised) → Mercado {pick, probs} (pick-only, no scoreline, no ⭐). Verified: 1.40/4.50/7.00 → {home:.662,draw:.206,away:.132} sum 1.0 → "México 66%"; reverted. Now 3 of 4 lines real (M1/M2/Mercado); only M3 still pendiente. ▶ CP6 available. Next: Batch 6 M3 ensemble (heavier) OR Batch 8 model-quality (P2 Dixon-Coles → fixes Spain/Bug-A).
+- **BATCH 6 (prong-1) ✓ — M2 ENSEMBLE.** Forked pipeline → `/v2` (root frozen). **KEY FINDING: model non-reproducible** (same code retrained: Brazil 23→11.6, Spain 3.6→6.6) — the v1 headline was training noise. Fix: `EnsembleNeuralPoisson` (5 nets, avg λ) → stable + **France-top (defensible) instead of Brazil**. Spain 3.6→7.5 (still low; bias deferred per Jorge "train deeper later"). Perf: eager `model(x)` predict (kills tf-retracing that stalled ensemble MC) + skip redundant feature-importance. Exporter now reads `v2/output/predictions.json`. Files: `/v2/{feature_engine,neural_poisson,monte_carlo,main}.py` + README. **DEFERRED for deep M2:** backtest P1 (RPS) then validated opponent-adjusted/time-decay features. ▶ CP7 available (the /v2 fork + ensemble + exporter rewire).

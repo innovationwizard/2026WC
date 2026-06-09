@@ -1,7 +1,7 @@
 {
   "meta": {
     "generated": "2026-06-08",
-    "source": "results.csv (fixtures) + output/predictions.json (v1: M2 neural, M1 from Elo)",
+    "source": "results.csv (fixtures) + v2/output/predictions.json (M1 Elo, M2 neural-ensemble)",
     "models": [
       "M1",
       "M2",
@@ -51,13 +51,13 @@
           "away": 0,
           "pick": "home",
           "probs": {
-            "home": 0.797,
-            "draw": 0.132,
-            "away": 0.071
+            "home": 0.683,
+            "draw": 0.19,
+            "away": 0.127
           },
           "lambda": {
-            "home": 2.68,
-            "away": 0.66
+            "home": 2.11,
+            "away": 0.74
           }
         },
         "M3": null,
@@ -96,16 +96,16 @@
         },
         "M2": {
           "home": 0,
-          "away": 1,
+          "away": 2,
           "pick": "away",
           "probs": {
-            "home": 0.165,
-            "draw": 0.211,
-            "away": 0.624
+            "home": 0.136,
+            "draw": 0.188,
+            "away": 0.676
           },
           "lambda": {
-            "home": 0.9,
-            "away": 1.95
+            "home": 0.85,
+            "away": 2.17
           }
         },
         "M3": null,
@@ -147,13 +147,13 @@
           "away": 1,
           "pick": "home",
           "probs": {
-            "home": 0.377,
-            "draw": 0.26,
-            "away": 0.363
+            "home": 0.473,
+            "draw": 0.257,
+            "away": 0.27
           },
           "lambda": {
-            "home": 1.31,
-            "away": 1.26
+            "home": 1.43,
+            "away": 1.01
           }
         },
         "M3": null,
@@ -191,17 +191,17 @@
           }
         },
         "M2": {
-          "home": 2,
+          "home": 1,
           "away": 1,
           "pick": "home",
           "probs": {
-            "home": 0.462,
-            "draw": 0.21,
-            "away": 0.328
+            "home": 0.427,
+            "draw": 0.228,
+            "away": 0.345
           },
           "lambda": {
-            "home": 2.14,
-            "away": 1.81
+            "home": 1.78,
+            "away": 1.61
           }
         },
         "M3": null,
@@ -240,16 +240,16 @@
         },
         "M2": {
           "home": 0,
-          "away": 2,
+          "away": 1,
           "pick": "away",
           "probs": {
-            "home": 0.017,
-            "draw": 0.128,
-            "away": 0.855
+            "home": 0.015,
+            "draw": 0.158,
+            "away": 0.826
           },
           "lambda": {
-            "home": 0.16,
-            "away": 2.26
+            "home": 0.12,
+            "away": 1.97
           }
         },
         "M3": null,
@@ -291,13 +291,13 @@
           "away": 1,
           "pick": "home",
           "probs": {
-            "home": 0.575,
-            "draw": 0.183,
-            "away": 0.241
+            "home": 0.454,
+            "draw": 0.209,
+            "away": 0.337
           },
           "lambda": {
-            "home": 2.52,
-            "away": 1.6
+            "home": 2.09,
+            "away": 1.76
           }
         },
         "M3": null,
@@ -335,17 +335,17 @@
           }
         },
         "M2": {
-          "home": 1,
-          "away": 3,
+          "home": 0,
+          "away": 2,
           "pick": "away",
           "probs": {
-            "home": 0.087,
-            "draw": 0.126,
-            "away": 0.786
+            "home": 0.123,
+            "draw": 0.166,
+            "away": 0.711
           },
           "lambda": {
-            "home": 1.06,
-            "away": 3.19
+            "home": 0.95,
+            "away": 2.5
           }
         },
         "M3": null,
@@ -387,13 +387,13 @@
           "away": 1,
           "pick": "away",
           "probs": {
-            "home": 0.074,
-            "draw": 0.213,
-            "away": 0.713
+            "home": 0.101,
+            "draw": 0.236,
+            "away": 0.662
           },
           "lambda": {
-            "home": 0.4,
-            "away": 1.8
+            "home": 0.44,
+            "away": 1.62
           }
         },
         "M3": null,
@@ -435,13 +435,13 @@
           "away": 0,
           "pick": "home",
           "probs": {
-            "home": 0.891,
-            "draw": 0.08,
-            "away": 0.029
+            "home": 0.954,
+            "draw": 0.04,
+            "away": 0.006
           },
           "lambda": {
-            "home": 3.1,
-            "away": 0.44
+            "home": 3.58,
+            "away": 0.17
           }
         },
         "M3": null,
@@ -483,13 +483,13 @@
           "away": 1,
           "pick": "home",
           "probs": {
-            "home": 0.43,
-            "draw": 0.236,
-            "away": 0.333
+            "home": 0.478,
+            "draw": 0.231,
+            "away": 0.291
           },
           "lambda": {
-            "home": 1.76,
-            "away": 1.53
+            "home": 1.66,
+            "away": 1.23
           }
         },
         "M3": null,
@@ -529,14 +529,14 @@
         "M2": {
           "home": 1,
           "away": 1,
-          "pick": "home",
+          "pick": "away",
           "probs": {
-            "home": 0.384,
-            "draw": 0.26,
-            "away": 0.356
+            "home": 0.306,
+            "draw": 0.278,
+            "away": 0.416
           },
           "lambda": {
-            "home": 1.34,
+            "home": 1.02,
             "away": 1.26
           }
         },
@@ -579,13 +579,13 @@
           "away": 0,
           "pick": "home",
           "probs": {
-            "home": 0.689,
-            "draw": 0.208,
-            "away": 0.103
+            "home": 0.686,
+            "draw": 0.2,
+            "away": 0.114
           },
           "lambda": {
-            "home": 1.95,
-            "away": 0.61
+            "home": 1.87,
+            "away": 0.58
           }
         },
         "M3": null,
@@ -627,13 +627,13 @@
           "away": 0,
           "pick": "home",
           "probs": {
-            "home": 0.84,
-            "draw": 0.105,
-            "away": 0.055
+            "home": 0.786,
+            "draw": 0.14,
+            "away": 0.074
           },
           "lambda": {
-            "home": 2.97,
-            "away": 0.67
+            "home": 2.72,
+            "away": 0.73
           }
         },
         "M3": null,
@@ -675,13 +675,13 @@
           "away": 0,
           "pick": "home",
           "probs": {
-            "home": 0.729,
-            "draw": 0.191,
-            "away": 0.081
+            "home": 0.724,
+            "draw": 0.207,
+            "away": 0.069
           },
           "lambda": {
-            "home": 1.89,
-            "away": 0.42
+            "home": 1.79,
+            "away": 0.37
           }
         },
         "M3": null,
@@ -719,16 +719,16 @@
           }
         },
         "M2": {
-          "home": 1,
+          "home": 2,
           "away": 1,
           "pick": "home",
           "probs": {
-            "home": 0.578,
-            "draw": 0.217,
-            "away": 0.205
+            "home": 0.643,
+            "draw": 0.19,
+            "away": 0.167
           },
           "lambda": {
-            "home": 1.87,
+            "home": 2.23,
             "away": 1.03
           }
         },
@@ -769,15 +769,15 @@
         "M2": {
           "home": 0,
           "away": 0,
-          "pick": "away",
+          "pick": "draw",
           "probs": {
-            "home": 0.218,
-            "draw": 0.356,
-            "away": 0.426
+            "home": 0.239,
+            "draw": 0.394,
+            "away": 0.367
           },
           "lambda": {
-            "home": 0.58,
-            "away": 0.95
+            "home": 0.57,
+            "away": 0.77
           }
         },
         "M3": null,
@@ -819,13 +819,13 @@
           "away": 1,
           "pick": "home",
           "probs": {
-            "home": 0.599,
-            "draw": 0.194,
-            "away": 0.207
+            "home": 0.631,
+            "draw": 0.186,
+            "away": 0.183
           },
           "lambda": {
-            "home": 2.32,
-            "away": 1.32
+            "home": 2.44,
+            "away": 1.27
           }
         },
         "M3": null,
@@ -864,16 +864,16 @@
         },
         "M2": {
           "home": 0,
-          "away": 2,
+          "away": 1,
           "pick": "away",
           "probs": {
-            "home": 0.093,
-            "draw": 0.179,
-            "away": 0.728
+            "home": 0.113,
+            "draw": 0.203,
+            "away": 0.684
           },
           "lambda": {
-            "home": 0.6,
-            "away": 2.12
+            "home": 0.59,
+            "away": 1.9
           }
         },
         "M3": null,
@@ -915,13 +915,13 @@
           "away": 0,
           "pick": "home",
           "probs": {
-            "home": 0.827,
-            "draw": 0.119,
-            "away": 0.054
+            "home": 0.832,
+            "draw": 0.126,
+            "away": 0.042
           },
           "lambda": {
-            "home": 2.66,
-            "away": 0.54
+            "home": 2.48,
+            "away": 0.39
           }
         },
         "M3": null,
@@ -961,15 +961,15 @@
         "M2": {
           "home": 1,
           "away": 1,
-          "pick": "home",
+          "pick": "away",
           "probs": {
-            "home": 0.419,
-            "draw": 0.229,
-            "away": 0.351
+            "home": 0.364,
+            "draw": 0.237,
+            "away": 0.399
           },
           "lambda": {
-            "home": 1.68,
-            "away": 1.51
+            "home": 1.54,
+            "away": 1.64
           }
         },
         "M3": null,
@@ -1011,13 +1011,13 @@
           "away": 0,
           "pick": "home",
           "probs": {
-            "home": 0.799,
-            "draw": 0.13,
-            "away": 0.071
+            "home": 0.746,
+            "draw": 0.157,
+            "away": 0.097
           },
           "lambda": {
-            "home": 2.75,
-            "away": 0.76
+            "home": 2.49,
+            "away": 0.77
           }
         },
         "M3": null,
@@ -1059,13 +1059,13 @@
           "away": 2,
           "pick": "away",
           "probs": {
-            "home": 0.092,
-            "draw": 0.173,
-            "away": 0.735
+            "home": 0.126,
+            "draw": 0.197,
+            "away": 0.677
           },
           "lambda": {
-            "home": 0.66,
-            "away": 2.21
+            "home": 0.79,
+            "away": 2.08
           }
         },
         "M3": null,
@@ -1107,13 +1107,13 @@
           "away": 0,
           "pick": "home",
           "probs": {
-            "home": 0.367,
-            "draw": 0.301,
-            "away": 0.332
+            "home": 0.451,
+            "draw": 0.308,
+            "away": 0.241
           },
           "lambda": {
-            "home": 1.02,
-            "away": 0.97
+            "home": 1.16,
+            "away": 0.79
           }
         },
         "M3": null,
@@ -1155,13 +1155,13 @@
           "away": 2,
           "pick": "away",
           "probs": {
-            "home": 0.064,
-            "draw": 0.138,
-            "away": 0.798
+            "home": 0.102,
+            "draw": 0.193,
+            "away": 0.705
           },
           "lambda": {
-            "home": 0.56,
-            "away": 2.48
+            "home": 0.62,
+            "away": 2.02
           }
         },
         "M3": null,
@@ -1203,13 +1203,13 @@
           "away": 0,
           "pick": "home",
           "probs": {
-            "home": 0.767,
-            "draw": 0.155,
-            "away": 0.078
+            "home": 0.774,
+            "draw": 0.143,
+            "away": 0.083
           },
           "lambda": {
-            "home": 2.42,
-            "away": 0.66
+            "home": 2.71,
+            "away": 0.8
           }
         },
         "M3": null,
@@ -1251,13 +1251,13 @@
           "away": 0,
           "pick": "home",
           "probs": {
-            "home": 0.667,
-            "draw": 0.208,
-            "away": 0.126
+            "home": 0.577,
+            "draw": 0.268,
+            "away": 0.154
           },
           "lambda": {
-            "home": 1.87,
-            "away": 0.68
+            "home": 1.45,
+            "away": 0.62
           }
         },
         "M3": null,
@@ -1296,16 +1296,16 @@
         },
         "M2": {
           "home": 1,
-          "away": 1,
+          "away": 0,
           "pick": "home",
           "probs": {
-            "home": 0.574,
-            "draw": 0.217,
-            "away": 0.209
+            "home": 0.524,
+            "draw": 0.254,
+            "away": 0.223
           },
           "lambda": {
-            "home": 1.95,
-            "away": 1.11
+            "home": 1.6,
+            "away": 0.95
           }
         },
         "M3": null,
@@ -1347,13 +1347,13 @@
           "away": 0,
           "pick": "home",
           "probs": {
-            "home": 0.689,
-            "draw": 0.265,
-            "away": 0.046
+            "home": 0.733,
+            "draw": 0.239,
+            "away": 0.028
           },
           "lambda": {
-            "home": 1.37,
-            "away": 0.18
+            "home": 1.5,
+            "away": 0.13
           }
         },
         "M3": null,
@@ -1391,17 +1391,17 @@
           }
         },
         "M2": {
-          "home": 1,
-          "away": 2,
+          "home": 0,
+          "away": 1,
           "pick": "away",
           "probs": {
-            "home": 0.196,
+            "home": 0.122,
             "draw": 0.204,
-            "away": 0.6
+            "away": 0.675
           },
           "lambda": {
-            "home": 1.13,
-            "away": 2.1
+            "home": 0.67,
+            "away": 1.93
           }
         },
         "M3": null,
@@ -1443,13 +1443,13 @@
           "away": 0,
           "pick": "home",
           "probs": {
-            "home": 0.815,
-            "draw": 0.11,
-            "away": 0.075
+            "home": 0.849,
+            "draw": 0.1,
+            "away": 0.052
           },
           "lambda": {
-            "home": 3.2,
-            "away": 0.94
+            "home": 3.19,
+            "away": 0.72
           }
         },
         "M3": null,
@@ -1487,17 +1487,17 @@
           }
         },
         "M2": {
-          "home": 2,
+          "home": 1,
           "away": 0,
           "pick": "home",
           "probs": {
-            "home": 0.769,
-            "draw": 0.168,
-            "away": 0.062
+            "home": 0.665,
+            "draw": 0.223,
+            "away": 0.112
           },
           "lambda": {
-            "home": 2.1,
-            "away": 0.44
+            "home": 1.75,
+            "away": 0.55
           }
         },
         "M3": null,
@@ -1540,12 +1540,12 @@
           "pick": "home",
           "probs": {
             "home": 0.408,
-            "draw": 0.226,
-            "away": 0.366
+            "draw": 0.243,
+            "away": 0.349
           },
           "lambda": {
-            "home": 1.81,
-            "away": 1.71
+            "home": 1.63,
+            "away": 1.49
           }
         },
         "M3": null,
@@ -1583,17 +1583,17 @@
           }
         },
         "M2": {
-          "home": 2,
+          "home": 3,
           "away": 1,
           "pick": "home",
           "probs": {
-            "home": 0.567,
-            "draw": 0.188,
-            "away": 0.246
+            "home": 0.679,
+            "draw": 0.148,
+            "away": 0.172
           },
           "lambda": {
-            "home": 2.59,
-            "away": 1.68
+            "home": 3.07,
+            "away": 1.59
           }
         },
         "M3": null,
@@ -1635,13 +1635,13 @@
           "away": 0,
           "pick": "home",
           "probs": {
-            "home": 0.656,
-            "draw": 0.222,
-            "away": 0.122
+            "home": 0.683,
+            "draw": 0.251,
+            "away": 0.066
           },
           "lambda": {
-            "home": 1.78,
-            "away": 0.6
+            "home": 1.49,
+            "away": 0.29
           }
         },
         "M3": null,
@@ -1681,15 +1681,15 @@
         "M2": {
           "home": 1,
           "away": 1,
-          "pick": "home",
+          "pick": "away",
           "probs": {
-            "home": 0.438,
-            "draw": 0.23,
-            "away": 0.332
+            "home": 0.337,
+            "draw": 0.238,
+            "away": 0.425
           },
           "lambda": {
-            "home": 1.69,
-            "away": 1.44
+            "home": 1.38,
+            "away": 1.56
           }
         },
         "M3": null,
@@ -1731,13 +1731,13 @@
           "away": 1,
           "pick": "away",
           "probs": {
-            "home": 0.127,
-            "draw": 0.256,
-            "away": 0.617
+            "home": 0.129,
+            "draw": 0.276,
+            "away": 0.595
           },
           "lambda": {
-            "home": 0.54,
-            "away": 1.53
+            "home": 0.5,
+            "away": 1.42
           }
         },
         "M3": null,
@@ -1779,13 +1779,13 @@
           "away": 1,
           "pick": "home",
           "probs": {
-            "home": 0.688,
-            "draw": 0.168,
-            "away": 0.144
+            "home": 0.611,
+            "draw": 0.183,
+            "away": 0.205
           },
           "lambda": {
-            "home": 2.69,
-            "away": 1.17
+            "home": 2.46,
+            "away": 1.4
           }
         },
         "M3": null,
@@ -1824,16 +1824,16 @@
         },
         "M2": {
           "home": 0,
-          "away": 1,
+          "away": 0,
           "pick": "away",
           "probs": {
-            "home": 0.167,
-            "draw": 0.322,
-            "away": 0.511
+            "home": 0.19,
+            "draw": 0.381,
+            "away": 0.429
           },
           "lambda": {
-            "home": 0.48,
-            "away": 1.11
+            "home": 0.47,
+            "away": 0.86
           }
         },
         "M3": null,
@@ -1871,17 +1871,17 @@
           }
         },
         "M2": {
-          "home": 1,
+          "home": 2,
           "away": 0,
           "pick": "home",
           "probs": {
-            "home": 0.731,
-            "draw": 0.21,
-            "away": 0.059
+            "home": 0.782,
+            "draw": 0.165,
+            "away": 0.052
           },
           "lambda": {
-            "home": 1.72,
-            "away": 0.3
+            "home": 2.03,
+            "away": 0.34
           }
         },
         "M3": null,
@@ -1923,13 +1923,13 @@
           "away": 1,
           "pick": "away",
           "probs": {
-            "home": 0.317,
-            "draw": 0.298,
-            "away": 0.385
+            "home": 0.241,
+            "draw": 0.269,
+            "away": 0.49
           },
           "lambda": {
-            "home": 0.98,
-            "away": 1.09
+            "home": 0.86,
+            "away": 1.36
           }
         },
         "M3": null,
@@ -1971,13 +1971,13 @@
           "away": 0,
           "pick": "home",
           "probs": {
-            "home": 0.814,
+            "home": 0.811,
             "draw": 0.134,
-            "away": 0.052
+            "away": 0.055
           },
           "lambda": {
-            "home": 2.6,
-            "away": 0.5
+            "home": 2.57,
+            "away": 0.51
           }
         },
         "M3": null,
@@ -2015,17 +2015,17 @@
           }
         },
         "M2": {
-          "home": 1,
+          "home": 0,
           "away": 1,
-          "pick": "home",
+          "pick": "away",
           "probs": {
-            "home": 0.388,
-            "draw": 0.235,
-            "away": 0.377
+            "home": 0.276,
+            "draw": 0.271,
+            "away": 0.453
           },
           "lambda": {
-            "home": 1.51,
-            "away": 1.52
+            "home": 1.0,
+            "away": 1.36
           }
         },
         "M3": null,
@@ -2067,13 +2067,13 @@
           "away": 0,
           "pick": "home",
           "probs": {
-            "home": 0.786,
-            "draw": 0.137,
-            "away": 0.077
+            "home": 0.814,
+            "draw": 0.138,
+            "away": 0.048
           },
           "lambda": {
-            "home": 2.59,
-            "away": 0.7
+            "home": 2.34,
+            "away": 0.39
           }
         },
         "M3": null,
@@ -2115,13 +2115,13 @@
           "away": 1,
           "pick": "home",
           "probs": {
-            "home": 0.424,
-            "draw": 0.251,
-            "away": 0.325
+            "home": 0.496,
+            "draw": 0.252,
+            "away": 0.252
           },
           "lambda": {
-            "home": 1.54,
-            "away": 1.34
+            "home": 1.65,
+            "away": 1.07
           }
         },
         "M3": null,
@@ -2159,17 +2159,17 @@
           }
         },
         "M2": {
-          "home": 2,
+          "home": 1,
           "away": 0,
           "pick": "home",
           "probs": {
-            "home": 0.733,
-            "draw": 0.172,
-            "away": 0.095
+            "home": 0.652,
+            "draw": 0.202,
+            "away": 0.146
           },
           "lambda": {
-            "home": 2.22,
-            "away": 0.66
+            "home": 1.93,
+            "away": 0.76
           }
         },
         "M3": null,
@@ -2211,13 +2211,13 @@
           "away": 0,
           "pick": "home",
           "probs": {
-            "home": 0.747,
-            "draw": 0.163,
-            "away": 0.09
+            "home": 0.708,
+            "draw": 0.175,
+            "away": 0.117
           },
           "lambda": {
-            "home": 2.32,
-            "away": 0.65
+            "home": 2.2,
+            "away": 0.75
           }
         },
         "M3": null,
@@ -2259,13 +2259,13 @@
           "away": 0,
           "pick": "home",
           "probs": {
-            "home": 0.512,
-            "draw": 0.31,
-            "away": 0.177
+            "home": 0.63,
+            "draw": 0.27,
+            "away": 0.099
           },
           "lambda": {
-            "home": 1.21,
-            "away": 0.58
+            "home": 1.43,
+            "away": 0.4
           }
         },
         "M3": null,
@@ -2307,13 +2307,13 @@
           "away": 1,
           "pick": "away",
           "probs": {
-            "home": 0.308,
-            "draw": 0.232,
-            "away": 0.46
+            "home": 0.356,
+            "draw": 0.242,
+            "away": 0.402
           },
           "lambda": {
-            "home": 1.45,
-            "away": 1.79
+            "home": 1.54,
+            "away": 1.62
           }
         },
         "M3": null,
@@ -2351,17 +2351,17 @@
           }
         },
         "M2": {
-          "home": 2,
-          "away": 1,
-          "pick": "home",
+          "home": 1,
+          "away": 2,
+          "pick": "away",
           "probs": {
-            "home": 0.453,
-            "draw": 0.209,
-            "away": 0.338
+            "home": 0.318,
+            "draw": 0.215,
+            "away": 0.467
           },
           "lambda": {
-            "home": 2.12,
-            "away": 1.81
+            "home": 1.66,
+            "away": 2.02
           }
         },
         "M3": null,
@@ -2403,13 +2403,13 @@
           "away": 1,
           "pick": "away",
           "probs": {
-            "home": 0.2,
-            "draw": 0.294,
-            "away": 0.505
+            "home": 0.214,
+            "draw": 0.28,
+            "away": 0.506
           },
           "lambda": {
-            "home": 0.67,
-            "away": 1.26
+            "home": 0.77,
+            "away": 1.34
           }
         },
         "M3": null,
@@ -2451,13 +2451,13 @@
           "away": 1,
           "pick": "away",
           "probs": {
-            "home": 0.326,
-            "draw": 0.26,
-            "away": 0.415
+            "home": 0.31,
+            "draw": 0.29,
+            "away": 0.4
           },
           "lambda": {
-            "home": 1.18,
-            "away": 1.39
+            "home": 1.01,
+            "away": 1.19
           }
         },
         "M3": null,
@@ -2499,13 +2499,13 @@
           "away": 0,
           "pick": "home",
           "probs": {
-            "home": 0.61,
-            "draw": 0.315,
-            "away": 0.074
+            "home": 0.572,
+            "draw": 0.363,
+            "away": 0.065
           },
           "lambda": {
-            "home": 1.18,
-            "away": 0.25
+            "home": 1.0,
+            "away": 0.18
           }
         },
         "M3": null,
@@ -2547,13 +2547,13 @@
           "away": 2,
           "pick": "away",
           "probs": {
-            "home": 0.055,
-            "draw": 0.127,
-            "away": 0.818
+            "home": 0.057,
+            "draw": 0.139,
+            "away": 0.804
           },
           "lambda": {
-            "home": 0.59,
-            "away": 2.73
+            "home": 0.5,
+            "away": 2.47
           }
         },
         "M3": null,
@@ -2595,13 +2595,13 @@
           "away": 0,
           "pick": "home",
           "probs": {
-            "home": 0.709,
-            "draw": 0.167,
-            "away": 0.124
+            "home": 0.696,
+            "draw": 0.178,
+            "away": 0.126
           },
           "lambda": {
-            "home": 2.49,
-            "away": 0.98
+            "home": 2.23,
+            "away": 0.82
           }
         },
         "M3": null,
@@ -2643,13 +2643,13 @@
           "away": 1,
           "pick": "away",
           "probs": {
-            "home": 0.358,
-            "draw": 0.225,
-            "away": 0.417
+            "home": 0.344,
+            "draw": 0.24,
+            "away": 0.416
           },
           "lambda": {
-            "home": 1.6,
-            "away": 1.76
+            "home": 1.4,
+            "away": 1.58
           }
         },
         "M3": null,
@@ -2691,13 +2691,13 @@
           "away": 0,
           "pick": "home",
           "probs": {
-            "home": 0.707,
-            "draw": 0.203,
-            "away": 0.09
+            "home": 0.634,
+            "draw": 0.234,
+            "away": 0.132
           },
           "lambda": {
-            "home": 1.89,
-            "away": 0.51
+            "home": 1.69,
+            "away": 0.62
           }
         },
         "M3": null,
@@ -2736,16 +2736,16 @@
         },
         "M2": {
           "home": 0,
-          "away": 2,
+          "away": 1,
           "pick": "away",
           "probs": {
-            "home": 0.136,
-            "draw": 0.2,
-            "away": 0.664
+            "home": 0.066,
+            "draw": 0.187,
+            "away": 0.747
           },
           "lambda": {
-            "home": 0.79,
-            "away": 2.04
+            "home": 0.37,
+            "away": 1.93
           }
         },
         "M3": null,
@@ -2783,17 +2783,17 @@
           }
         },
         "M2": {
-          "home": 1,
+          "home": 0,
           "away": 2,
           "pick": "away",
           "probs": {
-            "home": 0.161,
-            "draw": 0.175,
-            "away": 0.664
+            "home": 0.091,
+            "draw": 0.134,
+            "away": 0.774
           },
           "lambda": {
-            "home": 1.15,
-            "away": 2.48
+            "home": 0.86,
+            "away": 2.76
           }
         },
         "M3": null,
@@ -2833,15 +2833,15 @@
         "M2": {
           "home": 1,
           "away": 1,
-          "pick": "home",
+          "pick": "away",
           "probs": {
-            "home": 0.385,
-            "draw": 0.251,
-            "away": 0.364
+            "home": 0.318,
+            "draw": 0.237,
+            "away": 0.445
           },
           "lambda": {
-            "home": 1.5,
-            "away": 1.47
+            "home": 1.39,
+            "away": 1.67
           }
         },
         "M3": null,
@@ -2883,13 +2883,13 @@
           "away": 1,
           "pick": "away",
           "probs": {
-            "home": 0.104,
-            "draw": 0.225,
-            "away": 0.671
+            "home": 0.107,
+            "draw": 0.235,
+            "away": 0.658
           },
           "lambda": {
-            "home": 0.5,
-            "away": 1.71
+            "home": 0.46,
+            "away": 1.62
           }
         },
         "M3": null,
@@ -2931,13 +2931,13 @@
           "away": 1,
           "pick": "away",
           "probs": {
-            "home": 0.167,
-            "draw": 0.249,
-            "away": 0.584
+            "home": 0.172,
+            "draw": 0.245,
+            "away": 0.582
           },
           "lambda": {
-            "home": 0.72,
-            "away": 1.59
+            "home": 0.78,
+            "away": 1.64
           }
         },
         "M3": null,
@@ -2979,13 +2979,13 @@
           "away": 3,
           "pick": "away",
           "probs": {
-            "home": 0.008,
-            "draw": 0.041,
-            "away": 0.951
+            "home": 0.013,
+            "draw": 0.063,
+            "away": 0.924
           },
           "lambda": {
-            "home": 0.22,
-            "away": 3.56
+            "home": 0.24,
+            "away": 3.11
           }
         },
         "M3": null,
@@ -3027,13 +3027,13 @@
           "away": 1,
           "pick": "home",
           "probs": {
-            "home": 0.378,
-            "draw": 0.248,
-            "away": 0.374
+            "home": 0.372,
+            "draw": 0.259,
+            "away": 0.369
           },
           "lambda": {
-            "home": 1.37,
-            "away": 1.37
+            "home": 1.35,
+            "away": 1.33
           }
         },
         "M3": null,
@@ -3075,13 +3075,13 @@
           "away": 1,
           "pick": "away",
           "probs": {
-            "home": 0.198,
-            "draw": 0.286,
-            "away": 0.516
+            "home": 0.072,
+            "draw": 0.211,
+            "away": 0.717
           },
           "lambda": {
-            "home": 0.66,
-            "away": 1.28
+            "home": 0.35,
+            "away": 1.72
           }
         },
         "M3": null,
@@ -3123,13 +3123,13 @@
           "away": 2,
           "pick": "away",
           "probs": {
-            "home": 0.148,
-            "draw": 0.192,
-            "away": 0.66
+            "home": 0.084,
+            "draw": 0.158,
+            "away": 0.757
           },
           "lambda": {
-            "home": 0.97,
-            "away": 2.26
+            "home": 0.68,
+            "away": 2.43
           }
         },
         "M3": null,
@@ -3171,13 +3171,13 @@
           "away": 0,
           "pick": "home",
           "probs": {
-            "home": 0.594,
-            "draw": 0.243,
-            "away": 0.163
+            "home": 0.575,
+            "draw": 0.256,
+            "away": 0.168
           },
           "lambda": {
-            "home": 1.65,
-            "away": 0.72
+            "home": 1.52,
+            "away": 0.68
           }
         },
         "M3": null,
@@ -3219,13 +3219,13 @@
           "away": 1,
           "pick": "away",
           "probs": {
-            "home": 0.215,
-            "draw": 0.27,
-            "away": 0.515
+            "home": 0.222,
+            "draw": 0.324,
+            "away": 0.454
           },
           "lambda": {
-            "home": 0.8,
-            "away": 1.4
+            "home": 0.66,
+            "away": 1.1
           }
         },
         "M3": null,
@@ -3267,13 +3267,13 @@
           "away": 2,
           "pick": "away",
           "probs": {
-            "home": 0.176,
+            "home": 0.199,
             "draw": 0.173,
-            "away": 0.651
+            "away": 0.628
           },
           "lambda": {
-            "home": 1.45,
-            "away": 2.79
+            "home": 1.57,
+            "away": 2.76
           }
         },
         "M3": null,
@@ -3311,17 +3311,17 @@
           }
         },
         "M2": {
-          "home": 2,
+          "home": 1,
           "away": 0,
           "pick": "home",
           "probs": {
-            "home": 0.671,
-            "draw": 0.194,
-            "away": 0.135
+            "home": 0.629,
+            "draw": 0.242,
+            "away": 0.128
           },
           "lambda": {
-            "home": 2.06,
-            "away": 0.79
+            "home": 1.59,
+            "away": 0.57
           }
         },
         "M3": null,
@@ -3360,16 +3360,16 @@
         },
         "M2": {
           "home": 0,
-          "away": 0,
+          "away": 1,
           "pick": "away",
           "probs": {
-            "home": 0.332,
-            "draw": 0.327,
-            "away": 0.341
+            "home": 0.284,
+            "draw": 0.301,
+            "away": 0.414
           },
           "lambda": {
-            "home": 0.88,
-            "away": 0.92
+            "home": 0.86,
+            "away": 1.11
           }
         },
         "M3": null,
@@ -3409,15 +3409,15 @@
         "M2": {
           "home": 1,
           "away": 1,
-          "pick": "home",
+          "pick": "away",
           "probs": {
-            "home": 0.432,
-            "draw": 0.269,
-            "away": 0.299
+            "home": 0.362,
+            "draw": 0.259,
+            "away": 0.379
           },
           "lambda": {
-            "home": 1.35,
-            "away": 1.1
+            "home": 1.28,
+            "away": 1.32
           }
         },
         "M3": null,
@@ -3459,13 +3459,13 @@
           "away": 0,
           "pick": "home",
           "probs": {
-            "home": 0.795,
-            "draw": 0.138,
-            "away": 0.067
+            "home": 0.739,
+            "draw": 0.182,
+            "away": 0.08
           },
           "lambda": {
-            "home": 2.5,
-            "away": 0.58
+            "home": 2.07,
+            "away": 0.53
           }
         },
         "M3": null,
@@ -3478,40 +3478,40 @@
       "group": "A",
       "teams": [
         {
-          "team": "Mexico",
-          "elo": 2000,
-          "value": 190,
-          "advance": 0.864,
-          "champion": 0.019,
-          "winner": 0.5264,
-          "runner": 0.3376
-        },
-        {
           "team": "Czech Republic",
           "elo": 1836,
           "value": 170,
-          "advance": 0.8083,
-          "champion": 0.0161,
-          "winner": 0.3982,
-          "runner": 0.4101
+          "advance": 0.8625,
+          "champion": 0.0389,
+          "winner": 0.5609,
+          "runner": 0.3016
+        },
+        {
+          "team": "Mexico",
+          "elo": 2000,
+          "value": 190,
+          "advance": 0.7526,
+          "champion": 0.0089,
+          "winner": 0.3455,
+          "runner": 0.4071
         },
         {
           "team": "South Korea",
           "elo": 1902,
           "value": 280,
-          "advance": 0.2498,
+          "advance": 0.2682,
           "champion": 0.0006,
-          "winner": 0.0615,
-          "runner": 0.1883
+          "winner": 0.0701,
+          "runner": 0.1981
         },
         {
           "team": "South Africa",
           "elo": 1690,
           "value": null,
-          "advance": 0.0779,
-          "champion": 0.0003,
-          "winner": 0.0139,
-          "runner": 0.064
+          "advance": 0.1167,
+          "champion": 0.0002,
+          "winner": 0.0235,
+          "runner": 0.0932
         }
       ]
     },
@@ -3522,37 +3522,37 @@
           "team": "Switzerland",
           "elo": 1993,
           "value": 250,
-          "advance": 0.8306,
-          "champion": 0.0112,
-          "winner": 0.5338,
-          "runner": 0.2968
+          "advance": 0.8078,
+          "champion": 0.0069,
+          "winner": 0.4937,
+          "runner": 0.3141
         },
         {
           "team": "Canada",
           "elo": 1928,
           "value": 130,
-          "advance": 0.6394,
-          "champion": 0.0045,
-          "winner": 0.2773,
-          "runner": 0.3621
+          "advance": 0.7255,
+          "champion": 0.0023,
+          "winner": 0.3433,
+          "runner": 0.3822
         },
         {
           "team": "Bosnia and Herzegovina",
           "elo": 1667,
           "value": 100,
-          "advance": 0.5011,
-          "champion": 0.0016,
-          "winner": 0.1857,
-          "runner": 0.3154
+          "advance": 0.4438,
+          "champion": 0.0003,
+          "winner": 0.1604,
+          "runner": 0.2834
         },
         {
           "team": "Qatar",
           "elo": 1615,
           "value": 35,
-          "advance": 0.0289,
+          "advance": 0.0229,
           "champion": 0.0,
-          "winner": 0.0032,
-          "runner": 0.0257
+          "winner": 0.0026,
+          "runner": 0.0203
         }
       ]
     },
@@ -3563,37 +3563,37 @@
           "team": "Brazil",
           "elo": 2090,
           "value": 1050,
-          "advance": 0.9249,
-          "champion": 0.231,
-          "winner": 0.6832,
-          "runner": 0.2417
+          "advance": 0.921,
+          "champion": 0.1403,
+          "winner": 0.6066,
+          "runner": 0.3144
         },
         {
           "team": "Morocco",
           "elo": 2041,
           "value": 310,
-          "advance": 0.7089,
-          "champion": 0.0457,
-          "winner": 0.2484,
-          "runner": 0.4605
+          "advance": 0.797,
+          "champion": 0.0554,
+          "winner": 0.3462,
+          "runner": 0.4508
         },
         {
           "team": "Scotland",
           "elo": 1896,
           "value": 180,
-          "advance": 0.3098,
-          "champion": 0.0069,
-          "winner": 0.0578,
-          "runner": 0.252
+          "advance": 0.2185,
+          "champion": 0.0027,
+          "winner": 0.039,
+          "runner": 0.1795
         },
         {
           "team": "Haiti",
           "elo": 1680,
           "value": 10,
-          "advance": 0.0564,
-          "champion": 0.0003,
-          "winner": 0.0106,
-          "runner": 0.0458
+          "advance": 0.0635,
+          "champion": 0.0001,
+          "winner": 0.0082,
+          "runner": 0.0553
         }
       ]
     },
@@ -3601,40 +3601,40 @@
       "group": "D",
       "teams": [
         {
-          "team": "United States",
-          "elo": 1925,
-          "value": 270,
-          "advance": 0.6938,
-          "champion": 0.009,
-          "winner": 0.3638,
-          "runner": 0.33
-        },
-        {
           "team": "Turkey",
           "elo": 1999,
           "value": 260,
-          "advance": 0.6701,
-          "champion": 0.0155,
-          "winner": 0.354,
-          "runner": 0.3161
+          "advance": 0.6716,
+          "champion": 0.0177,
+          "winner": 0.3586,
+          "runner": 0.313
+        },
+        {
+          "team": "United States",
+          "elo": 1925,
+          "value": 270,
+          "advance": 0.6424,
+          "champion": 0.0097,
+          "winner": 0.3366,
+          "runner": 0.3058
         },
         {
           "team": "Paraguay",
           "elo": 1913,
           "value": 95,
-          "advance": 0.5899,
-          "champion": 0.012,
-          "winner": 0.2748,
-          "runner": 0.3151
+          "advance": 0.5863,
+          "champion": 0.0085,
+          "winner": 0.2835,
+          "runner": 0.3028
         },
         {
           "team": "Australia",
           "elo": 1916,
           "value": 120,
-          "advance": 0.0462,
+          "advance": 0.0997,
           "champion": 0.0,
-          "winner": 0.0074,
-          "runner": 0.0388
+          "winner": 0.0213,
+          "runner": 0.0784
         }
       ]
     },
@@ -3645,37 +3645,37 @@
           "team": "Germany",
           "elo": 2070,
           "value": 1100,
-          "advance": 0.8966,
-          "champion": 0.1556,
-          "winner": 0.6599,
-          "runner": 0.2367
+          "advance": 0.9582,
+          "champion": 0.2086,
+          "winner": 0.7867,
+          "runner": 0.1715
         },
         {
           "team": "Ivory Coast",
           "elo": 1839,
           "value": 210,
-          "advance": 0.5851,
-          "champion": 0.0121,
-          "winner": 0.2043,
-          "runner": 0.3808
+          "advance": 0.6318,
+          "champion": 0.0148,
+          "winner": 0.1498,
+          "runner": 0.482
         },
         {
           "team": "Ecuador",
           "elo": 2029,
           "value": 200,
-          "advance": 0.4572,
-          "champion": 0.008,
-          "winner": 0.1297,
-          "runner": 0.3275
+          "advance": 0.3876,
+          "champion": 0.0034,
+          "winner": 0.0624,
+          "runner": 0.3252
         },
         {
           "team": "Curaçao",
           "elo": 1622,
           "value": 8,
-          "advance": 0.0611,
+          "advance": 0.0224,
           "champion": 0.0,
-          "winner": 0.0061,
-          "runner": 0.055
+          "winner": 0.0011,
+          "runner": 0.0213
         }
       ]
     },
@@ -3683,40 +3683,40 @@
       "group": "F",
       "teams": [
         {
-          "team": "Netherlands",
-          "elo": 2059,
-          "value": 780,
-          "advance": 0.6824,
-          "champion": 0.0185,
-          "winner": 0.3674,
-          "runner": 0.315
-        },
-        {
           "team": "Sweden",
           "elo": 1798,
           "value": 200,
-          "advance": 0.6142,
-          "champion": 0.0053,
-          "winner": 0.3097,
-          "runner": 0.3045
+          "advance": 0.7035,
+          "champion": 0.0114,
+          "winner": 0.4123,
+          "runner": 0.2912
         },
         {
           "team": "Japan",
           "elo": 2029,
           "value": 320,
-          "advance": 0.6094,
-          "champion": 0.0092,
-          "winner": 0.3009,
-          "runner": 0.3085
+          "advance": 0.6095,
+          "champion": 0.0096,
+          "winner": 0.2894,
+          "runner": 0.3201
+        },
+        {
+          "team": "Netherlands",
+          "elo": 2059,
+          "value": 780,
+          "advance": 0.5855,
+          "champion": 0.009,
+          "winner": 0.2746,
+          "runner": 0.3109
         },
         {
           "team": "Tunisia",
           "elo": 1738,
           "value": 90,
-          "advance": 0.094,
+          "advance": 0.1015,
           "champion": 0.0,
-          "winner": 0.022,
-          "runner": 0.072
+          "winner": 0.0237,
+          "runner": 0.0778
         }
       ]
     },
@@ -3727,37 +3727,37 @@
           "team": "Belgium",
           "elo": 1980,
           "value": 620,
-          "advance": 0.98,
-          "champion": 0.0906,
-          "winner": 0.83,
-          "runner": 0.15
+          "advance": 0.9613,
+          "champion": 0.059,
+          "winner": 0.7576,
+          "runner": 0.2037
         },
         {
           "team": "Iran",
           "elo": 1921,
           "value": 55,
-          "advance": 0.7368,
-          "champion": 0.0053,
-          "winner": 0.1462,
-          "runner": 0.5906
+          "advance": 0.7611,
+          "champion": 0.0117,
+          "winner": 0.2101,
+          "runner": 0.551
         },
         {
           "team": "Egypt",
           "elo": 1826,
           "value": 190,
-          "advance": 0.23,
-          "champion": 0.0,
-          "winner": 0.0224,
-          "runner": 0.2076
+          "advance": 0.2181,
+          "champion": 0.0002,
+          "winner": 0.0285,
+          "runner": 0.1896
         },
         {
           "team": "New Zealand",
           "elo": 1742,
           "value": 12,
-          "advance": 0.0532,
+          "advance": 0.0595,
           "champion": 0.0,
-          "winner": 0.0014,
-          "runner": 0.0518
+          "winner": 0.0038,
+          "runner": 0.0557
         }
       ]
     },
@@ -3768,37 +3768,37 @@
           "team": "Spain",
           "elo": 2258,
           "value": 1410,
-          "advance": 0.8477,
-          "champion": 0.036,
-          "winner": 0.6163,
-          "runner": 0.2314
-        },
-        {
-          "team": "Uruguay",
-          "elo": 1979,
-          "value": 420,
-          "advance": 0.4508,
-          "champion": 0.0015,
-          "winner": 0.1563,
-          "runner": 0.2945
+          "advance": 0.9325,
+          "champion": 0.0752,
+          "winner": 0.7571,
+          "runner": 0.1754
         },
         {
           "team": "Cape Verde",
           "elo": 1642,
           "value": 28,
-          "advance": 0.437,
-          "champion": 0.0006,
-          "winner": 0.1653,
-          "runner": 0.2717
+          "advance": 0.4939,
+          "champion": 0.0011,
+          "winner": 0.1398,
+          "runner": 0.3541
+        },
+        {
+          "team": "Uruguay",
+          "elo": 1979,
+          "value": 420,
+          "advance": 0.289,
+          "champion": 0.0002,
+          "winner": 0.056,
+          "runner": 0.233
         },
         {
           "team": "Saudi Arabia",
           "elo": 1710,
           "value": 80,
-          "advance": 0.2645,
+          "advance": 0.2846,
           "champion": 0.0,
-          "winner": 0.0621,
-          "runner": 0.2024
+          "winner": 0.0471,
+          "runner": 0.2375
         }
       ]
     },
@@ -3809,37 +3809,37 @@
           "team": "France",
           "elo": 2160,
           "value": 1520,
-          "advance": 0.8955,
-          "champion": 0.1827,
-          "winner": 0.6599,
-          "runner": 0.2356
-        },
-        {
-          "team": "Norway",
-          "elo": 2030,
-          "value": 240,
-          "advance": 0.5349,
-          "champion": 0.0103,
-          "winner": 0.169,
-          "runner": 0.3659
+          "advance": 0.9308,
+          "champion": 0.2323,
+          "winner": 0.7371,
+          "runner": 0.1937
         },
         {
           "team": "Senegal",
           "elo": 1914,
           "value": 280,
-          "advance": 0.4955,
-          "champion": 0.0115,
-          "winner": 0.1593,
-          "runner": 0.3362
+          "advance": 0.5591,
+          "champion": 0.0112,
+          "winner": 0.1643,
+          "runner": 0.3948
+        },
+        {
+          "team": "Norway",
+          "elo": 2030,
+          "value": 240,
+          "advance": 0.4148,
+          "champion": 0.0036,
+          "winner": 0.0853,
+          "runner": 0.3295
         },
         {
           "team": "Iraq",
           "elo": 1766,
           "value": 30,
-          "advance": 0.0741,
-          "champion": 0.0,
-          "winner": 0.0118,
-          "runner": 0.0623
+          "advance": 0.0953,
+          "champion": 0.0001,
+          "winner": 0.0133,
+          "runner": 0.082
         }
       ]
     },
@@ -3850,37 +3850,37 @@
           "team": "Argentina",
           "elo": 2210,
           "value": 850,
-          "advance": 0.9397,
-          "champion": 0.0329,
-          "winner": 0.7872,
-          "runner": 0.1525
-        },
-        {
-          "team": "Austria",
-          "elo": 1928,
-          "value": 230,
-          "advance": 0.4402,
-          "champion": 0.003,
-          "winner": 0.0796,
-          "runner": 0.3606
+          "advance": 0.9469,
+          "champion": 0.0154,
+          "winner": 0.7864,
+          "runner": 0.1605
         },
         {
           "team": "Jordan",
           "elo": 1772,
           "value": 15,
-          "advance": 0.4146,
-          "champion": 0.0022,
-          "winner": 0.104,
-          "runner": 0.3106
+          "advance": 0.5183,
+          "champion": 0.0042,
+          "winner": 0.1382,
+          "runner": 0.3801
+        },
+        {
+          "team": "Austria",
+          "elo": 1928,
+          "value": 230,
+          "advance": 0.3556,
+          "champion": 0.0005,
+          "winner": 0.0536,
+          "runner": 0.302
         },
         {
           "team": "Algeria",
           "elo": 1876,
           "value": 140,
-          "advance": 0.2055,
-          "champion": 0.0002,
-          "winner": 0.0292,
-          "runner": 0.1763
+          "advance": 0.1792,
+          "champion": 0.0001,
+          "winner": 0.0218,
+          "runner": 0.1574
         }
       ]
     },
@@ -3891,37 +3891,37 @@
           "team": "Colombia",
           "elo": 2079,
           "value": 450,
-          "advance": 0.9286,
-          "champion": 0.0231,
-          "winner": 0.6856,
-          "runner": 0.243
+          "advance": 0.8981,
+          "champion": 0.0135,
+          "winner": 0.6419,
+          "runner": 0.2562
         },
         {
           "team": "Portugal",
           "elo": 2077,
           "value": 980,
-          "advance": 0.8248,
-          "champion": 0.0065,
-          "winner": 0.2669,
-          "runner": 0.5579
+          "advance": 0.7504,
+          "champion": 0.0037,
+          "winner": 0.2696,
+          "runner": 0.4808
         },
         {
           "team": "Uzbekistan",
           "elo": 1843,
           "value": 40,
-          "advance": 0.1354,
-          "champion": 0.0001,
-          "winner": 0.0274,
-          "runner": 0.108
+          "advance": 0.2176,
+          "champion": 0.0004,
+          "winner": 0.0552,
+          "runner": 0.1624
         },
         {
           "team": "DR Congo",
           "elo": 1770,
           "value": 85,
-          "advance": 0.1112,
-          "champion": 0.0001,
-          "winner": 0.0201,
-          "runner": 0.0911
+          "advance": 0.1339,
+          "champion": 0.0,
+          "winner": 0.0333,
+          "runner": 0.1006
         }
       ]
     },
@@ -3929,475 +3929,475 @@
       "group": "L",
       "teams": [
         {
+          "team": "England",
+          "elo": 2136,
+          "value": 1680,
+          "advance": 0.6739,
+          "champion": 0.0104,
+          "winner": 0.3518,
+          "runner": 0.3221
+        },
+        {
           "team": "Croatia",
           "elo": 1996,
           "value": 400,
-          "advance": 0.7241,
-          "champion": 0.0036,
-          "winner": 0.4063,
-          "runner": 0.3178
+          "advance": 0.628,
+          "champion": 0.0032,
+          "winner": 0.306,
+          "runner": 0.322
         },
         {
           "team": "Panama",
           "elo": 1843,
           "value": 45,
-          "advance": 0.6874,
-          "champion": 0.0038,
-          "winner": 0.3612,
-          "runner": 0.3262
-        },
-        {
-          "team": "England",
-          "elo": 2136,
-          "value": 1680,
-          "advance": 0.5198,
-          "champion": 0.0036,
-          "winner": 0.2186,
-          "runner": 0.3012
+          "advance": 0.6262,
+          "champion": 0.0047,
+          "winner": 0.3268,
+          "runner": 0.2994
         },
         {
           "team": "Ghana",
           "elo": 1633,
           "value": 150,
-          "advance": 0.0687,
+          "advance": 0.0719,
           "champion": 0.0,
-          "winner": 0.0139,
-          "runner": 0.0548
+          "winner": 0.0154,
+          "runner": 0.0565
         }
       ]
     }
   ],
   "knockout": [
     {
-      "team": "Brazil",
-      "group": "C",
-      "r16": 0.8207,
-      "qf": 0.615,
-      "sf": 0.4908,
-      "final": 0.3684,
-      "champion": 0.231
-    },
-    {
       "team": "France",
       "group": "I",
-      "r16": 0.8115,
-      "qf": 0.6434,
-      "sf": 0.4457,
-      "final": 0.2933,
-      "champion": 0.1827
+      "r16": 0.8481,
+      "qf": 0.7147,
+      "sf": 0.5089,
+      "final": 0.3399,
+      "champion": 0.2323
     },
     {
       "team": "Germany",
       "group": "E",
-      "r16": 0.7642,
-      "qf": 0.5193,
-      "sf": 0.3824,
-      "final": 0.2427,
-      "champion": 0.1556
+      "r16": 0.8395,
+      "qf": 0.6248,
+      "sf": 0.4869,
+      "final": 0.2984,
+      "champion": 0.2086
     },
     {
-      "team": "Belgium",
-      "group": "G",
-      "r16": 0.7873,
-      "qf": 0.5368,
-      "sf": 0.2999,
-      "final": 0.1678,
-      "champion": 0.0906
-    },
-    {
-      "team": "Morocco",
+      "team": "Brazil",
       "group": "C",
-      "r16": 0.5876,
-      "qf": 0.3605,
-      "sf": 0.2289,
-      "final": 0.1072,
-      "champion": 0.0457
+      "r16": 0.7849,
+      "qf": 0.5633,
+      "sf": 0.4203,
+      "final": 0.289,
+      "champion": 0.1403
     },
     {
       "team": "Spain",
       "group": "H",
-      "r16": 0.6137,
-      "qf": 0.3487,
-      "sf": 0.1625,
-      "final": 0.0793,
-      "champion": 0.036
+      "r16": 0.7176,
+      "qf": 0.455,
+      "sf": 0.2525,
+      "final": 0.1373,
+      "champion": 0.0752
     },
     {
-      "team": "Argentina",
-      "group": "J",
-      "r16": 0.1442,
-      "qf": 0.0951,
-      "sf": 0.0721,
-      "final": 0.0492,
-      "champion": 0.0329
+      "team": "Belgium",
+      "group": "G",
+      "r16": 0.7741,
+      "qf": 0.4605,
+      "sf": 0.2301,
+      "final": 0.1182,
+      "champion": 0.059
     },
     {
-      "team": "Colombia",
-      "group": "K",
-      "r16": 0.2076,
-      "qf": 0.1446,
-      "sf": 0.0775,
-      "final": 0.042,
-      "champion": 0.0231
-    },
-    {
-      "team": "Mexico",
-      "group": "A",
-      "r16": 0.6303,
-      "qf": 0.3209,
-      "sf": 0.1635,
-      "final": 0.0612,
-      "champion": 0.019
-    },
-    {
-      "team": "Netherlands",
-      "group": "F",
-      "r16": 0.4687,
-      "qf": 0.2152,
-      "sf": 0.0971,
-      "final": 0.0442,
-      "champion": 0.0185
+      "team": "Morocco",
+      "group": "C",
+      "r16": 0.6392,
+      "qf": 0.3824,
+      "sf": 0.242,
+      "final": 0.1227,
+      "champion": 0.0554
     },
     {
       "team": "Czech Republic",
       "group": "A",
-      "r16": 0.6028,
-      "qf": 0.2912,
-      "sf": 0.1273,
-      "final": 0.0467,
-      "champion": 0.0161
+      "r16": 0.6821,
+      "qf": 0.3806,
+      "sf": 0.2167,
+      "final": 0.1028,
+      "champion": 0.0389
     },
     {
       "team": "Turkey",
       "group": "D",
-      "r16": 0.4492,
-      "qf": 0.255,
-      "sf": 0.1129,
-      "final": 0.0481,
-      "champion": 0.0155
+      "r16": 0.4487,
+      "qf": 0.2458,
+      "sf": 0.1179,
+      "final": 0.0523,
+      "champion": 0.0177
+    },
+    {
+      "team": "Argentina",
+      "group": "J",
+      "r16": 0.1439,
+      "qf": 0.0787,
+      "sf": 0.057,
+      "final": 0.0285,
+      "champion": 0.0154
     },
     {
       "team": "Ivory Coast",
       "group": "E",
-      "r16": 0.442,
-      "qf": 0.1874,
-      "sf": 0.0924,
-      "final": 0.0336,
-      "champion": 0.0121
-    },
-    {
-      "team": "Paraguay",
-      "group": "D",
-      "r16": 0.4062,
-      "qf": 0.2219,
-      "sf": 0.0954,
-      "final": 0.0366,
-      "champion": 0.012
-    },
-    {
-      "team": "Senegal",
-      "group": "I",
-      "r16": 0.4071,
-      "qf": 0.1996,
-      "sf": 0.0907,
-      "final": 0.0337,
-      "champion": 0.0115
-    },
-    {
-      "team": "Switzerland",
-      "group": "B",
-      "r16": 0.5398,
-      "qf": 0.2898,
-      "sf": 0.109,
-      "final": 0.0374,
-      "champion": 0.0112
-    },
-    {
-      "team": "Norway",
-      "group": "I",
-      "r16": 0.4565,
-      "qf": 0.2292,
-      "sf": 0.0932,
-      "final": 0.0301,
-      "champion": 0.0103
-    },
-    {
-      "team": "Japan",
-      "group": "F",
-      "r16": 0.4042,
-      "qf": 0.1859,
-      "sf": 0.0789,
-      "final": 0.0299,
-      "champion": 0.0092
-    },
-    {
-      "team": "United States",
-      "group": "D",
-      "r16": 0.4498,
-      "qf": 0.2542,
+      "r16": 0.4631,
+      "qf": 0.2058,
       "sf": 0.0997,
-      "final": 0.0397,
-      "champion": 0.009
+      "final": 0.0418,
+      "champion": 0.0148
     },
     {
-      "team": "Ecuador",
-      "group": "E",
-      "r16": 0.3635,
-      "qf": 0.1509,
-      "sf": 0.068,
-      "final": 0.0256,
-      "champion": 0.008
-    },
-    {
-      "team": "Scotland",
-      "group": "C",
-      "r16": 0.4212,
-      "qf": 0.1908,
-      "sf": 0.0826,
-      "final": 0.0267,
-      "champion": 0.0069
-    },
-    {
-      "team": "Portugal",
+      "team": "Colombia",
       "group": "K",
-      "r16": 0.3535,
-      "qf": 0.1938,
-      "sf": 0.068,
-      "final": 0.021,
-      "champion": 0.0065
+      "r16": 0.2113,
+      "qf": 0.139,
+      "sf": 0.0638,
+      "final": 0.0271,
+      "champion": 0.0135
     },
     {
       "team": "Iran",
       "group": "G",
-      "r16": 0.4878,
-      "qf": 0.1938,
-      "sf": 0.0622,
-      "final": 0.0214,
-      "champion": 0.0053
+      "r16": 0.5403,
+      "qf": 0.2555,
+      "sf": 0.0956,
+      "final": 0.0372,
+      "champion": 0.0117
     },
     {
       "team": "Sweden",
       "group": "F",
-      "r16": 0.3818,
-      "qf": 0.1375,
-      "sf": 0.0511,
-      "final": 0.0176,
-      "champion": 0.0053
+      "r16": 0.4652,
+      "qf": 0.205,
+      "sf": 0.0779,
+      "final": 0.0307,
+      "champion": 0.0114
     },
     {
-      "team": "Canada",
-      "group": "B",
-      "r16": 0.4684,
-      "qf": 0.1818,
-      "sf": 0.059,
-      "final": 0.0183,
-      "champion": 0.0045
-    },
-    {
-      "team": "Panama",
-      "group": "L",
-      "r16": 0.2117,
-      "qf": 0.1009,
-      "sf": 0.0368,
-      "final": 0.013,
-      "champion": 0.0038
-    },
-    {
-      "team": "Croatia",
-      "group": "L",
-      "r16": 0.2237,
-      "qf": 0.1095,
-      "sf": 0.0403,
-      "final": 0.0119,
-      "champion": 0.0036
+      "team": "Senegal",
+      "group": "I",
+      "r16": 0.4034,
+      "qf": 0.1728,
+      "sf": 0.0753,
+      "final": 0.0253,
+      "champion": 0.0112
     },
     {
       "team": "England",
       "group": "L",
-      "r16": 0.2753,
-      "qf": 0.1296,
-      "sf": 0.0467,
-      "final": 0.0145,
-      "champion": 0.0036
+      "r16": 0.3044,
+      "qf": 0.1587,
+      "sf": 0.0636,
+      "final": 0.0271,
+      "champion": 0.0104
     },
     {
-      "team": "Austria",
-      "group": "J",
-      "r16": 0.2148,
-      "qf": 0.076,
-      "sf": 0.0273,
-      "final": 0.0079,
-      "champion": 0.003
+      "team": "United States",
+      "group": "D",
+      "r16": 0.4123,
+      "qf": 0.2183,
+      "sf": 0.0956,
+      "final": 0.0383,
+      "champion": 0.0097
+    },
+    {
+      "team": "Japan",
+      "group": "F",
+      "r16": 0.4043,
+      "qf": 0.1955,
+      "sf": 0.0731,
+      "final": 0.0293,
+      "champion": 0.0096
+    },
+    {
+      "team": "Netherlands",
+      "group": "F",
+      "r16": 0.392,
+      "qf": 0.1756,
+      "sf": 0.0668,
+      "final": 0.0253,
+      "champion": 0.009
+    },
+    {
+      "team": "Mexico",
+      "group": "A",
+      "r16": 0.5688,
+      "qf": 0.275,
+      "sf": 0.1168,
+      "final": 0.0401,
+      "champion": 0.0089
+    },
+    {
+      "team": "Paraguay",
+      "group": "D",
+      "r16": 0.3886,
+      "qf": 0.1976,
+      "sf": 0.0836,
+      "final": 0.0327,
+      "champion": 0.0085
+    },
+    {
+      "team": "Switzerland",
+      "group": "B",
+      "r16": 0.519,
+      "qf": 0.2618,
+      "sf": 0.0901,
+      "final": 0.0304,
+      "champion": 0.0069
+    },
+    {
+      "team": "Panama",
+      "group": "L",
+      "r16": 0.2344,
+      "qf": 0.1168,
+      "sf": 0.0408,
+      "final": 0.0134,
+      "champion": 0.0047
     },
     {
       "team": "Jordan",
       "group": "J",
-      "r16": 0.1915,
-      "qf": 0.0686,
-      "sf": 0.0255,
-      "final": 0.0071,
-      "champion": 0.0022
+      "r16": 0.2612,
+      "qf": 0.0907,
+      "sf": 0.0392,
+      "final": 0.0146,
+      "champion": 0.0042
     },
     {
-      "team": "Bosnia and Herzegovina",
+      "team": "Portugal",
+      "group": "K",
+      "r16": 0.2894,
+      "qf": 0.15,
+      "sf": 0.0447,
+      "final": 0.0119,
+      "champion": 0.0037
+    },
+    {
+      "team": "Norway",
+      "group": "I",
+      "r16": 0.3371,
+      "qf": 0.1304,
+      "sf": 0.044,
+      "final": 0.0111,
+      "champion": 0.0036
+    },
+    {
+      "team": "Ecuador",
+      "group": "E",
+      "r16": 0.3021,
+      "qf": 0.1069,
+      "sf": 0.0399,
+      "final": 0.0128,
+      "champion": 0.0034
+    },
+    {
+      "team": "Croatia",
+      "group": "L",
+      "r16": 0.2443,
+      "qf": 0.1167,
+      "sf": 0.0388,
+      "final": 0.0115,
+      "champion": 0.0032
+    },
+    {
+      "team": "Scotland",
+      "group": "C",
+      "r16": 0.339,
+      "qf": 0.1146,
+      "sf": 0.0323,
+      "final": 0.0089,
+      "champion": 0.0027
+    },
+    {
+      "team": "Canada",
       "group": "B",
-      "r16": 0.3628,
-      "qf": 0.1005,
-      "sf": 0.0202,
-      "final": 0.005,
-      "champion": 0.0016
-    },
-    {
-      "team": "Uruguay",
-      "group": "H",
-      "r16": 0.2484,
-      "qf": 0.0762,
-      "sf": 0.0193,
-      "final": 0.0053,
-      "champion": 0.0015
+      "r16": 0.4567,
+      "qf": 0.1851,
+      "sf": 0.0557,
+      "final": 0.0145,
+      "champion": 0.0023
     },
     {
       "team": "Cape Verde",
       "group": "H",
-      "r16": 0.192,
-      "qf": 0.0356,
-      "sf": 0.0089,
-      "final": 0.0017,
-      "champion": 0.0006
+      "r16": 0.2428,
+      "qf": 0.0772,
+      "sf": 0.0197,
+      "final": 0.0046,
+      "champion": 0.0011
     },
     {
       "team": "South Korea",
       "group": "A",
-      "r16": 0.3235,
-      "qf": 0.1007,
-      "sf": 0.0202,
-      "final": 0.0034,
+      "r16": 0.3217,
+      "qf": 0.1027,
+      "sf": 0.0209,
+      "final": 0.0043,
       "champion": 0.0006
     },
     {
-      "team": "Haiti",
-      "group": "C",
-      "r16": 0.234,
-      "qf": 0.051,
-      "sf": 0.0085,
-      "final": 0.002,
-      "champion": 0.0003
-    },
-    {
-      "team": "South Africa",
-      "group": "A",
-      "r16": 0.2531,
-      "qf": 0.0544,
-      "sf": 0.0096,
-      "final": 0.0019,
-      "champion": 0.0003
-    },
-    {
-      "team": "Algeria",
+      "team": "Austria",
       "group": "J",
-      "r16": 0.0873,
-      "qf": 0.0195,
-      "sf": 0.0059,
-      "final": 0.001,
-      "champion": 0.0002
-    },
-    {
-      "team": "DR Congo",
-      "group": "K",
-      "r16": 0.0645,
-      "qf": 0.0129,
-      "sf": 0.0021,
-      "final": 0.0005,
-      "champion": 0.0001
+      "r16": 0.1738,
+      "qf": 0.0436,
+      "sf": 0.0132,
+      "final": 0.0025,
+      "champion": 0.0005
     },
     {
       "team": "Uzbekistan",
       "group": "K",
-      "r16": 0.0826,
-      "qf": 0.0196,
-      "sf": 0.0042,
-      "final": 0.0008,
+      "r16": 0.118,
+      "qf": 0.0368,
+      "sf": 0.009,
+      "final": 0.0013,
+      "champion": 0.0004
+    },
+    {
+      "team": "Bosnia and Herzegovina",
+      "group": "B",
+      "r16": 0.3583,
+      "qf": 0.0863,
+      "sf": 0.0171,
+      "final": 0.004,
+      "champion": 0.0003
+    },
+    {
+      "team": "Egypt",
+      "group": "G",
+      "r16": 0.1416,
+      "qf": 0.0359,
+      "sf": 0.0093,
+      "final": 0.0021,
+      "champion": 0.0002
+    },
+    {
+      "team": "South Africa",
+      "group": "A",
+      "r16": 0.26,
+      "qf": 0.0598,
+      "sf": 0.009,
+      "final": 0.0016,
+      "champion": 0.0002
+    },
+    {
+      "team": "Uruguay",
+      "group": "H",
+      "r16": 0.1441,
+      "qf": 0.0401,
+      "sf": 0.0082,
+      "final": 0.0015,
+      "champion": 0.0002
+    },
+    {
+      "team": "Algeria",
+      "group": "J",
+      "r16": 0.0886,
+      "qf": 0.014,
+      "sf": 0.0037,
+      "final": 0.0007,
+      "champion": 0.0001
+    },
+    {
+      "team": "Haiti",
+      "group": "C",
+      "r16": 0.2404,
+      "qf": 0.0443,
+      "sf": 0.0087,
+      "final": 0.002,
+      "champion": 0.0001
+    },
+    {
+      "team": "Iraq",
+      "group": "I",
+      "r16": 0.0459,
+      "qf": 0.0103,
+      "sf": 0.0013,
+      "final": 0.0002,
       "champion": 0.0001
     },
     {
       "team": "Australia",
       "group": "D",
-      "r16": 0.019,
-      "qf": 0.0044,
-      "sf": 0.0005,
-      "final": 0.0001,
+      "r16": 0.0498,
+      "qf": 0.0122,
+      "sf": 0.0031,
+      "final": 0.0003,
       "champion": 0.0
     },
     {
       "team": "Curaçao",
       "group": "E",
-      "r16": 0.0236,
-      "qf": 0.0033,
-      "sf": 0.0008,
-      "final": 0.0001,
+      "r16": 0.0078,
+      "qf": 0.0008,
+      "sf": 0.0,
+      "final": 0.0,
       "champion": 0.0
     },
     {
-      "team": "Egypt",
-      "group": "G",
-      "r16": 0.152,
-      "qf": 0.0317,
-      "sf": 0.007,
-      "final": 0.0014,
+      "team": "DR Congo",
+      "group": "K",
+      "r16": 0.0681,
+      "qf": 0.0198,
+      "sf": 0.003,
+      "final": 0.001,
       "champion": 0.0
     },
     {
       "team": "Ghana",
       "group": "L",
-      "r16": 0.0217,
-      "qf": 0.0025,
-      "sf": 0.0005,
+      "r16": 0.0229,
+      "qf": 0.003,
+      "sf": 0.0001,
       "final": 0.0001,
-      "champion": 0.0
-    },
-    {
-      "team": "Iraq",
-      "group": "I",
-      "r16": 0.0426,
-      "qf": 0.009,
-      "sf": 0.0019,
-      "final": 0.0002,
       "champion": 0.0
     },
     {
       "team": "New Zealand",
       "group": "G",
-      "r16": 0.0239,
-      "qf": 0.0025,
-      "sf": 0.0004,
-      "final": 0.0001,
+      "r16": 0.029,
+      "qf": 0.0036,
+      "sf": 0.0002,
+      "final": 0.0,
       "champion": 0.0
     },
     {
       "team": "Qatar",
       "group": "B",
-      "r16": 0.1416,
-      "qf": 0.009,
-      "sf": 0.0004,
+      "r16": 0.1267,
+      "qf": 0.0063,
+      "sf": 0.0001,
       "final": 0.0,
       "champion": 0.0
     },
     {
       "team": "Saudi Arabia",
       "group": "H",
-      "r16": 0.1047,
-      "qf": 0.0156,
-      "sf": 0.0017,
-      "final": 0.0003,
+      "r16": 0.1101,
+      "qf": 0.0202,
+      "sf": 0.003,
+      "final": 0.0006,
       "champion": 0.0
     },
     {
       "team": "Tunisia",
       "group": "F",
-      "r16": 0.0361,
-      "qf": 0.0047,
-      "sf": 0.0005,
-      "final": 0.0,
+      "r16": 0.0354,
+      "qf": 0.0055,
+      "sf": 0.0008,
+      "final": 0.0001,
       "champion": 0.0
     }
   ]

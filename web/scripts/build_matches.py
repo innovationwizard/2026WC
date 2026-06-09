@@ -16,7 +16,9 @@ Contract: web/static/data/README.md
 import json, math, os, datetime, csv
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
-PRED = os.path.join(ROOT, 'output', 'predictions.json')
+# M2 source: prefer the v2 ensemble model; fall back to the locked baseline if absent.
+_V2_PRED = os.path.join(ROOT, 'v2', 'output', 'predictions.json')
+PRED = _V2_PRED if os.path.exists(_V2_PRED) else os.path.join(ROOT, 'output', 'predictions.json')
 CSV  = os.path.join(ROOT, 'results.csv')
 OUT  = os.path.join(ROOT, 'web', 'static', 'data', 'matches.json')
 RESULTS = os.path.join(ROOT, 'web', 'data', 'results_live.csv')  # live scores you edit (NOT the locked results.csv)
@@ -260,7 +262,7 @@ def main():
     out = {
         'meta': {
             'generated': datetime.date.today().isoformat(),
-            'source': 'results.csv (fixtures) + output/predictions.json (v1: M2 neural, M1 from Elo)',
+            'source': f'results.csv (fixtures) + {os.path.relpath(PRED, ROOT)} (M1 Elo, M2 neural-ensemble)',
             'models': ['M1', 'M2', 'M3', 'Mercado'],
             'stub': ['M3', 'Mercado'],
             'count': len(matches),
