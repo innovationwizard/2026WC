@@ -48,6 +48,8 @@
     <span class="leg"><b style="color:#94a3b8">Mercado</b></span>
   </p>
 
+  <a class="story-link" href="/historia">▶ Ver la historia — cómo se construye una predicción, del azar a la red neuronal →</a>
+
   <Scoreboard {matches} />
 
   <nav class="tabs">
@@ -93,6 +95,13 @@
   h1 { color: #d4af37; font-size: 1.6rem; margin: 0 0 0.25rem; }
   .sub { color: #64748b; font-size: 0.8rem; margin: 0 0 1.25rem; }
   .leg { margin-right: 0.7rem; white-space: nowrap; }
+
+  .story-link {
+    display: inline-block; margin: 0 0 1.25rem;
+    color: #9eff1f; text-decoration: none; font-weight: 600; font-size: 0.9rem;
+    border: 1px solid #1e3a1e; background: #0d1f0d; border-radius: 999px; padding: 0.45rem 1rem;
+  }
+  .story-link:hover { border-color: #9eff1f; }
 
   .tabs { display: flex; gap: 0.25rem; margin: 0 0 1.25rem; background: #0f172a; border: 1px solid #1e293b; border-radius: 8px; padding: 0.25rem; width: fit-content; }
   .tabs button { background: none; border: none; color: #94a3b8; font-weight: 600; font-size: 0.85rem; padding: 0.35rem 0.9rem; border-radius: 6px; cursor: pointer; }
