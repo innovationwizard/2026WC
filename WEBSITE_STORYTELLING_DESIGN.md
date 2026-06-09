@@ -391,3 +391,69 @@ Single column; the two top cards stack (Próximos first — it's the forward-loo
 - Sportmonks — Knockout match centres: UX patterns — https://www.sportmonks.com/blogs/knockout-match-centres-best-ux-patterns-data-requirements/
 - FiveThirtyEight — Checking our work (forecast tracking) — https://projects.fivethirtyeight.com/checking-our-work/
 - FotMob (UI benchmark) — https://www.fotmob.com/  ·  Sofascore (data depth) — https://www.sofascore.com/
+
+---
+---
+
+# ADDENDUM 2 — 2026-06-09: Narrative-site plan FINALIZED (tier-by-tier review with Jorge)
+
+*Confirmed top-down, one tier at a time. This addendum is authoritative where it conflicts
+with earlier sections (esp. Act 2 framing and the autoplay voice).*
+
+## Routes — one `/web` app, one Vercel deploy
+```
+/            → Context page    (the tool: calendar, scoreboard)
+/historia    → Narrative site  (the 3-act scroll story)
+/la-caceria  → "The Hunt"      (THE_JOURNEY.md as a page) — UNLISTED:
+                                no link anywhere, shared by direct URL only.
+```
+
+## The 5 tiers (all confirmed)
+1. **What:** a *separate* self-narrating scroll-story whose job is to explain the model; works with or without Jorge's voice; one linear scroll. NOT the Context page.
+2. **Shape:** a 3-act **staircase**, each act handing off on its *own* weakness. Arc **Certeza → Inteligencia → Honestidad** (blind → sight → humility). No 4th "Hunt" act — that's the unlisted page.
+3. **Mechanism:** the **sticky-stepper** — a pinned visual + scroll-driven *narrated* text steps that morph it (the steps ARE the narrator). **Martini glass:** guided on rails → opens into a sandbox. Scroll = pacing.
+4. **Content per act** (hero visual + sandbox + math pill) — below.
+5. **Plumbing:** SvelteKit + scrollama + D3 → Vercel; reads real baked JSON; autoplay **text-only**.
+
+## Act content (Tier 4 — note Act 2 is REDESIGNED post-heavy-lift)
+- **Act 1 · Azar:** hero = Monte Carlo as **HOPs** (watch tournaments re-roll to different champions) + the live **10k histogram** building wide. Sandbox = "🎲 Tírelo usted" (dice roller, N slider). Hand-off: "it can't tell Spain from Saudi Arabia."
+- **Act 2 · Red Neuronal — REDESIGNED.** Old "watch my net wildly disagree — genius or bug?" hero is **DEAD** (model now agrees). New hero = **independent agreement + measured skill**: 3 columns (my net · Elo · Mercado) converging on the same top teams + the punchline *"built from scratch, reaches Opta's/the market's answer on its own"* + the trophy **RPS 0.166 vs Elo 0.175 on 1,267 held-out matches.** Sandbox = matchup explorer. Micro-beat: where it still differs (lighter on Argentina), "the backtest earned it."
+- **Act 3 · Conjunto — GATED on M3 being built.** Hero = honest uncertainty: match-level **conformal** dotplots, the **calibration curve**, the **"tighter ≠ better"** debunk, champion number with a **labeled simulation band** (not "guaranteed" — n=1). Sandbox = coverage slider ("¿Qué tan seguro debería estar?").
+- **Finale:** honest leaderboard (odds + intervals) + calibration trust badge + thesis line + hand-off to the live scoreboard (Context page).
+
+## NEW — per-act math pill: `▸ Ver la mate que hay detrás`
+At the end of each act, a collapsed horizontal pill (chevron). Tap → unfolds a bordered card,
+**text-only** (formulas/symbols welcome, NO charts), naming the model(s) and how the act used
+them, ~4–5 lines, succinct (casual viewers skip it; a mathematician nods). usted/Spanish.
+Drafted content:
+
+- **Act 1:** *Modelo 1 (Azar).* $G_A\sim\text{Poisson}(\lambda_A)$, $G_B\sim\text{Poisson}(\lambda_B)$ indep.; $\lambda$ del Elo: $p_A=(1+10^{-(E_A-E_B)/400})^{-1}$, $\lambda_A=\bar g\,(0.5+p_A)$, $\bar g=1.35$. Monte Carlo $N{=}10{,}000$; $P(\text{campeón})=\text{victorias}/N$. La incertidumbre ancha es la varianza de Poisson + el azar del cuadro.
+- **Act 2:** *Modelo 2 (Red Neuronal).* $\lambda=\text{softplus}(f_\theta(x))$ de 47 variables, pérdida Poisson $\mathcal L=\lambda-y\log\lambda$. Ensemble $M{=}50$: $\bar\lambda=\frac1M\sum_m\lambda^{(m)}$. $P(\text{local})=\sum_{i>j}P(G_A{=}i)P(G_B{=}j)$. RPS $=\frac1{r-1}\sum_{i=1}^{r-1}(\sum_{j\le i}(p_j-o_j))^2$: 0.166 vs 0.175 (Elo), 1,267 partidos no vistos.
+- **Act 3:** *Modelo 3 (Conjunto).* $\hat p=\alpha\,p_{\text{red}}+(1-\alpha)\,p_{\text{mercado}}$. Conformal: $s_i=|y_i-\hat\lambda_i|$ en calibración → $[\hat\lambda\pm q_{1-\alpha}]$ con cobertura $\ge 1-\alpha$ garantizada (sólo intercambiabilidad). Banda del campeón = bootstrap sobre simulaciones (no garantía: $n=1$).
+
+(Math text may be tweaked on real-viewer feedback — ~1+ day out.)
+
+## Autoplay = TEXT-ONLY (decision 2026-06-09)
+`▶ Reproducir solo` auto-scrolls at a reading cadence. **NO voice track in the site** —
+the narration voice belongs to the VIDEO only.
+
+## New data exports needed (Python side — "a few new exports", approved)
+- champion distribution (Act 1 histogram) · per-team 3-way M2/Elo/Mercado (Act 2) ·
+  backtest result / RPS (Act 2) · conformal intervals + calibration data (Act 3, needs M3).
+  Small additions to the export side, NOT a new system.
+
+## Build Steps (never big-bang)
+- **A** skeleton: the 3 routes + sticky-stepper engine + hero/finale + one act wired to real data.
+- **B** the three guided narratives + the math pills.
+- **C** the sandboxes (dice roller, matchup explorer, coverage slider).
+- **D** autoplay (text-only) + mobile + a11y + `prefers-reduced-motion`.
+- **Gate:** Act 3 needs **M3** first; Acts 1–2 + finale can ship without it.
+
+## Numbers are post-heavy-lift
+The §1 benchmark table and §2 Bug-A/B diagnosis above are now **historical** (both bugs fixed;
+full story in `THE_JOURNEY.md`). Live model the narrative reads: **France 18.6 / Spain 18.1 /
+England 13.8 / Argentina 7.4 / Brazil 6.8**, backtest RPS 0.166.
+
+## Lean by design (Jorge's concern, addressed)
+Total dependencies: **svelte, @sveltejs/kit, vite, d3, scrollama.** No voice libs, no DB,
+no cron, no CMS. Confirmed lean.

@@ -77,6 +77,16 @@ def scoreline_model(lh, la, ph, pdr, pa):
     }
 
 
+def conformal_set(probs, tau):
+    """M3 conformal outcome set: the outcomes whose prob ≥ τ (the rest are ruled out
+    at the calibrated coverage). Never empty — falls back to the single most-likely."""
+    order = ['home', 'draw', 'away']
+    s = [o for o in order if probs[o] >= tau]
+    if not s:
+        s = [max(order, key=lambda o: probs[o])]
+    return s
+
+
 def build_standings(pred):
     """Team-level data for the Grupos (standings) and Llaves (stage odds) views."""
     tp = pred['team_probabilities']
@@ -195,6 +205,12 @@ def main():
 
     # Index M2 predictions by unordered team pair.
     mp_by_pair = {frozenset((v['team_a'], v['team_b'])): v for v in mp.values()}
+    # M3 (Conjunto) predictions + the validated conformal threshold (90% coverage).
+    m3p = pred.get('m3_match_predictions', {})
+    m3_by_pair = {frozenset((v['team_a'], v['team_b'])): v for v in m3p.values()}
+    # Default display coverage = 80%: informative sets (most matches a single pick or a
+    # 2-way; genuine toss-ups show all three). Higher coverage (wider sets) is Act 3's slider.
+    tau_show = pred.get('conformal_tau', {}).get('0.80', 0.236)
 
     # Read the 72 WC2026 fixtures from results.csv (content-based, not by row position).
     fixtures = []
@@ -238,6 +254,21 @@ def main():
                 ph2, pd2, pa2 = pm['prob_win_b'], pm['prob_draw'], pm['prob_win_a']
             m2 = scoreline_model(lh2, la2, ph2, pd2, pa2)
 
+        # M3 — Conjunto (net+GBT blend) + conformal outcome set
+        pm3 = m3_by_pair.get(frozenset((home, away)))
+        if pm3 is None:
+            m3 = None
+        else:
+            if pm3['team_a'] == home:
+                lh3, la3 = pm3['lambda_a'], pm3['lambda_b']
+                ph3, pd3, pa3 = pm3['prob_win_a'], pm3['prob_draw'], pm3['prob_win_b']
+            else:  # team_a == away → swap
+                lh3, la3 = pm3['lambda_b'], pm3['lambda_a']
+                ph3, pd3, pa3 = pm3['prob_win_b'], pm3['prob_draw'], pm3['prob_win_a']
+            m3 = scoreline_model(lh3, la3, ph3, pd3, pa3)
+            m3['set'] = conformal_set(m3['probs'], tau_show)   # 80%-coverage plausible outcomes
+            m3['coverage'] = 0.80
+
         matches.append({
             'id': mid,
             'date': r['date'],
@@ -249,7 +280,7 @@ def main():
                       'neutral': str(r['neutral']).upper() == 'TRUE'},
             'status': 'por_jugarse',
             'result': None,
-            'predictions': {'M1': m1, 'M2': m2, 'M3': None, 'Mercado': None},
+            'predictions': {'M1': m1, 'M2': m2, 'M3': m3, 'Mercado': None},
         })
 
     results = load_or_init_results(matches)
@@ -262,9 +293,9 @@ def main():
     out = {
         'meta': {
             'generated': datetime.date.today().isoformat(),
-            'source': f'results.csv (fixtures) + {os.path.relpath(PRED, ROOT)} (M1 Elo, M2 neural-ensemble)',
+            'source': f'results.csv (fixtures) + {os.path.relpath(PRED, ROOT)} (M1 Elo, M2 neural-ensemble, M3 conjunto+conformal)',
             'models': ['M1', 'M2', 'M3', 'Mercado'],
-            'stub': ['M3', 'Mercado'],
+            'stub': ['Mercado'],
             'count': len(matches),
             'note': 'Group stage only (72); knockouts added as the bracket resolves. '
                     'Team display (Spanish/flags) is GUI-only in web/src/lib/teams.js.',

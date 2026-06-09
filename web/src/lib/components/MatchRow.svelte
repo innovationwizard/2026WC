@@ -25,6 +25,13 @@
   }
 
   const pct = (x) => Math.round((x ?? 0) * 100);
+  // M3 conformal set → Spanish ("México o Empate"); whole set means no outcome ruled out.
+  const setLabel = (set) => {
+    if (!set || !set.length) return '';
+    if (set.length === 3) return 'cualquier resultado';
+    const name = (o) => (o === 'home' ? teamShort(match.home) : o === 'away' ? teamShort(match.away) : 'Empate');
+    return set.map(name).join(' o ');
+  };
   const statusLabel = { por_jugarse: 'Por jugarse', en_vivo: 'En vivo', finalizado: 'Finalizado' };
 </script>
 
@@ -79,7 +86,7 @@
             <span>L {pct(p.probs.home)}% · E {pct(p.probs.draw)}% · V {pct(p.probs.away)}%</span>
             {#if p.lambda}<span class="xg">xG {p.lambda.home}–{p.lambda.away}</span>{/if}
             {#if line === 'Mercado'}<span class="xg">favorito: {p.pick === 'draw' ? 'empate' : teamShort(p.pick === 'home' ? match.home : match.away)}</span>{/if}
-            {#if p.interval}<span class="xg">intervalo [{pct(p.interval.lo)}–{pct(p.interval.hi)}%]</span>{/if}
+            {#if line === 'M3' && p.set}<span class="conf" title="Resultados que el modelo NO descarta con {pct(p.coverage)}% de confianza (predicción conformal)">{pct(p.coverage)}% conf: {setLabel(p.set)}</span>{/if}
           </div>
         {:else}
           <span class="pend">— pendiente</span>
@@ -139,6 +146,7 @@
   .seg.a { background: #fb923c; }
   .dmeta { display: flex; gap: 0.75rem; flex-wrap: wrap; font-size: 0.72rem; color: #94a3b8; font-variant-numeric: tabular-nums; }
   .xg { color: #64748b; }
+  .conf { color: #22c55e; font-variant-numeric: tabular-nums; }
   .pend { font-size: 0.72rem; color: #475569; }
 
   /* Phones: 4-line strip becomes an even 2×2 grid (no ragged wrap). */

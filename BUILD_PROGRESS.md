@@ -17,6 +17,8 @@
 
 ---
 
+## 📖 The story so far: **`THE_JOURNEY.md`** — prose hero's-journey changelog (first run → consensus-grade). Two bugs slain (target leakage `.shift(1)`; bracket group-letter bias), ensemble for reproducibility, P0 guard, backtest RPS 0.166. Theme: nothing forced/overfit — consensus alignment EMERGED from bug fixes.
+
 ## 🔒 Locked decisions (do NOT re-litigate — pointers to detail)
 - **Stack:** SvelteKit + scrollama + D3. **Deploy → Vercel** via `@sveltejs/adapter-vercel`; **Vercel Project → Root Directory = `web`** (do NOT move the app to repo root); all routes `prerender=true` → static output (+1 harmless fallback fn). → design `WEBSITE_STORYTELLING_DESIGN.md` §6
 - **Repo layout:** `/web` = SvelteKit site · `/v2` = Python model fork · both branch off `v1.0-baseline`. Baseline files (root `*.py`, `results.csv`, `output/`) are FROZEN — never edit. → `memory/baseline-locked.md`
@@ -97,10 +99,16 @@
 - [x] Diagnosed: old `build_bracket` referenced teams TWICE (runners A & I) → dedup → pad by group letter → deep-run odds distorted by GROUP LETTER. Confirmed cliff: OLD N=50 Argentina adv 87%→r16 20%, England 93%→17%, Portugal 84%→30% (vs Brazil 86→73, Spain 97→81, France 91→83 = soft paths).
 - [x] **FIXED `/v2/monte_carlo.py build_bracket`** — fair randomized draw: winners vs thirds/runners, 8 runners pair up, NO same-group R32 rematch (+ repair pass), balanced interleave, each team once, random per sim. Validated standalone: 2000 draws all 32-unique, 0 rematches.
 - [x] **N=50 fixed-bracket run ✓ — CLIFFS GONE.** r16: Argentina 20→69%, England 17→77%, Portugal 30→67%. Champion: **France 18.6 / Spain 18.1 / England 13.8 / Argentina 7.4 / Brazil 6.8 / Germany 6.5** — textbook consensus (England recovered 3.0→13.8). Brazil/France came down (were over-rewarded by old soft paths). Site regenerated + builds OK. Backtest RPS unaffected (bracket ≠ match-level skill). **BATCH 8 / P3 COMPLETE.** ▶ CP10 available (build_bracket fix + regenerated predictions/matches).
-- [ ] M3 (blend+conformal) [still deferred]
+- [x] **`record.py` helper ✓** — `web/scripts/record.py`: one-command result/odds entry (`record.py gA-01 2 0`, `--odds`, `--find`, `--list`, `--clear`); edits CSV + rebuilds matches.json in one shot. Tested (find/record/verify/clear, no leftover data). HOW_TO_ENTER_RESULTS.md updated to feature it. → tournament-night UX done.
+- [x] **M3 (Conjunto) — LIVE (core).** Tracker: **`M3_BUILD_PROGRESS.md`**. M3 = blend(net-ensemble + GBT-poisson, w=0.5, backtest RPS 0.1648) + conformal outcome-sets (LAC, coverage-validated, 80% default). Live on the 4-line scoreboard (champion France 16.7/Spain 16.3/England 10.0). Lean (sklearn HGB, no new deps). Deferred: M3.E market anchor + Act-3 exports. Unlocks Act 3.
 
-### PHASE 3 — Narrative scrollytelling site  *(long-term / video)*
-- [ ] Batch 10+ — shell + sticky-stepper engine; Modelo 1/2/3 guided sections; sandboxes; autoplay. (Detailed when reached.)
+### PHASE 3 — Narrative scrollytelling site  *(long-term / video)* — **PLAN FINALIZED 2026-06-09** (design doc §ADDENDUM 2)
+Routes in same `/web` app: `/` Context · `/historia` narrative (3-act) · `/la-caceria` UNLISTED Hunt page (THE_JOURNEY.md, no nav link, direct URL only). Deps stay lean: svelte/kit, vite, d3, scrollama. Autoplay = TEXT-ONLY (voice → video only). Each act ends with a `▸ Ver la mate que hay detrás` math pill (text-only, formulas, names models, brief). Act 2 REDESIGNED (independent-agreement + backtest RPS 0.166, not the old "disagreement"). Real data (a few new exports: champion dist, 3-way M2/Elo/Mercado, backtest, conformal). Numbers post-heavy-lift (France 18.6/Spain 18.1).
+- [ ] Step A — skeleton: 3 routes + sticky-stepper engine + hero/finale + 1 act wired to real data
+- [ ] Step B — three guided narratives (Act1 HOPs+histogram, Act2 3-way+backtest, Act3 conformal) + math pills
+- [ ] Step C — sandboxes (dice roller, matchup explorer, coverage slider)
+- [ ] Step D — autoplay (text-only) + mobile + a11y + prefers-reduced-motion
+- [ ] **Gate:** Act 3 needs M3 built first; Acts 1–2 + finale can ship without it.
 
 ---
 

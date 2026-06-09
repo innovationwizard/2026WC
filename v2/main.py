@@ -13,7 +13,7 @@ from feature_engine import (
     WC_TEAMS, CONFEDERATION, HOST_COUNTRIES, SQUAD_MARKET_VALUE,
     GDP_PER_CAPITA, POPULATION, WC_TITLES, WC_APPEARANCES
 )
-from neural_poisson import NeuralPoissonModel, EloBaselineModel, EnsembleNeuralPoisson
+from neural_poisson import NeuralPoissonModel, EloBaselineModel, EnsembleNeuralPoisson, GBTPoissonModel
 from monte_carlo import run_monte_carlo, GROUPS
 
 N_SIMULATIONS = 10_000
@@ -68,7 +68,7 @@ def main():
     # v2: ENSEMBLE of N nets (different seeds), averaging λ — fixes run-to-run
     # training nondeterminism (single-net champion odds swing wildly). Always
     # retrains fresh (no cache) while we iterate on the model.
-    N_ENSEMBLE = 50  # final production: max stability (the model has earned it — backtested RPS 0.166)
+    N_ENSEMBLE = int(os.environ.get('N_ENSEMBLE', 50))  # production 50; override for smoke tests
     model = EnsembleNeuralPoisson(feature_names=feature_names, n_models=N_ENSEMBLE, base_seed=42)
 
     print("  Cross-validating (5-fold)...")
@@ -116,10 +116,37 @@ def main():
         return baseline.predict_match(elo_ratings.get(team_a, 1500),
                                        elo_ratings.get(team_b, 1500))
 
+    # ── M3 (Conjunto): GBT member + blended predictor ──
+    # λ_M3 = w·λ_net + (1-w)·λ_gbt, w=0.5 (backtest-selected). Distinct from M2.
+    print("  Training GBT member for M3 (Conjunto)...")
+    gbt = GBTPoissonModel(feature_names)
+    gbt.fit(X, y)
+    W_NET = 0.5
+    _m3_cache = {}
+    def m3_predict(team_a, team_b, stage='group'):
+        key = (team_a, team_b)
+        if key not in _m3_cache:
+            fa = get_team_features_for_prediction(tv, elo_ratings, team_a, team_b)
+            fb = get_team_features_for_prediction(tv, elo_ratings, team_b, team_a)
+            for f in feature_names:
+                fa.setdefault(f, 0.0); fb.setdefault(f, 0.0)
+            da = pd.DataFrame([fa])[feature_names]
+            db = pd.DataFrame([fb])[feature_names]
+            la = W_NET*float(model.predict_lambda(da)[0]) + (1-W_NET)*float(gbt.predict_lambda(da)[0])
+            lb = W_NET*float(model.predict_lambda(db)[0]) + (1-W_NET)*float(gbt.predict_lambda(db)[0])
+            _m3_cache[key] = (la, lb)
+        la, lb = _m3_cache[key]
+        if stage in ('QF', 'SF', 'Final'):
+            la *= 0.90; lb *= 0.90
+        elif stage in ('R32', 'R16'):
+            la *= 0.95; lb *= 0.95
+        return float(la), float(lb)
+
     # ── 5. Monte Carlo ──
     print("\n[5/6] Running Monte Carlo simulations...")
     nr = run_monte_carlo(neural_predict, N_SIMULATIONS, seed=42, label="Neural Poisson")
     er = run_monte_carlo(elo_predict, N_SIMULATIONS, seed=42, label="Elo Baseline")
+    mr = run_monte_carlo(m3_predict, N_SIMULATIONS, seed=42, label="Conjunto (M3)")
 
     # ── 6. Diagnostics ──
     print("\n[6/6] Diagnostics...")
@@ -174,6 +201,10 @@ def main():
         'match_predictions': nr['match_predictions'],
         'elo_ratings': {t: round(elo_ratings.get(t, 1500), 1) for t in WC_TEAMS},
         'elo_baseline': er['team_probs'],
+        'm3_team_probabilities': mr['team_probs'],
+        'm3_group_predictions': mr['group_predictions'],
+        'm3_match_predictions': mr['match_predictions'],
+        'conformal_tau': {'0.90': 0.185, '0.80': 0.236},  # validated on held-out (see m3_conformal_validate)
         'disagreements': disagreements,
         'upsets': upsets[:15],
         'feature_importance': imp.head(20).to_dict('records'),

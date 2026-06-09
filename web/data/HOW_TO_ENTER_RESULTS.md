@@ -3,6 +3,26 @@
 > The simple, no-jargon guide for during the tournament. (Technical version: `README.md` next to this file.)
 > **Nothing to do until the tournament starts (June 11).** This is the daily routine once matches begin.
 
+## ⭐ The easy way — one command, no spreadsheet (`record.py`)
+
+You don't have to open any file. From the project folder:
+
+```bash
+python web/scripts/record.py gA-01 2 0                    # result: home 2, away 0
+python web/scripts/record.py gA-01 --odds 1.40 4.50 7.00  # bookmaker 1X2 odds
+python web/scripts/record.py --find Spain                 # find a match's id by team
+python web/scripts/record.py --list                       # all matches + what's recorded
+python web/scripts/record.py gA-01 --clear                # undo a mistake
+```
+
+It edits the CSV **and** rebuilds the site data in one shot. Then just
+`git add -A && git commit -m "resultados" && git push`. Don't know the id?
+`--find Spain` shows it. **That's the whole job.**
+
+The rest of this file explains the underlying CSVs (in case you ever want to edit by hand).
+
+---
+
 There are two files in this `web/data/` folder. **Open them in Numbers or Excel** (they're spreadsheets — much easier than a text editor).
 
 ---
@@ -75,6 +95,5 @@ Vercel rebuilds the site automatically a minute later. The calendar rows flip to
 - **I made a typo / wrong score.** Just fix the number, re-run the build command, push again. It overwrites cleanly.
 - **Do I have to do the odds file?** No. Scores (File 1) are what light up the scoreboard. Odds (File 2) are a bonus.
 
-## 💡 Want it even easier?
-A helper command can be added so you never open a spreadsheet — you'd type
-`python web/scripts/record.py gA-01 2 0` (Mexico 2, South Africa 0) and it fills the CSV + rebuilds for you. Ask and it'll be built.
+## 💡 Even easier
+The `record.py` helper (top of this file) means you never have to open these spreadsheets at all — `python web/scripts/record.py gA-01 2 0` does the edit + rebuild for you. The CSVs above are just the manual fallback.

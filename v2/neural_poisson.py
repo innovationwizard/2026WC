@@ -26,6 +26,7 @@ from tensorflow import keras
 from tensorflow.keras import layers, callbacks, regularizers
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import KFold
+from sklearn.ensemble import HistGradientBoostingRegressor
 import os
 import json
 import joblib
@@ -335,6 +336,65 @@ class EnsembleNeuralPoisson:
 
     def get_feature_importance_df(self) -> pd.DataFrame:
         return self.models[0].get_feature_importance_df()
+
+
+class GBTPoissonModel:
+    """Gradient-boosted Poisson regressor (sklearn HistGradientBoosting, loss='poisson').
+
+    A DIFFERENT model family than the neural net — trees split the feature space where
+    the net interpolates it, so their errors are partly uncorrelated. That's exactly
+    what makes blending the two into M3 (Conjunto) worthwhile. Trees are scale-invariant
+    (no scaler needed) and the Poisson loss predicts a mean λ ≥ 0 directly.
+    """
+
+    def __init__(self, feature_names: list, seed: int = 42):
+        self.feature_names = feature_names
+        self.model = HistGradientBoostingRegressor(
+            loss='poisson', max_iter=400, learning_rate=0.05,
+            max_leaf_nodes=31, min_samples_leaf=40, l2_regularization=1.0,
+            early_stopping=True, validation_fraction=0.15, random_state=seed,
+        )
+
+    def fit(self, X: pd.DataFrame, y: pd.Series, **kw) -> dict:
+        # **kw absorbs the net's epochs/batch_size args so it slots into the same call site.
+        self.model.fit(X[self.feature_names].values, y.values.astype(float))
+        return {'n_iter': int(self.model.n_iter_)}
+
+    def predict_lambda(self, X: pd.DataFrame) -> np.ndarray:
+        return np.clip(self.model.predict(X[self.feature_names].values), 0.01, None)
+
+
+class ConjuntoModel:
+    """M3 (Conjunto): blend of the M2 neural ensemble and the GBT Poisson model.
+
+    λ_M3 = w·λ_net + (1-w)·λ_gbt. Two model families averaged → a distinct, more
+    robust point forecaster than either alone (the lineup requires M3 ≠ M2). `w` is
+    chosen by the held-out backtest, never by taste. Slots into the same pipeline
+    interface as the net (fit / predict_lambda / get_feature_importance_df / cross_validate).
+    """
+
+    def __init__(self, feature_names: list, n_models: int = 50, base_seed: int = 42, w_net: float = 0.5):
+        self.feature_names = feature_names
+        self.net = EnsembleNeuralPoisson(feature_names, n_models=n_models, base_seed=base_seed)
+        self.gbt = GBTPoissonModel(feature_names, seed=base_seed)
+        self.w_net = w_net
+        self.feature_importance = None
+
+    def cross_validate(self, X, y, n_folds: int = 5) -> dict:
+        return self.net.cross_validate(X, y, n_folds=n_folds)
+
+    def fit(self, X, y, **kw) -> dict:
+        self.net.fit(X, y, **kw)
+        print("  [conjunto] training GBT member...")
+        self.gbt.fit(X, y)
+        self.feature_importance = self.net.feature_importance
+        return {'w_net': self.w_net}
+
+    def predict_lambda(self, X: pd.DataFrame) -> np.ndarray:
+        return self.w_net * self.net.predict_lambda(X) + (1 - self.w_net) * self.gbt.predict_lambda(X)
+
+    def get_feature_importance_df(self) -> pd.DataFrame:
+        return self.net.get_feature_importance_df()
 
 
 class EloBaselineModel:
