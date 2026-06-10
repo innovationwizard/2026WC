@@ -5,8 +5,8 @@
 </script>
 
 <p class="note">
-  El cuadro exacto se define al terminar la fase de grupos. Por ahora, la probabilidad de
-  cada selección de alcanzar cada ronda (orden por probabilidad de ser campeón):
+  Las predicciones formales se definen al terminar la fase de grupos. <br />Por ahora,
+  presentamos la probabilidad de cada selección de alcanzar cada ronda:
 </p>
 
 <table class="ko">

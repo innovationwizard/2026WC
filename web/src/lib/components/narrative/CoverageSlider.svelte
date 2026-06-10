@@ -34,7 +34,7 @@
         <span class="oc" class:inset={curSet.includes(o)}>{label(o, sample)}</span>
       {/each}
     </div>
-    <p class="cap">Más confianza ⇒ conjunto más ancho. No hay almuerzo gratis: la honestidad cuesta precisión.</p>
+    <p class="cap">Más confianza ⇒ conjunto más ancho. <br /> No se puede tener todo a la vez: la honestidad cuesta precisión.</p>
   </div>
 {/if}
 

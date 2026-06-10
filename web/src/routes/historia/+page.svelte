@@ -54,7 +54,7 @@
     { mode: 'champ', text: 'Ahora le damos ojos. Una red neuronal aprende de 47 variables por equipo: forma, fuerza, valor del plantel, historia.' },
     { mode: 'champ', text: 'Construida desde cero, sin decirle qué responder, llega sola al mismo podio que Opta y las casas de apuestas: España y Francia arriba, Inglaterra cerca.' },
     { mode: 'rps', text: 'Pero, ¿acierta o solo suena bien? La única prueba honesta: predecir partidos que el modelo nunca vio.' },
-    { mode: 'rps', text: 'Su error —el RPS, donde más bajo es mejor— le gana al Elo puro en 1 267 partidos de prueba. No es opinión: es habilidad medida.' },
+    { mode: 'rps', text: 'Su error —el RPS, donde más bajo es mejor— le gana al Elo puro en 1 267 partidos de prueba. No es opinión; es un cálculo matemático estricto.' },
   ];
   let a2 = $state(0);
   const a2mode = $derived(act2[Math.min(a2, act2.length - 1)].mode);
@@ -71,8 +71,8 @@
     return s.map(name).join(' o ');
   };
   const act3 = [
-    { mode: 'set', text: 'El modelo más sofisticado no es el que más afirma, sino el que sabe cuánto NO sabe.' },
-    { mode: 'set', text: 'Predicción conformal: en lugar de un número solo, un conjunto de resultados plausibles con cobertura garantizada. Cuanto más seguro, más chico el conjunto.' },
+    { mode: 'set', text: 'El modelo más sofisticado no es el que más afirma, sino el que sabe lo que NO sabe y lo reconoce con transparencia.' },
+    { mode: 'set', text: 'Predicción conformal: en lugar de un número solo, un conjunto de resultados plausibles con cobertura garantizada. Cuanto más confiable es la predicción, más pequeño es el conjunto.' },
     { mode: 'calib', text: '¿Y está bien calibrado? Cuando dice 70%, ¿ocurre el 70%? La curva cae sobre la diagonal: sí.' },
     { mode: 'calib', text: 'Una verdad incómoda para el final: una curva más angosta NO sería un mejor modelo. El fútbol es así de impredecible. La honestidad ES la sofisticación.' },
   ];
@@ -240,7 +240,7 @@
     </Scrolly>
     <div class="sandbox"><p class="sand-label">¿Qué tan seguro debería estar?</p><CoverageSlider matches={data.matches} tau={data.narrative.tau_by_coverage ?? {}} /></div>
     <MathPill>
-      <p><b>Modelo 3 (Conjunto).</b> Mezcla de dos familias: <span class="f">λ<sub>M3</sub> = w·λ<sub>red</sub> + (1−w)·λ<sub>gbt</sub></span>, con <span class="f">w = 0,5</span> elegido por <i>backtest</i> (RPS 0,165, gana a ambas). Predicción <i>conformal</i> (LAC): con scores de no-conformidad <span class="f">s<sub>i</sub> = 1 − p<sub>i</sub>[real]</span> en calibración, el conjunto <span class="f">{'{'} o : p<sub>o</sub> ≥ 1 − q̂ {'}'}</span> tiene cobertura <span class="f">≥ 1 − α</span> garantizada (solo asume intercambiabilidad). La banda del campeón es <i>bootstrap</i> sobre las simulaciones — no una garantía, porque <span class="f">n = 1</span>.</p>
+      <p><b>Modelo 3 (Conjunto).</b> Mezcla de dos familias: <span class="f">λ<sub>M3</sub> = w·λ<sub>red</sub> + (1−w)·λ<sub>gbt</sub></span>, con <span class="f">w = 0,5</span> elegido por <i>backtest</i> (RPS 0,165, gana a ambas). Predicción <i>conformal</i> (LAC): con scores de no-conformidad <span class="f">s<sub>i</sub> = 1 − p<sub>i</sub>[real]</span> en calibración, el conjunto <span class="f">{'{'} o : p<sub>o</sub> ≥ 1 − q̂ {'}'}</span> tiene cobertura <span class="f">≥ 1 − α</span> garantizada (solo asume intercambiabilidad). La banda del campeón es <i>bootstrap</i> sobre las simulaciones — no puede llegar a ser una garantía, porque <span class="f">n = 1</span>.</p>
     </MathPill>
   </section>
 
@@ -253,7 +253,7 @@
         <li><span class="rk">{i + 1}</span><span class="pteam"><span class="flag">{teamFlag(t.team)}</span>{teamShort(t.team)}</span><span class="pp">{(t.champion * 100).toFixed(1)}%</span></li>
       {/each}
     </ol>
-    <p class="closing">No movimos un solo número a mano. Cada cifra se ganó: corrigiendo errores reales, y comprobada en partidos que el modelo nunca vio.</p>
+    <p class="closing">Ningún número fue ingresado a mano ni sesgado a la fuerza. <br /> Cada cifra se obtuvo entrenando los modelos con datos históricos crudos y comprobando en partidos que el modelo nunca vio.</p>
     <a class="cta" href="/">Ver el marcador en vivo →</a>
   </section>
 </main>
