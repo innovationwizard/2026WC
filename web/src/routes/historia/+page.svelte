@@ -132,7 +132,9 @@
     <p class="kicker">Mundial 2026</p>
     <h1>¿Quién gana<br />el Mundial?</h1>
     <p class="sub">Y, sobre todo, ¿<em>cómo</em> podría usted saberlo?</p>
-    <p class="hint" aria-hidden="true">Desplácese ▾</p>
+    <div class="scroll-cue" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6" /></svg>
+    </div>
   </section>
 
   <!-- ════ ACT 1 ════ -->
@@ -266,14 +268,17 @@
   .autoplay { position: fixed; bottom: 1.25rem; right: 1.25rem; z-index: 11; background: #111827cc; backdrop-filter: blur(6px); border: 1px solid #334155; color: #e2e8f0; padding: 0.5rem 0.9rem; border-radius: 999px; cursor: pointer; font-family: inherit; font-size: 0.8rem; font-weight: 600; }
   .autoplay:hover { border-color: #d4af37; }
 
-  .hero { position: relative; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 0.6rem; padding: 2rem; }
+  .hero { position: relative; min-height: calc(100vh - var(--banner-h)); min-height: calc(100svh - var(--banner-h)); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 0.6rem; padding: 1rem 2rem 13vh; }
   .kicker { color: #d4af37; letter-spacing: 0.2em; text-transform: uppercase; font-size: 0.8rem; margin: 0; }
   h1 { font-size: clamp(2.6rem, 9vw, 5.5rem); line-height: 1.03; margin: 0.4rem 0 0; font-weight: 800; letter-spacing: -0.02em; }
   .sub { font-size: clamp(1.1rem, 3vw, 1.6rem); color: #94a3b8; margin: 0.6rem 0 0; }
   .sub em { color: #e2e8f0; font-style: italic; }
-  .hint { position: absolute; bottom: 2rem; color: #475569; font-size: 0.85rem; animation: bob 2s ease-in-out infinite; }
-  @keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
-  @media (prefers-reduced-motion: reduce) { .hint { animation: none; } }
+  .scroll-cue { position: absolute; bottom: 1.6rem; color: #475569; line-height: 0; animation: cue 2.2s ease-in-out infinite; }
+  @keyframes cue {
+    0%, 100% { opacity: 0.3; transform: translateY(0); filter: drop-shadow(0 0 0 rgba(212, 175, 55, 0)); }
+    50% { opacity: 0.85; transform: translateY(5px); filter: drop-shadow(0 0 7px rgba(212, 175, 55, 0.5)); }
+  }
+  @media (prefers-reduced-motion: reduce) { .scroll-cue { animation: none; opacity: 0.5; } }
 
   .act { max-width: 1100px; margin: 0 auto; padding: 0 1.25rem 2rem; }
   .act-head { padding: 4rem 0 0; }
