@@ -268,7 +268,7 @@
   .autoplay { position: fixed; bottom: 1.25rem; right: 1.25rem; z-index: 11; background: #111827cc; backdrop-filter: blur(6px); border: 1px solid #334155; color: #e2e8f0; padding: 0.5rem 0.9rem; border-radius: 999px; cursor: pointer; font-family: inherit; font-size: 0.8rem; font-weight: 600; }
   .autoplay:hover { border-color: #d4af37; }
 
-  .hero { position: relative; min-height: calc(100vh - var(--banner-h)); min-height: calc(100svh - var(--banner-h)); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 0.6rem; padding: 1rem 2rem 13vh; }
+  .hero { position: relative; box-sizing: border-box; height: calc(100vh - var(--banner-h)); height: calc(100svh - var(--banner-h)); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 0.6rem; padding: 1rem 2rem 11vh; }
   .kicker { color: #d4af37; letter-spacing: 0.2em; text-transform: uppercase; font-size: 0.8rem; margin: 0; }
   h1 { font-size: clamp(2.6rem, 9vw, 5.5rem); line-height: 1.03; margin: 0.4rem 0 0; font-weight: 800; letter-spacing: -0.02em; }
   .sub { font-size: clamp(1.1rem, 3vw, 1.6rem); color: #94a3b8; margin: 0.6rem 0 0; }
