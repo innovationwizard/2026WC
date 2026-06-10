@@ -1,8 +1,11 @@
 <script>
   import { teamFull, teamShort, teamFlag } from '$lib/teams.js';
   import { LINES, LINE_COLORS, LINE_NAMES, verdictFor } from '$lib/grade.js';
+  import ScoreMatrix from './ScoreMatrix.svelte';
 
   let { match } = $props();
+  let open = $state(false);
+  let active = $state('M2'); // which model's distribution the matrix shows
 
   const finished = $derived(match.status === 'finalizado' && match.result);
 
@@ -35,7 +38,7 @@
   const statusLabel = { por_jugarse: 'Por jugarse', en_vivo: 'En vivo', finalizado: 'Finalizado' };
 </script>
 
-<details class="row" class:finished>
+<details class="row" class:finished bind:open>
   <summary>
     <div class="top">
       <div class="teams">
@@ -61,17 +64,30 @@
     <div class="strip">
       {#each LINES as line}
         {@const p = match.predictions[line]}
-        <div class="cell" class:muted={!p} style="--c:{LINE_COLORS[line]}">
-          <span class="lbl">{line}</span>
-          <span class="val">{cellText(line, p)}</span>
-          {#if finished}<span class="mk">{mark(line, p)}</span>{/if}
-        </div>
+        {#if line !== 'Mercado' && p?.lambda}
+          <button type="button" class="cell ix" class:on={open && active === line} style="--c:{LINE_COLORS[line]}"
+            onclick={(e) => { e.stopPropagation(); active = line; open = true; }}
+            title="Ver la distribución de marcadores">
+            <span class="lbl">{line}</span>
+            <span class="val">{cellText(line, p)}</span>
+            {#if finished}<span class="mk">{mark(line, p)}</span>{/if}
+          </button>
+        {:else}
+          <div class="cell" class:muted={!p} style="--c:{LINE_COLORS[line]}">
+            <span class="lbl">{line}</span>
+            <span class="val">{cellText(line, p)}</span>
+            {#if finished}<span class="mk">{mark(line, p)}</span>{/if}
+          </div>
+        {/if}
       {/each}
     </div>
   </summary>
 
-  <!-- Detail: per-model W/D/L bars + xG + (M3) interval -->
+  <!-- Detail: scoreline distribution (matrix) + per-model W/D/L bars -->
   <div class="detail">
+    {#if match.predictions.M2?.lambda}
+      <ScoreMatrix {match} bind:active />
+    {/if}
     {#each LINES as line}
       {@const p = match.predictions[line]}
       <div class="dline" style="--c:{LINE_COLORS[line]}">
@@ -131,6 +147,9 @@
     display: flex; flex-direction: column; gap: 0.05rem;
   }
   .cell.muted { opacity: 0.45; }
+  button.cell { border: none; border-left: 3px solid var(--c); cursor: pointer; font: inherit; text-align: left; color: inherit; }
+  button.cell:hover { background: #162133; }
+  .cell.on { background: color-mix(in srgb, var(--c) 16%, #0f172a); }
   .lbl { font-size: 0.62rem; color: var(--c); font-weight: 700; letter-spacing: 0.04em; }
   .val { font-size: 0.85rem; font-variant-numeric: tabular-nums; white-space: nowrap; }
   .mk { font-size: 0.75rem; }
