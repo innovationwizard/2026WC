@@ -39,7 +39,7 @@ def og_svg():
   <text x="478" y="272" font-family="Helvetica, Arial, sans-serif" font-size="74" font-weight="bold" fill="{INK}">¿Puede la <tspan fill="{GREEN}">IA</tspan></text>
   <text x="478" y="360" font-family="Helvetica, Arial, sans-serif" font-size="74" font-weight="bold" fill="{INK}">ganar quinielas?</text>
   <text x="480" y="430" font-family="Helvetica, Arial, sans-serif" font-size="32" fill="{MUTE}">Predicción del Mundial 2026 · 4 modelos en vivo</text>
-  <text x="480" y="486" font-family="Helvetica, Arial, sans-serif" font-size="21" letter-spacing="3" fill="#64748b">ARTIFICIAL INTELLIGENCE DEVELOPMENTS</text>
+  <text x="480" y="486" font-family="Helvetica, Arial, sans-serif" font-size="21" letter-spacing="3" fill="#dc2626">ARTIFICIAL INTELLIGENCE DEVELOPMENTS</text>
 </svg>'''
 
 
