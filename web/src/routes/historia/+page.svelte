@@ -51,7 +51,7 @@
   const nBacktest = $derived(data.narrative.backtest?.n_matches ?? 1267);
   const maxC = $derived(Math.max(0.01, ...c3.map((t) => Math.max(t.M1, t.M2))));
   const act2 = [
-    { mode: 'champ', text: 'Ahora le damos ojos. Una red neuronal aprende de 47 variables por equipo: forma, fuerza, valor del plantel, historia.' },
+    { mode: 'champ', text: 'Ahora le damos ojos. Una red neuronal aprende de 48 variables por equipo: forma, fuerza, valor del plantel, historia.' },
     { mode: 'champ', text: 'Construida desde cero, sin decirle qué responder, llega sola al mismo podio que Opta y las casas de apuestas: España y Francia arriba, Inglaterra cerca.' },
     { mode: 'rps', text: 'Pero, ¿acierta o solo suena bien? La única prueba honesta: predecir partidos que el modelo nunca vio.' },
     { mode: 'rps', text: 'Su error —el RPS, donde más bajo es mejor— le gana al Elo puro en 1 267 partidos de prueba. No es opinión; es un cálculo matemático estricto.' },
@@ -207,7 +207,7 @@
     </Scrolly>
     <div class="sandbox"><p class="sand-label">Explore cualquier partido</p><MatchupExplorer matches={data.matches} /></div>
     <MathPill>
-      <p><b>Modelo 2 (Red Neuronal).</b> Regresión de Poisson neuronal: la red predice <span class="f">λ = softplus(f<sub>θ</sub>(x))</span> desde 47 variables, entrenada con la log-verosimilitud de Poisson <span class="f">ℒ = λ − y·log λ</span>. <i>Ensemble</i> de <span class="f">M = 50</span> redes: <span class="f">λ̄ = (1⁄M) Σ<sub>m</sub> λ<sup>(m)</sup></span> (cancela el ruido de entrenamiento). Resultado por convolución: <span class="f">P(local) = Σ<sub>i&gt;j</sub> P(G<sub>A</sub>=i)·P(G<sub>B</sub>=j)</span>. Validación fuera de muestra con el RPS <span class="f">= (1⁄(r−1)) Σ<sub>i</sub> (Σ<sub>j≤i</sub>(p<sub>j</sub>−o<sub>j</sub>))²</span>: <b>0,166</b> contra <b>0,175</b> del Elo en {nBacktest.toLocaleString('es')} partidos no vistos.</p>
+      <p><b>Modelo 2 (Red Neuronal).</b> Regresión de Poisson neuronal: la red predice <span class="f">λ = softplus(f<sub>θ</sub>(x))</span> desde 48 variables, entrenada con la log-verosimilitud de Poisson <span class="f">ℒ = λ − y·log λ</span>. <i>Ensemble</i> de <span class="f">M = 50</span> redes: <span class="f">λ̄ = (1⁄M) Σ<sub>m</sub> λ<sup>(m)</sup></span> (cancela el ruido de entrenamiento). Resultado por convolución: <span class="f">P(local) = Σ<sub>i&gt;j</sub> P(G<sub>A</sub>=i)·P(G<sub>B</sub>=j)</span>. Validación fuera de muestra con el RPS <span class="f">= (1⁄(r−1)) Σ<sub>i</sub> (Σ<sub>j≤i</sub>(p<sub>j</sub>−o<sub>j</sub>))²</span>: <b>0,162</b> contra <b>0,175</b> del Elo en {nBacktest.toLocaleString('es')} partidos no vistos.</p>
     </MathPill>
   </section>
 
@@ -240,7 +240,7 @@
     </Scrolly>
     <div class="sandbox"><p class="sand-label">¿Qué tan seguro debería estar?</p><CoverageSlider matches={data.matches} tau={data.narrative.tau_by_coverage ?? {}} /></div>
     <MathPill>
-      <p><b>Modelo 3 (Conjunto).</b> Mezcla de dos familias: <span class="f">λ<sub>M3</sub> = w·λ<sub>red</sub> + (1−w)·λ<sub>gbt</sub></span>, con <span class="f">w = 0,5</span> elegido por <i>backtest</i> (RPS 0,165, gana a ambas). Predicción <i>conformal</i> (LAC): con scores de no-conformidad <span class="f">s<sub>i</sub> = 1 − p<sub>i</sub>[real]</span> en calibración, el conjunto <span class="f">{'{'} o : p<sub>o</sub> ≥ 1 − q̂ {'}'}</span> tiene cobertura <span class="f">≥ 1 − α</span> garantizada (solo asume intercambiabilidad). La banda del campeón es <i>bootstrap</i> sobre las simulaciones — no puede llegar a ser una garantía, porque <span class="f">n = 1</span>.</p>
+      <p><b>Modelo 3 (Conjunto).</b> Mezcla de dos familias: <span class="f">λ<sub>M3</sub> = w·λ<sub>red</sub> + (1−w)·λ<sub>gbt</sub></span>, con <span class="f">w = 0,5</span> elegido por <i>backtest</i> (RPS 0,162, gana a ambas). Predicción <i>conformal</i> (LAC): con scores de no-conformidad <span class="f">s<sub>i</sub> = 1 − p<sub>i</sub>[real]</span> en calibración, el conjunto <span class="f">{'{'} o : p<sub>o</sub> ≥ 1 − q̂ {'}'}</span> tiene cobertura <span class="f">≥ 1 − α</span> garantizada (solo asume intercambiabilidad). La banda del campeón es <i>bootstrap</i> sobre las simulaciones — no puede llegar a ser una garantía, porque <span class="f">n = 1</span>.</p>
     </MathPill>
   </section>
 

@@ -91,12 +91,22 @@ def main():
     # caching, Monte Carlo issues ~2M single-row Keras predict() calls (hours of
     # framework overhead). Memoize the base λ per ordered matchup; the stage
     # multiplier is applied on top, so results are mathematically unchanged.
+    # Host nations play their GROUP matches at home (the 9 non-neutral 2026 fixtures);
+    # everything else is neutral. is_home is a backtest-validated feature (RPS 0.166→0.163).
+    HOSTS = {'Mexico', 'United States', 'Canada'}
+    def _venue(ta, tb, stage):
+        if stage == 'group':
+            if ta in HOSTS: return (1.0, 0.0, 0.0, 0.0)   # a home, b away (both non-neutral)
+            if tb in HOSTS: return (0.0, 0.0, 1.0, 0.0)
+        return (0.0, 1.0, 0.0, 1.0)                        # neutral venue
+
     _lambda_cache = {}
     def neural_predict(team_a, team_b, stage='group'):
-        key = (team_a, team_b)
+        ah, an, bh, bn = _venue(team_a, team_b, stage)
+        key = (team_a, team_b, ah, bh)
         if key not in _lambda_cache:
-            fa = get_team_features_for_prediction(tv, elo_ratings, team_a, team_b)
-            fb = get_team_features_for_prediction(tv, elo_ratings, team_b, team_a)
+            fa = get_team_features_for_prediction(tv, elo_ratings, team_a, team_b, is_home=ah, is_neutral=an)
+            fb = get_team_features_for_prediction(tv, elo_ratings, team_b, team_a, is_home=bh, is_neutral=bn)
             for f in feature_names:
                 fa.setdefault(f, 0.0)
                 fb.setdefault(f, 0.0)
@@ -124,10 +134,11 @@ def main():
     W_NET = 0.5
     _m3_cache = {}
     def m3_predict(team_a, team_b, stage='group'):
-        key = (team_a, team_b)
+        ah, an, bh, bn = _venue(team_a, team_b, stage)
+        key = (team_a, team_b, ah, bh)
         if key not in _m3_cache:
-            fa = get_team_features_for_prediction(tv, elo_ratings, team_a, team_b)
-            fb = get_team_features_for_prediction(tv, elo_ratings, team_b, team_a)
+            fa = get_team_features_for_prediction(tv, elo_ratings, team_a, team_b, is_home=ah, is_neutral=an)
+            fb = get_team_features_for_prediction(tv, elo_ratings, team_b, team_a, is_home=bh, is_neutral=bn)
             for f in feature_names:
                 fa.setdefault(f, 0.0); fb.setdefault(f, 0.0)
             da = pd.DataFrame([fa])[feature_names]

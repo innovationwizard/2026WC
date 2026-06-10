@@ -148,13 +148,16 @@ def _normalize_team_view(df: pd.DataFrame) -> pd.DataFrame:
     scored['home_score'] = scored['home_score'].astype(int)
     scored['away_score'] = scored['away_score'].astype(int)
 
+    # is_home: 1 only for the genuine home side of a non-neutral match (the home-field
+    # signal the model was missing — neutral venues and the away side are 0).
+    not_neutral = (scored['neutral'] == False).astype(float)
     home = pd.DataFrame({
         'date': scored['date'], 'team': scored['home_team'],
         'opponent': scored['away_team'],
         'goals_scored': scored['home_score'], 'goals_conceded': scored['away_score'],
         'elo': scored['elo_home'], 'opp_elo': scored['elo_away'],
         'tournament': scored['tournament'],
-        'neutral': scored['neutral'],
+        'neutral': scored['neutral'], 'is_home': not_neutral,
         'is_competitive': scored['tournament'] != 'Friendly',
     })
     away = pd.DataFrame({
@@ -163,7 +166,7 @@ def _normalize_team_view(df: pd.DataFrame) -> pd.DataFrame:
         'goals_scored': scored['away_score'], 'goals_conceded': scored['home_score'],
         'elo': scored['elo_away'], 'opp_elo': scored['elo_home'],
         'tournament': scored['tournament'],
-        'neutral': scored['neutral'],
+        'neutral': scored['neutral'], 'is_home': 0.0,
         'is_competitive': scored['tournament'] != 'Friendly',
     })
     tv = pd.concat([home, away], ignore_index=True).sort_values('date').reset_index(drop=True)
@@ -296,7 +299,7 @@ def build_training_data(df_raw: pd.DataFrame, min_date: str = '2020-01-01', retu
         ['elo', 'elo_diff'] + roll_cols +
         ['squad_market_value', 'squad_value_log', 'squad_value_diff',
          'gdp_log', 'population_log', 'wc_titles', 'wc_appearances',
-         'is_host', 'is_neutral', 'is_wc', 'inter_confederation',
+         'is_host', 'is_neutral', 'is_home', 'is_wc', 'inter_confederation',
          'confederation_strength'] +
         [f'conf_{c}' for c in ['UEFA', 'CONMEBOL', 'CONCACAF', 'CAF', 'AFC', 'OFC']]
     )
@@ -326,8 +329,10 @@ def build_training_data(df_raw: pd.DataFrame, min_date: str = '2020-01-01', retu
 
 
 def get_team_features_for_prediction(tv: pd.DataFrame, elo_ratings: dict,
-                                      team: str, opponent: str) -> dict:
-    """Get the most recent feature vector for a team (for WC prediction)."""
+                                      team: str, opponent: str,
+                                      is_home: float = 0.0, is_neutral: float = 1.0) -> dict:
+    """Most recent feature vector for a team (for WC prediction).
+    is_home/is_neutral describe THIS match's venue (default = neutral, the WC norm)."""
     team_rows = tv[tv['team'] == team]
     if len(team_rows) == 0:
         return _default_features(team, opponent, elo_ratings)
@@ -359,7 +364,8 @@ def get_team_features_for_prediction(tv: pd.DataFrame, elo_ratings: dict,
     features['wc_titles'] = WC_TITLES.get(team, 0)
     features['wc_appearances'] = WC_APPEARANCES.get(team, 0)
     features['is_host'] = 1.0 if team in HOST_COUNTRIES else 0.0
-    features['is_neutral'] = 1.0
+    features['is_neutral'] = is_neutral
+    features['is_home'] = is_home
     features['is_wc'] = 1.0
     conf = CONFEDERATION.get(team, 'UEFA')
     opp_conf = CONFEDERATION.get(opponent, 'UEFA')
@@ -394,6 +400,7 @@ def _default_features(team, opponent, elo_ratings):
     f['wc_appearances'] = WC_APPEARANCES.get(team, 0)
     f['is_host'] = 1.0 if team in HOST_COUNTRIES else 0.0
     f['is_neutral'] = 1.0
+    f['is_home'] = 0.0
     f['is_wc'] = 1.0
     conf = CONFEDERATION.get(team, 'UEFA')
     opp_conf = CONFEDERATION.get(opponent, 'UEFA')
