@@ -73,7 +73,7 @@
   const act3 = [
     { mode: 'set', text: 'El modelo más sofisticado no es el que más afirma, sino el que sabe lo que NO sabe y lo reconoce con transparencia.' },
     { mode: 'set', text: 'Predicción conformal: en lugar de un número solo, un conjunto de resultados plausibles con cobertura garantizada. Cuanto más confiable es la predicción, más pequeño es el conjunto.' },
-    { mode: 'calib', text: '¿Y está bien calibrado? Cuando dice 70%, ¿ocurre el 70%? La curva cae sobre la diagonal: sí.' },
+    { mode: 'calib', text: '¿Y está bien calibrado? Cuando dice 70%, ¿ocurre el 70%? La curva cae sobre la diagonal: esto significa que sí está bien calibrado.' },
     { mode: 'calib', text: 'Una verdad incómoda para el final: una curva más angosta NO sería un mejor modelo. El fútbol es así de impredecible. La honestidad ES la sofisticación.' },
   ];
   let a3 = $state(0);
