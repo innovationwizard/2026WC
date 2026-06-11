@@ -60,7 +60,7 @@
   const a2mode = $derived(act2[Math.min(a2, act2.length - 1)].mode);
   const rpsBar = (v) => Math.max(4, ((0.18 - v) / (0.18 - 0.16)) * 100); // longer = lower error = better (zoomed 0.16–0.18)
 
-  // ── ACT 3 · Conjunto — honest uncertainty ──
+  // ── ACT 3 · IA con Criterio — honest uncertainty ──
   const calib = $derived(data.narrative.calibration ?? []);
   const setOf = (n) => data.matches.find((m) => m.predictions.M3?.set?.length === n);
   const confExamples = $derived([setOf(1), setOf(2), setOf(3)].filter(Boolean));
@@ -123,7 +123,7 @@
 <nav class="rail" aria-hidden="true">
   <span class:on={currentAct === 1}>01 · Azar</span>
   <span class:on={currentAct === 2}>02 · Red Neuronal</span>
-  <span class:on={currentAct === 3}>03 · Conjunto</span>
+  <span class:on={currentAct === 3}>03 · IA con Criterio</span>
 </nav>
 
 <button class="autoplay" onclick={togglePlay} aria-pressed={playing}>
@@ -194,7 +194,7 @@
           <div class="sim">
             <div class="sim-head">Error de predicción · RPS <span class="muted">(más bajo = mejor)</span></div>
             <div class="bars">
-              {#each [['M1', 'Elo', 'slate'], ['M2', 'Red neuronal', 'blue'], ['M3', 'Conjunto', 'green']] as [k, name, col]}
+              {#each [['M1', 'Elo', 'slate'], ['M2', 'Red neuronal', 'blue'], ['M3', 'IA con Criterio', 'green']] as [k, name, col]}
                 <div class="bar-row rps">
                   <span class="bt">{name}</span>
                   <span class="track"><span class="fill {col}" style="width:{rpsBar(rps[k] ?? 0.18)}%"></span></span>
@@ -216,7 +216,7 @@
 
   <!-- ════ ACT 3 ════ -->
   <section class="act" data-act="3">
-    <header class="act-head"><p class="phase">Modelo 3 · Conjunto</p><h2>Y sabe lo que no sabe</h2></header>
+    <header class="act-head"><p class="phase">Modelo 3 · IA con Criterio</p><h2>Y sabe lo que no sabe</h2><p class="act-sub">Además de generar pronósticos, emite un juicio crítico acerca de la calidad y de la validez de sus propios pronósticos.</p></header>
     <Scrolly steps={act3} bind:active={a3}>
       {#snippet visual()}
         {#if a3mode === 'set'}
@@ -243,7 +243,7 @@
     </Scrolly>
     <div class="sandbox"><p class="sand-label">¿Qué tan seguro debería estar?</p><CoverageSlider matches={data.matches} tau={data.narrative.tau_by_coverage ?? {}} /></div>
     <MathPill>
-      <p><b>Modelo 3 (Conjunto).</b> Mezcla de dos familias: <span class="f">λ<sub>M3</sub> = w·λ<sub>red</sub> + (1−w)·λ<sub>gbt</sub></span>, con <span class="f">w = 0,5</span> elegido por <i>backtest</i> (RPS 0,162, gana a ambas). Predicción <i>conformal</i> (LAC): con scores de no-conformidad <span class="f">s<sub>i</sub> = 1 − p<sub>i</sub>[real]</span> en calibración, el conjunto <span class="f">{'{'} o : p<sub>o</sub> ≥ 1 − q̂ {'}'}</span> tiene cobertura <span class="f">≥ 1 − α</span> garantizada (solo asume intercambiabilidad). La banda del campeón es <i>bootstrap</i> sobre las simulaciones — no puede llegar a ser una garantía, porque <span class="f">n = 1</span>.</p>
+      <p><b>Modelo 3 (IA con Criterio).</b> Mezcla de dos familias: <span class="f">λ<sub>M3</sub> = w·λ<sub>red</sub> + (1−w)·λ<sub>gbt</sub></span>, con <span class="f">w = 0,5</span> elegido por <i>backtest</i> (RPS 0,162, gana a ambas). Predicción <i>conformal</i> (LAC): con scores de no-conformidad <span class="f">s<sub>i</sub> = 1 − p<sub>i</sub>[real]</span> en calibración, el conjunto <span class="f">{'{'} o : p<sub>o</sub> ≥ 1 − q̂ {'}'}</span> tiene cobertura <span class="f">≥ 1 − α</span> garantizada (solo asume intercambiabilidad). La banda del campeón es <i>bootstrap</i> sobre las simulaciones — no puede llegar a ser una garantía, porque <span class="f">n = 1</span>.</p>
     </MathPill>
   </section>
 
@@ -265,7 +265,7 @@
   :global(body) { margin: 0; background: #0a0e17; }
   .historia { color: #e2e8f0; font-family: 'Segoe UI', system-ui, sans-serif; }
 
-  .rail { position: fixed; top: var(--banner-h); left: 0; right: 0; z-index: 10; display: flex; gap: 1.25rem; justify-content: center; padding: 0.5rem; font-size: 0.72rem; letter-spacing: 0.05em; background: #0a0e17cc; backdrop-filter: blur(6px); border-bottom: 1px solid #1e293b; color: #475569; }
+  .rail { position: fixed; top: var(--banner-h); left: 0; right: 0; z-index: 10; display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; justify-content: center; padding: 0.5rem; font-size: 0.72rem; letter-spacing: 0.05em; background: #0a0e17cc; backdrop-filter: blur(6px); border-bottom: 1px solid #1e293b; color: #475569; }
   .rail .on { color: #d4af37; }
 
   .autoplay { position: fixed; bottom: 1.25rem; right: 1.25rem; z-index: 11; background: #111827cc; backdrop-filter: blur(6px); border: 1px solid #334155; color: #e2e8f0; padding: 0.5rem 0.9rem; border-radius: 999px; cursor: pointer; font-family: inherit; font-size: 0.8rem; font-weight: 600; }
@@ -287,6 +287,7 @@
   .act-head { padding: 4rem 0 0; }
   .phase { color: #64748b; letter-spacing: 0.15em; text-transform: uppercase; font-size: 0.75rem; margin: 0; }
   .act-head h2 { font-size: clamp(1.8rem, 5vw, 3rem); margin: 0.3rem 0 0; }
+  .act-sub { color: #94a3b8; font-size: 0.9rem; line-height: 1.5; max-width: 52ch; margin: 0.7rem 0 0; }
 
   .sim { width: 100%; max-width: 470px; }
   .sim-head { color: #d4af37; font-variant-numeric: tabular-nums; font-size: 0.95rem; margin-bottom: 0.9rem; text-align: center; }
@@ -295,7 +296,7 @@
   .k { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 0.25rem; vertical-align: middle; }
   .bars { display: flex; flex-direction: column; gap: 0.45rem; }
   .bar-row { display: grid; grid-template-columns: 7.5rem 1fr 2.8rem; align-items: center; gap: 0.5rem; font-size: 0.85rem; }
-  .bar-row.rps { grid-template-columns: 6.5rem 1fr 3rem; }
+  .bar-row.rps { grid-template-columns: 8.5rem 1fr 3rem; }
   .bar2 { display: grid; grid-template-columns: 5rem 1fr 2.6rem; align-items: center; gap: 0.5rem; font-size: 0.85rem; }
   .stack { display: flex; flex-direction: column; gap: 3px; }
   .bt { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #cbd5e1; }

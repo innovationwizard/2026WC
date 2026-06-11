@@ -9,7 +9,7 @@
   const m = $derived(opts[idx]);
 
   const COL = { M1: '#64748b', M2: '#3b82f6', M3: '#22c55e', Mercado: '#94a3b8' };
-  const lines = [['M1', 'Azar'], ['M2', 'Red Neuronal'], ['M3', 'Conjunto'], ['Mercado', 'Mercado']];
+  const lines = [['M1', 'Azar'], ['M2', 'Red Neuronal'], ['M3', 'IA con Criterio'], ['Mercado', 'Mercado']];
   const pickName = (mm, p) => (!p ? '—' : p.pick === 'draw' ? 'Empate' : teamShort(p.pick === 'home' ? mm.home : mm.away));
   const setLabel = (mm) => {
     const s = mm.predictions.M3?.set;

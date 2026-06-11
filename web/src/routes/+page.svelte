@@ -44,7 +44,7 @@
     <br />
     <span class="leg"><b style="color:#64748b">M1</b> Azar</span>
     <span class="leg"><b style="color:#3b82f6">M2</b> Red Neuronal</span>
-    <span class="leg"><b style="color:#22c55e">M3</b> Conjunto</span>
+    <span class="leg" title="Además de generar pronósticos, emite un juicio crítico acerca de la calidad y de la validez de sus propios pronósticos."><b style="color:#22c55e">M3</b> IA con Criterio</span>
     <span class="leg"><b style="color:#94a3b8">Mercado</b></span>
   </p>
 
