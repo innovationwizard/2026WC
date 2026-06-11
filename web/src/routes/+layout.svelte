@@ -3,7 +3,7 @@
   let { children } = $props();
 </script>
 
-<a class="banner" href="/historia">¿Puede la <strong>IA</strong> ganar quinielas?</a>
+<a class="banner" href="/">¿Puede la <strong>IA</strong> ganar quinielas?</a>
 
 {@render children()}
 
