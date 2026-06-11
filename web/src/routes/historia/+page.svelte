@@ -86,9 +86,12 @@
   let currentAct = $state(0);
   let playing = $state(false);
   let raf;
+  let scrollAcc = 0; // sub-pixel accumulator so the slow cadence doesn't round to zero
   function tick() {
     if (!playing) return;
-    window.scrollBy(0, 1.4); // ~84 px/s — reading cadence; hands-off for the video / a cold link
+    scrollAcc += 0.35; // ~21 px/s — 0.25× of the old 84 px/s; a human-readable pace
+    const step = Math.floor(scrollAcc);
+    if (step) { window.scrollBy(0, step); scrollAcc -= step; }
     if (window.scrollY + window.innerHeight >= document.body.scrollHeight - 2) { playing = false; return; }
     raf = requestAnimationFrame(tick);
   }
