@@ -53,6 +53,12 @@ Leave every not-yet-played match blank. Save the file.
 
 Feeds the **"Mercado"** line. **You can skip this entirely** — if you do, Mercado just shows "—". Only fill it if you want the "can my models beat the bookies?" comparison.
 
+> **✅ Which odds, and when — the rule (use this every match):**
+> Use the **Pinnacle closing line** — the final pre-match odds, just before kick-off. It's the **gold standard**: the sharpest, lowest-margin market estimate, and it's *not* affected by the result (it's pre-match), so it's a fair benchmark.
+> - It's available **retroactively** — Oddsportal (and others) **archive closing odds**, so you're *not* racing the clock. Grab it just before kickoff **or** pull it after the match. Either is fine.
+> - The only thing to avoid is *in-play* / post-result odds — those aren't pre-match and would cheat the comparison.
+> - **Be consistent:** same source (Pinnacle), same moment (closing line), **every** match. That keeps Mercado a clean, comparable benchmark all tournament. (A low overround — ~2–4% — confirms you've got a genuine sharp line.)
+
 | id | home | away | odd_1 | odd_X | odd_2 |
 |---|---|---|---|---|---|
 | gA-01 | Mexico | South Africa | *(blank)* | *(blank)* | *(blank)* |
