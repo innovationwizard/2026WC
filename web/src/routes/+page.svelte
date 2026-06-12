@@ -45,7 +45,7 @@
     <span class="leg"><b style="color:#64748b">M1</b> Azar</span>
     <span class="leg"><b style="color:#3b82f6">M2</b> Red Neuronal</span>
     <span class="leg" title="Además de generar pronósticos, emite un juicio crítico acerca de la calidad y de la validez de sus propios pronósticos."><b style="color:#22c55e">M3</b> IA con Criterio</span>
-    <span class="leg"><b style="color:#94a3b8">Mercado</b></span>
+    <span class="leg" title="Pinnacle está considerada por muchos como la casa de apuestas deportivas en línea más sofisticada y más competitiva del mundo. (Wikipedia)"><b style="color:#94a3b8">Pinnacle</b></span>
   </p>
 
   <a class="story-link" href="/historia">▶ Ver la historia — cómo se construye una predicción, del azar a la red neuronal →</a>

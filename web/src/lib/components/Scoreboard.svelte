@@ -1,5 +1,5 @@
 <script>
-  import { scoreboard, LINES, LINE_LABELS, LINE_COLORS } from '$lib/grade.js';
+  import { scoreboard, LINES, LINE_LABELS, LINE_COLORS, PINNACLE_NOTE } from '$lib/grade.js';
 
   let { matches } = $props();
   const sb = scoreboard(matches);
@@ -17,7 +17,7 @@
     {#each LINES as l}
       {@const s = sb[l]}
       <div class="line" style="--c:{LINE_COLORS[l]}">
-        <span class="name">{LINE_LABELS[l]}</span>
+        <span class="name" title={l === 'Mercado' ? PINNACLE_NOTE : null}>{LINE_LABELS[l]}</span>
         <span class="hit">{s.aciertos}/{s.jugados}<small> aciertos</small></span>
         <span class="rps">{s.rps != null ? `RPS ${s.rps.toFixed(3)}` : 'RPS —'}</span>
         <span class="ex">{s.exactos} {l === 'Mercado' ? '' : 'exactos'}</span>

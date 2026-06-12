@@ -1,6 +1,6 @@
 <script>
   import { teamFull, teamShort, teamFlag } from '$lib/teams.js';
-  import { LINES, LINE_COLORS, LINE_NAMES, verdictFor } from '$lib/grade.js';
+  import { LINES, LINE_COLORS, LINE_NAMES, LINE_LABELS, PINNACLE_NOTE, verdictFor } from '$lib/grade.js';
   import ScoreMatrix from './ScoreMatrix.svelte';
 
   let { match } = $props();
@@ -68,13 +68,13 @@
           <button type="button" class="cell ix" class:on={open && active === line} style="--c:{LINE_COLORS[line]}"
             onclick={(e) => { e.stopPropagation(); active = line; open = true; }}
             title="Ver la distribución de marcadores">
-            <span class="lbl">{line}</span>
+            <span class="lbl">{LINE_LABELS[line]}</span>
             <span class="val">{cellText(line, p)}</span>
             {#if finished}<span class="mk">{mark(line, p)}</span>{/if}
           </button>
         {:else}
-          <div class="cell" class:muted={!p} style="--c:{LINE_COLORS[line]}">
-            <span class="lbl">{line}</span>
+          <div class="cell" class:muted={!p} style="--c:{LINE_COLORS[line]}" title={line === 'Mercado' ? PINNACLE_NOTE : null}>
+            <span class="lbl">{LINE_LABELS[line]}</span>
             <span class="val">{cellText(line, p)}</span>
             {#if finished}<span class="mk">{mark(line, p)}</span>{/if}
           </div>
@@ -91,7 +91,7 @@
     {#each LINES as line}
       {@const p = match.predictions[line]}
       <div class="dline" style="--c:{LINE_COLORS[line]}">
-        <div class="dhead"><b class="dlbl">{line}</b> <span class="dname">{LINE_NAMES[line]}</span></div>
+        <div class="dhead" title={line === 'Mercado' ? PINNACLE_NOTE : null}><b class="dlbl">{LINE_LABELS[line]}</b> {#if LINE_NAMES[line] !== LINE_LABELS[line]}<span class="dname">{LINE_NAMES[line]}</span>{/if}</div>
         {#if p && p.probs}
           <div class="wdl" aria-hidden="true">
             <span class="seg h" style="width:{pct(p.probs.home)}%"></span>

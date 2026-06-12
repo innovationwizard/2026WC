@@ -2,6 +2,7 @@
   // Act 2 sandbox: pick any fixture and see the three models side by side — where they
   // agree, where they differ, and the expected goals (λ) the net assigns.
   import { teamShort } from '$lib/teams.js';
+  import { LINE_LABELS, PINNACLE_NOTE } from '$lib/grade.js';
   let { matches } = $props();
 
   const opts = $derived(matches.filter((m) => m.predictions.M2));
@@ -9,7 +10,7 @@
   const m = $derived(opts[idx]);
 
   const COL = { M1: '#64748b', M2: '#3b82f6', M3: '#22c55e', Mercado: '#94a3b8' };
-  const lines = [['M1', 'Azar'], ['M2', 'Red Neuronal'], ['M3', 'IA con Criterio'], ['Mercado', 'Mercado']];
+  const lines = [['M1', 'Azar'], ['M2', 'Red Neuronal'], ['M3', 'IA con Criterio'], ['Mercado', 'Pinnacle']];
   const pickName = (mm, p) => (!p ? '—' : p.pick === 'draw' ? 'Empate' : teamShort(p.pick === 'home' ? mm.home : mm.away));
   const setLabel = (mm) => {
     const s = mm.predictions.M3?.set;
@@ -28,9 +29,9 @@
   <div class="lines">
     {#each lines as [k, name]}
       {@const p = m.predictions[k]}
-      <div class="line" style="--c:{COL[k]}">
-        <span class="lk">{k}</span>
-        <span class="ln">{name}</span>
+      <div class="line" style="--c:{COL[k]}" title={k === 'Mercado' ? PINNACLE_NOTE : null}>
+        <span class="lk">{LINE_LABELS[k]}</span>
+        {#if name !== LINE_LABELS[k]}<span class="ln">{name}</span>{/if}
         <span class="lpick">{pickName(m, p)}</span>
         <span class="lprob">{p?.probs ? Math.round(p.probs[p.pick] * 100) + '%' : '—'}</span>
       </div>

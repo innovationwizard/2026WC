@@ -1,9 +1,12 @@
 // Grading + scoreboard derivation. The data file stores facts; verdicts are derived here.
 
 export const LINES = ['M1', 'M2', 'M3', 'Mercado'];
-export const LINE_LABELS = { M1: 'M1', M2: 'M2', M3: 'M3', Mercado: 'Mercado' };
-export const LINE_NAMES = { M1: 'Azar', M2: 'Red Neuronal', M3: 'IA con Criterio', Mercado: 'Mercado' };
+// Internal key stays 'Mercado' (matches.json, odds CSV, record.py); only the DISPLAY is Pinnacle.
+export const LINE_LABELS = { M1: 'M1', M2: 'M2', M3: 'M3', Mercado: 'Pinnacle' };
+export const LINE_NAMES = { M1: 'Azar', M2: 'Red Neuronal', M3: 'IA con Criterio', Mercado: 'Pinnacle' };
 export const LINE_COLORS = { M1: '#64748b', M2: '#3b82f6', M3: '#22c55e', Mercado: '#94a3b8' };
+export const PINNACLE_NOTE =
+  'Pinnacle está considerada por muchos como la casa de apuestas deportivas en línea más sofisticada y más competitiva del mundo. (Wikipedia)';
 
 // Verdict for a scoreline model (M1/M2/M3): acierto on outcome, exacto on exact score.
 export function scoreVerdict(pred, result) {
