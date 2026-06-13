@@ -235,7 +235,14 @@
           ],
           "coverage": 0.8
         },
-        "Mercado": null
+        "Mercado": {
+          "pick": "home",
+          "probs": {
+            "home": 0.522,
+            "draw": 0.276,
+            "away": 0.201
+          }
+        }
       }
     },
     {
@@ -305,7 +312,14 @@
           ],
           "coverage": 0.8
         },
-        "Mercado": null
+        "Mercado": {
+          "pick": "home",
+          "probs": {
+            "home": 0.489,
+            "draw": 0.283,
+            "away": 0.228
+          }
+        }
       }
     },
     {
