@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated": "2026-06-13",
+    "generated": "2026-06-14",
     "source": "results.csv (fixtures) + v2/output/predictions.json (M1 Elo, M2 neural-ensemble, M3 conjunto+conformal)",
     "models": [
       "M1",
@@ -598,8 +598,12 @@
         "country": "United States",
         "neutral": true
       },
-      "status": "por_jugarse",
-      "result": null,
+      "status": "finalizado",
+      "result": {
+        "home": 7,
+        "away": 1,
+        "outcome": "home"
+      },
       "predictions": {
         "M1": {
           "home": 1,
@@ -647,7 +651,14 @@
           ],
           "coverage": 0.8
         },
-        "Mercado": null
+        "Mercado": {
+          "pick": "home",
+          "probs": {
+            "home": 0.919,
+            "draw": 0.058,
+            "away": 0.023
+          }
+        }
       }
     },
     {
@@ -730,8 +741,12 @@
         "country": "United States",
         "neutral": true
       },
-      "status": "por_jugarse",
-      "result": null,
+      "status": "finalizado",
+      "result": {
+        "home": 2,
+        "away": 2,
+        "outcome": "draw"
+      },
       "predictions": {
         "M1": {
           "home": 1,
@@ -781,7 +796,14 @@
           ],
           "coverage": 0.8
         },
-        "Mercado": null
+        "Mercado": {
+          "pick": "home",
+          "probs": {
+            "home": 0.462,
+            "draw": 0.28,
+            "away": 0.259
+          }
+        }
       }
     },
     {
