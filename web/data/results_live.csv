@@ -3,10 +3,10 @@ gA-01,Mexico,South Africa,2,0
 gA-02,South Korea,Czech Republic,2,1
 gB-01,Canada,Bosnia and Herzegovina,1,1
 gD-01,United States,Paraguay,4,1
-gB-02,Qatar,Switzerland,,
-gC-01,Brazil,Morocco,,
-gC-02,Haiti,Scotland,,
-gD-02,Australia,Turkey,,
+gB-02,Qatar,Switzerland,1,1
+gC-01,Brazil,Morocco,1,1
+gC-02,Haiti,Scotland,0,1
+gD-02,Australia,Turkey,2,0
 gE-01,Germany,Curaçao,7,1
 gE-02,Ivory Coast,Ecuador,1,0
 gF-01,Netherlands,Japan,2,2
