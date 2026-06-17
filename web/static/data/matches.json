@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated": "2026-06-16",
+    "generated": "2026-06-17",
     "source": "results.csv (fixtures) + v2/output/predictions.json (M1 Elo, M2 neural-ensemble, M3 conjunto+conformal)",
     "models": [
       "M1",
@@ -1256,8 +1256,12 @@
         "country": "United States",
         "neutral": true
       },
-      "status": "por_jugarse",
-      "result": null,
+      "status": "finalizado",
+      "result": {
+        "home": 3,
+        "away": 1,
+        "outcome": "home"
+      },
       "predictions": {
         "M1": {
           "home": 1,
@@ -1305,7 +1309,14 @@
           ],
           "coverage": 0.8
         },
-        "Mercado": null
+        "Mercado": {
+          "pick": "home",
+          "probs": {
+            "home": 0.766,
+            "draw": 0.156,
+            "away": 0.078
+          }
+        }
       }
     },
     {
@@ -1321,8 +1332,12 @@
         "country": "United States",
         "neutral": true
       },
-      "status": "por_jugarse",
-      "result": null,
+      "status": "finalizado",
+      "result": {
+        "home": 1,
+        "away": 4,
+        "outcome": "away"
+      },
       "predictions": {
         "M1": {
           "home": 0,
@@ -1370,7 +1385,14 @@
           ],
           "coverage": 0.8
         },
-        "Mercado": null
+        "Mercado": {
+          "pick": "away",
+          "probs": {
+            "home": 0.132,
+            "draw": 0.206,
+            "away": 0.662
+          }
+        }
       }
     },
     {
@@ -1386,8 +1408,12 @@
         "country": "United States",
         "neutral": true
       },
-      "status": "por_jugarse",
-      "result": null,
+      "status": "finalizado",
+      "result": {
+        "home": 3,
+        "away": 0,
+        "outcome": "home"
+      },
       "predictions": {
         "M1": {
           "home": 1,
@@ -1435,7 +1461,14 @@
           ],
           "coverage": 0.8
         },
-        "Mercado": null
+        "Mercado": {
+          "pick": "home",
+          "probs": {
+            "home": 0.794,
+            "draw": 0.144,
+            "away": 0.062
+          }
+        }
       }
     },
     {
@@ -1451,8 +1484,12 @@
         "country": "United States",
         "neutral": true
       },
-      "status": "por_jugarse",
-      "result": null,
+      "status": "finalizado",
+      "result": {
+        "home": 3,
+        "away": 1,
+        "outcome": "home"
+      },
       "predictions": {
         "M1": {
           "home": 1,
@@ -1501,7 +1538,14 @@
           ],
           "coverage": 0.8
         },
-        "Mercado": null
+        "Mercado": {
+          "pick": "home",
+          "probs": {
+            "home": 0.608,
+            "draw": 0.235,
+            "away": 0.157
+          }
+        }
       }
     },
     {
