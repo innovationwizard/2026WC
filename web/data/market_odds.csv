@@ -19,14 +19,14 @@ gI-01,France,Senegal,1.22,6,12
 gI-02,Iraq,Norway,7,4.5,1.4
 gJ-01,Argentina,Algeria,1.18,6.5,15
 gJ-02,Austria,Jordan,1.55,4,6
-gK-01,Portugal,DR Congo,,,
-gK-02,Uzbekistan,Colombia,,,
-gL-01,England,Croatia,,,
-gL-02,Ghana,Panama,,,
-gA-03,Czech Republic,South Africa,,,
-gA-04,Mexico,South Korea,,,
-gB-03,Switzerland,Bosnia and Herzegovina,,,
-gB-04,Canada,Qatar,,,
+gK-01,Portugal,DR Congo,1.27,5.7,11
+gK-02,Uzbekistan,Colombia,5.5,3.8,1.6
+gL-01,England,Croatia,1.7,3.7,5.2
+gL-02,Ghana,Panama,1.8,3.5,4.5
+gA-03,Czech Republic,South Africa,2,3.4,3.8
+gA-04,Mexico,South Korea,1.8,3.5,4.5
+gB-03,Switzerland,Bosnia and Herzegovina,1.4,4.5,7
+gB-04,Canada,Qatar,1.15,7,15
 gC-03,Scotland,Morocco,,,
 gC-04,Brazil,Haiti,,,
 gD-03,United States,Australia,,,
