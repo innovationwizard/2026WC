@@ -27,18 +27,18 @@ gA-03,Czech Republic,South Africa,1,1
 gA-04,Mexico,South Korea,1,0
 gB-03,Switzerland,Bosnia and Herzegovina,4,1
 gB-04,Canada,Qatar,6,0
-gC-03,Scotland,Morocco,,
-gC-04,Brazil,Haiti,,
-gD-03,United States,Australia,,
-gD-04,Turkey,Paraguay,,
-gE-03,Germany,Ivory Coast,,
-gE-04,Ecuador,Curaçao,,
-gF-03,Netherlands,Sweden,,
-gF-04,Tunisia,Japan,,
-gG-03,Belgium,Iran,,
+gC-03,Scotland,Morocco,0,1
+gC-04,Brazil,Haiti,3,0
+gD-03,United States,Australia,2,0
+gD-04,Turkey,Paraguay,0,1
+gE-03,Germany,Ivory Coast,2,1
+gE-04,Ecuador,Curaçao,0,0
+gF-03,Netherlands,Sweden,5,1
+gF-04,Tunisia,Japan,0,4
+gG-03,Belgium,Iran,0,0
 gG-04,New Zealand,Egypt,,
-gH-03,Spain,Saudi Arabia,,
-gH-04,Uruguay,Cape Verde,,
+gH-03,Spain,Saudi Arabia,4,0
+gH-04,Uruguay,Cape Verde,2,2
 gI-03,France,Iraq,,
 gI-04,Norway,Senegal,,
 gJ-03,Argentina,Austria,,
