@@ -5,8 +5,10 @@
   let { matches } = $props();
   const rDate = recientesDate(matches);
   const pDate = proximosDate(matches);
-  const recientes = matchesOn(matches, rDate);
-  const proximos = matchesOn(matches, pDate);
+  // A single date can hold both finished and pending matches (e.g. a late kickoff
+  // not yet recorded). Each card shows only the matches that belong in it.
+  const recientes = matchesOn(matches, rDate).filter((m) => m.status === 'finalizado');
+  const proximos = matchesOn(matches, pDate).filter((m) => m.status !== 'finalizado');
 </script>
 
 <div class="cards">
