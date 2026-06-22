@@ -2860,8 +2860,12 @@
         "country": "Canada",
         "neutral": true
       },
-      "status": "por_jugarse",
-      "result": null,
+      "status": "finalizado",
+      "result": {
+        "home": 1,
+        "away": 3,
+        "outcome": "away"
+      },
       "predictions": {
         "M1": {
           "home": 1,
@@ -2910,7 +2914,14 @@
           ],
           "coverage": 0.8
         },
-        "Mercado": null
+        "Mercado": {
+          "pick": "away",
+          "probs": {
+            "home": 0.163,
+            "draw": 0.25,
+            "away": 0.587
+          }
+        }
       }
     },
     {
