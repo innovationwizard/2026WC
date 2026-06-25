@@ -47,12 +47,12 @@ gK-03,Portugal,Uzbekistan,,
 gK-04,Colombia,DR Congo,,
 gL-03,England,Ghana,,
 gL-04,Panama,Croatia,,
-gA-05,Mexico,Czech Republic,,
-gA-06,South Africa,South Korea,,
-gB-05,Canada,Switzerland,,
-gB-06,Bosnia and Herzegovina,Qatar,,
-gC-05,Scotland,Brazil,,
-gC-06,Morocco,Haiti,,
+gA-05,Mexico,Czech Republic,3,0
+gA-06,South Africa,South Korea,1,2
+gB-05,Canada,Switzerland,1,2
+gB-06,Bosnia and Herzegovina,Qatar,3,1
+gC-05,Scotland,Brazil,0,3
+gC-06,Morocco,Haiti,4,2
 gD-05,United States,Turkey,,
 gD-06,Paraguay,Australia,,
 gE-05,Curaçao,Ivory Coast,,
