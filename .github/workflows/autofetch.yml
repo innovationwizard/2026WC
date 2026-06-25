@@ -1,0 +1,49 @@
+name: Autofetch resultados (≥2 fuentes)
+
+# Lee fuentes autoritativas cada hora y registra los partidos que ya terminaron
+# (solo cuando ≥2 fuentes coinciden en el marcador exacto). Solo resultados, sin
+# cuotas (la línea Pinnacle sigue siendo manual). Hace push a main → deploy Vercel.
+
+on:
+  schedule:
+    - cron: '0 * * * *'        # cada hora en punto (UTC) — es solo un latido; "terminado" lo decide la fuente
+  workflow_dispatch: {}          # disparo manual desde la pestaña Actions
+
+permissions:
+  contents: write
+
+concurrency:
+  group: autofetch
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0          # historia completa para poder rebase antes del push
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'  # autofetch.py y build_matches.py son solo stdlib
+
+      - name: Auto-fetch + registrar (solo resultados, ≥2 fuentes)
+        run: python web/scripts/autofetch.py --apply
+
+      - name: Commit & push si hay cambios
+        run: |
+          if [[ -z "$(git status --porcelain)" ]]; then
+            echo "Sin partidos nuevos — nada que publicar."
+            exit 0
+          fi
+          git config user.name  "orion-autofetch[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "auto: resultados $(date -u +'%Y-%m-%d %H:%MZ') (autofetch · ≥2 fuentes · sin cuotas)"
+          # Reconciliar por si hubo un push manual durante la corrida; reintentar.
+          for i in 1 2 3; do
+            git pull --rebase --autostash origin main && git push && exit 0
+            echo "reintento $i…"; sleep 5
+          done
+          echo "::error::no se pudo hacer push tras 3 intentos"; exit 1
