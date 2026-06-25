@@ -65,7 +65,7 @@
     Cuadro determinista: una selección aparece solo cuando tiene <b>asegurada</b> esa
     posición exacta; lo demás queda en blanco para llenar a mano.
   </p>
-  <button class="export" onclick={print}>🖨️ Exportar / Imprimir (carta)</button>
+  <button class="export" onclick={print}>🖨️ Imprimir</button>
 </div>
 
 <!-- ════════ Screen: vertical bracket, all ties from the left ════════ -->
