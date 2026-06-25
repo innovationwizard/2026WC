@@ -35,6 +35,13 @@
   };
 
   const print = () => window.print();
+
+  // Move the print sheet to a direct child of <body> so that, when printing, we can
+  // display:none everything else (removing it from flow → no trailing blank pages).
+  function portal(node) {
+    document.body.appendChild(node);
+    return { destroy() { node.remove(); } };
+  }
 </script>
 
 <!-- Reusable team slot: a locked team, or a blank placeholder (flag box + underline). -->
@@ -83,7 +90,7 @@
 </div>
 
 <!-- ════════ Print only: letter-size mirrored sheet ════════ -->
-<div class="print-sheet">
+<div class="print-sheet" use:portal>
   <h1 class="title">QUINIELA GRUPO ORIÓN</h1>
   <div class="mirror">
     <div class="half">
@@ -141,14 +148,15 @@
   .nm.line { border-bottom: 1px solid #334155; min-height: 0.95rem; display: flex; align-items: flex-end; }
   .hint { font-size: 0.58rem; color: #475569; font-weight: 400; }
 
-  /* ── Print sheet (hidden on screen) ── */
+  /* ── Print sheet (portaled to <body>, hidden on screen) ── */
   .print-sheet { display: none; }
 
   @media print {
-    :global(html), :global(body) { background: #fff !important; }
-    :global(body *) { visibility: hidden !important; }
-    .print-sheet, .print-sheet * { visibility: visible !important; }
-    .print-sheet { display: block; position: absolute; left: 0; top: 0; width: 100%; color: #0f172a; }
+    /* The sheet is now a direct child of <body>; hide every other body child so the
+       document collapses to a single landscape page (no trailing blank pages). */
+    :global(body > *:not(.print-sheet)) { display: none !important; }
+    :global(html), :global(body) { background: #fff !important; margin: 0 !important; }
+    .print-sheet { display: block; width: 100%; color: #0f172a; }
     @page { size: letter landscape; margin: 0.5cm; }
 
     .title { text-align: center; color: #001f54; font-weight: 800; font-size: 20pt; letter-spacing: 0.04em; margin: 0 0 0.2cm; }
