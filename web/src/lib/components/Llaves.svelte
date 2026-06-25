@@ -1,12 +1,16 @@
 <script>
   import { teamFull, teamShort, teamFlag } from '$lib/teams.js';
-  let { knockout } = $props();
+  import Bracket from './Bracket.svelte';
+  let { knockout, matches } = $props();
   const pct = (x) => Math.round((x ?? 0) * 100);
 </script>
 
+<Bracket {matches} />
+
+<h3 class="ptitle">Probabilidad de avance por ronda</h3>
 <p class="note">
-  Las predicciones formales se definen al terminar la fase de grupos. <br />Por ahora,
-  presentamos la probabilidad de cada selección de alcanzar cada ronda:
+  El cuadro de arriba es determinista (solo posiciones aseguradas). Esta tabla es la
+  vista probabilística: la probabilidad de cada selección de alcanzar cada ronda.
 </p>
 
 <table class="ko">
@@ -32,6 +36,7 @@
 </table>
 
 <style>
+  .ptitle { color: #3b82f6; font-size: 1rem; margin: 2rem 0 0.3rem; border-top: 1px solid #1e293b; padding-top: 1.2rem; }
   .note { color: #64748b; font-size: 0.8rem; margin: 0 0 0.8rem; }
   .ko { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
   th { color: #64748b; text-align: left; font-weight: 600; text-transform: uppercase; font-size: 0.64rem; padding: 0 0.4rem 0.4rem; }

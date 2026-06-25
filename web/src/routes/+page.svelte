@@ -79,7 +79,7 @@
   {:else if view === 'grupos'}
     <Grupos {groups} />
   {:else}
-    <Llaves {knockout} />
+    <Llaves {knockout} {matches} />
   {/if}
 </main>
 
