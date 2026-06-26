@@ -29,6 +29,16 @@
         1,
         3
       ]
+    },
+    {
+      "kind": "single-source",
+      "id": "gI-05",
+      "fixture": "Norway vs France",
+      "source": "thesportsdb",
+      "score": [
+        1,
+        3
+      ]
     }
   ]
 }
