@@ -110,7 +110,7 @@
 <!-- R32 tie WITH its group tables attached (for the "con grupos" sheet). -->
 {#snippet gtie(id, align)}
   {@const s = S(id)}
-  <div class="gtie">
+  <div class="gtie" class:l={align === 'l'} class:r={align === 'r'}>
     <div class="tie" class:done={s.teamA && s.teamB}>
       {#if s.date}<span class="when">{fmtDate(s.date)} · {s.time}</span>{/if}
       {@render teamSlot(s.teamA, s.labelA, align)}
