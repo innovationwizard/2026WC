@@ -71,3 +71,20 @@ export const TEAMS = {
 export const teamFull  = (c) => TEAMS[c]?.full  ?? c;
 export const teamShort = (c) => TEAMS[c]?.short ?? TEAMS[c]?.full ?? c;
 export const teamFlag  = (c) => TEAMS[c]?.flag  ?? '';
+
+// FIFA 3-letter codes (for compact tables, e.g. the printable bracket group tables).
+export const CODES = {
+  'Mexico': 'MEX', 'South Africa': 'RSA', 'South Korea': 'KOR', 'Czech Republic': 'CZE',
+  'Canada': 'CAN', 'Bosnia and Herzegovina': 'BIH', 'Qatar': 'QAT', 'Switzerland': 'SUI',
+  'Brazil': 'BRA', 'Morocco': 'MAR', 'Haiti': 'HAI', 'Scotland': 'SCO',
+  'United States': 'USA', 'Paraguay': 'PAR', 'Australia': 'AUS', 'Turkey': 'TUR',
+  'Germany': 'GER', 'Curaçao': 'CUW', 'Ivory Coast': 'CIV', 'Ecuador': 'ECU',
+  'Netherlands': 'NED', 'Japan': 'JPN', 'Sweden': 'SWE', 'Tunisia': 'TUN',
+  'Belgium': 'BEL', 'Iran': 'IRN', 'Egypt': 'EGY', 'New Zealand': 'NZL',
+  'Cape Verde': 'CPV', 'Saudi Arabia': 'KSA', 'Uruguay': 'URU', 'Spain': 'ESP',
+  'France': 'FRA', 'Iraq': 'IRQ', 'Norway': 'NOR', 'Senegal': 'SEN',
+  'Argentina': 'ARG', 'Austria': 'AUT', 'Algeria': 'ALG', 'Jordan': 'JOR',
+  'Portugal': 'POR', 'Uzbekistan': 'UZB', 'Colombia': 'COL', 'DR Congo': 'COD',
+  'England': 'ENG', 'Ghana': 'GHA', 'Panama': 'PAN', 'Croatia': 'CRO',
+};
+export const teamCode = (c) => CODES[c] ?? (TEAMS[c]?.short ?? c).slice(0, 3).toUpperCase();

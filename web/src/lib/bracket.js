@@ -166,6 +166,20 @@ export function clinched(table) {
   return res;
 }
 
+// Per-group current standings for display (the printable group tables): ordered
+// rows + which positions are mathematically locked. Provisional until a group ends.
+export function groupStandings(matches) {
+  const tables = groupTables(matches);
+  const out = {};
+  for (const [g, t] of Object.entries(tables)) {
+    const rows = Object.values(t.rows)
+      .map((r) => ({ ...r, gd: r.gf - r.ga }))
+      .sort((a, b) => b.pts - a.pts || b.gd - a.gd || b.gf - a.gf || a.team.localeCompare(b.team));
+    out[g] = { group: g, rows, complete: t.remaining === 0, locks: clinched(t) };
+  }
+  return out;
+}
+
 // ── Resolve the whole bracket ──────────────────────────────────────────────────
 // Returns a map slotId → { a: teamOrNull, b: teamOrNull, ...meta }. Winners of
 // undecided ties are null, so every downstream slot stays blank until fed.
