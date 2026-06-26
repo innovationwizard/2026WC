@@ -1,0 +1,24 @@
+{
+  "flags": [
+    {
+      "kind": "single-source",
+      "id": "gF-05",
+      "fixture": "Japan vs Sweden",
+      "source": "espn",
+      "score": [
+        1,
+        1
+      ]
+    },
+    {
+      "kind": "single-source",
+      "id": "gF-06",
+      "fixture": "Tunisia vs Netherlands",
+      "source": "espn",
+      "score": [
+        1,
+        3
+      ]
+    }
+  ]
+}
