@@ -31,21 +31,6 @@
       ]
     },
     {
-      "kind": "sources-disagree",
-      "id": "gI-05",
-      "fixture": "Norway vs France",
-      "reports": {
-        "espn": [
-          1,
-          4
-        ],
-        "thesportsdb": [
-          1,
-          3
-        ]
-      }
-    },
-    {
       "kind": "single-source",
       "id": "gI-06",
       "fixture": "Senegal vs Iraq",

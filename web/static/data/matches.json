@@ -4835,8 +4835,12 @@
         "country": "United States",
         "neutral": true
       },
-      "status": "por_jugarse",
-      "result": null,
+      "status": "finalizado",
+      "result": {
+        "home": 1,
+        "away": 4,
+        "outcome": "away"
+      },
       "predictions": {
         "M1": {
           "home": 1,
