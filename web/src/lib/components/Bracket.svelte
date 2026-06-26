@@ -236,7 +236,6 @@
   .hint { font-size: 0.58rem; color: #475569; font-weight: 400; }
 
   /* group tables: hidden off-print */
-  .gtables { display: flex; gap: 3pt; margin-top: 2pt; }
   .gt { display: none; }
 
   /* ── Print: shared ── */
@@ -269,9 +268,14 @@
     .print-sheet .hint { color: #94a3b8; font-size: 5pt; }
     .foot { text-align: center; color: #94a3b8; font-size: 6pt; margin: 0.15cm 0 0; }
 
-    /* group tables on the "con grupos" sheet */
-    .groups .gcol { flex: 2.1; }
-    .gtables { display: flex; gap: 3pt; margin-top: 2pt; }
+    /* Group tables sit on the EXTERIOR side of each tie (consume width, not height,
+       so the column no longer overflows onto a 2nd page). */
+    .groups .gcol { flex: 2.7; }
+    .print-sheet .gtie { display: flex; align-items: center; gap: 4pt; }
+    .print-sheet .gtie.l { flex-direction: row-reverse; }   /* tablas al exterior izquierdo */
+    .print-sheet .gtie.r { flex-direction: row; }            /* tablas al exterior derecho */
+    .print-sheet .gtie > .tie { flex: 1 1 auto; }
+    .gtables { display: flex; flex-direction: column; gap: 2pt; }
     .gt { display: table; border-collapse: collapse; font-size: 5pt; line-height: 1.15; }
     .gt caption { caption-side: top; text-align: left; font-weight: 700; font-size: 5pt; color: #001f54; padding-bottom: 0.5pt; white-space: nowrap; }
     .gt td { padding: 0 1.5pt; white-space: nowrap; }
