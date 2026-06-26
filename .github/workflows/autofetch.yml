@@ -20,11 +20,11 @@ jobs:
   fetch:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5    # Node 24 (v4 quedó deprecado en Node 20)
         with:
           fetch-depth: 0          # historia completa para poder rebase antes del push
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6  # Node 24
         with:
           python-version: '3.12'  # autofetch.py y build_matches.py son solo stdlib
 
