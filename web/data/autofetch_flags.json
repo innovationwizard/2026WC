@@ -2,6 +2,16 @@
   "flags": [
     {
       "kind": "single-source",
+      "id": "gD-05",
+      "fixture": "United States vs Turkey",
+      "source": "espn",
+      "score": [
+        2,
+        3
+      ]
+    },
+    {
+      "kind": "single-source",
       "id": "gF-05",
       "fixture": "Japan vs Sweden",
       "source": "espn",
