@@ -32,6 +32,36 @@
     },
     {
       "kind": "single-source",
+      "id": "gG-05",
+      "fixture": "Egypt vs Iran",
+      "source": "thesportsdb",
+      "score": [
+        1,
+        1
+      ]
+    },
+    {
+      "kind": "single-source",
+      "id": "gG-06",
+      "fixture": "New Zealand vs Belgium",
+      "source": "thesportsdb",
+      "score": [
+        0,
+        1
+      ]
+    },
+    {
+      "kind": "single-source",
+      "id": "gH-06",
+      "fixture": "Uruguay vs Spain",
+      "source": "espn",
+      "score": [
+        0,
+        1
+      ]
+    },
+    {
+      "kind": "single-source",
       "id": "gI-06",
       "fixture": "Senegal vs Iraq",
       "source": "espn",
