@@ -1,3 +1,8 @@
+# Secrets — never commit (API-Football key etc.)
+.env
+.env.*
+!.env.example
+
 # Python virtual environment (1.6 GB — never commit)
 .venv/
 venv/
@@ -15,6 +20,14 @@ __pycache__/
 
 # Local working notes / scratch
 comments/
+
+# M3 raw API-Football cache — caching is allowed but REDISTRIBUTING raw API
+# data is not (and this repo is public). Keep raw responses local only.
+v2/m3/cache/
+# Derived corpus tables are reshaped API-Football data (same redistribution
+# concern) and are fully regenerable by re-running v2/m3/*.py. Key results
+# (b_susp, CI, gate verdict) live in the committed M3_*.md docs.
+v2/m3/corpus/
 
 # NOTE: output/ is intentionally NOT ignored.
 # The trained weights (output/model/), predictions.json, and the HTML report
