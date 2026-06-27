@@ -53,18 +53,18 @@ gB-05,Canada,Switzerland,5.2,3.7,1.65
 gB-06,Bosnia and Herzegovina,Qatar,1.8,3.5,4.5
 gC-05,Scotland,Brazil,22,8.5,1.12
 gC-06,Morocco,Haiti,1.3,5,12
-gD-05,United States,Turkey,,,
-gD-06,Paraguay,Australia,,,
-gE-05,Curaçao,Ivory Coast,,,
-gE-06,Ecuador,Germany,,,
-gF-05,Japan,Sweden,,,
-gF-06,Tunisia,Netherlands,,,
-gG-05,Egypt,Iran,,,
-gG-06,New Zealand,Belgium,,,
-gH-05,Cape Verde,Saudi Arabia,,,
-gH-06,Uruguay,Spain,,,
-gI-05,Norway,France,,,
-gI-06,Senegal,Iraq,,,
+gD-05,United States,Turkey,1.88,3.9,3.8
+gD-06,Paraguay,Australia,2.7,3.2,2.6
+gE-05,Curaçao,Ivory Coast,15,8,1.15
+gE-06,Ecuador,Germany,12,7.5,1.12
+gF-05,Japan,Sweden,2.1,3.4,3.5
+gF-06,Tunisia,Netherlands,9,5.5,1.3
+gG-05,Egypt,Iran,2.7,2.75,3.47
+gG-06,New Zealand,Belgium,14,7.5,1.17
+gH-05,Cape Verde,Saudi Arabia,4.5,3.4,1.8
+gH-06,Uruguay,Spain,4.2,3.5,1.85
+gI-05,Norway,France,5.5,4,1.55
+gI-06,Senegal,Iraq,2,3.4,3.8
 gJ-05,Algeria,Austria,,,
 gJ-06,Jordan,Argentina,,,
 gK-05,Colombia,Portugal,,,
