@@ -69,5 +69,5 @@ gJ-05,Algeria,Austria,,
 gJ-06,Jordan,Argentina,,
 gK-05,Colombia,Portugal,,
 gK-06,DR Congo,Uzbekistan,,
-gL-05,Panama,England,,
-gL-06,Croatia,Ghana,,
+gL-05,Panama,England,0,2
+gL-06,Croatia,Ghana,2,1
