@@ -61,5 +61,8 @@ export function scoreboard(matches) {
     const s = acc[l];
     s.rps = s.rpsN ? s.rpsSum / s.rpsN : null;
   }
+  // Pinnacle is a 1X2 market, not a scoreline forecast — "exacto" is not applicable
+  // (always 0 by construction). Mark it N/A so the board shows "—", not a misleading 0.
+  acc.Mercado.exactos = null;
   return acc;
 }

@@ -20,7 +20,7 @@
         <span class="name" title={l === 'Mercado' ? PINNACLE_NOTE : null}>{LINE_LABELS[l]}</span>
         <span class="hit">{s.aciertos}/{s.jugados}<small> aciertos</small></span>
         <span class="rps">{s.rps != null ? `RPS ${s.rps.toFixed(3)}` : 'RPS —'}</span>
-        <span class="ex">{s.exactos} exactos</span>
+        <span class="ex">{s.exactos != null ? `${s.exactos} exactos` : '— exactos'}</span>
       </div>
     {/each}
   </div>
