@@ -15,9 +15,17 @@ export function recientesDate(matches) {
   return dates.length ? dates[dates.length - 1] : null;
 }
 
-// Próximos = next single date with >= 1 unplayed match.
+// Próximos = next single date with >= 1 unplayed match, anchored to the Recientes
+// frontier. Unplayed matches can linger on a PAST date when the pipeline hasn't
+// recorded their results yet (e.g. a late kickoff). Those are not "próximos", so we
+// skip any unplayed date earlier than the latest finished date — keeping same-day
+// pending matches, but never falling back to a date before what's already been played.
 export function proximosDate(matches) {
-  const dates = matches.filter((m) => m.status === 'por_jugarse').map((m) => m.date).sort();
+  const floor = recientesDate(matches);
+  const dates = matches
+    .filter((m) => m.status === 'por_jugarse' && (!floor || m.date >= floor))
+    .map((m) => m.date)
+    .sort();
   return dates.length ? dates[0] : null;
 }
 
