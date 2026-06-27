@@ -46,6 +46,7 @@ ALIASES = {
     'democratic republic of the congo': 'DR Congo', 'congo': 'DR Congo',
     'usa': 'United States', 'united states': 'United States', 'united states of america': 'United States',
     'curacao': 'Curaçao',
+    'cape verde islands': 'Cape Verde',
     'bosnia and herzegovina': 'Bosnia and Herzegovina',
     'bosnia herzegovina': 'Bosnia and Herzegovina',
 }
@@ -112,6 +113,11 @@ def src_thesportsdb(dates):
             lg = (ev.get('strLeague') or '').lower()
             if 'world cup' not in lg or 'qual' in lg:
                 continue
+            # "Finished" must be decided by the source's status, never by the mere
+            # presence of a score: an in-play event carries the LIVE score (e.g. a
+            # half-time 1-1), which is not the final. Only accept terminal states.
+            if (ev.get('strStatus') or '').strip().upper() not in TSDB_FINISHED:
+                continue
             hs, as_ = ev.get('intHomeScore'), ev.get('intAwayScore')
             if hs in (None, '') or as_ in (None, ''):
                 continue
@@ -122,7 +128,60 @@ def src_thesportsdb(dates):
     return rows, errs
 
 
-SOURCES = [('espn', src_espn), ('thesportsdb', src_thesportsdb)]
+# Terminal status codes per source (a finished match — full time, after extra time,
+# or decided on penalties). Anything else (in play, half time, scheduled) is NOT final.
+TSDB_FINISHED = {'FT', 'AET', 'PEN', 'AWD', 'WO', 'MATCH FINISHED'}
+AF_FINISHED = {'FT', 'AET', 'PEN', 'AWD', 'WO'}
+WORLD_CUP_LEAGUE_ID = 1  # API-Football league id for the World Cup
+
+
+def src_apifootball(dates):
+    """API-Football (api-sports) — the authoritative, comprehensive feed we already
+    pay for. It carries every fixture with an explicit status, so it both confirms
+    genuine finals and refuses in-play ones. Degrades gracefully (returns an error,
+    never crashes the run) if the key is missing or the quota is exhausted."""
+    rows, errs = [], []
+    af_dir = os.path.join(ROOT, 'v2', 'm3')
+    if af_dir not in sys.path:
+        sys.path.insert(0, af_dir)
+    try:
+        import af_client
+    except Exception as e:
+        return rows, [f"api-football: cliente no disponible ({e})"]
+    for d in dates:
+        try:
+            # force=True: always fetch live — a match may have finished since last run.
+            data = af_client.get(f"/fixtures?date={d:%Y-%m-%d}", force=True)
+        except BaseException as e:  # noqa: BLE001 — missing key raises SystemExit; degrade, don't abort
+            errs.append(f"api-football {d:%Y-%m-%d}: {e}")
+            continue
+        if not isinstance(data, dict):
+            errs.append(f"api-football {d:%Y-%m-%d}: respuesta inesperada")
+            continue
+        problem = data.get('_http_error') or data.get('_url_error') or data.get('errors') or data.get('_api_errors')
+        if problem:
+            errs.append(f"api-football {d:%Y-%m-%d}: {problem}")
+            continue
+        for f in (data.get('response') or []):
+            if (f.get('league') or {}).get('id') != WORLD_CUP_LEAGUE_ID:
+                continue
+            st = (((f.get('fixture') or {}).get('status') or {}).get('short') or '').upper()
+            if st not in AF_FINISHED:
+                continue
+            t, g = f.get('teams') or {}, f.get('goals') or {}
+            h = (t.get('home') or {}).get('name')
+            a = (t.get('away') or {}).get('name')
+            gh, ga = g.get('home'), g.get('away')
+            if h is None or a is None or gh is None or ga is None:
+                continue
+            try:
+                rows.append((h, int(gh), a, int(ga)))
+            except (TypeError, ValueError):
+                continue
+    return rows, errs
+
+
+SOURCES = [('espn', src_espn), ('thesportsdb', src_thesportsdb), ('api-football', src_apifootball)]
 
 
 # ── main ──────────────────────────────────────────────────────────────────────

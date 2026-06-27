@@ -38,11 +38,18 @@ _LAST_QUOTA = {'limit': None, 'remaining': None}
 
 
 def load_api_key():
-    """Read API-KEY from .env. The variable name contains a hyphen, so it is not
-    a valid shell identifier — we parse the file directly rather than rely on the
-    process environment."""
+    """Resolve the API-Football key.
+
+    Order: environment first (so headless/CI runs — where the repo .env is
+    gitignored and absent — can inject it as a secret), then the .env file. The
+    canonical var name has a hyphen, which isn't a valid shell identifier, so the
+    underscore form is also accepted for the environment path."""
+    for var in ('API-KEY', 'API_KEY', 'APISPORTS_KEY'):
+        v = os.environ.get(var)
+        if v and v.strip():
+            return v.strip().strip('"').strip("'")
     if not os.path.exists(ENV):
-        raise SystemExit(f'.env not found at {ENV}')
+        raise SystemExit(f'.env not found at {ENV} and no API key in environment')
     with open(ENV) as f:
         for line in f:
             line = line.strip()

@@ -29,6 +29,10 @@ jobs:
           python-version: '3.12'  # autofetch.py y build_matches.py son solo stdlib
 
       - name: Auto-fetch + registrar (solo resultados, ≥2 fuentes)
+        # API_KEY = tercera fuente autoritativa (API-Football). Si el secreto no
+        # está configurado, autofetch degrada con elegancia a las fuentes scrape.
+        env:
+          API_KEY: ${{ secrets.API_FOOTBALL_KEY }}
         run: python web/scripts/autofetch.py --apply
 
       - name: Commit & push si hay cambios

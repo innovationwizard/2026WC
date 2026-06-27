@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated": "2026-06-27",
+    "generated": "2026-06-26",
     "source": "results.csv (fixtures) + v2/output/predictions.json (M1 Elo, M2 neural-ensemble, M3 conjunto+conformal)",
     "models": [
       "M1",
@@ -4164,8 +4164,12 @@
         "country": "United States",
         "neutral": false
       },
-      "status": "por_jugarse",
-      "result": null,
+      "status": "finalizado",
+      "result": {
+        "home": 2,
+        "away": 3,
+        "outcome": "away"
+      },
       "predictions": {
         "M1": {
           "home": 1,
@@ -4441,8 +4445,12 @@
         "country": "United States",
         "neutral": true
       },
-      "status": "por_jugarse",
-      "result": null,
+      "status": "finalizado",
+      "result": {
+        "home": 1,
+        "away": 1,
+        "outcome": "draw"
+      },
       "predictions": {
         "M1": {
           "home": 1,
@@ -4506,8 +4514,12 @@
         "country": "United States",
         "neutral": true
       },
-      "status": "por_jugarse",
-      "result": null,
+      "status": "finalizado",
+      "result": {
+        "home": 1,
+        "away": 3,
+        "outcome": "away"
+      },
       "predictions": {
         "M1": {
           "home": 0,
@@ -4774,8 +4786,12 @@
         "country": "Mexico",
         "neutral": true
       },
-      "status": "por_jugarse",
-      "result": null,
+      "status": "finalizado",
+      "result": {
+        "home": 0,
+        "away": 1,
+        "outcome": "away"
+      },
       "predictions": {
         "M1": {
           "home": 0,
@@ -4908,8 +4924,12 @@
         "country": "Canada",
         "neutral": true
       },
-      "status": "por_jugarse",
-      "result": null,
+      "status": "finalizado",
+      "result": {
+        "home": 5,
+        "away": 0,
+        "outcome": "home"
+      },
       "predictions": {
         "M1": {
           "home": 1,
