@@ -24,6 +24,8 @@ ROOT = os.path.abspath(os.path.join(HERE, '..', '..'))
 MATCHES = os.path.join(ROOT, 'web', 'static', 'data', 'matches.json')
 FLAGS = os.path.join(ROOT, 'web', 'data', 'autofetch_flags.json')
 RECORD = os.path.join(HERE, 'record.py')
+KO_DISCOVER = os.path.join(HERE, 'ko_discover.py')
+EXPORTER = os.path.join(HERE, 'build_matches.py')
 UA = {'User-Agent': 'orion-quiniela-autofetch/1.0 (+puedelaiaganarquinielas.com)'}
 
 
@@ -283,6 +285,25 @@ def main():
             print(f"    ✓ {m['id']} {m['home']} {hg}-{ag} {m['away']}")
     elif applied:
         print("\n(dry-run — use --apply para registrar)")
+
+    # ── Knockout phase ─────────────────────────────────────────────────────────
+    # Discover + record the bracket (R32→Final) from the same authoritative feeds.
+    # Run as a subprocess (ko_discover imports this module → avoids a circular import),
+    # in the same dry-run/apply mode. On --apply, rebuild matches.json once so the new
+    # knockout fixtures/results are published alongside the group stage.
+    print("\n── Eliminatorias ──")
+    ko = subprocess.run([sys.executable, KO_DISCOVER] + (['--apply'] if args.apply else []),
+                        capture_output=True, text=True)
+    print(ko.stdout.rstrip() or "(sin salida)")
+    if ko.returncode != 0:
+        print("⚠ ko_discover falló:\n", ko.stderr.rstrip())
+    elif args.apply:
+        build = subprocess.run([sys.executable, EXPORTER], capture_output=True, text=True)
+        for line in build.stdout.splitlines():
+            if line.startswith('matches:'):
+                print("  " + line.strip())
+        if build.returncode != 0:
+            print("⚠ build_matches falló:\n", build.stderr.rstrip())
 
 
 if __name__ == '__main__':

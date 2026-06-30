@@ -197,6 +197,47 @@ def main():
                           'upset_prob': round(up*100, 1)})
     upsets.sort(key=lambda x: x['upset_prob'], reverse=True)
 
+    # ── Knockout predictions for the REAL discovered ties ──
+    # The bracket is read from the data feeds (web/data/knockout_fixtures.csv), not
+    # simulated: we predict each actual matchup with its stage (knockout goal-suppression
+    # multipliers apply inside neural_predict/m3_predict) and merge into the match-prediction
+    # dicts so build_matches finds M2/M3 by team pair, exactly like the group stage. Done
+    # AFTER diagnostics so the group-only upset/disagreement radars are unaffected.
+    ko_fix = os.path.join(os.path.dirname(__file__), '..', 'web', 'data', 'knockout_fixtures.csv')
+    _ko_stage = {'r32': 'R32', 'r16': 'R16', 'qf': 'QF', 'sf': 'SF', 'third': 'Final', 'final': 'Final'}
+
+    def _wdl(lh, la, maxg=12):
+        import math
+        hp = [math.exp(-lh) * lh ** i / math.factorial(i) for i in range(maxg + 1)]
+        ap = [math.exp(-la) * la ** j / math.factorial(j) for j in range(maxg + 1)]
+        ph = pdr = pa = 0.0
+        for i in range(maxg + 1):
+            for j in range(maxg + 1):
+                p = hp[i] * ap[j]
+                if i > j: ph += p
+                elif i == j: pdr += p
+                else: pa += p
+        return ph, pdr, pa
+
+    n_ko = 0
+    if os.path.exists(ko_fix):
+        import csv as _csv
+        with open(ko_fix, encoding='utf-8') as _f:
+            for row in _csv.DictReader(_f):
+                ha, ab = row['home'], row['away']
+                stg = _ko_stage.get(row['stage'], 'R32')
+                for pred_fn, dest in ((neural_predict, nr['match_predictions']),
+                                      (m3_predict, mr['match_predictions'])):
+                    la, lb = pred_fn(ha, ab, stage=stg)
+                    ph, pdr, pa = _wdl(la, lb)
+                    dest[f"{ha} vs {ab} [{row['id']}]"] = {
+                        'team_a': ha, 'team_b': ab, 'stage': stg,
+                        'lambda_a': la, 'lambda_b': lb,
+                        'prob_win_a': round(ph, 4), 'prob_draw': round(pdr, 4), 'prob_win_b': round(pa, 4),
+                    }
+                n_ko += 1
+        print(f"  Knockout: predicted {n_ko} discovered ties (M2 + M3).")
+
     # ── Save ──
     predictions = {
         'metadata': {

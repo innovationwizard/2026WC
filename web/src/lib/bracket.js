@@ -211,6 +211,27 @@ export function buildBracket(matches) {
     const tie = ROUNDS[key];
     resolved[tie.id] = { ...tie, teamA: null, teamB: null, labelA: '', labelB: '', winner: null };
   }
+
+  // Overlay the REAL knockout fixtures/results discovered from the data feeds. Each KO
+  // match in matches.json is keyed by its bracket slot id (P73…), carrying the actual
+  // teams (incl. third-place qualifiers), the 90-min score, and `result.advances` (who
+  // progressed via ET/penalties). This fills slots — and advances winners — round by
+  // round as the sources publish them, with no combination matrix.
+  for (const m of matches) {
+    if (!/^P\d+$/.test(m.id || '')) continue;
+    const r = resolved[m.id];
+    if (!r) continue;
+    r.teamA = m.home; r.teamB = m.away;
+    if (m.date) r.date = m.date;
+    if (m.time) r.time = m.time;
+    if (m.status === 'finalizado' && m.result) {
+      r.scoreA = m.result.home; r.scoreB = m.result.away;
+      r.finished = true;
+      r.winner = m.result.advances
+        || (m.result.home > m.result.away ? m.home
+          : m.result.away > m.result.home ? m.away : null);
+    }
+  }
   return { resolved, tables, locks };
 }
 

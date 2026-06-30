@@ -13,9 +13,17 @@ results.csv (teams unknown) so this MVP emits the 72 group matches only.
 Run:  .venv/bin/python web/scripts/build_matches.py
 Contract: web/static/data/README.md
 """
-import json, math, os, datetime, csv
+import json, math, os, sys, datetime, csv
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import knockout as ko
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+KO_FIXTURES = os.path.join(ROOT, 'web', 'data', 'knockout_fixtures.csv')
+
+# Knockout stage code → Spanish display label (matches the group-stage 'grupos' style).
+STAGE_ES = {'r32': 'dieciseisavos', 'r16': 'octavos', 'qf': 'cuartos',
+            'sf': 'semifinal', 'third': 'tercer puesto', 'final': 'final'}
 # M2 source: prefer the v2 ensemble model; fall back to the locked baseline if absent.
 _V2_PRED = os.path.join(ROOT, 'v2', 'output', 'predictions.json')
 PRED = _V2_PRED if os.path.exists(_V2_PRED) else os.path.join(ROOT, 'output', 'predictions.json')
@@ -127,58 +135,70 @@ def build_standings(pred):
     return out_groups, knockout
 
 
+def _upsert_rows(path, matches, base_fields):
+    """Ensure web/data/<file> has a row for every match (group + knockout), preserving
+    existing edits and any extra columns (e.g. 'advances'). Appends blank rows for new
+    fixtures so record.py can address knockout ids. Returns (rows, fieldnames)."""
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    rows, fields = [], list(base_fields)
+    if os.path.exists(path):
+        with open(path, newline='', encoding='utf-8') as f:
+            rd = csv.DictReader(f)
+            fields = list(rd.fieldnames or base_fields)
+            rows = list(rd)
+    have = {r['id'] for r in rows}
+    changed = not os.path.exists(path)
+    for m in matches:
+        if m['id'] not in have:
+            row = {k: '' for k in fields}
+            row.update({'id': m['id'], 'home': m['home'], 'away': m['away']})
+            rows.append(row); have.add(m['id']); changed = True
+    if changed:
+        with open(path, 'w', newline='', encoding='utf-8') as f:
+            w = csv.DictWriter(f, fieldnames=fields)
+            w.writeheader(); w.writerows(rows)
+    return rows, fields
+
+
 def load_or_init_results(matches):
-    """Live results: read web/data/results_live.csv; create a blank template if missing
-    (preserves your edits on re-runs). Returns {match_id: (home_score, away_score)}."""
-    os.makedirs(os.path.dirname(RESULTS), exist_ok=True)
-    if not os.path.exists(RESULTS):
-        with open(RESULTS, 'w', newline='', encoding='utf-8') as f:
-            w = csv.writer(f)
-            w.writerow(['id', 'home', 'away', 'home_score', 'away_score'])
-            for m in matches:
-                w.writerow([m['id'], m['home'], m['away'], '', ''])
-        return {}
+    """Live results (web/data/results_live.csv), upserting a row per fixture. Returns
+    {match_id: (home_score, away_score, advances|None)} — 'advances' is knockout-only."""
+    rows, _ = _upsert_rows(RESULTS, matches, ['id', 'home', 'away', 'home_score', 'away_score'])
     res = {}
-    with open(RESULTS, newline='', encoding='utf-8') as f:
-        for row in csv.DictReader(f):
-            hs, a_s = (row.get('home_score') or '').strip(), (row.get('away_score') or '').strip()
-            if hs != '' and a_s != '':
-                res[row['id']] = (int(hs), int(a_s))
+    for row in rows:
+        hs, a_s = (row.get('home_score') or '').strip(), (row.get('away_score') or '').strip()
+        if hs != '' and a_s != '':
+            res[row['id']] = (int(hs), int(a_s), (row.get('advances') or '').strip() or None)
     return res
 
 
 def apply_results(matches, res):
-    """Flip matched fixtures to finalizado with their result (outcome derived)."""
+    """Flip matched fixtures to finalizado with their 90-minute result (outcome derived).
+    For knockout ties, also carry `advances` — the side that progressed (ET/penalties)."""
     for m in matches:
         sc = res.get(m['id'])
         if not sc:
             continue
-        hs, a_s = sc
+        hs, a_s, advances = sc
         outcome = 'home' if hs > a_s else ('away' if a_s > hs else 'draw')
         m['status'] = 'finalizado'
         m['result'] = {'home': hs, 'away': a_s, 'outcome': outcome}
+        if m['stage'] != 'grupos':
+            m['result']['advances'] = advances
 
 
 def load_or_init_market(matches):
-    """Market odds (decimal 1X2): web/data/market_odds.csv. Blank template if missing;
-    preserves edits on re-run. Returns {match_id: (odd_home, odd_draw, odd_away)}."""
-    os.makedirs(os.path.dirname(MARKET), exist_ok=True)
-    if not os.path.exists(MARKET):
-        with open(MARKET, 'w', newline='', encoding='utf-8') as f:
-            w = csv.writer(f)
-            w.writerow(['id', 'home', 'away', 'odd_1', 'odd_X', 'odd_2'])
-            for m in matches:
-                w.writerow([m['id'], m['home'], m['away'], '', '', ''])
-        return {}
+    """Market odds (decimal 1X2): web/data/market_odds.csv, upserting a row per fixture.
+    Returns {match_id: (odd_home, odd_draw, odd_away)}."""
+    rows, _ = _upsert_rows(MARKET, matches, ['id', 'home', 'away', 'odd_1', 'odd_X', 'odd_2'])
     odds = {}
-    with open(MARKET, newline='', encoding='utf-8') as f:
-        for row in csv.DictReader(f):
-            try:
-                o1, ox, o2 = float(row['odd_1']), float(row['odd_X']), float(row['odd_2'])
-            except (ValueError, KeyError, TypeError):
-                continue  # blank/invalid row → skip (no silent bad data)
-            if o1 > 0 and ox > 0 and o2 > 0:
-                odds[row['id']] = (o1, ox, o2)
+    for row in rows:
+        try:
+            o1, ox, o2 = float(row['odd_1']), float(row['odd_X']), float(row['odd_2'])
+        except (ValueError, KeyError, TypeError):
+            continue  # blank/invalid row → skip (no silent bad data)
+        if o1 > 0 and ox > 0 and o2 > 0:
+            odds[row['id']] = (o1, ox, o2)
     return odds
 
 
@@ -193,6 +213,61 @@ def apply_market(matches, odds):
         probs = {'home': round(raw[0] / s, 3), 'draw': round(raw[1] / s, 3), 'away': round(raw[2] / s, 3)}
         pick = ('home', 'draw', 'away')[max(range(3), key=lambda i: raw[i])]
         m['predictions']['Mercado'] = {'pick': pick, 'probs': probs}
+
+
+def _scoreline_for_pair(home, away, by_pair, tau=None):
+    """Build a scoreline-model prediction (oriented home/away) from a by-pair entry, or
+    None if the pair isn't in the prediction set. Adds the conformal set when tau given (M3)."""
+    pm = by_pair.get(frozenset((home, away)))
+    if pm is None:
+        return None
+    if pm['team_a'] == home:
+        lh, la = pm['lambda_a'], pm['lambda_b']
+        ph, pd, pa = pm['prob_win_a'], pm['prob_draw'], pm['prob_win_b']
+    else:
+        lh, la = pm['lambda_b'], pm['lambda_a']
+        ph, pd, pa = pm['prob_win_b'], pm['prob_draw'], pm['prob_win_a']
+    sm = scoreline_model(lh, la, ph, pd, pa)
+    if tau is not None:
+        sm['set'] = conformal_set(sm['probs'], tau)
+        sm['coverage'] = 0.80
+    return sm
+
+
+def build_ko_matches(elo, mp_by_pair, m3_by_pair, tau_show):
+    """Emit knockout match entries from the discovered bracket (knockout_fixtures.csv).
+    M1 (Elo foil) is always computed; M2/M3 come from predictions.json keyed by team pair
+    when present (added by v2/main.py on its next run), else null — the same graceful stub
+    the group stage uses. Predictions are the 90-minute 1X2 (knockout draws are decided by
+    ET/penalties, tracked separately in result.advances)."""
+    if not os.path.exists(KO_FIXTURES):
+        return []
+    out = []
+    with open(KO_FIXTURES, newline='', encoding='utf-8') as f:
+        for r in csv.DictReader(f):
+            home, away = r['home'], r['away']
+            eh, ea = elo.get(home, 1500.0), elo.get(away, 1500.0)
+            lh1, la1 = elo_lambdas(eh, ea)
+            ph1, pd1, pa1 = wdl_from_lambdas(lh1, la1)
+            m1 = scoreline_model(lh1, la1, ph1, pd1, pa1)
+            out.append({
+                'id': r['id'],
+                'date': r['date'] or None,
+                'time': r['time'] or None,
+                'stage': STAGE_ES.get(r['stage'], r['stage']),
+                'group': None,
+                'home': home, 'away': away,
+                'venue': {'city': None, 'country': None, 'neutral': True},
+                'status': 'por_jugarse',
+                'result': None,
+                'predictions': {
+                    'M1': m1,
+                    'M2': _scoreline_for_pair(home, away, mp_by_pair),
+                    'M3': _scoreline_for_pair(home, away, m3_by_pair, tau=tau_show),
+                    'Mercado': None,
+                },
+            })
+    return out
 
 
 def main():
@@ -283,6 +358,12 @@ def main():
             'predictions': {'M1': m1, 'M2': m2, 'M3': m3, 'Mercado': None},
         })
 
+    # Knockout matches (R32→Final) from the discovered bracket — appended so results,
+    # odds, and predictions apply uniformly with the group stage.
+    n_group = len(matches)
+    matches += build_ko_matches(elo, mp_by_pair, m3_by_pair, tau_show)
+    n_ko = len(matches) - n_group
+
     results = load_or_init_results(matches)
     apply_results(matches, results)
     market = load_or_init_market(matches)
@@ -297,7 +378,11 @@ def main():
             'models': ['M1', 'M2', 'M3', 'Mercado'],
             'stub': ['Mercado'],
             'count': len(matches),
-            'note': 'Group stage only (72); knockouts added as the bracket resolves. '
+            'count_group': n_group,
+            'count_knockout': n_ko,
+            'note': f'{n_group} group + {n_ko} knockout matches (knockouts read from the '
+                    'authoritative feeds as the bracket resolves). Knockout predictions are '
+                    'the 90-min 1X2; result.advances carries who progressed (ET/penalties). '
                     'Team display (Spanish/flags) is GUI-only in web/src/lib/teams.js.',
         },
         'matches': matches,

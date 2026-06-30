@@ -44,12 +44,14 @@
   }
 </script>
 
-<!-- Reusable team slot: a locked team, or a blank placeholder (flag box + underline). -->
-{#snippet teamSlot(team, label, align)}
-  <div class="slot {align}" class:filled={!!team}>
+<!-- Reusable team slot: a real team (with 90-min score + winner highlight when played),
+     or a blank placeholder (flag box + underline) until the source fills it. -->
+{#snippet teamSlot(team, label, align, score = null, isWinner = false)}
+  <div class="slot {align}" class:filled={!!team} class:win={isWinner}>
     {#if team}
       <span class="flag" title={teamFull(team)}>{teamFlag(team)}</span>
       <span class="nm">{teamShort(team)}</span>
+      {#if score != null}<span class="sc">{score}</span>{/if}
     {:else}
       <span class="flag box" aria-hidden="true"></span>
       <span class="nm line"><span class="hint">{label}</span></span>
@@ -59,10 +61,10 @@
 
 {#snippet tie(id, align = 'l')}
   {@const s = S(id)}
-  <div class="tie" class:done={s.teamA && s.teamB}>
+  <div class="tie" class:done={s.teamA && s.teamB} class:played={s.finished}>
     {#if s.date}<span class="when">{fmtDate(s.date)} · {s.time}</span>{/if}
-    {@render teamSlot(s.teamA, s.labelA, align)}
-    {@render teamSlot(s.teamB, s.labelB, align)}
+    {@render teamSlot(s.teamA, s.labelA, align, s.finished ? s.scoreA : null, !!s.winner && s.winner === s.teamA)}
+    {@render teamSlot(s.teamB, s.labelB, align, s.finished ? s.scoreB : null, !!s.winner && s.winner === s.teamB)}
   </div>
 {/snippet}
 
@@ -111,10 +113,10 @@
 {#snippet gtie(id, align)}
   {@const s = S(id)}
   <div class="gtie" class:l={align === 'l'} class:r={align === 'r'}>
-    <div class="tie" class:done={s.teamA && s.teamB}>
+    <div class="tie" class:done={s.teamA && s.teamB} class:played={s.finished}>
       {#if s.date}<span class="when">{fmtDate(s.date)} · {s.time}</span>{/if}
-      {@render teamSlot(s.teamA, s.labelA, align)}
-      {@render teamSlot(s.teamB, s.labelB, align)}
+      {@render teamSlot(s.teamA, s.labelA, align, s.finished ? s.scoreA : null, !!s.winner && s.winner === s.teamA)}
+      {@render teamSlot(s.teamB, s.labelB, align, s.finished ? s.scoreB : null, !!s.winner && s.winner === s.teamB)}
     </div>
     <div class="gtables">
       {@render annot(s.a)}
@@ -126,8 +128,9 @@
 <!-- ════════ Toolbar ════════ -->
 <div class="bar">
   <p class="lead">
-    Cuadro determinista: una selección aparece solo cuando tiene <b>asegurada</b> esa
-    posición exacta; lo demás queda en blanco para llenar a mano.
+    Cuadro <b>en vivo</b>: los cruces y resultados (90′) se actualizan automáticamente
+    desde fuentes oficiales conforme avanza el torneo; el equipo que <b>avanza</b> se
+    resalta. Las casillas futuras quedan en blanco hasta definirse.
   </p>
   <div class="btns">
     <button class="export" onclick={() => printSheet('plain')}>🖨️ Imprimir</button>
@@ -234,6 +237,11 @@
   .slot.filled .nm { color: #e2e8f0; font-weight: 600; }
   .nm.line { border-bottom: 1px solid #334155; min-height: 0.95rem; display: flex; align-items: flex-end; }
   .hint { font-size: 0.58rem; color: #475569; font-weight: 400; }
+  .sc { font-size: 0.72rem; color: #94a3b8; font-variant-numeric: tabular-nums; font-weight: 700; margin-left: auto; padding-left: 0.3rem; }
+  .slot.r .sc { margin-left: 0; margin-right: auto; padding-left: 0; padding-right: 0.3rem; }
+  .slot.win .nm { color: #4ade80; font-weight: 700; }
+  .slot.win .sc { color: #d4af37; }
+  .tie.played .slot:not(.win) .nm { color: #64748b; }   /* eliminated side dimmed */
 
   /* group tables: hidden off-print */
   .gt { display: none; }
@@ -266,6 +274,9 @@
     .print-sheet .flag.box { border-color: #94a3b8; }
     .print-sheet .nm.line { border-bottom: 1px solid #94a3b8; }
     .print-sheet .hint { color: #94a3b8; font-size: 5pt; }
+    .print-sheet .sc { font-size: 6pt; font-weight: 700; color: #475569; }
+    .print-sheet .slot.win .nm { color: #15803d; font-weight: 800; }
+    .print-sheet .slot.win .sc { color: #001f54; }
     .foot { text-align: center; color: #94a3b8; font-size: 6pt; margin: 0.15cm 0 0; }
 
     /* Group tables sit on the EXTERIOR side of each tie (consume width, not height,

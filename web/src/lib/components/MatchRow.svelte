@@ -8,6 +8,17 @@
   let active = $state('M2'); // which model's distribution the matrix shows
 
   const finished = $derived(match.status === 'finalizado' && match.result);
+  // Stage chip: "Grupo X" for the group stage, else the knockout round (capitalized).
+  const stageLabel = $derived(
+    match.group ? `Grupo ${match.group}`
+      : (match.stage ? match.stage.charAt(0).toUpperCase() + match.stage.slice(1) : '')
+  );
+  // Who progressed (knockout only) — meaningful when 90' ended level (ET/penalties).
+  const advancer = $derived(
+    finished && match.result.advances
+      ? (match.result.advances === match.home ? teamShort(match.home) : teamShort(match.away))
+      : null
+  );
 
   function cellText(line, p) {
     if (!p) return '—';
@@ -53,9 +64,12 @@
         <span class="team away" title={teamFull(match.away)}>
           <span class="flag">{teamFlag(match.away)}</span>{teamShort(match.away)}
         </span>
+        {#if advancer && match.result.outcome === 'draw'}
+          <span class="adv" title="Avanzó tras tiempo extra o penales">→ {advancer}</span>
+        {/if}
       </div>
       <div class="meta">
-        {#if match.group}<span class="grp">Grupo {match.group}</span>{/if}
+        {#if stageLabel}<span class="grp">{stageLabel}</span>{/if}
         <span class="status status-{match.status}">{statusLabel[match.status]}</span>
         <span class="chev" aria-hidden="true">▸</span>
       </div>
@@ -129,6 +143,7 @@
   .flag { margin-right: 0.3rem; }
   .vs { color: #64748b; font-size: 0.8rem; }
   .score { color: #d4af37; font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .adv { color: #22c55e; font-size: 0.72rem; white-space: nowrap; }
   .meta { display: flex; gap: 0.5rem; align-items: center; font-size: 0.7rem; }
   .grp { color: #64748b; }
   .status { text-transform: uppercase; letter-spacing: 0.03em; }

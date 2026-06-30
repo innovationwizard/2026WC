@@ -61,6 +61,7 @@ def main():
     ap.add_argument('home_score', nargs='?', type=int)
     ap.add_argument('away_score', nargs='?', type=int)
     ap.add_argument('--odds', nargs=3, type=float, metavar=('H', 'X', 'A'), help="decimal 1X2 odds")
+    ap.add_argument('--avanza', metavar='TEAM', help="(eliminatorias) equipo que avanza si el 90' fue empate (TE/penales)")
     ap.add_argument('--clear', action='store_true', help="blank this match's result + odds")
     ap.add_argument('--find', metavar='TEAM', help="list match ids involving a team")
     ap.add_argument('--list', action='store_true', help="list all matches + status")
@@ -95,6 +96,8 @@ def main():
 
     if args.clear:
         row['home_score'] = row['away_score'] = ''
+        if 'advances' in rfields:
+            row['advances'] = ''
         save(RESULTS, results, rfields)
         market, mfields = load(MARKET)
         mrow = by_id(market, args.id)
@@ -108,9 +111,20 @@ def main():
             if args.home_score < 0 or args.away_score < 0:
                 print("✗ scores must be ≥ 0"); sys.exit(1)
             row['home_score'], row['away_score'] = str(args.home_score), str(args.away_score)
-            save(RESULTS, results, rfields)
             print(f"✓ result:  {row['home']} {args.home_score}–{args.away_score} {row['away']}")
             changed = True
+        if args.avanza is not None:
+            if args.avanza not in (row['home'], row['away']):
+                print(f"✗ --avanza debe ser '{row['home']}' o '{row['away']}'"); sys.exit(1)
+            if 'advances' not in rfields:
+                rfields.append('advances')
+                for r in results:
+                    r.setdefault('advances', '')
+            row['advances'] = args.avanza
+            print(f"✓ avanza:  {args.avanza}")
+            changed = True
+        if changed and (args.home_score is not None or args.avanza is not None):
+            save(RESULTS, results, rfields)
         if args.odds:
             if any(o <= 1.0 for o in args.odds):
                 print("✗ decimal odds must be > 1.0"); sys.exit(1)
