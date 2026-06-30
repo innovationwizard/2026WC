@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated": "2026-06-28",
+    "generated": "2026-06-30",
     "source": "results.csv (fixtures) + v2/output/predictions.json (M1 Elo, M2 neural-ensemble, M3 conjunto+conformal)",
     "models": [
       "M1",
@@ -5141,7 +5141,14 @@
           ],
           "coverage": 0.8
         },
-        "Mercado": null
+        "Mercado": {
+          "pick": "draw",
+          "probs": {
+            "home": 0.28,
+            "draw": 0.459,
+            "away": 0.261
+          }
+        }
       }
     },
     {
@@ -5210,7 +5217,14 @@
           ],
           "coverage": 0.8
         },
-        "Mercado": null
+        "Mercado": {
+          "pick": "away",
+          "probs": {
+            "home": 0.051,
+            "draw": 0.108,
+            "away": 0.842
+          }
+        }
       }
     },
     {
@@ -5281,7 +5295,14 @@
           ],
           "coverage": 0.8
         },
-        "Mercado": null
+        "Mercado": {
+          "pick": "away",
+          "probs": {
+            "home": 0.222,
+            "draw": 0.274,
+            "away": 0.504
+          }
+        }
       }
     },
     {
@@ -5352,7 +5373,14 @@
           ],
           "coverage": 0.8
         },
-        "Mercado": null
+        "Mercado": {
+          "pick": "home",
+          "probs": {
+            "home": 0.451,
+            "draw": 0.287,
+            "away": 0.263
+          }
+        }
       }
     },
     {
@@ -5421,7 +5449,14 @@
           ],
           "coverage": 0.8
         },
-        "Mercado": null
+        "Mercado": {
+          "pick": "away",
+          "probs": {
+            "home": 0.079,
+            "draw": 0.146,
+            "away": 0.776
+          }
+        }
       }
     },
     {
@@ -5490,7 +5525,14 @@
           ],
           "coverage": 0.8
         },
-        "Mercado": null
+        "Mercado": {
+          "pick": "home",
+          "probs": {
+            "home": 0.567,
+            "draw": 0.253,
+            "away": 0.18
+          }
+        }
       }
     }
   ],
