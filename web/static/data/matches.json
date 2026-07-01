@@ -6049,8 +6049,13 @@
         "country": null,
         "neutral": true
       },
-      "status": "por_jugarse",
-      "result": null,
+      "status": "finalizado",
+      "result": {
+        "home": 2,
+        "away": 1,
+        "outcome": "home",
+        "advances": "England"
+      },
       "predictions": {
         "M1": {
           "home": 1,
