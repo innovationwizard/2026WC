@@ -11,10 +11,10 @@
     "stub": [
       "Mercado"
     ],
-    "count": 90,
+    "count": 91,
     "count_group": 72,
-    "count_knockout": 18,
-    "note": "72 group + 18 knockout matches (knockouts read from the authoritative feeds as the bracket resolves). Knockout predictions are the 90-min 1X2; result.advances carries who progressed (ET/penalties). Team display (Spanish/flags) is GUI-only in web/src/lib/teams.js."
+    "count_knockout": 19,
+    "note": "72 group + 19 knockout matches (knockouts read from the authoritative feeds as the bracket resolves). Knockout predictions are the 90-min 1X2; result.advances carries who progressed (ET/penalties). Team display (Spanish/flags) is GUI-only in web/src/lib/teams.js."
   },
   "matches": [
     {
@@ -5977,8 +5977,13 @@
         "country": null,
         "neutral": true
       },
-      "status": "por_jugarse",
-      "result": null,
+      "status": "finalizado",
+      "result": {
+        "home": 2,
+        "away": 0,
+        "outcome": "home",
+        "advances": "Mexico"
+      },
       "predictions": {
         "M1": {
           "home": 1,
@@ -6620,6 +6625,41 @@
           ],
           "coverage": 0.8
         },
+        "Mercado": null
+      }
+    },
+    {
+      "id": "P89",
+      "date": "2026-07-04",
+      "time": "21:00",
+      "stage": "octavos",
+      "group": null,
+      "home": "Paraguay",
+      "away": "France",
+      "venue": {
+        "city": null,
+        "country": null,
+        "neutral": true
+      },
+      "status": "por_jugarse",
+      "result": null,
+      "predictions": {
+        "M1": {
+          "home": 0,
+          "away": 1,
+          "pick": "away",
+          "probs": {
+            "home": 0.198,
+            "draw": 0.233,
+            "away": 0.568
+          },
+          "lambda": {
+            "home": 0.94,
+            "away": 1.76
+          }
+        },
+        "M2": null,
+        "M3": null,
         "Mercado": null
       }
     },

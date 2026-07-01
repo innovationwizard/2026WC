@@ -77,7 +77,7 @@ P74,Germany,Paraguay,1,1,Paraguay
 P75,Netherlands,Morocco,1,1,Morocco
 P77,France,Sweden,3,0,France
 P78,Ivory Coast,Norway,1,2,Norway
-P79,Mexico,Ecuador,,,
+P79,Mexico,Ecuador,2,0,Mexico
 P80,England,DR Congo,,,
 P81,United States,Bosnia and Herzegovina,,,
 P82,Belgium,Senegal,,,
@@ -89,3 +89,4 @@ P87,Colombia,Ghana,,,
 P88,Australia,Egypt,,,
 P90,Canada,Morocco,,,
 P91,Brazil,Norway,,,
+P89,Paraguay,France,,,
