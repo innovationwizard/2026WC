@@ -6327,8 +6327,13 @@
         "country": null,
         "neutral": true
       },
-      "status": "por_jugarse",
-      "result": null,
+      "status": "finalizado",
+      "result": {
+        "home": 3,
+        "away": 0,
+        "outcome": "home",
+        "advances": "Spain"
+      },
       "predictions": {
         "M1": {
           "home": 1,
