@@ -6119,8 +6119,13 @@
         "country": null,
         "neutral": true
       },
-      "status": "por_jugarse",
-      "result": null,
+      "status": "finalizado",
+      "result": {
+        "home": 2,
+        "away": 0,
+        "outcome": "home",
+        "advances": "United States"
+      },
       "predictions": {
         "M1": {
           "home": 1,
