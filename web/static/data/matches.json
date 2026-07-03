@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated": "2026-07-02",
+    "generated": "2026-07-03",
     "source": "results.csv (fixtures) + v2/output/predictions.json (M1 Elo, M2 neural-ensemble, M3 conjunto+conformal)",
     "models": [
       "M1",
@@ -6261,8 +6261,13 @@
         "country": null,
         "neutral": true
       },
-      "status": "por_jugarse",
-      "result": null,
+      "status": "finalizado",
+      "result": {
+        "home": 2,
+        "away": 1,
+        "outcome": "home",
+        "advances": "Portugal"
+      },
       "predictions": {
         "M1": {
           "home": 1,
