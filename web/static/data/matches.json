@@ -6604,8 +6604,13 @@
         "country": null,
         "neutral": true
       },
-      "status": "por_jugarse",
-      "result": null,
+      "status": "finalizado",
+      "result": {
+        "home": 1,
+        "away": 1,
+        "outcome": "draw",
+        "advances": "Egypt"
+      },
       "predictions": {
         "M1": {
           "home": 1,
