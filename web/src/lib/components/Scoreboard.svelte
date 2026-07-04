@@ -19,6 +19,7 @@
       <div class="line" style="--c:{LINE_COLORS[l]}">
         <span class="name" title={l === 'Mercado' ? PINNACLE_NOTE : null}>{LINE_LABELS[l]}</span>
         <span class="hit">{s.aciertos}/{s.jugados}<small> aciertos</small></span>
+        <span class="pct">{s.jugados ? `${Math.round((s.aciertos / s.jugados) * 100)}%` : '—'}</span>
         <span class="rps">{s.rps != null ? `RPS ${s.rps.toFixed(3)}` : 'RPS —'}</span>
         <span class="ex">{s.exactos != null ? `${s.exactos} exactos` : '— exactos'}</span>
       </div>
@@ -34,7 +35,7 @@
   .lines { display: grid; gap: 0.3rem; }
   .line {
     display: grid;
-    grid-template-columns: 5.5rem 1fr auto auto;
+    grid-template-columns: 5.5rem auto 1fr auto auto;
     gap: 0.6rem;
     align-items: baseline;
     border-left: 3px solid var(--c);
@@ -43,10 +44,11 @@
   .name { color: var(--c); font-weight: 700; font-size: 0.85rem; }
   .hit { color: #e2e8f0; font-weight: 700; font-size: 1rem; font-variant-numeric: tabular-nums; } /* headline, full contrast */
   .hit small { color: #64748b; font-weight: 400; font-size: 0.7rem; }
+  .pct { color: var(--c); font-weight: 700; font-size: 1rem; font-variant-numeric: tabular-nums; } /* % aciertos, model-colored */
   .rps { color: #64748b; font-size: 0.78rem; font-variant-numeric: tabular-nums; }            /* muted, secondary */
   .ex { color: #94a3b8; font-size: 0.75rem; }
   @media (max-width: 520px) {
-    .line { grid-template-columns: 4.5rem 1fr auto; }
+    .line { grid-template-columns: 4.5rem auto 1fr auto; }
     .ex { display: none; }
   }
 </style>
