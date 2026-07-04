@@ -6721,8 +6721,13 @@
         "country": null,
         "neutral": true
       },
-      "status": "por_jugarse",
-      "result": null,
+      "status": "finalizado",
+      "result": {
+        "home": 0,
+        "away": 3,
+        "outcome": "away",
+        "advances": "Morocco"
+      },
       "predictions": {
         "M1": {
           "home": 1,
