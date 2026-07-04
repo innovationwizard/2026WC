@@ -195,7 +195,11 @@ def main():
     matches = json.load(open(MATCHES, encoding='utf-8'))['matches']
     canonical = {m['home'] for m in matches} | {m['away'] for m in matches}
     resolve = resolver(canonical)
-    pending = {frozenset((m['home'], m['away'])): m for m in matches if m['status'] != 'finalizado'}
+    # Group stage ONLY. Knockout ties are handled by the ko_discover phase, which records
+    # the 90-minute score (not the ET/penalty final that these exact-score sources report)
+    # and the advancer. Letting the group loop touch them would mis-record ET/pen results.
+    pending = {frozenset((m['home'], m['away'])): m
+               for m in matches if m['status'] != 'finalizado' and m.get('stage') == 'grupos'}
 
     # Dates to query: every pending fixture date that is today-or-past (UTC), ±1 day for TZ.
     today = datetime.datetime.now(datetime.timezone.utc).date()

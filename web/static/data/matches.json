@@ -5606,7 +5606,14 @@
           ],
           "coverage": 0.8
         },
-        "Mercado": null
+        "Mercado": {
+          "pick": "away",
+          "probs": {
+            "home": 0.154,
+            "draw": 0.231,
+            "away": 0.615
+          }
+        }
       }
     },
     {
@@ -5676,7 +5683,14 @@
           ],
           "coverage": 0.8
         },
-        "Mercado": null
+        "Mercado": {
+          "pick": "home",
+          "probs": {
+            "home": 0.673,
+            "draw": 0.209,
+            "away": 0.118
+          }
+        }
       }
     },
     {
@@ -5748,7 +5762,14 @@
           ],
           "coverage": 0.8
         },
-        "Mercado": null
+        "Mercado": {
+          "pick": "home",
+          "probs": {
+            "home": 0.584,
+            "draw": 0.246,
+            "away": 0.17
+          }
+        }
       }
     },
     {
@@ -5819,7 +5840,14 @@
           ],
           "coverage": 0.8
         },
-        "Mercado": null
+        "Mercado": {
+          "pick": "home",
+          "probs": {
+            "home": 0.719,
+            "draw": 0.187,
+            "away": 0.094
+          }
+        }
       }
     },
     {
@@ -5889,7 +5917,14 @@
           ],
           "coverage": 0.8
         },
-        "Mercado": null
+        "Mercado": {
+          "pick": "home",
+          "probs": {
+            "home": 0.751,
+            "draw": 0.171,
+            "away": 0.078
+          }
+        }
       }
     },
     {
@@ -5961,7 +5996,14 @@
           ],
           "coverage": 0.8
         },
-        "Mercado": null
+        "Mercado": {
+          "pick": "away",
+          "probs": {
+            "home": 0.259,
+            "draw": 0.274,
+            "away": 0.466
+          }
+        }
       }
     },
     {
@@ -6033,7 +6075,14 @@
           ],
           "coverage": 0.8
         },
-        "Mercado": null
+        "Mercado": {
+          "pick": "home",
+          "probs": {
+            "home": 0.504,
+            "draw": 0.274,
+            "away": 0.222
+          }
+        }
       }
     },
     {
@@ -6103,7 +6152,14 @@
           ],
           "coverage": 0.8
         },
-        "Mercado": null
+        "Mercado": {
+          "pick": "home",
+          "probs": {
+            "home": 0.718,
+            "draw": 0.212,
+            "away": 0.07
+          }
+        }
       }
     },
     {
@@ -6173,7 +6229,14 @@
           ],
           "coverage": 0.8
         },
-        "Mercado": null
+        "Mercado": {
+          "pick": "home",
+          "probs": {
+            "home": 0.658,
+            "draw": 0.23,
+            "away": 0.112
+          }
+        }
       }
     },
     {
@@ -6191,10 +6254,10 @@
       },
       "status": "finalizado",
       "result": {
-        "home": 3,
+        "home": 2,
         "away": 2,
-        "outcome": "home",
-        "advances": null
+        "outcome": "draw",
+        "advances": "Belgium"
       },
       "predictions": {
         "M1": {
@@ -6245,7 +6308,14 @@
           ],
           "coverage": 0.8
         },
-        "Mercado": null
+        "Mercado": {
+          "pick": "home",
+          "probs": {
+            "home": 0.494,
+            "draw": 0.282,
+            "away": 0.224
+          }
+        }
       }
     },
     {
@@ -6316,7 +6386,14 @@
           ],
           "coverage": 0.8
         },
-        "Mercado": null
+        "Mercado": {
+          "pick": "home",
+          "probs": {
+            "home": 0.556,
+            "draw": 0.255,
+            "away": 0.189
+          }
+        }
       }
     },
     {
@@ -6386,7 +6463,14 @@
           ],
           "coverage": 0.8
         },
-        "Mercado": null
+        "Mercado": {
+          "pick": "home",
+          "probs": {
+            "home": 0.699,
+            "draw": 0.197,
+            "away": 0.105
+          }
+        }
       }
     },
     {
@@ -6458,7 +6542,14 @@
           ],
           "coverage": 0.8
         },
-        "Mercado": null
+        "Mercado": {
+          "pick": "home",
+          "probs": {
+            "home": 0.611,
+            "draw": 0.243,
+            "away": 0.146
+          }
+        }
       }
     },
     {
@@ -6476,10 +6567,10 @@
       },
       "status": "finalizado",
       "result": {
-        "home": 3,
-        "away": 2,
-        "outcome": "home",
-        "advances": null
+        "home": 1,
+        "away": 1,
+        "outcome": "draw",
+        "advances": "Argentina"
       },
       "predictions": {
         "M1": {
@@ -6528,7 +6619,14 @@
           ],
           "coverage": 0.8
         },
-        "Mercado": null
+        "Mercado": {
+          "pick": "home",
+          "probs": {
+            "home": 0.781,
+            "draw": 0.156,
+            "away": 0.062
+          }
+        }
       }
     },
     {
@@ -6598,7 +6696,14 @@
           ],
           "coverage": 0.8
         },
-        "Mercado": null
+        "Mercado": {
+          "pick": "home",
+          "probs": {
+            "home": 0.567,
+            "draw": 0.253,
+            "away": 0.18
+          }
+        }
       }
     },
     {
@@ -6670,7 +6775,14 @@
           ],
           "coverage": 0.8
         },
-        "Mercado": null
+        "Mercado": {
+          "pick": "away",
+          "probs": {
+            "home": 0.209,
+            "draw": 0.269,
+            "away": 0.522
+          }
+        }
       }
     },
     {
@@ -6776,7 +6888,14 @@
           ],
           "coverage": 0.8
         },
-        "Mercado": null
+        "Mercado": {
+          "pick": "away",
+          "probs": {
+            "home": 0.105,
+            "draw": 0.188,
+            "away": 0.707
+          }
+        }
       }
     },
     {
