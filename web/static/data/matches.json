@@ -11,10 +11,10 @@
     "stub": [
       "Mercado"
     ],
-    "count": 97,
+    "count": 98,
     "count_group": 72,
-    "count_knockout": 25,
-    "note": "72 group + 25 knockout matches (knockouts read from the authoritative feeds as the bracket resolves). Knockout predictions are the 90-min 1X2; result.advances carries who progressed (ET/penalties). Team display (Spanish/flags) is GUI-only in web/src/lib/teams.js."
+    "count_knockout": 26,
+    "note": "72 group + 26 knockout matches (knockouts read from the authoritative feeds as the bracket resolves). Knockout predictions are the 90-min 1X2; result.advances carries who progressed (ET/penalties). Team display (Spanish/flags) is GUI-only in web/src/lib/teams.js."
   },
   "matches": [
     {
@@ -7151,6 +7151,41 @@
           "lambda": {
             "home": 1.57,
             "away": 1.13
+          }
+        },
+        "M2": null,
+        "M3": null,
+        "Mercado": null
+      }
+    },
+    {
+      "id": "P99",
+      "date": "2026-07-11",
+      "time": "21:00",
+      "stage": "cuartos",
+      "group": null,
+      "home": "Norway",
+      "away": "England",
+      "venue": {
+        "city": null,
+        "country": null,
+        "neutral": true
+      },
+      "status": "por_jugarse",
+      "result": null,
+      "predictions": {
+        "M1": {
+          "home": 1,
+          "away": 1,
+          "pick": "away",
+          "probs": {
+            "home": 0.282,
+            "draw": 0.252,
+            "away": 0.465
+          },
+          "lambda": {
+            "home": 1.15,
+            "away": 1.55
           }
         },
         "M2": null,
