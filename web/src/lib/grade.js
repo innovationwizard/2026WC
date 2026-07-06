@@ -2,9 +2,14 @@
 
 export const LINES = ['M1', 'M2', 'M3', 'Mercado'];
 // Internal key stays 'Mercado' (matches.json, odds CSV, record.py); only the DISPLAY is Pinnacle.
-export const LINE_LABELS = { M1: 'M1', M2: 'M2', M3: 'M3', Mercado: 'Pinnacle' };
-export const LINE_NAMES = { M1: 'Azar', M2: 'Red Neuronal', M3: 'IA con Criterio', Mercado: 'Pinnacle' };
-export const LINE_COLORS = { M1: '#64748b', M2: '#3b82f6', M3: '#22c55e', Mercado: '#94a3b8' };
+export const LINE_LABELS = { M1: 'M1', M2: 'M2', M3: 'M3', Mercado: 'Pinnacle', M3_frozen: 'M3₀' };
+export const LINE_NAMES = { M1: 'Azar', M2: 'Red Neuronal', M3: 'IA con Criterio', Mercado: 'Pinnacle', M3_frozen: 'IA pre-torneo' };
+export const LINE_COLORS = { M1: '#64748b', M2: '#3b82f6', M3: '#22c55e', Mercado: '#94a3b8', M3_frozen: '#4d7c5f' };
+
+// The scoreboard grades extra comparison lines that are NOT shown as per-match cells:
+//   M3_frozen = the frozen pre-tournament M3 (benchmark) — measures whether updating helped.
+// (Mercado_info, the market blend, is added here only if the backtest justifies it.)
+export const SCOREBOARD_LINES = ['M1', 'M2', 'M3', 'M3_frozen', 'Mercado'];
 export const PINNACLE_NOTE =
   'Pinnacle está considerada por muchos como la casa de apuestas deportivas en línea más sofisticada y más competitiva del mundo. (Wikipedia)';
 
@@ -39,14 +44,21 @@ export function rps(probs, outcome) {
   return sum / 2;
 }
 
+// Ignorance / logarithmic score: −log2 p[outcome]. Lower = better. Argued to be a
+// stricter proper scoring rule than RPS (Wheatcroft 2022) — reported alongside it.
+export function logloss(probs, outcome) {
+  const p = { home: probs.home, draw: probs.draw, away: probs.away }[outcome];
+  return -Math.log2(Math.max(p ?? 0, 1e-12));
+}
+
 // Aggregate the running scoreboard across played matches, per line.
 export function scoreboard(matches) {
   const acc = Object.fromEntries(
-    LINES.map((l) => [l, { jugados: 0, aciertos: 0, exactos: 0, rpsSum: 0, rpsN: 0, rps: null }])
+    SCOREBOARD_LINES.map((l) => [l, { jugados: 0, aciertos: 0, exactos: 0, rpsSum: 0, rpsN: 0, rps: null, llSum: 0, llN: 0, logloss: null }])
   );
   for (const m of matches) {
     if (m.status !== 'finalizado' || !m.result) continue;
-    for (const line of LINES) {
+    for (const line of SCOREBOARD_LINES) {
       const p = m.predictions[line];
       if (!p) continue;
       const s = acc[line];
@@ -54,12 +66,16 @@ export function scoreboard(matches) {
       const v = verdictFor(line, p, m.result);
       if (v.acierto) s.aciertos++;
       if (v.exacto) s.exactos++;
-      if (p.probs) { s.rpsSum += rps(p.probs, m.result.outcome); s.rpsN++; }
+      if (p.probs) {
+        s.rpsSum += rps(p.probs, m.result.outcome); s.rpsN++;
+        s.llSum += logloss(p.probs, m.result.outcome); s.llN++;
+      }
     }
   }
-  for (const l of LINES) {
+  for (const l of SCOREBOARD_LINES) {
     const s = acc[l];
     s.rps = s.rpsN ? s.rpsSum / s.rpsN : null;
+    s.logloss = s.llN ? s.llSum / s.llN : null;
   }
   // Pinnacle is a 1X2 market, not a scoreline forecast — "exacto" is not applicable
   // (always 0 by construction). Mark it N/A so the board shows "—", not a misleading 0.

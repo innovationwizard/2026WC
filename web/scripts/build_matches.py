@@ -20,6 +20,8 @@ import knockout as ko
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 KO_FIXTURES = os.path.join(ROOT, 'web', 'data', 'knockout_fixtures.csv')
+FROZEN_PREDS = os.path.join(ROOT, 'web', 'data', 'frozen_predictions.json')    # A0 snapshot (immutable benchmark)
+KICKOFF_PREDS = os.path.join(ROOT, 'web', 'data', 'kickoff_predictions.json')   # accumulating per-match kickoff freeze
 
 # Knockout stage code → Spanish display label (matches the group-stage 'grupos' style).
 STAGE_ES = {'r32': 'dieciseisavos', 'r16': 'octavos', 'qf': 'cuartos',
@@ -302,10 +304,17 @@ def main():
     per_group_n = {}
     for r in fixtures:
         home, away = r['home_team'], r['away_team']
-        group = team_group.get(home)
-        if group is None or team_group.get(away) != group:
-            missing.append((home, away, 'group mismatch'))
+        gh, ga = team_group.get(home), team_group.get(away)
+        # Knockout rows now live in results.csv too (fed in by sync_results_to_corpus.py so
+        # Elo/form update). A cross-group WC row is a knockout — skip it here silently; the
+        # KO matches are emitted separately from knockout_fixtures.csv. Only a genuinely
+        # unknown team (in no group) is a real data error worth flagging.
+        if gh is None or ga is None:
+            missing.append((home, away, 'unknown team (not in any group)'))
             continue
+        if gh != ga:
+            continue  # knockout fixture — handled by build_ko_matches
+        group = gh
         per_group_n[group] = per_group_n.get(group, 0) + 1
         mid = f"g{group}-{per_group_n[group]:02d}"
 
@@ -368,6 +377,37 @@ def main():
     apply_results(matches, results)
     market = load_or_init_market(matches)
     apply_market(matches, market)
+
+    # ── Freeze-at-kickoff (evaluation integrity) ───────────────────────────────
+    # A model's prediction for a match is FROZEN at kickoff and never recomputed: once
+    # a match is played, grading its (updated) prediction on the very results that
+    # updated the model would be in-sample/lookahead-leaky. So: refresh the kickoff
+    # snapshot ONLY for not-yet-played matches, then override every played match's
+    # M1/M2/M3 with its frozen kickoff value. The updated model thus earns a clean
+    # out-of-sample record going forward. (Mercado is inherently a pre-match line — not
+    # frozen here.) kickoff_predictions.json accumulates; seeded from the A0 snapshot.
+    ko = {'matches': {}}
+    if os.path.exists(KICKOFF_PREDS):
+        ko = json.load(open(KICKOFF_PREDS, encoding='utf-8'))
+    kmap = ko.setdefault('matches', {})
+    for m in matches:
+        if m['status'] != 'finalizado':   # still pending → its kickoff estimate is the latest live one
+            kmap[m['id']] = {k: m['predictions'][k] for k in ('M1', 'M2', 'M3')}
+    with open(KICKOFF_PREDS, 'w', encoding='utf-8') as f:
+        json.dump(ko, f, ensure_ascii=False, indent=2)
+    for m in matches:                      # override with the frozen kickoff prediction where we have one
+        k = kmap.get(m['id'])
+        if k:
+            for line in ('M1', 'M2', 'M3'):
+                if k.get(line) is not None:
+                    m['predictions'][line] = k[line]
+
+    # Frozen PRE-TOURNAMENT M3 (immutable A0 snapshot) as the scoreboard benchmark line
+    # 'M3_frozen' — measures whether tournament-updating the model helps, out-of-sample.
+    if os.path.exists(FROZEN_PREDS):
+        frozen = json.load(open(FROZEN_PREDS, encoding='utf-8')).get('matches', {})
+        for m in matches:
+            m['predictions']['M3_frozen'] = (frozen.get(m['id']) or {}).get('M3')
 
     groups_data, knockout_data = build_standings(pred)
 

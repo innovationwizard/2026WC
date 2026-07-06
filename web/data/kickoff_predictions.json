@@ -1,0 +1,4722 @@
+{
+  "generated": "2026-07-05",
+  "note": "Frozen pre-tournament forecast (before finals fed into Elo). Do not overwrite.",
+  "matches": {
+    "gA-01": {
+      "M1": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.601,
+          "draw": 0.225,
+          "away": 0.174
+        },
+        "lambda": {
+          "home": 1.83,
+          "away": 0.87
+        }
+      },
+      "M2": {
+        "home": 2,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.696,
+          "draw": 0.18,
+          "away": 0.124
+        },
+        "lambda": {
+          "home": 2.25,
+          "away": 0.8
+        }
+      },
+      "M3": {
+        "home": 2,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.672,
+          "draw": 0.198,
+          "away": 0.131
+        },
+        "lambda": {
+          "home": 2.05,
+          "away": 0.74
+        },
+        "set": [
+          "home"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gA-02": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "home",
+        "probs": {
+          "home": 0.43,
+          "draw": 0.256,
+          "away": 0.314
+        },
+        "lambda": {
+          "home": 1.48,
+          "away": 1.22
+        }
+      },
+      "M2": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.425,
+          "draw": 0.291,
+          "away": 0.284
+        },
+        "lambda": {
+          "home": 1.19,
+          "away": 0.91
+        }
+      },
+      "M3": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.457,
+          "draw": 0.281,
+          "away": 0.262
+        },
+        "lambda": {
+          "home": 1.31,
+          "away": 0.92
+        },
+        "set": [
+          "home",
+          "draw",
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gB-01": {
+      "M1": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.576,
+          "draw": 0.231,
+          "away": 0.192
+        },
+        "lambda": {
+          "home": 1.78,
+          "away": 0.92
+        }
+      },
+      "M2": {
+        "home": 2,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.756,
+          "draw": 0.16,
+          "away": 0.084
+        },
+        "lambda": {
+          "home": 2.33,
+          "away": 0.62
+        }
+      },
+      "M3": {
+        "home": 2,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.751,
+          "draw": 0.16,
+          "away": 0.089
+        },
+        "lambda": {
+          "home": 2.31,
+          "away": 0.63
+        },
+        "set": [
+          "home"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gD-01": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "home",
+        "probs": {
+          "home": 0.381,
+          "draw": 0.258,
+          "away": 0.361
+        },
+        "lambda": {
+          "home": 1.37,
+          "away": 1.33
+        }
+      },
+      "M2": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.565,
+          "draw": 0.246,
+          "away": 0.189
+        },
+        "lambda": {
+          "home": 1.62,
+          "away": 0.85
+        }
+      },
+      "M3": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.591,
+          "draw": 0.238,
+          "away": 0.171
+        },
+        "lambda": {
+          "home": 1.71,
+          "away": 0.8
+        },
+        "set": [
+          "home",
+          "draw"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gB-02": {
+      "M1": {
+        "home": 0,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.155,
+          "draw": 0.217,
+          "away": 0.628
+        },
+        "lambda": {
+          "home": 0.81,
+          "away": 1.89
+        }
+      },
+      "M2": {
+        "home": 0,
+        "away": 2,
+        "pick": "away",
+        "probs": {
+          "home": 0.054,
+          "draw": 0.154,
+          "away": 0.792
+        },
+        "lambda": {
+          "home": 0.46,
+          "away": 2.33
+        }
+      },
+      "M3": {
+        "home": 0,
+        "away": 2,
+        "pick": "away",
+        "probs": {
+          "home": 0.074,
+          "draw": 0.188,
+          "away": 0.738
+        },
+        "lambda": {
+          "home": 0.51,
+          "away": 2.07
+        },
+        "set": [
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gC-01": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "home",
+        "probs": {
+          "home": 0.415,
+          "draw": 0.257,
+          "away": 0.328
+        },
+        "lambda": {
+          "home": 1.44,
+          "away": 1.26
+        }
+      },
+      "M2": {
+        "home": 1,
+        "away": 1,
+        "pick": "home",
+        "probs": {
+          "home": 0.474,
+          "draw": 0.257,
+          "away": 0.269
+        },
+        "lambda": {
+          "home": 1.6,
+          "away": 1.14
+        }
+      },
+      "M3": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.474,
+          "draw": 0.267,
+          "away": 0.26
+        },
+        "lambda": {
+          "home": 1.47,
+          "away": 0.99
+        },
+        "set": [
+          "home",
+          "draw",
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gC-02": {
+      "M1": {
+        "home": 0,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.213,
+          "draw": 0.238,
+          "away": 0.549
+        },
+        "lambda": {
+          "home": 0.98,
+          "away": 1.72
+        }
+      },
+      "M2": {
+        "home": 0,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.172,
+          "draw": 0.226,
+          "away": 0.602
+        },
+        "lambda": {
+          "home": 0.83,
+          "away": 1.78
+        }
+      },
+      "M3": {
+        "home": 0,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.149,
+          "draw": 0.215,
+          "away": 0.635
+        },
+        "lambda": {
+          "home": 0.77,
+          "away": 1.89
+        },
+        "set": [
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gD-02": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.3,
+          "draw": 0.254,
+          "away": 0.446
+        },
+        "lambda": {
+          "home": 1.19,
+          "away": 1.51
+        }
+      },
+      "M2": {
+        "home": 0,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.246,
+          "draw": 0.301,
+          "away": 0.453
+        },
+        "lambda": {
+          "home": 0.81,
+          "away": 1.2
+        }
+      },
+      "M3": {
+        "home": 0,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.225,
+          "draw": 0.277,
+          "away": 0.499
+        },
+        "lambda": {
+          "home": 0.83,
+          "away": 1.36
+        },
+        "set": [
+          "draw",
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gE-01": {
+      "M1": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.648,
+          "draw": 0.211,
+          "away": 0.142
+        },
+        "lambda": {
+          "home": 1.93,
+          "away": 0.77
+        }
+      },
+      "M2": {
+        "home": 2,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.879,
+          "draw": 0.092,
+          "away": 0.029
+        },
+        "lambda": {
+          "home": 2.91,
+          "away": 0.38
+        }
+      },
+      "M3": {
+        "home": 3,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.875,
+          "draw": 0.091,
+          "away": 0.034
+        },
+        "lambda": {
+          "home": 3.07,
+          "away": 0.49
+        },
+        "set": [
+          "home"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gE-02": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.227,
+          "draw": 0.242,
+          "away": 0.531
+        },
+        "lambda": {
+          "home": 1.01,
+          "away": 1.69
+        }
+      },
+      "M2": {
+        "home": 1,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.317,
+          "draw": 0.287,
+          "away": 0.396
+        },
+        "lambda": {
+          "home": 1.04,
+          "away": 1.19
+        }
+      },
+      "M3": {
+        "home": 1,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.331,
+          "draw": 0.281,
+          "away": 0.388
+        },
+        "lambda": {
+          "home": 1.09,
+          "away": 1.21
+        },
+        "set": [
+          "home",
+          "draw",
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gF-01": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "home",
+        "probs": {
+          "home": 0.399,
+          "draw": 0.258,
+          "away": 0.344
+        },
+        "lambda": {
+          "home": 1.41,
+          "away": 1.29
+        }
+      },
+      "M2": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.513,
+          "draw": 0.244,
+          "away": 0.242
+        },
+        "lambda": {
+          "home": 1.53,
+          "away": 0.98
+        }
+      },
+      "M3": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.5,
+          "draw": 0.259,
+          "away": 0.241
+        },
+        "lambda": {
+          "home": 1.46,
+          "away": 0.95
+        },
+        "set": [
+          "home",
+          "draw",
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gF-02": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "home",
+        "probs": {
+          "home": 0.425,
+          "draw": 0.256,
+          "away": 0.319
+        },
+        "lambda": {
+          "home": 1.47,
+          "away": 1.23
+        }
+      },
+      "M2": {
+        "home": 1,
+        "away": 1,
+        "pick": "home",
+        "probs": {
+          "home": 0.429,
+          "draw": 0.258,
+          "away": 0.312
+        },
+        "lambda": {
+          "home": 1.46,
+          "away": 1.2
+        }
+      },
+      "M3": {
+        "home": 1,
+        "away": 1,
+        "pick": "home",
+        "probs": {
+          "home": 0.501,
+          "draw": 0.251,
+          "away": 0.247
+        },
+        "lambda": {
+          "home": 1.61,
+          "away": 1.07
+        },
+        "set": [
+          "home",
+          "draw",
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gG-01": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "home",
+        "probs": {
+          "home": 0.505,
+          "draw": 0.246,
+          "away": 0.249
+        },
+        "lambda": {
+          "home": 1.63,
+          "away": 1.07
+        }
+      },
+      "M2": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.576,
+          "draw": 0.228,
+          "away": 0.197
+        },
+        "lambda": {
+          "home": 1.8,
+          "away": 0.98
+        }
+      },
+      "M3": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.653,
+          "draw": 0.208,
+          "away": 0.139
+        },
+        "lambda": {
+          "home": 1.99,
+          "away": 0.82
+        },
+        "set": [
+          "home"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gG-02": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "home",
+        "probs": {
+          "home": 0.524,
+          "draw": 0.243,
+          "away": 0.233
+        },
+        "lambda": {
+          "home": 1.67,
+          "away": 1.03
+        }
+      },
+      "M2": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.636,
+          "draw": 0.249,
+          "away": 0.115
+        },
+        "lambda": {
+          "home": 1.55,
+          "away": 0.5
+        }
+      },
+      "M3": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.641,
+          "draw": 0.233,
+          "away": 0.126
+        },
+        "lambda": {
+          "home": 1.69,
+          "away": 0.6
+        },
+        "set": [
+          "home"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gH-01": {
+      "M1": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.674,
+          "draw": 0.202,
+          "away": 0.124
+        },
+        "lambda": {
+          "home": 1.99,
+          "away": 0.71
+        }
+      },
+      "M2": {
+        "home": 2,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.844,
+          "draw": 0.107,
+          "away": 0.049
+        },
+        "lambda": {
+          "home": 2.98,
+          "away": 0.6
+        }
+      },
+      "M3": {
+        "home": 2,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.846,
+          "draw": 0.112,
+          "away": 0.041
+        },
+        "lambda": {
+          "home": 2.8,
+          "away": 0.51
+        },
+        "set": [
+          "home"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gH-02": {
+      "M1": {
+        "home": 0,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.189,
+          "draw": 0.23,
+          "away": 0.58
+        },
+        "lambda": {
+          "home": 0.91,
+          "away": 1.79
+        }
+      },
+      "M2": {
+        "home": 0,
+        "away": 2,
+        "pick": "away",
+        "probs": {
+          "home": 0.114,
+          "draw": 0.191,
+          "away": 0.695
+        },
+        "lambda": {
+          "home": 0.68,
+          "away": 2.04
+        }
+      },
+      "M3": {
+        "home": 0,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.151,
+          "draw": 0.223,
+          "away": 0.625
+        },
+        "lambda": {
+          "home": 0.72,
+          "away": 1.76
+        },
+        "set": [
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gI-01": {
+      "M1": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.568,
+          "draw": 0.234,
+          "away": 0.199
+        },
+        "lambda": {
+          "home": 1.76,
+          "away": 0.94
+        }
+      },
+      "M2": {
+        "home": 2,
+        "away": 1,
+        "pick": "home",
+        "probs": {
+          "home": 0.628,
+          "draw": 0.204,
+          "away": 0.168
+        },
+        "lambda": {
+          "home": 2.13,
+          "away": 1.03
+        }
+      },
+      "M3": {
+        "home": 2,
+        "away": 1,
+        "pick": "home",
+        "probs": {
+          "home": 0.565,
+          "draw": 0.215,
+          "away": 0.221
+        },
+        "lambda": {
+          "home": 2.02,
+          "away": 1.18
+        },
+        "set": [
+          "home"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gI-02": {
+      "M1": {
+        "home": 0,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.191,
+          "draw": 0.231,
+          "away": 0.578
+        },
+        "lambda": {
+          "home": 0.92,
+          "away": 1.78
+        }
+      },
+      "M2": {
+        "home": 0,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.136,
+          "draw": 0.224,
+          "away": 0.64
+        },
+        "lambda": {
+          "home": 0.65,
+          "away": 1.78
+        }
+      },
+      "M3": {
+        "home": 0,
+        "away": 2,
+        "pick": "away",
+        "probs": {
+          "home": 0.132,
+          "draw": 0.201,
+          "away": 0.666
+        },
+        "lambda": {
+          "home": 0.76,
+          "away": 2.02
+        },
+        "set": [
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gJ-01": {
+      "M1": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.611,
+          "draw": 0.222,
+          "away": 0.167
+        },
+        "lambda": {
+          "home": 1.85,
+          "away": 0.85
+        }
+      },
+      "M2": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.596,
+          "draw": 0.223,
+          "away": 0.181
+        },
+        "lambda": {
+          "home": 1.85,
+          "away": 0.93
+        }
+      },
+      "M3": {
+        "home": 1,
+        "away": 1,
+        "pick": "home",
+        "probs": {
+          "home": 0.587,
+          "draw": 0.222,
+          "away": 0.192
+        },
+        "lambda": {
+          "home": 1.91,
+          "away": 1.01
+        },
+        "set": [
+          "home"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gJ-02": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "home",
+        "probs": {
+          "home": 0.506,
+          "draw": 0.246,
+          "away": 0.247
+        },
+        "lambda": {
+          "home": 1.63,
+          "away": 1.07
+        }
+      },
+      "M2": {
+        "home": 1,
+        "away": 1,
+        "pick": "home",
+        "probs": {
+          "home": 0.502,
+          "draw": 0.261,
+          "away": 0.237
+        },
+        "lambda": {
+          "home": 1.54,
+          "away": 1.01
+        }
+      },
+      "M3": {
+        "home": 1,
+        "away": 1,
+        "pick": "home",
+        "probs": {
+          "home": 0.508,
+          "draw": 0.253,
+          "away": 0.239
+        },
+        "lambda": {
+          "home": 1.62,
+          "away": 1.02
+        },
+        "set": [
+          "home",
+          "draw",
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gK-01": {
+      "M1": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.6,
+          "draw": 0.225,
+          "away": 0.175
+        },
+        "lambda": {
+          "home": 1.83,
+          "away": 0.87
+        }
+      },
+      "M2": {
+        "home": 2,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.675,
+          "draw": 0.195,
+          "away": 0.13
+        },
+        "lambda": {
+          "home": 2.06,
+          "away": 0.79
+        }
+      },
+      "M3": {
+        "home": 2,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.701,
+          "draw": 0.183,
+          "away": 0.117
+        },
+        "lambda": {
+          "home": 2.12,
+          "away": 0.74
+        },
+        "set": [
+          "home"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gK-02": {
+      "M1": {
+        "home": 0,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.203,
+          "draw": 0.235,
+          "away": 0.562
+        },
+        "lambda": {
+          "home": 0.95,
+          "away": 1.75
+        }
+      },
+      "M2": {
+        "home": 0,
+        "away": 2,
+        "pick": "away",
+        "probs": {
+          "home": 0.105,
+          "draw": 0.195,
+          "away": 0.7
+        },
+        "lambda": {
+          "home": 0.64,
+          "away": 2.03
+        }
+      },
+      "M3": {
+        "home": 0,
+        "away": 2,
+        "pick": "away",
+        "probs": {
+          "home": 0.119,
+          "draw": 0.2,
+          "away": 0.682
+        },
+        "lambda": {
+          "home": 0.7,
+          "away": 2.04
+        },
+        "set": [
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gL-01": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "home",
+        "probs": {
+          "home": 0.494,
+          "draw": 0.248,
+          "away": 0.258
+        },
+        "lambda": {
+          "home": 1.61,
+          "away": 1.09
+        }
+      },
+      "M2": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.603,
+          "draw": 0.227,
+          "away": 0.17
+        },
+        "lambda": {
+          "home": 1.83,
+          "away": 0.86
+        }
+      },
+      "M3": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.596,
+          "draw": 0.234,
+          "away": 0.169
+        },
+        "lambda": {
+          "home": 1.78,
+          "away": 0.83
+        },
+        "set": [
+          "home"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gL-02": {
+      "M1": {
+        "home": 0,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.216,
+          "draw": 0.239,
+          "away": 0.545
+        },
+        "lambda": {
+          "home": 0.98,
+          "away": 1.72
+        }
+      },
+      "M2": {
+        "home": 1,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.213,
+          "draw": 0.22,
+          "away": 0.568
+        },
+        "lambda": {
+          "home": 1.08,
+          "away": 1.88
+        }
+      },
+      "M3": {
+        "home": 1,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.215,
+          "draw": 0.232,
+          "away": 0.553
+        },
+        "lambda": {
+          "home": 1,
+          "away": 1.71
+        },
+        "set": [
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gA-03": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "home",
+        "probs": {
+          "home": 0.499,
+          "draw": 0.247,
+          "away": 0.254
+        },
+        "lambda": {
+          "home": 1.62,
+          "away": 1.08
+        }
+      },
+      "M2": {
+        "home": 1,
+        "away": 1,
+        "pick": "home",
+        "probs": {
+          "home": 0.464,
+          "draw": 0.26,
+          "away": 0.276
+        },
+        "lambda": {
+          "home": 1.47,
+          "away": 1.07
+        }
+      },
+      "M3": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.545,
+          "draw": 0.248,
+          "away": 0.207
+        },
+        "lambda": {
+          "home": 1.62,
+          "away": 0.89
+        },
+        "set": [
+          "home",
+          "draw"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gA-04": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "home",
+        "probs": {
+          "home": 0.459,
+          "draw": 0.253,
+          "away": 0.288
+        },
+        "lambda": {
+          "home": 1.54,
+          "away": 1.16
+        }
+      },
+      "M2": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.522,
+          "draw": 0.266,
+          "away": 0.212
+        },
+        "lambda": {
+          "home": 1.44,
+          "away": 0.81
+        }
+      },
+      "M3": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.482,
+          "draw": 0.273,
+          "away": 0.245
+        },
+        "lambda": {
+          "home": 1.36,
+          "away": 0.89
+        },
+        "set": [
+          "home",
+          "draw",
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gB-03": {
+      "M1": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.608,
+          "draw": 0.223,
+          "away": 0.169
+        },
+        "lambda": {
+          "home": 1.85,
+          "away": 0.85
+        }
+      },
+      "M2": {
+        "home": 2,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.71,
+          "draw": 0.182,
+          "away": 0.108
+        },
+        "lambda": {
+          "home": 2.19,
+          "away": 0.72
+        }
+      },
+      "M3": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.695,
+          "draw": 0.197,
+          "away": 0.108
+        },
+        "lambda": {
+          "home": 1.99,
+          "away": 0.64
+        },
+        "set": [
+          "home"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gB-04": {
+      "M1": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.602,
+          "draw": 0.225,
+          "away": 0.173
+        },
+        "lambda": {
+          "home": 1.83,
+          "away": 0.87
+        }
+      },
+      "M2": {
+        "home": 2,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.833,
+          "draw": 0.122,
+          "away": 0.044
+        },
+        "lambda": {
+          "home": 2.66,
+          "away": 0.45
+        }
+      },
+      "M3": {
+        "home": 2,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.809,
+          "draw": 0.137,
+          "away": 0.054
+        },
+        "lambda": {
+          "home": 2.47,
+          "away": 0.47
+        },
+        "set": [
+          "home"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gC-03": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.254,
+          "draw": 0.248,
+          "away": 0.498
+        },
+        "lambda": {
+          "home": 1.08,
+          "away": 1.62
+        }
+      },
+      "M2": {
+        "home": 0,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.24,
+          "draw": 0.263,
+          "away": 0.497
+        },
+        "lambda": {
+          "home": 0.94,
+          "away": 1.48
+        }
+      },
+      "M3": {
+        "home": 0,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.233,
+          "draw": 0.246,
+          "away": 0.521
+        },
+        "lambda": {
+          "home": 0.97,
+          "away": 1.6
+        },
+        "set": [
+          "draw",
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gC-04": {
+      "M1": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.637,
+          "draw": 0.214,
+          "away": 0.148
+        },
+        "lambda": {
+          "home": 1.91,
+          "away": 0.79
+        }
+      },
+      "M2": {
+        "home": 2,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.797,
+          "draw": 0.139,
+          "away": 0.065
+        },
+        "lambda": {
+          "home": 2.55,
+          "away": 0.56
+        }
+      },
+      "M3": {
+        "home": 2,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.755,
+          "draw": 0.156,
+          "away": 0.089
+        },
+        "lambda": {
+          "home": 2.4,
+          "away": 0.69
+        },
+        "set": [
+          "home"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gD-03": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "home",
+        "probs": {
+          "home": 0.379,
+          "draw": 0.258,
+          "away": 0.363
+        },
+        "lambda": {
+          "home": 1.37,
+          "away": 1.33
+        }
+      },
+      "M2": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.572,
+          "draw": 0.255,
+          "away": 0.173
+        },
+        "lambda": {
+          "home": 1.6,
+          "away": 0.77
+        }
+      },
+      "M3": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.557,
+          "draw": 0.245,
+          "away": 0.198
+        },
+        "lambda": {
+          "home": 1.62,
+          "away": 0.88
+        },
+        "set": [
+          "home",
+          "draw"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gD-04": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "home",
+        "probs": {
+          "home": 0.448,
+          "draw": 0.254,
+          "away": 0.298
+        },
+        "lambda": {
+          "home": 1.51,
+          "away": 1.19
+        }
+      },
+      "M2": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.417,
+          "draw": 0.298,
+          "away": 0.285
+        },
+        "lambda": {
+          "home": 1.21,
+          "away": 0.94
+        }
+      },
+      "M3": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.478,
+          "draw": 0.273,
+          "away": 0.249
+        },
+        "lambda": {
+          "home": 1.38,
+          "away": 0.91
+        },
+        "set": [
+          "home",
+          "draw",
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gE-03": {
+      "M1": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.559,
+          "draw": 0.236,
+          "away": 0.206
+        },
+        "lambda": {
+          "home": 1.74,
+          "away": 0.96
+        }
+      },
+      "M2": {
+        "home": 2,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.625,
+          "draw": 0.21,
+          "away": 0.165
+        },
+        "lambda": {
+          "home": 2.06,
+          "away": 0.96
+        }
+      },
+      "M3": {
+        "home": 2,
+        "away": 1,
+        "pick": "home",
+        "probs": {
+          "home": 0.601,
+          "draw": 0.205,
+          "away": 0.194
+        },
+        "lambda": {
+          "home": 2.18,
+          "away": 1.14
+        },
+        "set": [
+          "home"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gE-04": {
+      "M1": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.637,
+          "draw": 0.214,
+          "away": 0.149
+        },
+        "lambda": {
+          "home": 1.91,
+          "away": 0.79
+        }
+      },
+      "M2": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.703,
+          "draw": 0.207,
+          "away": 0.09
+        },
+        "lambda": {
+          "home": 1.83,
+          "away": 0.48
+        }
+      },
+      "M3": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.708,
+          "draw": 0.2,
+          "away": 0.092
+        },
+        "lambda": {
+          "home": 1.93,
+          "away": 0.54
+        },
+        "set": [
+          "home"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gF-03": {
+      "M1": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.576,
+          "draw": 0.231,
+          "away": 0.192
+        },
+        "lambda": {
+          "home": 1.78,
+          "away": 0.92
+        }
+      },
+      "M2": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.617,
+          "draw": 0.214,
+          "away": 0.17
+        },
+        "lambda": {
+          "home": 1.97,
+          "away": 0.91
+        }
+      },
+      "M3": {
+        "home": 2,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.646,
+          "draw": 0.202,
+          "away": 0.152
+        },
+        "lambda": {
+          "home": 2.11,
+          "away": 0.9
+        },
+        "set": [
+          "home"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gF-04": {
+      "M1": {
+        "home": 0,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.181,
+          "draw": 0.228,
+          "away": 0.591
+        },
+        "lambda": {
+          "home": 0.89,
+          "away": 1.81
+        }
+      },
+      "M2": {
+        "home": 1,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.198,
+          "draw": 0.223,
+          "away": 0.579
+        },
+        "lambda": {
+          "home": 1,
+          "away": 1.9
+        }
+      },
+      "M3": {
+        "home": 0,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.166,
+          "draw": 0.223,
+          "away": 0.612
+        },
+        "lambda": {
+          "home": 0.89,
+          "away": 1.91
+        },
+        "set": [
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gG-03": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "home",
+        "probs": {
+          "home": 0.425,
+          "draw": 0.256,
+          "away": 0.319
+        },
+        "lambda": {
+          "home": 1.46,
+          "away": 1.24
+        }
+      },
+      "M2": {
+        "home": 1,
+        "away": 1,
+        "pick": "home",
+        "probs": {
+          "home": 0.519,
+          "draw": 0.238,
+          "away": 0.243
+        },
+        "lambda": {
+          "home": 1.68,
+          "away": 1.07
+        }
+      },
+      "M3": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.56,
+          "draw": 0.233,
+          "away": 0.206
+        },
+        "lambda": {
+          "home": 1.75,
+          "away": 0.96
+        },
+        "set": [
+          "home"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gG-04": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.299,
+          "draw": 0.254,
+          "away": 0.447
+        },
+        "lambda": {
+          "home": 1.19,
+          "away": 1.51
+        }
+      },
+      "M2": {
+        "home": 0,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.176,
+          "draw": 0.286,
+          "away": 0.538
+        },
+        "lambda": {
+          "home": 0.63,
+          "away": 1.33
+        }
+      },
+      "M3": {
+        "home": 0,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.205,
+          "draw": 0.278,
+          "away": 0.517
+        },
+        "lambda": {
+          "home": 0.74,
+          "away": 1.36
+        },
+        "set": [
+          "draw",
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gH-03": {
+      "M1": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.666,
+          "draw": 0.205,
+          "away": 0.13
+        },
+        "lambda": {
+          "home": 1.97,
+          "away": 0.73
+        }
+      },
+      "M2": {
+        "home": 2,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.855,
+          "draw": 0.109,
+          "away": 0.036
+        },
+        "lambda": {
+          "home": 2.68,
+          "away": 0.39
+        }
+      },
+      "M3": {
+        "home": 2,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.815,
+          "draw": 0.13,
+          "away": 0.055
+        },
+        "lambda": {
+          "home": 2.52,
+          "away": 0.49
+        },
+        "set": [
+          "home"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gH-04": {
+      "M1": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.612,
+          "draw": 0.222,
+          "away": 0.166
+        },
+        "lambda": {
+          "home": 1.86,
+          "away": 0.84
+        }
+      },
+      "M2": {
+        "home": 2,
+        "away": 1,
+        "pick": "home",
+        "probs": {
+          "home": 0.648,
+          "draw": 0.193,
+          "away": 0.159
+        },
+        "lambda": {
+          "home": 2.26,
+          "away": 1.03
+        }
+      },
+      "M3": {
+        "home": 2,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.658,
+          "draw": 0.207,
+          "away": 0.135
+        },
+        "lambda": {
+          "home": 2.01,
+          "away": 0.79
+        },
+        "set": [
+          "home"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gI-03": {
+      "M1": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.632,
+          "draw": 0.216,
+          "away": 0.152
+        },
+        "lambda": {
+          "home": 1.9,
+          "away": 0.8
+        }
+      },
+      "M2": {
+        "home": 2,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.814,
+          "draw": 0.128,
+          "away": 0.058
+        },
+        "lambda": {
+          "home": 2.6,
+          "away": 0.54
+        }
+      },
+      "M3": {
+        "home": 2,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.79,
+          "draw": 0.141,
+          "away": 0.069
+        },
+        "lambda": {
+          "home": 2.5,
+          "away": 0.61
+        },
+        "set": [
+          "home"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gI-04": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "home",
+        "probs": {
+          "home": 0.475,
+          "draw": 0.251,
+          "away": 0.274
+        },
+        "lambda": {
+          "home": 1.57,
+          "away": 1.13
+        }
+      },
+      "M2": {
+        "home": 1,
+        "away": 1,
+        "pick": "home",
+        "probs": {
+          "home": 0.39,
+          "draw": 0.271,
+          "away": 0.34
+        },
+        "lambda": {
+          "home": 1.29,
+          "away": 1.19
+        }
+      },
+      "M3": {
+        "home": 1,
+        "away": 1,
+        "pick": "home",
+        "probs": {
+          "home": 0.418,
+          "draw": 0.259,
+          "away": 0.323
+        },
+        "lambda": {
+          "home": 1.45,
+          "away": 1.24
+        },
+        "set": [
+          "home",
+          "draw",
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gJ-03": {
+      "M1": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.587,
+          "draw": 0.229,
+          "away": 0.184
+        },
+        "lambda": {
+          "home": 1.8,
+          "away": 0.9
+        }
+      },
+      "M2": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.62,
+          "draw": 0.232,
+          "away": 0.149
+        },
+        "lambda": {
+          "home": 1.72,
+          "away": 0.7
+        }
+      },
+      "M3": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.634,
+          "draw": 0.218,
+          "away": 0.147
+        },
+        "lambda": {
+          "home": 1.86,
+          "away": 0.76
+        },
+        "set": [
+          "home"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gJ-04": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.284,
+          "draw": 0.252,
+          "away": 0.463
+        },
+        "lambda": {
+          "home": 1.15,
+          "away": 1.55
+        }
+      },
+      "M2": {
+        "home": 1,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.282,
+          "draw": 0.258,
+          "away": 0.46
+        },
+        "lambda": {
+          "home": 1.09,
+          "away": 1.46
+        }
+      },
+      "M3": {
+        "home": 1,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.28,
+          "draw": 0.261,
+          "away": 0.459
+        },
+        "lambda": {
+          "home": 1.09,
+          "away": 1.46
+        },
+        "set": [
+          "home",
+          "draw",
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gK-03": {
+      "M1": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.561,
+          "draw": 0.235,
+          "away": 0.204
+        },
+        "lambda": {
+          "home": 1.75,
+          "away": 0.95
+        }
+      },
+      "M2": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.682,
+          "draw": 0.205,
+          "away": 0.112
+        },
+        "lambda": {
+          "home": 1.92,
+          "away": 0.62
+        }
+      },
+      "M3": {
+        "home": 2,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.696,
+          "draw": 0.197,
+          "away": 0.107
+        },
+        "lambda": {
+          "home": 2.04,
+          "away": 0.67
+        },
+        "set": [
+          "home"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gK-04": {
+      "M1": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.601,
+          "draw": 0.225,
+          "away": 0.174
+        },
+        "lambda": {
+          "home": 1.83,
+          "away": 0.87
+        }
+      },
+      "M2": {
+        "home": 2,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.689,
+          "draw": 0.184,
+          "away": 0.127
+        },
+        "lambda": {
+          "home": 2.19,
+          "away": 0.8
+        }
+      },
+      "M3": {
+        "home": 2,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.694,
+          "draw": 0.183,
+          "away": 0.123
+        },
+        "lambda": {
+          "home": 2.15,
+          "away": 0.76
+        },
+        "set": [
+          "home"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gL-03": {
+      "M1": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.659,
+          "draw": 0.207,
+          "away": 0.134
+        },
+        "lambda": {
+          "home": 1.95,
+          "away": 0.75
+        }
+      },
+      "M2": {
+        "home": 2,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.801,
+          "draw": 0.131,
+          "away": 0.068
+        },
+        "lambda": {
+          "home": 2.71,
+          "away": 0.7
+        }
+      },
+      "M3": {
+        "home": 2,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.809,
+          "draw": 0.127,
+          "away": 0.065
+        },
+        "lambda": {
+          "home": 2.71,
+          "away": 0.66
+        },
+        "set": [
+          "home"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gL-04": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.25,
+          "draw": 0.247,
+          "away": 0.504
+        },
+        "lambda": {
+          "home": 1.07,
+          "away": 1.63
+        }
+      },
+      "M2": {
+        "home": 0,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.224,
+          "draw": 0.269,
+          "away": 0.508
+        },
+        "lambda": {
+          "home": 0.81,
+          "away": 1.38
+        }
+      },
+      "M3": {
+        "home": 0,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.172,
+          "draw": 0.265,
+          "away": 0.563
+        },
+        "lambda": {
+          "home": 0.71,
+          "away": 1.49
+        },
+        "set": [
+          "draw",
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gA-05": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "home",
+        "probs": {
+          "home": 0.512,
+          "draw": 0.245,
+          "away": 0.243
+        },
+        "lambda": {
+          "home": 1.65,
+          "away": 1.05
+        }
+      },
+      "M2": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.611,
+          "draw": 0.237,
+          "away": 0.151
+        },
+        "lambda": {
+          "home": 1.68,
+          "away": 0.69
+        }
+      },
+      "M3": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.585,
+          "draw": 0.248,
+          "away": 0.167
+        },
+        "lambda": {
+          "home": 1.59,
+          "away": 0.71
+        },
+        "set": [
+          "home",
+          "draw"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gA-06": {
+      "M1": {
+        "home": 0,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.215,
+          "draw": 0.238,
+          "away": 0.546
+        },
+        "lambda": {
+          "home": 0.98,
+          "away": 1.72
+        }
+      },
+      "M2": {
+        "home": 0,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.234,
+          "draw": 0.249,
+          "away": 0.517
+        },
+        "lambda": {
+          "home": 1,
+          "away": 1.61
+        }
+      },
+      "M3": {
+        "home": 0,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.181,
+          "draw": 0.24,
+          "away": 0.58
+        },
+        "lambda": {
+          "home": 0.81,
+          "away": 1.68
+        },
+        "set": [
+          "draw",
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gB-05": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.315,
+          "draw": 0.256,
+          "away": 0.429
+        },
+        "lambda": {
+          "home": 1.23,
+          "away": 1.47
+        }
+      },
+      "M2": {
+        "home": 1,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.282,
+          "draw": 0.264,
+          "away": 0.454
+        },
+        "lambda": {
+          "home": 1.04,
+          "away": 1.41
+        }
+      },
+      "M3": {
+        "home": 0,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.274,
+          "draw": 0.269,
+          "away": 0.458
+        },
+        "lambda": {
+          "home": 0.99,
+          "away": 1.37
+        },
+        "set": [
+          "home",
+          "draw",
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gB-06": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "home",
+        "probs": {
+          "home": 0.418,
+          "draw": 0.257,
+          "away": 0.325
+        },
+        "lambda": {
+          "home": 1.45,
+          "away": 1.25
+        }
+      },
+      "M2": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.478,
+          "draw": 0.28,
+          "away": 0.242
+        },
+        "lambda": {
+          "home": 1.38,
+          "away": 0.9
+        }
+      },
+      "M3": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.472,
+          "draw": 0.281,
+          "away": 0.248
+        },
+        "lambda": {
+          "home": 1.33,
+          "away": 0.89
+        },
+        "set": [
+          "home",
+          "draw",
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gC-05": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.224,
+          "draw": 0.241,
+          "away": 0.535
+        },
+        "lambda": {
+          "home": 1.01,
+          "away": 1.69
+        }
+      },
+      "M2": {
+        "home": 0,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.133,
+          "draw": 0.217,
+          "away": 0.65
+        },
+        "lambda": {
+          "home": 0.75,
+          "away": 1.9
+        }
+      },
+      "M3": {
+        "home": 0,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.149,
+          "draw": 0.221,
+          "away": 0.63
+        },
+        "lambda": {
+          "home": 0.8,
+          "away": 1.85
+        },
+        "set": [
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gC-06": {
+      "M1": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.622,
+          "draw": 0.219,
+          "away": 0.159
+        },
+        "lambda": {
+          "home": 1.87,
+          "away": 0.83
+        }
+      },
+      "M2": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.671,
+          "draw": 0.206,
+          "away": 0.122
+        },
+        "lambda": {
+          "home": 1.88,
+          "away": 0.64
+        }
+      },
+      "M3": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.646,
+          "draw": 0.22,
+          "away": 0.134
+        },
+        "lambda": {
+          "home": 1.85,
+          "away": 0.71
+        },
+        "set": [
+          "home"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gD-05": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.307,
+          "draw": 0.255,
+          "away": 0.438
+        },
+        "lambda": {
+          "home": 1.21,
+          "away": 1.49
+        }
+      },
+      "M2": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.451,
+          "draw": 0.289,
+          "away": 0.26
+        },
+        "lambda": {
+          "home": 1.28,
+          "away": 0.92
+        }
+      },
+      "M3": {
+        "home": 1,
+        "away": 1,
+        "pick": "home",
+        "probs": {
+          "home": 0.428,
+          "draw": 0.276,
+          "away": 0.296
+        },
+        "lambda": {
+          "home": 1.34,
+          "away": 1.06
+        },
+        "set": [
+          "home",
+          "draw",
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gD-06": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.369,
+          "draw": 0.258,
+          "away": 0.373
+        },
+        "lambda": {
+          "home": 1.35,
+          "away": 1.35
+        }
+      },
+      "M2": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.405,
+          "draw": 0.298,
+          "away": 0.298
+        },
+        "lambda": {
+          "home": 1.12,
+          "away": 0.94
+        }
+      },
+      "M3": {
+        "home": 1,
+        "away": 1,
+        "pick": "home",
+        "probs": {
+          "home": 0.365,
+          "draw": 0.303,
+          "away": 0.333
+        },
+        "lambda": {
+          "home": 1.09,
+          "away": 1.04
+        },
+        "set": [
+          "home",
+          "draw",
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gE-05": {
+      "M1": {
+        "home": 0,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.212,
+          "draw": 0.238,
+          "away": 0.55
+        },
+        "lambda": {
+          "home": 0.98,
+          "away": 1.72
+        }
+      },
+      "M2": {
+        "home": 0,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.136,
+          "draw": 0.246,
+          "away": 0.618
+        },
+        "lambda": {
+          "home": 0.64,
+          "away": 1.65
+        }
+      },
+      "M3": {
+        "home": 0,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.135,
+          "draw": 0.232,
+          "away": 0.633
+        },
+        "lambda": {
+          "home": 0.63,
+          "away": 1.7
+        },
+        "set": [
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gE-06": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.335,
+          "draw": 0.257,
+          "away": 0.408
+        },
+        "lambda": {
+          "home": 1.27,
+          "away": 1.43
+        }
+      },
+      "M2": {
+        "home": 0,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.14,
+          "draw": 0.243,
+          "away": 0.617
+        },
+        "lambda": {
+          "home": 0.64,
+          "away": 1.63
+        }
+      },
+      "M3": {
+        "home": 0,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.147,
+          "draw": 0.25,
+          "away": 0.604
+        },
+        "lambda": {
+          "home": 0.65,
+          "away": 1.6
+        },
+        "set": [
+          "draw",
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gF-05": {
+      "M1": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.558,
+          "draw": 0.236,
+          "away": 0.206
+        },
+        "lambda": {
+          "home": 1.74,
+          "away": 0.96
+        }
+      },
+      "M2": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.546,
+          "draw": 0.246,
+          "away": 0.208
+        },
+        "lambda": {
+          "home": 1.62,
+          "away": 0.89
+        }
+      },
+      "M3": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.571,
+          "draw": 0.232,
+          "away": 0.197
+        },
+        "lambda": {
+          "home": 1.76,
+          "away": 0.92
+        },
+        "set": [
+          "home"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gF-06": {
+      "M1": {
+        "home": 0,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.171,
+          "draw": 0.224,
+          "away": 0.606
+        },
+        "lambda": {
+          "home": 0.86,
+          "away": 1.84
+        }
+      },
+      "M2": {
+        "home": 0,
+        "away": 2,
+        "pick": "away",
+        "probs": {
+          "home": 0.15,
+          "draw": 0.192,
+          "away": 0.658
+        },
+        "lambda": {
+          "home": 0.92,
+          "away": 2.17
+        }
+      },
+      "M3": {
+        "home": 0,
+        "away": 2,
+        "pick": "away",
+        "probs": {
+          "home": 0.133,
+          "draw": 0.182,
+          "away": 0.684
+        },
+        "lambda": {
+          "home": 0.86,
+          "away": 2.24
+        },
+        "set": [
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gG-05": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.291,
+          "draw": 0.253,
+          "away": 0.456
+        },
+        "lambda": {
+          "home": 1.17,
+          "away": 1.53
+        }
+      },
+      "M2": {
+        "home": 1,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.316,
+          "draw": 0.271,
+          "away": 0.412
+        },
+        "lambda": {
+          "home": 1.11,
+          "away": 1.32
+        }
+      },
+      "M3": {
+        "home": 0,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.271,
+          "draw": 0.266,
+          "away": 0.463
+        },
+        "lambda": {
+          "home": 1,
+          "away": 1.4
+        },
+        "set": [
+          "home",
+          "draw",
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gG-06": {
+      "M1": {
+        "home": 0,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.202,
+          "draw": 0.235,
+          "away": 0.563
+        },
+        "lambda": {
+          "home": 0.95,
+          "away": 1.75
+        }
+      },
+      "M2": {
+        "home": 0,
+        "away": 2,
+        "pick": "away",
+        "probs": {
+          "home": 0.057,
+          "draw": 0.176,
+          "away": 0.767
+        },
+        "lambda": {
+          "home": 0.38,
+          "away": 2
+        }
+      },
+      "M3": {
+        "home": 0,
+        "away": 2,
+        "pick": "away",
+        "probs": {
+          "home": 0.057,
+          "draw": 0.146,
+          "away": 0.796
+        },
+        "lambda": {
+          "home": 0.5,
+          "away": 2.39
+        },
+        "set": [
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gH-05": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.312,
+          "draw": 0.256,
+          "away": 0.432
+        },
+        "lambda": {
+          "home": 1.22,
+          "away": 1.48
+        }
+      },
+      "M2": {
+        "home": 1,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.349,
+          "draw": 0.266,
+          "away": 0.384
+        },
+        "lambda": {
+          "home": 1.31,
+          "away": 1.38
+        }
+      },
+      "M3": {
+        "home": 1,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.274,
+          "draw": 0.264,
+          "away": 0.462
+        },
+        "lambda": {
+          "home": 1.07,
+          "away": 1.49
+        },
+        "set": [
+          "home",
+          "draw",
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gH-06": {
+      "M1": {
+        "home": 0,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.185,
+          "draw": 0.229,
+          "away": 0.586
+        },
+        "lambda": {
+          "home": 0.9,
+          "away": 1.8
+        }
+      },
+      "M2": {
+        "home": 0,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.112,
+          "draw": 0.199,
+          "away": 0.69
+        },
+        "lambda": {
+          "home": 0.61,
+          "away": 1.91
+        }
+      },
+      "M3": {
+        "home": 0,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.13,
+          "draw": 0.208,
+          "away": 0.662
+        },
+        "lambda": {
+          "home": 0.67,
+          "away": 1.83
+        },
+        "set": [
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gI-05": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.265,
+          "draw": 0.25,
+          "away": 0.485
+        },
+        "lambda": {
+          "home": 1.11,
+          "away": 1.59
+        }
+      },
+      "M2": {
+        "home": 0,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.155,
+          "draw": 0.211,
+          "away": 0.634
+        },
+        "lambda": {
+          "home": 0.85,
+          "away": 1.95
+        }
+      },
+      "M3": {
+        "home": 0,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.187,
+          "draw": 0.223,
+          "away": 0.591
+        },
+        "lambda": {
+          "home": 0.97,
+          "away": 1.92
+        },
+        "set": [
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gI-06": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "home",
+        "probs": {
+          "home": 0.499,
+          "draw": 0.247,
+          "away": 0.253
+        },
+        "lambda": {
+          "home": 1.62,
+          "away": 1.08
+        }
+      },
+      "M2": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.556,
+          "draw": 0.254,
+          "away": 0.19
+        },
+        "lambda": {
+          "home": 1.52,
+          "away": 0.75
+        }
+      },
+      "M3": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.591,
+          "draw": 0.239,
+          "away": 0.17
+        },
+        "lambda": {
+          "home": 1.61,
+          "away": 0.71
+        },
+        "set": [
+          "home",
+          "draw"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gJ-05": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.325,
+          "draw": 0.257,
+          "away": 0.418
+        },
+        "lambda": {
+          "home": 1.25,
+          "away": 1.45
+        }
+      },
+      "M2": {
+        "home": 1,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.349,
+          "draw": 0.272,
+          "away": 0.379
+        },
+        "lambda": {
+          "home": 1.2,
+          "away": 1.26
+        }
+      },
+      "M3": {
+        "home": 1,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.301,
+          "draw": 0.269,
+          "away": 0.429
+        },
+        "lambda": {
+          "home": 1.09,
+          "away": 1.35
+        },
+        "set": [
+          "home",
+          "draw",
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gJ-06": {
+      "M1": {
+        "home": 0,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.143,
+          "draw": 0.212,
+          "away": 0.645
+        },
+        "lambda": {
+          "home": 0.78,
+          "away": 1.92
+        }
+      },
+      "M2": {
+        "home": 0,
+        "away": 2,
+        "pick": "away",
+        "probs": {
+          "home": 0.102,
+          "draw": 0.187,
+          "away": 0.711
+        },
+        "lambda": {
+          "home": 0.65,
+          "away": 2.16
+        }
+      },
+      "M3": {
+        "home": 0,
+        "away": 2,
+        "pick": "away",
+        "probs": {
+          "home": 0.103,
+          "draw": 0.19,
+          "away": 0.707
+        },
+        "lambda": {
+          "home": 0.69,
+          "away": 2.15
+        },
+        "set": [
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gK-05": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "home",
+        "probs": {
+          "home": 0.373,
+          "draw": 0.258,
+          "away": 0.369
+        },
+        "lambda": {
+          "home": 1.35,
+          "away": 1.35
+        }
+      },
+      "M2": {
+        "home": 1,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.34,
+          "draw": 0.254,
+          "away": 0.406
+        },
+        "lambda": {
+          "home": 1.36,
+          "away": 1.51
+        }
+      },
+      "M3": {
+        "home": 1,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.312,
+          "draw": 0.26,
+          "away": 0.428
+        },
+        "lambda": {
+          "home": 1.26,
+          "away": 1.52
+        },
+        "set": [
+          "home",
+          "draw",
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gK-06": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.308,
+          "draw": 0.255,
+          "away": 0.436
+        },
+        "lambda": {
+          "home": 1.21,
+          "away": 1.49
+        }
+      },
+      "M2": {
+        "home": 0,
+        "away": 0,
+        "pick": "away",
+        "probs": {
+          "home": 0.338,
+          "draw": 0.315,
+          "away": 0.346
+        },
+        "lambda": {
+          "home": 0.92,
+          "away": 0.94
+        }
+      },
+      "M3": {
+        "home": 0,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.272,
+          "draw": 0.304,
+          "away": 0.424
+        },
+        "lambda": {
+          "home": 0.83,
+          "away": 1.09
+        },
+        "set": [
+          "home",
+          "draw",
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gL-05": {
+      "M1": {
+        "home": 0,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.18,
+          "draw": 0.227,
+          "away": 0.593
+        },
+        "lambda": {
+          "home": 0.89,
+          "away": 1.81
+        }
+      },
+      "M2": {
+        "home": 0,
+        "away": 2,
+        "pick": "away",
+        "probs": {
+          "home": 0.087,
+          "draw": 0.173,
+          "away": 0.74
+        },
+        "lambda": {
+          "home": 0.53,
+          "away": 2.13
+        }
+      },
+      "M3": {
+        "home": 0,
+        "away": 2,
+        "pick": "away",
+        "probs": {
+          "home": 0.097,
+          "draw": 0.196,
+          "away": 0.708
+        },
+        "lambda": {
+          "home": 0.57,
+          "away": 2
+        },
+        "set": [
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "gL-06": {
+      "M1": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.622,
+          "draw": 0.219,
+          "away": 0.159
+        },
+        "lambda": {
+          "home": 1.88,
+          "away": 0.82
+        }
+      },
+      "M2": {
+        "home": 2,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.63,
+          "draw": 0.207,
+          "away": 0.163
+        },
+        "lambda": {
+          "home": 2.06,
+          "away": 0.91
+        }
+      },
+      "M3": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.624,
+          "draw": 0.215,
+          "away": 0.162
+        },
+        "lambda": {
+          "home": 1.93,
+          "away": 0.87
+        },
+        "set": [
+          "home"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "P73": {
+      "M1": {
+        "home": 0,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.202,
+          "draw": 0.235,
+          "away": 0.563
+        },
+        "lambda": {
+          "home": 0.95,
+          "away": 1.75
+        }
+      },
+      "M2": {
+        "home": 0,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.231,
+          "draw": 0.257,
+          "away": 0.512
+        },
+        "lambda": {
+          "home": 0.94,
+          "away": 1.54
+        }
+      },
+      "M3": {
+        "home": 0,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.193,
+          "draw": 0.255,
+          "away": 0.551
+        },
+        "lambda": {
+          "home": 0.8,
+          "away": 1.55
+        },
+        "set": [
+          "draw",
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "P74": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "home",
+        "probs": {
+          "home": 0.507,
+          "draw": 0.246,
+          "away": 0.247
+        },
+        "lambda": {
+          "home": 1.64,
+          "away": 1.06
+        }
+      },
+      "M2": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.658,
+          "draw": 0.218,
+          "away": 0.123
+        },
+        "lambda": {
+          "home": 1.81,
+          "away": 0.63
+        }
+      },
+      "M3": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.68,
+          "draw": 0.207,
+          "away": 0.113
+        },
+        "lambda": {
+          "home": 1.9,
+          "away": 0.62
+        },
+        "set": [
+          "home"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "P75": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "home",
+        "probs": {
+          "home": 0.387,
+          "draw": 0.258,
+          "away": 0.355
+        },
+        "lambda": {
+          "home": 1.39,
+          "away": 1.31
+        }
+      },
+      "M2": {
+        "home": 1,
+        "away": 1,
+        "pick": "home",
+        "probs": {
+          "home": 0.439,
+          "draw": 0.262,
+          "away": 0.299
+        },
+        "lambda": {
+          "home": 1.44,
+          "away": 1.14
+        }
+      },
+      "M3": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.465,
+          "draw": 0.272,
+          "away": 0.263
+        },
+        "lambda": {
+          "home": 1.38,
+          "away": 0.97
+        },
+        "set": [
+          "home",
+          "draw",
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "P76": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "home",
+        "probs": {
+          "home": 0.427,
+          "draw": 0.256,
+          "away": 0.317
+        },
+        "lambda": {
+          "home": 1.47,
+          "away": 1.23
+        }
+      },
+      "M2": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.524,
+          "draw": 0.258,
+          "away": 0.218
+        },
+        "lambda": {
+          "home": 1.53,
+          "away": 0.89
+        }
+      },
+      "M3": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.518,
+          "draw": 0.256,
+          "away": 0.225
+        },
+        "lambda": {
+          "home": 1.54,
+          "away": 0.92
+        },
+        "set": [
+          "home",
+          "draw"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "P77": {
+      "M1": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.622,
+          "draw": 0.219,
+          "away": 0.159
+        },
+        "lambda": {
+          "home": 1.88,
+          "away": 0.82
+        }
+      },
+      "M2": {
+        "home": 2,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.749,
+          "draw": 0.162,
+          "away": 0.089
+        },
+        "lambda": {
+          "home": 2.34,
+          "away": 0.67
+        }
+      },
+      "M3": {
+        "home": 2,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.694,
+          "draw": 0.187,
+          "away": 0.119
+        },
+        "lambda": {
+          "home": 2.16,
+          "away": 0.77
+        },
+        "set": [
+          "home"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "P78": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.226,
+          "draw": 0.241,
+          "away": 0.532
+        },
+        "lambda": {
+          "home": 1.01,
+          "away": 1.69
+        }
+      },
+      "M2": {
+        "home": 0,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.263,
+          "draw": 0.269,
+          "away": 0.468
+        },
+        "lambda": {
+          "home": 0.98,
+          "away": 1.41
+        }
+      },
+      "M3": {
+        "home": 1,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.249,
+          "draw": 0.249,
+          "away": 0.502
+        },
+        "lambda": {
+          "home": 1.06,
+          "away": 1.61
+        },
+        "set": [
+          "home",
+          "draw",
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "P79": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.345,
+          "draw": 0.258,
+          "away": 0.397
+        },
+        "lambda": {
+          "home": 1.29,
+          "away": 1.41
+        }
+      },
+      "M2": {
+        "home": 0,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.338,
+          "draw": 0.328,
+          "away": 0.334
+        },
+        "lambda": {
+          "home": 0.91,
+          "away": 0.9
+        }
+      },
+      "M3": {
+        "home": 0,
+        "away": 0,
+        "pick": "away",
+        "probs": {
+          "home": 0.32,
+          "draw": 0.337,
+          "away": 0.343
+        },
+        "lambda": {
+          "home": 0.84,
+          "away": 0.88
+        },
+        "set": [
+          "home",
+          "draw",
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "P80": {
+      "M1": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.624,
+          "draw": 0.218,
+          "away": 0.158
+        },
+        "lambda": {
+          "home": 1.88,
+          "away": 0.82
+        }
+      },
+      "M2": {
+        "home": 2,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.711,
+          "draw": 0.181,
+          "away": 0.107
+        },
+        "lambda": {
+          "home": 2.18,
+          "away": 0.71
+        }
+      },
+      "M3": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.679,
+          "draw": 0.202,
+          "away": 0.119
+        },
+        "lambda": {
+          "home": 1.97,
+          "away": 0.68
+        },
+        "set": [
+          "home"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "P81": {
+      "M1": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.574,
+          "draw": 0.232,
+          "away": 0.194
+        },
+        "lambda": {
+          "home": 1.78,
+          "away": 0.92
+        }
+      },
+      "M2": {
+        "home": 2,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.715,
+          "draw": 0.182,
+          "away": 0.103
+        },
+        "lambda": {
+          "home": 2.15,
+          "away": 0.68
+        }
+      },
+      "M3": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.688,
+          "draw": 0.2,
+          "away": 0.112
+        },
+        "lambda": {
+          "home": 1.97,
+          "away": 0.64
+        },
+        "set": [
+          "home"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "P82": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "home",
+        "probs": {
+          "home": 0.431,
+          "draw": 0.256,
+          "away": 0.313
+        },
+        "lambda": {
+          "home": 1.48,
+          "away": 1.22
+        }
+      },
+      "M2": {
+        "home": 1,
+        "away": 1,
+        "pick": "home",
+        "probs": {
+          "home": 0.471,
+          "draw": 0.252,
+          "away": 0.277
+        },
+        "lambda": {
+          "home": 1.56,
+          "away": 1.13
+        }
+      },
+      "M3": {
+        "home": 1,
+        "away": 1,
+        "pick": "home",
+        "probs": {
+          "home": 0.503,
+          "draw": 0.245,
+          "away": 0.252
+        },
+        "lambda": {
+          "home": 1.64,
+          "away": 1.09
+        },
+        "set": [
+          "home",
+          "draw",
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "P83": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "home",
+        "probs": {
+          "home": 0.443,
+          "draw": 0.255,
+          "away": 0.302
+        },
+        "lambda": {
+          "home": 1.5,
+          "away": 1.2
+        }
+      },
+      "M2": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.503,
+          "draw": 0.257,
+          "away": 0.24
+        },
+        "lambda": {
+          "home": 1.53,
+          "away": 0.97
+        }
+      },
+      "M3": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.529,
+          "draw": 0.255,
+          "away": 0.216
+        },
+        "lambda": {
+          "home": 1.56,
+          "away": 0.89
+        },
+        "set": [
+          "home",
+          "draw"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "P84": {
+      "M1": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.609,
+          "draw": 0.223,
+          "away": 0.168
+        },
+        "lambda": {
+          "home": 1.85,
+          "away": 0.85
+        }
+      },
+      "M2": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.657,
+          "draw": 0.212,
+          "away": 0.131
+        },
+        "lambda": {
+          "home": 1.9,
+          "away": 0.7
+        }
+      },
+      "M3": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.624,
+          "draw": 0.229,
+          "away": 0.147
+        },
+        "lambda": {
+          "home": 1.75,
+          "away": 0.71
+        },
+        "set": [
+          "home"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "P85": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "home",
+        "probs": {
+          "home": 0.475,
+          "draw": 0.251,
+          "away": 0.274
+        },
+        "lambda": {
+          "home": 1.57,
+          "away": 1.13
+        }
+      },
+      "M2": {
+        "home": 1,
+        "away": 1,
+        "pick": "home",
+        "probs": {
+          "home": 0.486,
+          "draw": 0.253,
+          "away": 0.261
+        },
+        "lambda": {
+          "home": 1.56,
+          "away": 1.07
+        }
+      },
+      "M3": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.498,
+          "draw": 0.257,
+          "away": 0.245
+        },
+        "lambda": {
+          "home": 1.53,
+          "away": 0.99
+        },
+        "set": [
+          "home",
+          "draw",
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "P86": {
+      "M1": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.668,
+          "draw": 0.204,
+          "away": 0.128
+        },
+        "lambda": {
+          "home": 1.98,
+          "away": 0.72
+        }
+      },
+      "M2": {
+        "home": 2,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.764,
+          "draw": 0.152,
+          "away": 0.085
+        },
+        "lambda": {
+          "home": 2.48,
+          "away": 0.7
+        }
+      },
+      "M3": {
+        "home": 2,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.817,
+          "draw": 0.128,
+          "away": 0.056
+        },
+        "lambda": {
+          "home": 2.62,
+          "away": 0.55
+        },
+        "set": [
+          "home"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "P87": {
+      "M1": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.647,
+          "draw": 0.211,
+          "away": 0.142
+        },
+        "lambda": {
+          "home": 1.93,
+          "away": 0.77
+        }
+      },
+      "M2": {
+        "home": 2,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.735,
+          "draw": 0.162,
+          "away": 0.103
+        },
+        "lambda": {
+          "home": 2.44,
+          "away": 0.8
+        }
+      },
+      "M3": {
+        "home": 2,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.769,
+          "draw": 0.145,
+          "away": 0.086
+        },
+        "lambda": {
+          "home": 2.61,
+          "away": 0.76
+        },
+        "set": [
+          "home"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "P88": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "home",
+        "probs": {
+          "home": 0.451,
+          "draw": 0.254,
+          "away": 0.295
+        },
+        "lambda": {
+          "home": 1.52,
+          "away": 1.18
+        }
+      },
+      "M2": {
+        "home": 1,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.349,
+          "draw": 0.301,
+          "away": 0.35
+        },
+        "lambda": {
+          "home": 1.04,
+          "away": 1.04
+        }
+      },
+      "M3": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.421,
+          "draw": 0.292,
+          "away": 0.287
+        },
+        "lambda": {
+          "home": 1.21,
+          "away": 0.94
+        },
+        "set": [
+          "home",
+          "draw",
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "P89": {
+      "M1": {
+        "home": 0,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.166,
+          "draw": 0.222,
+          "away": 0.613
+        },
+        "lambda": {
+          "home": 0.84,
+          "away": 1.86
+        }
+      },
+      "M2": {
+        "home": 0,
+        "away": 2,
+        "pick": "away",
+        "probs": {
+          "home": 0.054,
+          "draw": 0.143,
+          "away": 0.802
+        },
+        "lambda": {
+          "home": 0.45,
+          "away": 2.36
+        }
+      },
+      "M3": {
+        "home": 0,
+        "away": 2,
+        "pick": "away",
+        "probs": {
+          "home": 0.061,
+          "draw": 0.154,
+          "away": 0.785
+        },
+        "lambda": {
+          "home": 0.46,
+          "away": 2.26
+        },
+        "set": [
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "P90": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.277,
+          "draw": 0.252,
+          "away": 0.471
+        },
+        "lambda": {
+          "home": 1.14,
+          "away": 1.56
+        }
+      },
+      "M2": {
+        "home": 0,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.177,
+          "draw": 0.279,
+          "away": 0.543
+        },
+        "lambda": {
+          "home": 0.65,
+          "away": 1.37
+        }
+      },
+      "M3": {
+        "home": 0,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.179,
+          "draw": 0.277,
+          "away": 0.544
+        },
+        "lambda": {
+          "home": 0.67,
+          "away": 1.39
+        },
+        "set": [
+          "draw",
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "P91": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "home",
+        "probs": {
+          "home": 0.461,
+          "draw": 0.253,
+          "away": 0.286
+        },
+        "lambda": {
+          "home": 1.54,
+          "away": 1.16
+        }
+      },
+      "M2": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.606,
+          "draw": 0.237,
+          "away": 0.157
+        },
+        "lambda": {
+          "home": 1.69,
+          "away": 0.72
+        }
+      },
+      "M3": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.559,
+          "draw": 0.243,
+          "away": 0.198
+        },
+        "lambda": {
+          "home": 1.66,
+          "away": 0.88
+        },
+        "set": [
+          "home",
+          "draw"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "P92": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.299,
+          "draw": 0.254,
+          "away": 0.447
+        },
+        "lambda": {
+          "home": 1.19,
+          "away": 1.51
+        }
+      },
+      "M2": {
+        "home": 0,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.146,
+          "draw": 0.229,
+          "away": 0.625
+        },
+        "lambda": {
+          "home": 0.71,
+          "away": 1.75
+        }
+      },
+      "M3": {
+        "home": 0,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.155,
+          "draw": 0.238,
+          "away": 0.607
+        },
+        "lambda": {
+          "home": 0.71,
+          "away": 1.68
+        },
+        "set": [
+          "draw",
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "P93": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.25,
+          "draw": 0.247,
+          "away": 0.503
+        },
+        "lambda": {
+          "home": 1.07,
+          "away": 1.63
+        }
+      },
+      "M2": {
+        "home": 1,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.241,
+          "draw": 0.252,
+          "away": 0.506
+        },
+        "lambda": {
+          "home": 1.01,
+          "away": 1.58
+        }
+      },
+      "M3": {
+        "home": 0,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.225,
+          "draw": 0.245,
+          "away": 0.53
+        },
+        "lambda": {
+          "home": 0.99,
+          "away": 1.66
+        },
+        "set": [
+          "draw",
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "P94": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "home",
+        "probs": {
+          "home": 0.394,
+          "draw": 0.258,
+          "away": 0.348
+        },
+        "lambda": {
+          "home": 1.4,
+          "away": 1.3
+        }
+      },
+      "M2": {
+        "home": 1,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.33,
+          "draw": 0.262,
+          "away": 0.409
+        },
+        "lambda": {
+          "home": 1.23,
+          "away": 1.39
+        }
+      },
+      "M3": {
+        "home": 1,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.317,
+          "draw": 0.258,
+          "away": 0.425
+        },
+        "lambda": {
+          "home": 1.22,
+          "away": 1.45
+        },
+        "set": [
+          "home",
+          "draw",
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "P95": {
+      "M1": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.612,
+          "draw": 0.222,
+          "away": 0.166
+        },
+        "lambda": {
+          "home": 1.86,
+          "away": 0.84
+        }
+      },
+      "M2": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.672,
+          "draw": 0.205,
+          "away": 0.123
+        },
+        "lambda": {
+          "home": 1.95,
+          "away": 0.69
+        }
+      },
+      "M3": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.664,
+          "draw": 0.208,
+          "away": 0.127
+        },
+        "lambda": {
+          "home": 1.92,
+          "away": 0.7
+        },
+        "set": [
+          "home"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "P96": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.316,
+          "draw": 0.256,
+          "away": 0.428
+        },
+        "lambda": {
+          "home": 1.23,
+          "away": 1.47
+        }
+      },
+      "M2": {
+        "home": 1,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.306,
+          "draw": 0.276,
+          "away": 0.418
+        },
+        "lambda": {
+          "home": 1.07,
+          "away": 1.31
+        }
+      },
+      "M3": {
+        "home": 1,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.261,
+          "draw": 0.265,
+          "away": 0.474
+        },
+        "lambda": {
+          "home": 1.0,
+          "away": 1.45
+        },
+        "set": [
+          "home",
+          "draw",
+          "away"
+        ],
+        "coverage": 0.8
+      }
+    },
+    "P97": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "home",
+        "probs": {
+          "home": 0.486,
+          "draw": 0.25,
+          "away": 0.265
+        },
+        "lambda": {
+          "home": 1.59,
+          "away": 1.11
+        }
+      },
+      "M2": null,
+      "M3": null
+    },
+    "P99": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "away",
+        "probs": {
+          "home": 0.256,
+          "draw": 0.248,
+          "away": 0.496
+        },
+        "lambda": {
+          "home": 1.09,
+          "away": 1.61
+        }
+      },
+      "M2": null,
+      "M3": null
+    }
+  }
+}
