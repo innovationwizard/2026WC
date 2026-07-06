@@ -8779,8 +8779,13 @@
         "country": null,
         "neutral": true
       },
-      "status": "por_jugarse",
-      "result": null,
+      "status": "finalizado",
+      "result": {
+        "home": 0,
+        "away": 1,
+        "outcome": "away",
+        "advances": "Spain"
+      },
       "predictions": {
         "M1": {
           "home": 1,
@@ -9105,76 +9110,6 @@
         "M3": null,
         "Mercado": null,
         "M3_frozen": null
-      }
-    },
-    {
-      "id": "P97",
-      "date": "2026-07-09",
-      "time": "20:00",
-      "stage": "cuartos",
-      "group": null,
-      "home": "France",
-      "away": "Morocco",
-      "venue": {
-        "city": null,
-        "country": null,
-        "neutral": true
-      },
-      "status": "por_jugarse",
-      "result": null,
-      "predictions": {
-        "M1": {
-          "home": 1,
-          "away": 1,
-          "pick": "home",
-          "probs": {
-            "home": 0.476,
-            "draw": 0.251,
-            "away": 0.273
-          },
-          "lambda": {
-            "home": 1.57,
-            "away": 1.13
-          }
-        },
-        "M2": null,
-        "M3": null,
-        "Mercado": null
-      }
-    },
-    {
-      "id": "P99",
-      "date": "2026-07-11",
-      "time": "21:00",
-      "stage": "cuartos",
-      "group": null,
-      "home": "Norway",
-      "away": "England",
-      "venue": {
-        "city": null,
-        "country": null,
-        "neutral": true
-      },
-      "status": "por_jugarse",
-      "result": null,
-      "predictions": {
-        "M1": {
-          "home": 1,
-          "away": 1,
-          "pick": "away",
-          "probs": {
-            "home": 0.282,
-            "draw": 0.252,
-            "away": 0.465
-          },
-          "lambda": {
-            "home": 1.15,
-            "away": 1.55
-          }
-        },
-        "M2": null,
-        "M3": null,
-        "Mercado": null
       }
     }
   ],
