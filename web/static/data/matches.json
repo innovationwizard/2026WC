@@ -6946,7 +6946,7 @@
     {
       "id": "P92",
       "date": "2026-07-06",
-      "time": "00:00",
+      "time": "01:00",
       "stage": "octavos",
       "group": null,
       "home": "Mexico",
@@ -6956,8 +6956,13 @@
         "country": null,
         "neutral": true
       },
-      "status": "por_jugarse",
-      "result": null,
+      "status": "finalizado",
+      "result": {
+        "home": 2,
+        "away": 3,
+        "outcome": "away",
+        "advances": "England"
+      },
       "predictions": {
         "M1": {
           "home": 1,
