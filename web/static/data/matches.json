@@ -11,10 +11,10 @@
     "stub": [
       "Mercado"
     ],
-    "count": 98,
+    "count": 99,
     "count_group": 72,
-    "count_knockout": 26,
-    "note": "72 group + 26 knockout matches (knockouts read from the authoritative feeds as the bracket resolves). Knockout predictions are the 90-min 1X2; result.advances carries who progressed (ET/penalties). Team display (Spanish/flags) is GUI-only in web/src/lib/teams.js."
+    "count_knockout": 27,
+    "note": "72 group + 27 knockout matches (knockouts read from the authoritative feeds as the bracket resolves). Knockout predictions are the 90-min 1X2; result.advances carries who progressed (ET/penalties). Team display (Spanish/flags) is GUI-only in web/src/lib/teams.js."
   },
   "matches": [
     {
@@ -8851,8 +8851,13 @@
         "country": null,
         "neutral": true
       },
-      "status": "por_jugarse",
-      "result": null,
+      "status": "finalizado",
+      "result": {
+        "home": 1,
+        "away": 4,
+        "outcome": "away",
+        "advances": "Belgium"
+      },
       "predictions": {
         "M1": {
           "home": 1,
@@ -9068,6 +9073,42 @@
           "lambda": {
             "home": 1.59,
             "away": 1.11
+          }
+        },
+        "M2": null,
+        "M3": null,
+        "Mercado": null,
+        "M3_frozen": null
+      }
+    },
+    {
+      "id": "P98",
+      "date": "2026-07-10",
+      "time": "19:00",
+      "stage": "cuartos",
+      "group": null,
+      "home": "Spain",
+      "away": "Belgium",
+      "venue": {
+        "city": null,
+        "country": null,
+        "neutral": true
+      },
+      "status": "por_jugarse",
+      "result": null,
+      "predictions": {
+        "M1": {
+          "home": 1,
+          "away": 0,
+          "pick": "home",
+          "probs": {
+            "home": 0.586,
+            "draw": 0.229,
+            "away": 0.185
+          },
+          "lambda": {
+            "home": 1.8,
+            "away": 0.9
           }
         },
         "M2": null,

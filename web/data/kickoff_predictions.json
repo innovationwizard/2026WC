@@ -4717,6 +4717,24 @@
       },
       "M2": null,
       "M3": null
+    },
+    "P98": {
+      "M1": {
+        "home": 1,
+        "away": 0,
+        "pick": "home",
+        "probs": {
+          "home": 0.586,
+          "draw": 0.229,
+          "away": 0.185
+        },
+        "lambda": {
+          "home": 1.8,
+          "away": 0.9
+        }
+      },
+      "M2": null,
+      "M3": null
     }
   }
 }
