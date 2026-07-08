@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated": "2026-07-07",
+    "generated": "2026-07-08",
     "source": "results.csv (fixtures) + v2/output/predictions.json (M1 Elo, M2 neural-ensemble, M3 conjunto+conformal)",
     "models": [
       "M1",
@@ -11,10 +11,10 @@
     "stub": [
       "Mercado"
     ],
-    "count": 99,
+    "count": 100,
     "count_group": 72,
-    "count_knockout": 27,
-    "note": "72 group + 27 knockout matches (knockouts read from the authoritative feeds as the bracket resolves). Knockout predictions are the 90-min 1X2; result.advances carries who progressed (ET/penalties). Team display (Spanish/flags) is GUI-only in web/src/lib/teams.js."
+    "count_knockout": 28,
+    "note": "72 group + 28 knockout matches (knockouts read from the authoritative feeds as the bracket resolves). Knockout predictions are the 90-min 1X2; result.advances carries who progressed (ET/penalties). Team display (Spanish/flags) is GUI-only in web/src/lib/teams.js."
   },
   "matches": [
     {
@@ -8995,8 +8995,13 @@
         "country": null,
         "neutral": true
       },
-      "status": "por_jugarse",
-      "result": null,
+      "status": "finalizado",
+      "result": {
+        "home": 0,
+        "away": 0,
+        "outcome": "draw",
+        "advances": "Switzerland"
+      },
       "predictions": {
         "M1": {
           "home": 1,
@@ -9150,6 +9155,42 @@
           "lambda": {
             "home": 1.09,
             "away": 1.61
+          }
+        },
+        "M2": null,
+        "M3": null,
+        "Mercado": null,
+        "M3_frozen": null
+      }
+    },
+    {
+      "id": "P100",
+      "date": "2026-07-12",
+      "time": "01:00",
+      "stage": "cuartos",
+      "group": null,
+      "home": "Argentina",
+      "away": "Switzerland",
+      "venue": {
+        "city": null,
+        "country": null,
+        "neutral": true
+      },
+      "status": "por_jugarse",
+      "result": null,
+      "predictions": {
+        "M1": {
+          "home": 1,
+          "away": 1,
+          "pick": "home",
+          "probs": {
+            "home": 0.519,
+            "draw": 0.244,
+            "away": 0.237
+          },
+          "lambda": {
+            "home": 1.66,
+            "away": 1.04
           }
         },
         "M2": null,

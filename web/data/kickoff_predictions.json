@@ -4735,6 +4735,24 @@
       },
       "M2": null,
       "M3": null
+    },
+    "P100": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "home",
+        "probs": {
+          "home": 0.519,
+          "draw": 0.244,
+          "away": 0.237
+        },
+        "lambda": {
+          "home": 1.66,
+          "away": 1.04
+        }
+      },
+      "M2": null,
+      "M3": null
     }
   }
 }
