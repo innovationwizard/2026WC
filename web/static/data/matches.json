@@ -9068,8 +9068,13 @@
         "country": null,
         "neutral": true
       },
-      "status": "por_jugarse",
-      "result": null,
+      "status": "finalizado",
+      "result": {
+        "home": 2,
+        "away": 0,
+        "outcome": "home",
+        "advances": "France"
+      },
       "predictions": {
         "M1": {
           "home": 1,
