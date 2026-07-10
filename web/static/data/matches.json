@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated": "2026-07-10",
+    "generated": "2026-07-09",
     "source": "results.csv (fixtures) + v2/output/predictions.json (M1 Elo, M2 neural-ensemble, M3 conjunto+conformal)",
     "models": [
       "M1",
@@ -8834,7 +8834,14 @@
           ],
           "coverage": 0.8
         },
-        "Mercado": null,
+        "Mercado": {
+          "pick": "away",
+          "probs": {
+            "home": 0.241,
+            "draw": 0.272,
+            "away": 0.486
+          }
+        },
         "M3_frozen": null
       }
     },
@@ -8907,7 +8914,14 @@
           ],
           "coverage": 0.8
         },
-        "Mercado": null,
+        "Mercado": {
+          "pick": "home",
+          "probs": {
+            "home": 0.377,
+            "draw": 0.287,
+            "away": 0.336
+          }
+        },
         "M3_frozen": null
       }
     },
@@ -8978,7 +8992,14 @@
           ],
           "coverage": 0.8
         },
-        "Mercado": null,
+        "Mercado": {
+          "pick": "home",
+          "probs": {
+            "home": 0.711,
+            "draw": 0.192,
+            "away": 0.097
+          }
+        },
         "M3_frozen": null
       }
     },
@@ -9051,7 +9072,14 @@
           ],
           "coverage": 0.8
         },
-        "Mercado": null,
+        "Mercado": {
+          "pick": "away",
+          "probs": {
+            "home": 0.258,
+            "draw": 0.336,
+            "away": 0.406
+          }
+        },
         "M3_frozen": null
       }
     },
@@ -9092,7 +9120,14 @@
         },
         "M2": null,
         "M3": null,
-        "Mercado": null,
+        "Mercado": {
+          "pick": "home",
+          "probs": {
+            "home": 0.597,
+            "draw": 0.254,
+            "away": 0.148
+          }
+        },
         "M3_frozen": null
       }
     },
@@ -9164,7 +9199,14 @@
         },
         "M2": null,
         "M3": null,
-        "Mercado": null,
+        "Mercado": {
+          "pick": "away",
+          "probs": {
+            "home": 0.248,
+            "draw": 0.269,
+            "away": 0.483
+          }
+        },
         "M3_frozen": null
       }
     },
