@@ -11,10 +11,10 @@
     "stub": [
       "Mercado"
     ],
-    "count": 101,
+    "count": 102,
     "count_group": 72,
-    "count_knockout": 29,
-    "note": "72 group + 29 knockout matches (knockouts read from the authoritative feeds as the bracket resolves). Knockout predictions are the 90-min 1X2; result.advances carries who progressed (ET/penalties). Team display (Spanish/flags) is GUI-only in web/src/lib/teams.js."
+    "count_knockout": 30,
+    "note": "72 group + 30 knockout matches (knockouts read from the authoritative feeds as the bracket resolves). Knockout predictions are the 90-min 1X2; result.advances carries who progressed (ET/penalties). Team display (Spanish/flags) is GUI-only in web/src/lib/teams.js."
   },
   "matches": [
     {
@@ -9279,6 +9279,42 @@
           "lambda": {
             "home": 1.31,
             "away": 1.39
+          }
+        },
+        "M2": null,
+        "M3": null,
+        "Mercado": null,
+        "M3_frozen": null
+      }
+    },
+    {
+      "id": "P102",
+      "date": "2026-07-15",
+      "time": "19:00",
+      "stage": "semifinal",
+      "group": null,
+      "home": "England",
+      "away": "Argentina",
+      "venue": {
+        "city": null,
+        "country": null,
+        "neutral": true
+      },
+      "status": "por_jugarse",
+      "result": null,
+      "predictions": {
+        "M1": {
+          "home": 1,
+          "away": 1,
+          "pick": "away",
+          "probs": {
+            "home": 0.343,
+            "draw": 0.258,
+            "away": 0.399
+          },
+          "lambda": {
+            "home": 1.29,
+            "away": 1.41
           }
         },
         "M2": null,
