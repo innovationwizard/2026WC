@@ -9305,8 +9305,13 @@
         "country": null,
         "neutral": true
       },
-      "status": "por_jugarse",
-      "result": null,
+      "status": "finalizado",
+      "result": {
+        "home": 1,
+        "away": 2,
+        "outcome": "away",
+        "advances": "Argentina"
+      },
       "predictions": {
         "M1": {
           "home": 1,
