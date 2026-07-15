@@ -4789,6 +4789,42 @@
       },
       "M2": null,
       "M3": null
+    },
+    "P103": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "home",
+        "probs": {
+          "home": 0.419,
+          "draw": 0.257,
+          "away": 0.324
+        },
+        "lambda": {
+          "home": 1.45,
+          "away": 1.25
+        }
+      },
+      "M2": null,
+      "M3": null
+    },
+    "P104": {
+      "M1": {
+        "home": 1,
+        "away": 1,
+        "pick": "home",
+        "probs": {
+          "home": 0.41,
+          "draw": 0.257,
+          "away": 0.333
+        },
+        "lambda": {
+          "home": 1.43,
+          "away": 1.27
+        }
+      },
+      "M2": null,
+      "M3": null
     }
   }
 }
