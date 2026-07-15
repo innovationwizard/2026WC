@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated": "2026-07-14",
+    "generated": "2026-07-15",
     "source": "results.csv (fixtures) + v2/output/predictions.json (M1 Elo, M2 neural-ensemble, M3 conjunto+conformal)",
     "models": [
       "M1",
