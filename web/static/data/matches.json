@@ -9168,7 +9168,14 @@
         },
         "M2": null,
         "M3": null,
-        "Mercado": null,
+        "Mercado": {
+          "pick": "home",
+          "probs": {
+            "home": 0.588,
+            "draw": 0.241,
+            "away": 0.171
+          }
+        },
         "M3_frozen": null
       }
     },
@@ -9185,8 +9192,13 @@
         "country": null,
         "neutral": true
       },
-      "status": "por_jugarse",
-      "result": null,
+      "status": "finalizado",
+      "result": {
+        "home": 1,
+        "away": 1,
+        "outcome": "draw",
+        "advances": "England"
+      },
       "predictions": {
         "M1": {
           "home": 1,
@@ -9207,9 +9219,9 @@
         "Mercado": {
           "pick": "away",
           "probs": {
-            "home": 0.248,
-            "draw": 0.269,
-            "away": 0.483
+            "home": 0.225,
+            "draw": 0.278,
+            "away": 0.497
           }
         },
         "M3_frozen": null
@@ -9228,8 +9240,13 @@
         "country": null,
         "neutral": true
       },
-      "status": "por_jugarse",
-      "result": null,
+      "status": "finalizado",
+      "result": {
+        "home": 1,
+        "away": 1,
+        "outcome": "draw",
+        "advances": "Argentina"
+      },
       "predictions": {
         "M1": {
           "home": 1,
@@ -9247,7 +9264,14 @@
         },
         "M2": null,
         "M3": null,
-        "Mercado": null,
+        "Mercado": {
+          "pick": "home",
+          "probs": {
+            "home": 0.552,
+            "draw": 0.261,
+            "away": 0.188
+          }
+        },
         "M3_frozen": null
       }
     },
@@ -9288,7 +9312,14 @@
         },
         "M2": null,
         "M3": null,
-        "Mercado": null,
+        "Mercado": {
+          "pick": "away",
+          "probs": {
+            "home": 0.277,
+            "draw": 0.294,
+            "away": 0.428
+          }
+        },
         "M3_frozen": null
       }
     },
@@ -9329,7 +9360,14 @@
         },
         "M2": null,
         "M3": null,
-        "Mercado": null,
+        "Mercado": {
+          "pick": "away",
+          "probs": {
+            "home": 0.247,
+            "draw": 0.284,
+            "away": 0.469
+          }
+        },
         "M3_frozen": null
       }
     },
@@ -9370,7 +9408,14 @@
         },
         "M2": null,
         "M3": null,
-        "Mercado": null,
+        "Mercado": {
+          "pick": "away",
+          "probs": {
+            "home": 0.334,
+            "draw": 0.275,
+            "away": 0.39
+          }
+        },
         "M3_frozen": null
       }
     },
@@ -9387,8 +9432,13 @@
         "country": null,
         "neutral": true
       },
-      "status": "por_jugarse",
-      "result": null,
+      "status": "finalizado",
+      "result": {
+        "home": 0,
+        "away": 0,
+        "outcome": "draw",
+        "advances": "Spain"
+      },
       "predictions": {
         "M1": {
           "home": 1,
@@ -9406,7 +9456,14 @@
         },
         "M2": null,
         "M3": null,
-        "Mercado": null,
+        "Mercado": {
+          "pick": "home",
+          "probs": {
+            "home": 0.447,
+            "draw": 0.293,
+            "away": 0.26
+          }
+        },
         "M3_frozen": null
       }
     }
