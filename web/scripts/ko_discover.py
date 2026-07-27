@@ -56,6 +56,8 @@ def fetch_apifootball_ko(season=2026):
     Teams are resolved to canonical names; unresolved names are flagged into errs.
     """
     fixtures, errs = [], []
+    if not af.API_FOOTBALL_ENABLED:   # key expired at end of tournament — make no calls
+        return fixtures, ["api-football deshabilitado (clave expirada al terminar el torneo)"]
     resolve = af.resolver(_canonical_team_set())
     try:
         data = _af_get(f"/fixtures?league={WORLD_CUP_LEAGUE_ID}&season={season}")
@@ -180,6 +182,12 @@ def write_fixtures(records):
     rows = [{'id': r['slot'], 'stage': r['stage'], 'date': r['date'] or '',
              'time': r['time'] or '', 'home': r['home'], 'away': r['away']}
             for r in records if r['slot']]
+    # DATA-DROP GUARD: never overwrite existing fixtures with nothing. A source outage
+    # (e.g. API-Football losing season access) yields 0 discovered fixtures — writing that
+    # would wipe the whole bracket from matches.json. Refuse and keep what we have.
+    if not rows:
+        print("⚠ 0 fixtures discovered — PRESERVING existing knockout_fixtures.csv (no overwrite).")
+        return 0
     rows.sort(key=lambda x: int(x['id'][1:]))
     os.makedirs(os.path.dirname(KO_FIXTURES), exist_ok=True)
     with open(KO_FIXTURES, 'w', newline='', encoding='utf-8') as f:

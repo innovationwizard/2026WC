@@ -137,11 +137,17 @@ AF_FINISHED = {'FT', 'AET', 'PEN', 'AWD', 'WO'}
 WORLD_CUP_LEAGUE_ID = 1  # API-Football league id for the World Cup
 
 
+# API-Football is DISABLED: the key was timed to expire with the end of the 2026 World
+# Cup, so all calls to it are switched off (they would only error). Left in place, unused,
+# so the machinery can be re-enabled for a future tournament by restoring a valid key and
+# re-adding 'api-football' to SOURCES / re-enabling fetch_apifootball_ko.
+API_FOOTBALL_ENABLED = False
+
+
 def src_apifootball(dates):
-    """API-Football (api-sports) — the authoritative, comprehensive feed we already
-    pay for. It carries every fixture with an explicit status, so it both confirms
-    genuine finals and refuses in-play ones. Degrades gracefully (returns an error,
-    never crashes the run) if the key is missing or the quota is exhausted."""
+    """API-Football (api-sports) source — DISABLED (key expired with the tournament)."""
+    if not API_FOOTBALL_ENABLED:
+        return [], []
     rows, errs = [], []
     af_dir = os.path.join(ROOT, 'v2', 'm3')
     if af_dir not in sys.path:
@@ -183,7 +189,8 @@ def src_apifootball(dates):
     return rows, errs
 
 
-SOURCES = [('espn', src_espn), ('thesportsdb', src_thesportsdb), ('api-football', src_apifootball)]
+# api-football removed — key expired at end of tournament (see API_FOOTBALL_ENABLED).
+SOURCES = [('espn', src_espn), ('thesportsdb', src_thesportsdb)]
 
 
 # ── main ──────────────────────────────────────────────────────────────────────
@@ -291,23 +298,23 @@ def main():
         print("\n(dry-run — use --apply para registrar)")
 
     # ── Knockout phase ─────────────────────────────────────────────────────────
-    # Discover + record the bracket (R32→Final) from the same authoritative feeds.
-    # Run as a subprocess (ko_discover imports this module → avoids a circular import),
-    # in the same dry-run/apply mode. On --apply, rebuild matches.json once so the new
-    # knockout fixtures/results are published alongside the group stage.
-    print("\n── Eliminatorias ──")
-    ko = subprocess.run([sys.executable, KO_DISCOVER] + (['--apply'] if args.apply else []),
-                        capture_output=True, text=True)
-    print(ko.stdout.rstrip() or "(sin salida)")
-    if ko.returncode != 0:
-        print("⚠ ko_discover falló:\n", ko.stderr.rstrip())
-    elif args.apply:
-        build = subprocess.run([sys.executable, EXPORTER], capture_output=True, text=True)
-        for line in build.stdout.splitlines():
-            if line.startswith('matches:'):
-                print("  " + line.strip())
-        if build.returncode != 0:
-            print("⚠ build_matches falló:\n", build.stderr.rstrip())
+    # Discovers the bracket via ko_discover, which relies on API-Football. DISABLED —
+    # the key expired at the end of the 2026 World Cup, so this phase is skipped to avoid
+    # any API-Football calls. Re-enable (with a valid key) by setting API_FOOTBALL_ENABLED.
+    if API_FOOTBALL_ENABLED:
+        print("\n── Eliminatorias ──")
+        ko = subprocess.run([sys.executable, KO_DISCOVER] + (['--apply'] if args.apply else []),
+                            capture_output=True, text=True)
+        print(ko.stdout.rstrip() or "(sin salida)")
+        if ko.returncode != 0:
+            print("⚠ ko_discover falló:\n", ko.stderr.rstrip())
+        elif args.apply:
+            build = subprocess.run([sys.executable, EXPORTER], capture_output=True, text=True)
+            for line in build.stdout.splitlines():
+                if line.startswith('matches:'):
+                    print("  " + line.strip())
+            if build.returncode != 0:
+                print("⚠ build_matches falló:\n", build.stderr.rstrip())
 
 
 if __name__ == '__main__':
