@@ -49,6 +49,7 @@
   </p>
 
   <a class="story-link" href="/historia">▶ Ver la historia — cómo se construye una predicción, del azar a la red neuronal →</a>
+  <a class="story-link verdict" href="/veredicto">🏁 El veredicto final — ¿le ganó la IA a Pinnacle en todo el Mundial? →</a>
 
   <Scoreboard {matches} />
 
@@ -102,6 +103,8 @@
     border: 1px solid #1e3a1e; background: #0d1f0d; border-radius: 999px; padding: 0.45rem 1rem;
   }
   .story-link:hover { border-color: #9eff1f; }
+  .story-link.verdict { color: #e0b84c; border-color: #3a2f14; background: #1a1408; margin-left: 0.5rem; }
+  .story-link.verdict:hover { border-color: #e0b84c; }
 
   .tabs { display: flex; gap: 0.25rem; margin: 0 0 1.25rem; background: #0f172a; border: 1px solid #1e293b; border-radius: 8px; padding: 0.25rem; width: fit-content; }
   .tabs button { background: none; border: none; color: #94a3b8; font-weight: 600; font-size: 0.85rem; padding: 0.35rem 0.9rem; border-radius: 6px; cursor: pointer; }
