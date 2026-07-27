@@ -140,6 +140,29 @@ The prior is pessimistic (the pre-tournament models' −50% edge is a big hole t
 
 ---
 
+## 8b. FINAL SCOREBOARD — complete tournament (all 104 matches, out-of-sample)
+
+Computed after the World Cup ended (Spain beat Argentina in the final). Predictions frozen at each kickoff; graded vs the real result. **This is the definitive answer to "did the AI beat the sharpest market across a full World Cup?" — No, on every measure.**
+
+**Calibration:**
+
+| Line | Aciertos | % | RPS ↓ | Log-loss ↓ |
+|---|---|---|---|---|
+| **Pinnacle** | **71/104** | **68%** | **0.1332** | **1.1189** |
+| M2 (neural) | 62/96 | 65% | 0.1521 | 1.2288 |
+| M3 (conjunto) | 61/96 | 64% | 0.1538 | 1.2327 |
+| M3₀ (pre-tournament) | 56/89 | 63% | 0.1530 | 1.2391 |
+| M1 (Elo foil) | 65/104 | 63% | 0.1681 | 1.3108 |
+
+**Betting ROI vs Pinnacle** (vig 6.0%): M1 −55%, M2 −57%, M3 −47%, M3₀ −50% — all negative, all *worse* at higher confidence.
+
+**Three conclusions, now proven across a full tournament:**
+1. The models are respectable (~63–65% correct) but decisively behind Pinnacle (68% + better calibration). The RPS gap (0.133 vs ~0.152) is real, not noise over 104 games.
+2. **Updating on the tournament's own results did not help** — tournament-aware M3 (0.1538) ≈ frozen pre-tournament M3 (0.1530). ~100 games barely move a model trained on ~49k, exactly as the research predicted.
+3. **No betting edge — anti-edge.** Every model loses ~50% betting its value picks, worse the more it disagrees with the line: its residual is correlated with being wrong, not with market mispricing. The Hubáček "profit with an inferior model" escape hatch stays closed.
+
+_(Sample sizes differ: M1/Pinnacle cover all 104; M2/M3 cover 96 — the late knockout ties SF→final were never model-predicted before discovery stopped; M3₀ covers the 89 the pre-tournament snapshot predicted.)_
+
 ## 9. Caveats
 
 - The Pinnacle lines are "Pinnacle or sharp-market aligned"; some group-stage prices were sharp-aligned rather than exact Pinnacle closing lines. The direction of the result (models lose, negative edge) is robust, but the exact ROI magnitude would tighten with true closing lines.
